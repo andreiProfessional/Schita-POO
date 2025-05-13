@@ -11,22 +11,18 @@ HartaOras::~HartaOras() {
     std::cout << std::endl << "GOD MESSAGE: A FOST DISTRUS ORASUL!" << std::endl;
 }
 
-void HartaOras::adaugareStatie(const std::string tip, const std::string linie, const std::string nume, const std::string predecesor, const std::string succesor) {
+void HartaOras::adaugareStatie(const std::string &tip, const std::string &linie, const std::string &nume, const std::string &predecesor, const std::string &succesor) {
     if (tip == "AUTOBUZ") {
-        Statie *statieNoua = new StatieAutobuz(nume, tip, linie, predecesor, succesor);
-        statiiAutobuz.emplace_back(static_cast<StatieAutobuz*>(statieNoua));
+        statii.emplace_back(new StatieAutobuz(tip, linie, nume, predecesor, succesor));
     }
     else if (tip == "TROLEIBUZ") {
-        Statie *statieNoua = new StatieTroleibuz(nume, tip, linie, predecesor, succesor);
-        statiiTroleibuz.emplace_back(static_cast<StatieTroleibuz*>(statieNoua));
+        statii.emplace_back(new StatieTroleibuz(tip, linie, nume, predecesor, succesor));
     }
     else if (tip == "TRAMVAI") {
-        Statie *statieNoua = new StatieTramvai(nume, tip, linie, predecesor, succesor);
-        statiiTramvai.emplace_back(static_cast<StatieTramvai*>(statieNoua));
+        statii.emplace_back(new StatieTramvai(tip, linie, nume, predecesor, succesor));
     }
     else if (tip == "METROU") {
-        Statie *statieNoua = new StatieMetrou(nume, tip, linie, predecesor, succesor);
-        statiiMetrou.emplace_back(static_cast<StatieMetrou*>(statieNoua));
+        statii.emplace_back(new StatieMetrou(tip, linie, nume, predecesor, succesor));
     }
     else {
         std::cout << "Nu exista acest tip de statie!!!" << std::endl;
@@ -60,45 +56,41 @@ void HartaOras::creareHartaStatii() {
     in.close();
 }
 
+void HartaOras::afisareStatie(const int &ID) {
+    gasireStatie(ID)->afisareStatie();
+}
+
 void HartaOras::afisareHartaStatii() {
-    for (auto const &statie: statiiAutobuz) {
-        statie->afisareStatie();
-    }
-    std::cout << std::endl;
-    for (auto const &statie: statiiTroleibuz) {
-        statie->afisareStatie();
-    }
-    std::cout << std::endl;
-    for (auto const &statie: statiiTramvai) {
-        statie->afisareStatie();
-    }
-    std::cout << std::endl;
-    for (auto const &statie: statiiMetrou) {
+    for (auto const &statie: statii) {
         statie->afisareStatie();
     }
     std::cout << std::endl;
 }
 
-void HartaOras::adaugareLocatie(const std::string tip, const std::string nume, const std::string statieApropiata, int coeficientOdihna, int coeficientDistractie, int coeficientViata) {
+void HartaOras::adaugareLocatie(const std::string &tip, const std::string &nume, const std::string &statie, const std::vector<int> &coeficienti) {
     if (tip == "RESEDINTA") {
-        Locatie *locatieNoua = new LocatieResedinta(nume, statieApropiata, coeficientOdihna, coeficientDistractie, coeficientViata);
-        locatiiResedinta.emplace_back(static_cast<LocatieResedinta*>(locatieNoua));
+        locatii.emplace_back(new LocatieResedinta(tip, nume, statie,
+            coeficienti[0], coeficienti[1], coeficienti[2]));
+    }
+    else if (tip == "MEDICALA") {
+        locatii.emplace_back(new LocatieMedicala(tip, nume, statie,
+            coeficienti[0], coeficienti[1], coeficienti[2], coeficienti[3]));
     }
     else if (tip == "EDUCATIE") {
-        Locatie *locatieNoua = new LocatieEducatie(nume, statieApropiata, coeficientOdihna, coeficientDistractie, coeficientViata);
-        locatiiEducatie.emplace_back(static_cast<LocatieEducatie*>(locatieNoua));
+        locatii.emplace_back(new LocatieEducatie(tip, nume, statie,
+            coeficienti[0], coeficienti[1], coeficienti[2], coeficienti[3]));
     }
     else if (tip == "MUNCA") {
-        Locatie *locatieNoua = new LocatieMunca(nume, statieApropiata, coeficientOdihna, coeficientDistractie, coeficientViata);
-        locatiiMunca.emplace_back(static_cast<LocatieMunca*>(locatieNoua));
+        locatii.emplace_back(new LocatieMunca(tip, nume, statie,
+            coeficienti[0], coeficienti[1], coeficienti[2], coeficienti[3]));
+    }
+    else if (tip == "HORECA") {
+        locatii.emplace_back(new LocatieHoreca(tip, nume, statie,
+            coeficienti[0], coeficienti[1], coeficienti[2]));
     }
     else if (tip == "RELAXARE") {
-        Locatie *locatieNoua = new LocatieRelaxare(nume, statieApropiata, coeficientOdihna, coeficientDistractie, coeficientViata);
-        locatiiRelaxare.emplace_back(static_cast<LocatieRelaxare*>(locatieNoua));
-    }
-    else if (tip == "INSTITUTIE") {
-        Locatie *locatieNoua = new LocatieInstitutie(nume, statieApropiata, coeficientOdihna, coeficientDistractie, coeficientViata);
-        locatiiInstitutie.emplace_back(static_cast<LocatieInstitutie*>(locatieNoua));
+        locatii.emplace_back(new LocatieRelaxare(tip, nume, statie,
+            coeficienti[0], coeficienti[1], coeficienti[2]));
     }
     else {
         std::cout << "Nu exista acest tip de locatie!!!" << std::endl;
@@ -117,48 +109,136 @@ void HartaOras::creareHartaLocatii() {
         const std::string INPUT_NUME = input.substr(0, input.find(","));
         input = input.erase(0, input.find(",") + 1);
 
-        const std::string INPUT_STATIE_APROPIATA = input.substr(0, input.find(","));
+        const std::string INPUT_STATIE = input.substr(0, input.find(","));
         input = input.erase(0, input.find(",") + 1);
 
-        const int INPUT_COEFICIENT_ODIHNA = std::stoi(input.substr(0, input.find(",")));
+        std::string inputCoeficienti = input.substr(0, input.find(","));
+        std::vector<int> coeficienti;
+        while (inputCoeficienti.find(";") != std::string::npos) {
+            coeficienti.push_back(std::stoi(inputCoeficienti.substr(0, inputCoeficienti.find(";"))));
+            inputCoeficienti = inputCoeficienti.erase(0, inputCoeficienti.find(";") + 1);
+        }
+        coeficienti.push_back(std::stoi(inputCoeficienti));
         input = input.erase(0, input.find(",") + 1);
 
-        const int INPUT_COEFICIENT_DISTRACTIE = std::stoi(input.substr(0, input.find(",")));
-        input = input.erase(0, input.find(",") + 1);
-
-        const int INPUT_COEFICIENT_VIATA = std::stoi(input.substr(0, input.find(",")));
-        input = input.erase(0, input.find(",") + 1);
-
-        adaugareLocatie(INPUT_TIP, INPUT_NUME, INPUT_STATIE_APROPIATA, INPUT_COEFICIENT_ODIHNA, INPUT_COEFICIENT_DISTRACTIE, INPUT_COEFICIENT_VIATA);
+        adaugareLocatie(INPUT_TIP, INPUT_NUME, INPUT_STATIE, coeficienti);
     }
 
     in.close();
 }
 
+void HartaOras::afisareLocatie(const int &ID) {
+    gasireLocatie(ID)->afisareLocatie();
+}
+
 void HartaOras::afisareHartaLocatii() {
-    std::cout << "LOCATIILE DE RESEDINTA:" << std::endl;
-    for (auto const &locatie: locatiiResedinta) {
-        locatie->afisareLocatie();
-    }
-    std::cout << std::endl;
-    std::cout << "LOCATIILE DE EDUCATIE:" << std::endl;
-    for (auto const &locatie: locatiiEducatie) {
-        locatie->afisareLocatie();
-    }
-    std::cout << std::endl;
-    std::cout << "LOCATIILE DE MUNCA:" << std::endl;
-    for (auto const &locatie: locatiiMunca) {
-        locatie->afisareLocatie();
-    }
-    std::cout << std::endl;
-    std::cout << "LOCATIILE DE RELAXARE:" << std::endl;
-    for (auto const &locatie: locatiiRelaxare) {
-        locatie->afisareLocatie();
-    }
-    std::cout << std::endl;
-    std::cout << "LOCATIILE DE INSTITUTIE:" << std::endl;
-    for (auto const &locatie: locatiiInstitutie) {
+    for (const auto &locatie: locatii) {
         locatie->afisareLocatie();
     }
     std::cout << std::endl;
 }
+
+void HartaOras::adaugareUtilizator(const std::string &tip, const std::string &nume, const std::string &statie,
+    const int &nivelViata, const int &nivelEnergie, const int &nivelNutritie, const int &nivelInteligenta, const int &nivelDistractie,
+    const int &balantaBani, const int &balantaCalatorii) {
+    if (tip == "ADMIN") {
+        utilizatori.emplace_back(new UtilizatorAdmin(tip, nume, statie,
+            nivelViata, nivelEnergie, nivelNutritie, nivelInteligenta, nivelDistractie));
+    }
+    else if (tip == "STANDARD") {
+        utilizatori.emplace_back(new UtilizatorStandard(tip, nume, statie,
+            nivelViata, nivelEnergie, nivelNutritie, nivelInteligenta, nivelDistractie,
+            balantaBani, balantaCalatorii));
+    }
+    else {
+        std::cout << "Nu exista acest tip de utilizator!!!" << std::endl;
+    }
+}
+
+void HartaOras::creareListeUtilizatori() {
+    std::ifstream in("utilizatori.csv");
+    std::string input;
+
+    std::getline(in, input);
+    while (std::getline(in, input)) {
+        const std::string INPUT_TIP = input.substr(0, input.find(","));
+        input = input.erase(0, input.find(",") + 1);
+
+        const std::string INPUT_NUME = input.substr(0, input.find(","));
+        input = input.erase(0, input.find(",") + 1);
+
+        const std::string INPUT_STATIE = input.substr(0, input.find(","));
+        input = input.erase(0, input.find(",") + 1);
+
+        const int INPUT_NIVEL_VIATA = std::stoi(input.substr(0, input.find(",")));
+        input = input.erase(0, input.find(",") + 1);
+
+        const int INPUT_NIVEL_ENERGIE = std::stoi(input.substr(0, input.find(",")));
+        input = input.erase(0, input.find(",") + 1);
+
+        const int INPUT_NIVEL_NUTRITIE = std::stoi(input.substr(0, input.find(",")));
+        input = input.erase(0, input.find(",") + 1);
+
+        const int INPUT_NIVEL_INTELIGENTA = std::stoi(input.substr(0, input.find(",")));
+        input = input.erase(0, input.find(",") + 1);
+
+        const int INPUT_NIVEL_DISTRACTIE = std::stoi(input.substr(0, input.find(",")));
+        input = input.erase(0, input.find(",") + 1);
+
+        const int INPUT_BALANTA_BANI = std::stoi(input.substr(0, input.find(",")));
+        input = input.erase(0, input.find(",") + 1);
+
+        const int INPUT_BALANTA_CALATORII = std::stoi(input.substr(0, input.find(",")));
+        input = input.erase(0, input.find(",") + 1);
+
+        adaugareUtilizator(INPUT_TIP, INPUT_NUME, INPUT_STATIE,
+            INPUT_NIVEL_VIATA, INPUT_NIVEL_ENERGIE, INPUT_NIVEL_NUTRITIE, INPUT_NIVEL_INTELIGENTA, INPUT_NIVEL_DISTRACTIE,
+            INPUT_BALANTA_BANI, INPUT_BALANTA_CALATORII);
+    }
+
+    in.close();
+}
+
+void HartaOras::afisareUtilizator(const int &ID) {
+    gasireUtilizator(ID)->afisareUtilizator();
+}
+
+void HartaOras::afisareListeUtilizatori() {
+    for (const auto &utilizator: utilizatori) {
+        utilizator->afisareUtilizator();
+        std::cout << std::endl;
+    }
+    std::cout << std::endl;
+}
+
+Statie* HartaOras::gasireStatie(const int &idStatie) {
+    for (auto &statie: statii) {
+        if (statie->verificareId(idStatie)) {
+            return statie;
+        }
+    }
+    return nullptr;
+}
+
+Utilizator* HartaOras::gasireUtilizator(const int &idUtilizator) {
+    for (const auto &utilizator: utilizatori) {
+        if (utilizator->verificareId(idUtilizator)) {
+            return utilizator;
+        }
+    }
+    return nullptr;
+}
+
+Locatie* HartaOras::gasireLocatie(const int &idLocatie) {
+    for (auto &locatie: locatii) {
+        if (locatie->verificareId(idLocatie)) {
+            return locatie;
+        }
+    }
+    return nullptr;
+}
+
+void HartaOras::interactiuneUtilizatorLocatie(Utilizator *utilizator, Locatie *locatie) {
+    locatie->aplicaCoeficienti(utilizator);
+}
+

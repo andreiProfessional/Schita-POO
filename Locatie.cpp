@@ -3,45 +3,139 @@
 
 int Locatie::contorID = 0;
 
-Locatie::Locatie(const std::string &NUME, const std::string &STATIE_APROPIATA, int COEFICIENT_ODIHNA, int COEFICIENT_DISTRACTIE, int COEFICIENT_VIATA):
+Locatie::Locatie(const std::string &TIP, const std::string &NUME, const std::string &STATIE):
     idLocatie(++ contorID),
+    tip(TIP),
     nume(NUME),
-    statieApropiata(STATIE_APROPIATA),
-    coeficientOdihna(COEFICIENT_ODIHNA),
-    coeficientDistractie(COEFICIENT_DISTRACTIE),
-    coeficientViata(COEFICIENT_VIATA) {}
+    statie(STATIE) {}
 
-LocatieResedinta::LocatieResedinta(const std::string &NUME, const std::string &STATIE_APROPIATA, int COEFICIENT_ODIHNA, int COEFICIENT_DISTRACTIE, int COEFICIENT_VIATA):
-    Locatie(NUME, STATIE_APROPIATA, COEFICIENT_ODIHNA, COEFICIENT_DISTRACTIE, COEFICIENT_VIATA) {}
+LocatieResedinta::LocatieResedinta(const std::string &TIP, const std::string &NUME, const std::string &STATIE,
+    const int &PLUS_ENERGIE, const int &PLUS_NUTRITIE, const int &MINUS_INTELIGENTA):
+        Locatie(TIP, NUME, STATIE),
+        plusEnergie(PLUS_ENERGIE),
+        plusNutritie(PLUS_NUTRITIE),
+        minusInteligenta(MINUS_INTELIGENTA) {}
 
-LocatieEducatie::LocatieEducatie(const std::string &NUME, const std::string &STATIE_APROPIATA, int COEFICIENT_ODIHNA, int COEFICIENT_DISTRACTIE, int COEFICIENT_VIATA):
-    Locatie(NUME, STATIE_APROPIATA, COEFICIENT_ODIHNA, COEFICIENT_DISTRACTIE, COEFICIENT_VIATA) {}
+LocatieMedicala::LocatieMedicala(const std::string &TIP, const std::string &NUME, const std::string &STATIE,
+    const int &PLUS_VIATA, const int &PLUS_ENERGIE, const int &MINUS_DISTRACTIE, const int &MINUS_BANI):
+        Locatie(TIP, NUME, STATIE),
+        plusViata(PLUS_VIATA),
+        plusEnergie(PLUS_ENERGIE),
+        minusDistractie(MINUS_DISTRACTIE),
+        minusBani(MINUS_BANI) {}
 
-LocatieMunca::LocatieMunca(const std::string &NUME, const std::string &STATIE_APROPIATA, int COEFICIENT_ODIHNA, int COEFICIENT_DISTRACTIE, int COEFICIENT_VIATA):
-    Locatie(NUME, STATIE_APROPIATA, COEFICIENT_ODIHNA, COEFICIENT_DISTRACTIE, COEFICIENT_VIATA) {}
+LocatieEducatie::LocatieEducatie(const std::string &TIP, const std::string &NUME, const std::string &STATIE,
+    const int &PLUS_INTELIGENTA, const int &MINUS_ENERGIE, const int &MINUS_NUTRITIE, const int &MINUS_DISTRACTIE):
+        Locatie(TIP, NUME, STATIE),
+        plusInteligenta(PLUS_INTELIGENTA),
+        minusEnergie(MINUS_ENERGIE),
+        minusNutritie(MINUS_NUTRITIE),
+        minusDistractie(MINUS_DISTRACTIE) {}
 
-LocatieRelaxare::LocatieRelaxare(const std::string &NUME, const std::string &STATIE_APROPIATA, int COEFICIENT_ODIHNA, int COEFICIENT_DISTRACTIE, int COEFICIENT_VIATA):
-    Locatie(NUME, STATIE_APROPIATA, COEFICIENT_ODIHNA, COEFICIENT_DISTRACTIE, COEFICIENT_VIATA) {}
+LocatieMunca::LocatieMunca(const std::string &TIP, const std::string &NUME, const std::string &STATIE,
+    const int &PLUS_BANI, const int &MINUS_ENERGIE, const int &MINUS_NUTRITIE, const int &MINUS_DISTRACTIE):
+        Locatie(TIP, NUME, STATIE),
+        plusBani(PLUS_BANI),
+        minusEnergie(MINUS_ENERGIE),
+        minusNutritie(MINUS_NUTRITIE),
+        minusDistractie(MINUS_DISTRACTIE)
+        {}
 
-LocatieInstitutie::LocatieInstitutie(const std::string &NUME, const std::string &STATIE_APROPIATA, int COEFICIENT_ODIHNA, int COEFICIENT_DISTRACTIE, int COEFICIENT_VIATA):
-    Locatie(NUME, STATIE_APROPIATA, COEFICIENT_ODIHNA, COEFICIENT_DISTRACTIE, COEFICIENT_VIATA) {}
+LocatieHoreca::LocatieHoreca(const std::string &TIP, const std::string &NUME, const std::string &STATIE,
+    const int &PLUS_NUTRITIE, const int &PLUS_DISTRACTIE, const int &MINUS_BANI):
+    Locatie(TIP, NUME, STATIE),
+    plusNutritie(PLUS_NUTRITIE),
+    plusDistractie(PLUS_DISTRACTIE),
+    minusBani(MINUS_BANI) {}
+
+LocatieRelaxare::LocatieRelaxare(const std::string &TIP, const std::string &NUME, const std::string &STATIE,
+    const int &PLUS_ENERGIE, const int &PLUS_DISTRACTIE, const int &MINUS_BANI):
+    Locatie(TIP, NUME, STATIE),
+    plusEnergie(PLUS_ENERGIE),
+    plusDistractie(PLUS_DISTRACTIE),
+    minusBani(MINUS_BANI) {}
 
 void LocatieResedinta::afisareLocatie() {
-    std::cout << "Locatia " << idLocatie << ": Resedinta " << nume << " - Statia " << statieApropiata << " => " << coeficientOdihna << " | " << coeficientDistractie << " | " << coeficientViata << std::endl;
+    std::cout << "Locatia " << idLocatie << ": (Resedinta) " << nume << " - Statia " << statie;
+    std::cout << " => " << plusEnergie << " | " << plusNutritie << " | " << minusInteligenta << std::endl;
+}
+
+void LocatieMedicala::afisareLocatie() {
+    std::cout << "Locatia " << idLocatie << ": (Medicala) " << nume << " - Statia " << statie ;
+    std::cout << " => " << plusViata << " | " << plusEnergie << " | " << minusDistractie << " | " << minusBani << std::endl;
 }
 
 void LocatieEducatie::afisareLocatie() {
-    std::cout << "Locatia " << idLocatie << ": Educatie " << nume << " - Statia " << statieApropiata << " => " << coeficientOdihna << " | " << coeficientDistractie << " | " << coeficientViata << std::endl;
+    std::cout << "Locatia " << idLocatie << ": (Educatie) " << nume << " - Statia " << statie << " => ";
+    std::cout << plusInteligenta << " | " << minusEnergie << " | " << minusNutritie << " | " << minusDistractie << std::endl;
 }
 
 void LocatieMunca::afisareLocatie() {
-    std::cout << "Locatia " << idLocatie << ": Munca " << nume << " - Statia " << statieApropiata << " => " << coeficientOdihna << " | " << coeficientDistractie << " | " << coeficientViata << std::endl;
+    std::cout << "Locatia " << idLocatie << ": (Munca) " << nume << " - Statia " << statie << " => ";
+    std::cout << plusBani << " | " << minusEnergie << " | " << minusNutritie << " | " << minusDistractie << std::endl;
+}
+
+void LocatieHoreca::afisareLocatie() {
+    std::cout << "Locatia " << idLocatie << ": (Horeca) " << nume << " - Statia " << statie << " => ";
+    std::cout << plusNutritie << " | " << plusDistractie << " | " << minusBani << std::endl;
 }
 
 void LocatieRelaxare::afisareLocatie() {
-    std::cout << "Locatia " << idLocatie << ": Relaxarea " << nume << " - Statia " << statieApropiata << " => " << coeficientOdihna << " | " << coeficientDistractie << " | " << coeficientViata << std::endl;
+    std::cout << "Locatia " << idLocatie << ": (Relaxare) " << nume << " - Statia " << statie << " => ";
+    std::cout << plusEnergie << " | " << plusDistractie << " | " << minusBani << std::endl;
 }
 
-void LocatieInstitutie::afisareLocatie() {
-    std::cout << "Locatia " << idLocatie << ": Institutia " << nume << " - Statia " << statieApropiata << " => " << coeficientOdihna << " | " << coeficientDistractie << " | " << coeficientViata << std::endl;
+void LocatieResedinta::aplicaCoeficienti(Utilizator *utilizator) {
+    utilizator->modificareNivelEnergie(plusEnergie);
+    utilizator->modificareNivelNutritie(plusNutritie);
+    utilizator->modificareNivelInteligenta(minusInteligenta);
+}
+
+void LocatieMedicala::aplicaCoeficienti(Utilizator *utilizator) {
+    utilizator->modificareNivelViata(plusViata);
+    utilizator->modificareNivelEnergie(plusEnergie);
+    utilizator->modificareNivelDistractie(minusDistractie);
+    UtilizatorStandard *utilizatorStandard = dynamic_cast<UtilizatorStandard*>(utilizator);
+    if (utilizatorStandard != nullptr) {
+        utilizatorStandard->modificareBalantaBani(minusBani);
+    }
+}
+
+void LocatieEducatie::aplicaCoeficienti(Utilizator *utilizator) {
+    utilizator->modificareNivelInteligenta(plusInteligenta);
+    utilizator->modificareNivelEnergie(minusEnergie);
+    utilizator->modificareNivelNutritie(minusNutritie);
+    utilizator->modificareNivelDistractie(minusDistractie);
+}
+
+void LocatieMunca::aplicaCoeficienti(Utilizator *utilizator) {
+    UtilizatorStandard *utilizatorStandard = dynamic_cast<UtilizatorStandard*>(utilizator);
+    if (utilizatorStandard != nullptr) {
+        utilizatorStandard->modificareBalantaCalatorii(plusBani);
+    }
+    utilizator->modificareNivelEnergie(minusEnergie);
+    utilizator->modificareNivelNutritie(minusNutritie);
+    utilizator->modificareNivelDistractie(minusDistractie);
+}
+
+void LocatieHoreca::aplicaCoeficienti(Utilizator *utilizator) {
+    utilizator->modificareNivelNutritie(plusNutritie);
+    utilizator->modificareNivelDistractie(plusDistractie);
+    UtilizatorStandard *utilizatorStandard = dynamic_cast<UtilizatorStandard*>(utilizator);
+    if (utilizatorStandard != nullptr) {
+        utilizatorStandard->modificareBalantaCalatorii(minusBani);
+    }
+}
+
+void LocatieRelaxare::aplicaCoeficienti(Utilizator *utilizator) {
+    utilizator->modificareNivelEnergie(plusEnergie);
+    utilizator->modificareNivelDistractie(plusDistractie);
+    UtilizatorStandard *utilizatorStandard = dynamic_cast<UtilizatorStandard*>(utilizator);
+    if (utilizatorStandard != nullptr) {
+        utilizatorStandard->modificareBalantaCalatorii(minusBani);
+    }
+}
+
+bool Locatie::verificareId(const int &ID) {
+    return (idLocatie == ID);
 }

@@ -9,25 +9,17 @@ int main() {
     //HO.afisareHartaStatii();
     HO.creareHartaLocatii();
     //HO.afisareHartaLocatii();
+    HO.creareListeUtilizatori();
+    //HO.afisareListeUtilizatori();
 
-    UtilizatorAdmin User1("Nik");
-    User1.initializareUtilizator();
-    User1.afisareUtilizator();
-    std::cout << std::endl;
-    UtilizatorStandard User2("Andrei");
-    User2.initializareUtilizator();
-    User2.afisareUtilizator();
-    std::cout << std::endl;
-    UtilizatorStandard User3("Maria");
-    User3.initializareUtilizator();
-    User3.afisareUtilizator();
+    //HO.afisareStatie(32);
+    //HO.afisareLocatie(15);
+    //HO.afisareUtilizator(3);
+
+    //HO.interactiuneUtilizatorLocatie(HO.gasireUtilizator(2), HO.gasireLocatie(3));
+    //HO.afisareListeUtilizatori();
+
 
 
     return 0;
 }
-
-// TODO: Creare Caractere
-// TODO: Calculare moarte (+ motivul!!!) -> Meniu
-// TODO: Interactiune caracter cu Harta -> Meniu
-// TODO: Operator Overload -> De vazut ce operatori si de unde (Eventual '<<' pentru afisarea statisticilor utilizatorilor)
-// TODO: etccccc

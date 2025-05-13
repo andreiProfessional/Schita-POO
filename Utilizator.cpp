@@ -4,39 +4,30 @@
 
 int Utilizator::contorID = 0;
 
-Utilizator::Utilizator(const std::string &NUME):
+Utilizator::Utilizator(const std::string &TIP, const std::string &NUME, const std::string &STATIE,
+    const int &NIVEL_VIATA, const int &NIVEL_ENERGIE, const int &NIVEL_NUTRITIE, const int &NIVEL_INTELIGENTA, const int &NIVEL_DISTRACTIE):
     idUtilizator(++ contorID),
-    nume(NUME) {}
+    tip(TIP),
+    nume(NUME),
+    statie(STATIE),
+    nivelViata(NIVEL_VIATA),
+    nivelEnergie(NIVEL_ENERGIE),
+    nivelNutritie(NIVEL_NUTRITIE),
+    nivelInteligenta(NIVEL_INTELIGENTA),
+    nivelDistractie(NIVEL_DISTRACTIE) {}
 
-UtilizatorAdmin::UtilizatorAdmin(const std::string &NUME):
-    Utilizator(NUME),
-    NIVEL_ODIHNA(49),
-    NIVEL_DISTRACTIE(50),
-    NIVEL_VIATA(60) {}
+UtilizatorAdmin::UtilizatorAdmin(const std::string &TIP, const std::string &NUME, const std::string &STATIE,
+    const int &NIVEL_VIATA, const int &NIVEL_ENERGIE, const int &NIVEL_NUTRITIE, const int &NIVEL_INTELIGENTA, const int &NIVEL_DISTRACTIE):
+    Utilizator(TIP, NUME, STATIE, NIVEL_VIATA, NIVEL_ENERGIE, NIVEL_NUTRITIE, NIVEL_INTELIGENTA, NIVEL_DISTRACTIE) {}
 
-UtilizatorStandard::UtilizatorStandard(const std::string &NUME):
-    Utilizator(NUME),
-    BALANTA_BANI(100),
-    BALANTA_CALATORII(2),
-    NIVEL_ODIHNA(90),
-    NIVEL_DISTRACTIE(85),
-    NIVEL_VIATA(80) {}
+UtilizatorStandard::UtilizatorStandard(const std::string &TIP, const std::string &NUME, const std::string &STATIE,
+    const int &NIVEL_VIATA, const int &NIVEL_ENERGIE, const int &NIVEL_NUTRITIE, const int &NIVEL_INTELIGENTA, const int &NIVEL_DISTRACTIE,
+    const int &BALANTA_BANI, const int &BALANTA_CALATORII):
+    Utilizator(TIP, NUME, STATIE, NIVEL_VIATA, NIVEL_ENERGIE, NIVEL_NUTRITIE, NIVEL_INTELIGENTA, NIVEL_DISTRACTIE),
+    balantaBani(BALANTA_BANI),
+    balantaCalatorii(BALANTA_CALATORII) {}
 
-void UtilizatorAdmin::initializareUtilizator() {
-    nivelOdihna = NIVEL_ODIHNA;
-    nivelDistractie = NIVEL_DISTRACTIE;
-    nivelViata = NIVEL_VIATA;
-}
-
-void UtilizatorStandard::initializareUtilizator() {
-    balantaBani = BALANTA_BANI;
-    balantaCalatorii = BALANTA_CALATORII;
-    nivelOdihna = NIVEL_ODIHNA;
-    nivelDistractie = NIVEL_DISTRACTIE;
-    nivelViata = NIVEL_VIATA;
-}
-
-void Utilizator::afisareNivel(const std::string &mesajNivel, int nivel) {
+void Utilizator::afisareNivel(const std::string &mesajNivel, const int &nivel) {
     std::cout << mesajNivel;
     std::cout << "[";
     int nivelAfisaj;
@@ -62,51 +53,96 @@ void Utilizator::afisareNivel(const std::string &mesajNivel, int nivel) {
 }
 
 void UtilizatorAdmin::afisareUtilizator() {
-    std::cout << "Utilizatorul " << idUtilizator << ": " << nume << " (ADMIN)" << std::endl;
+    std::cout << "Utilizatorul " << idUtilizator << ": " << nume << " | " << tip << std::endl;
     std::cout << "Bani: ∞" << std::endl;
     std::cout << "Calatorii: ∞" << std::endl;
-    afisareNivel(std::string("Nivel odihna:     "), nivelOdihna);
-    afisareNivel(std::string("Nivel distractie: "), nivelDistractie);
-    afisareNivel(std::string("Nivel bunastare:  "), nivelViata);
+    afisareNivel(std::string("Viata:       "), nivelViata);
+    afisareNivel(std::string("Energie:     "), nivelEnergie);
+    afisareNivel(std::string("Nutritie:    "), nivelNutritie);
+    afisareNivel(std::string("Inteligenta: "), nivelInteligenta);
+    afisareNivel(std::string("Distractie:  "), nivelDistractie);
 }
 
 void UtilizatorStandard::afisareUtilizator() {
-    std::cout << "Utilizatorul " << idUtilizator << ": " << nume << " (NEFOR)" << std::endl;
+    std::cout << "Utilizatorul " << idUtilizator << ": " << nume << " | " << tip << std::endl;
     std::cout << "Bani: " << balantaBani << " Lei" << std::endl;
     std::cout << "Calatorii: " << balantaCalatorii << " Lei" << std::endl;
-    afisareNivel(std::string("Nivel odihna:     "), nivelOdihna);
-    afisareNivel(std::string("Nivel distractie: "), nivelDistractie);
-    afisareNivel(std::string("Nivel bunastare:  "), nivelViata);
+    afisareNivel(std::string("Viata:       "), nivelViata);
+    afisareNivel(std::string("Energie:     "), nivelEnergie);
+    afisareNivel(std::string("Nutritie:    "), nivelNutritie);
+    afisareNivel(std::string("Inteligenta: "), nivelInteligenta);
+    afisareNivel(std::string("Distractie:  "), nivelDistractie);
 }
-
-/*std::ostream& operator<<(std::ostream& out, const Utilizator& utilizator) {
+/*
+std::ostream& operator<<(std::ostream& out, Utilizator &utilizator) {
     out << "Utilizatorul " << utilizator.idUtilizator << ": " << utilizator.nume << " (NEFOR)" << std::endl;
-    out << "Bani: " << utilizator.balantaBani << " Lei" << std::endl;
-    out << "Calatorii: " << utilizator.balantaCalatorii << " Lei" << std::endl;
-    utilizator.afisareNivel(std::string("Nivel odihna:     "), utilizator.nivelOdihna);
+    //out << "Bani: " << utilizator.balantaBani << " Lei" << std::endl;
+    //out << "Calatorii: " << utilizator.balantaCalatorii << " Lei" << std::endl;
+    utilizator->afisareNivel(std::string("Nivel viata:      "), nivelViata);
     utilizator.afisareNivel(std::string("Nivel distractie: "), utilizator.nivelDistractie);
     utilizator.afisareNivel(std::string("Nivel bunastare:  "), utilizator.nivelViata);
     return out;
-}*/
+}
+*/
 
-void UtilizatorStandard::modificareBalantaBani(int diferentaBani) {
+void Utilizator::modificareNivelViata(const int &diferentaViata) {
+    nivelViata += diferentaViata;
+    if (nivelViata > 100) {
+        nivelViata = 100;
+    }
+    else if (nivelViata < 0) {
+        nivelViata = 0;
+    }
+}
+
+void Utilizator::modificareNivelEnergie(const int &diferentaEnergie) {
+    nivelEnergie += diferentaEnergie;
+    if (nivelEnergie > 100) {
+        nivelEnergie = 100;
+    }
+    else if (nivelEnergie < 0) {
+        nivelEnergie = 0;
+    }
+}
+
+void Utilizator::modificareNivelNutritie(const int &diferentaNutritie) {
+    nivelNutritie += diferentaNutritie;
+    if (nivelNutritie > 100) {
+        nivelNutritie = 100;
+    }
+    else if (nivelNutritie < 0) {
+        nivelNutritie = 0;
+    }
+}
+
+void Utilizator::modificareNivelInteligenta(const int &diferentaInteligenta) {
+    nivelInteligenta += diferentaInteligenta;
+    if (nivelInteligenta > 100) {
+        nivelInteligenta = 100;
+    }
+    else if (nivelInteligenta < 0) {
+        nivelInteligenta = 0;
+    }
+}
+
+void Utilizator::modificareNivelDistractie(const int &diferentaDistractie) {
+    nivelDistractie += diferentaDistractie;
+    if (nivelDistractie > 100) {
+        nivelDistractie = 100;
+    }
+    else if (nivelDistractie < 0) {
+        nivelDistractie = 0;
+    }
+}
+
+void UtilizatorStandard::modificareBalantaBani(const int &diferentaBani) {
     balantaBani += diferentaBani;
 }
 
-void UtilizatorStandard::modificareBalantaCalatorii(int diferentaCalatorii) {
+void UtilizatorStandard::modificareBalantaCalatorii(const int &diferentaCalatorii) {
     balantaCalatorii += diferentaCalatorii;
 }
 
-void Utilizator::modificareNivelOdihna(int diferentaOdihna) {
-    nivelOdihna += diferentaOdihna;
+bool Utilizator::verificareId(const int &ID) {
+    return (idUtilizator == ID);
 }
-
-void Utilizator::modificareNivelDistractie(int diferentaDistractie) {
-    nivelDistractie += diferentaDistractie;
-}
-
-void Utilizator::modificareNivelViata(int diferentaViata) {
-    nivelViata += diferentaViata;
-}
-
-

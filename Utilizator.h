@@ -6,47 +6,50 @@ class Utilizator {
 protected:
     static int contorID;
     const int idUtilizator;
+    const std::string tip;
     std::string nume;
-    int nivelOdihna;
-    int nivelDistractie;
+    std::string statie;
     int nivelViata;
+    int nivelEnergie;
+    int nivelNutritie;
+    int nivelInteligenta;
+    int nivelDistractie;
 public:
-    Utilizator(const std::string &NUME);
-    virtual void initializareUtilizator() = 0;
+    Utilizator(const std::string &TIP, const std::string &NUME, const std::string &STATIE,
+        const int &NIVEL_VIATA, const int &NIVEL_ENERGIE, const int &NIVEL_NUTRITIE, const int &NIVEL_INTELIGENTA, const int &NIVEL_DISTRACTIE);
     virtual void afisareUtilizator() = 0;
-    void modificareNivelOdihna(int diferentaOdihna);
-    void modificareNivelDistractie(int diferentaDistractie);
-    void modificareNivelViata(int diferentaViata);
-    void afisareNivel(const std::string &mesajNivel, int nivel);
-    // friend std::ostream& operator<<(std::ostream& out, const Utilizator& utilizator);
+    void modificareNivelViata(const int &diferentaViata);
+    void modificareNivelEnergie(const int &diferentaEnergie);
+    void modificareNivelNutritie(const int &diferentaNutritie);
+    void modificareNivelInteligenta(const int &diferentaInteligenta);
+    void modificareNivelDistractie(const int &diferentaDistractie);
+    void afisareNivel(const std::string &mesajNivel, const int &nivel);
+    bool verificareId(const int &ID);
+    //friend std::ostream& operator<<(std::ostream& out, const Utilizator& utilizator);
 };
 
 class UtilizatorAdmin: public Utilizator {
 private:
-    const int NIVEL_ODIHNA;
-    const int NIVEL_DISTRACTIE;
-    const int NIVEL_VIATA;
+    std::string parola;
 public:
-    UtilizatorAdmin(const std::string &NUME);
-    void initializareUtilizator() override;
+    UtilizatorAdmin(const std::string &TIP, const std::string &NUME, const std::string &STATIE,
+        const int &NIVEL_VIATA, const int &NIVEL_ENERGIE, const int &NIVEL_NUTRITIE, const int &NIVEL_INTELIGENTA, const int &NIVEL_DISTRACTIE);
+
     void afisareUtilizator() override;
 };
 
 class UtilizatorStandard: public Utilizator {
 private:
-    const int BALANTA_BANI;
-    const int BALANTA_CALATORII;
-    const int NIVEL_ODIHNA;
-    const int NIVEL_DISTRACTIE;
-    const int NIVEL_VIATA;
     int balantaBani;
     int balantaCalatorii;
 public:
-    UtilizatorStandard(const std::string &NUME);
-    void initializareUtilizator() override;
+    UtilizatorStandard(const std::string &TIP, const std::string &NUME, const std::string &STATIE,
+        const int &NIVEL_VIATA, const int &NIVEL_ENERGIE, const int &NIVEL_NUTRITIE, const int &NIVEL_INTELIGENTA, const int &NIVEL_DISTRACTIE,
+        const int &BALANTA_BANI, const int &BALANTA_CALATORII);
+
     void afisareUtilizator() override;
-    void modificareBalantaBani(int diferentaBani);
-    void modificareBalantaCalatorii(int diferentaCalatorii);
+    void modificareBalantaBani(const int &diferentaBani);
+    void modificareBalantaCalatorii(const int &diferentaCalatorii);
 };
 
 
