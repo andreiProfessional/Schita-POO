@@ -5,10 +5,12 @@
 
 int main() {
     Meniu &Meniu = Meniu::acceseazaSingleton();
-    Meniu.creareListeJucatori();
+    //Meniu.creareListeJucatori();
     //Meniu.afisareListeJucatori();
     //Meniu.afisareJucator(1);
-    Meniu.creareHartaOras();
+    //Meniu.creareHartaOras();
+
+    Meniu.meniuStart();
 
     //Meniu.interactiuneJucatorLocatie(Meniu.gasireUtilizator(2), Meniu.gasireLocatie(3));
 

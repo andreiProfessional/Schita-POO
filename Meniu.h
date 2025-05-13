@@ -20,6 +20,11 @@ public:
         return instanta;
     }
 
+    void golireEcran();
+
+    void meniuStart();
+
+    void creareHartaOras();
     void adaugareJucator(const std::string &tip, const std::string &nume, const std::string &statie,
         const int &nivelViata, const int &nivelEnergie, const int &nivelNutritie, const int &nivelInteligenta, const int &nivelDistractie,
         const int &balantaBani, const int &balantaCalatorii);
@@ -28,9 +33,7 @@ public:
     void afisareListeJucatori();
     Jucator* gasireJucator(const int &idJucator);
 
-    void creareHartaOras();
-
-    void interactiuneJucatorLocatie(Jucator *jucator, Locatie *locatie);
+    // void interactiuneJucatorLocatie(Jucator *jucator, Locatie *locatie);
 };
 
 

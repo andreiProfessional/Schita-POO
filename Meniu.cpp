@@ -6,6 +6,21 @@ Meniu::Meniu(): hartaOras(HartaOras::acceseazaSingleton()) {}
 
 Meniu::~Meniu() {}
 
+void Meniu::golireEcran() {
+    system("clear");
+}
+
+void Meniu::meniuStart() {
+    golireEcran();
+
+}
+
+void Meniu::creareHartaOras() {
+    hartaOras.creareHartaLocatii();
+    //hartaOras.afisareHartaLocatii();
+    hartaOras.creareHartaRute();
+    //hartaOras.afisareHartaRute();
+}
 
 void Meniu::adaugareJucator(const std::string &tip, const std::string &nume, const std::string &statie,
     const int &nivelViata, const int &nivelEnergie, const int &nivelNutritie, const int &nivelInteligenta, const int &nivelDistractie,
@@ -89,14 +104,9 @@ Jucator* Meniu::gasireJucator(const int &idJucator) {
     return nullptr;
 }
 
-void Meniu::creareHartaOras() {
-    hartaOras.creareHartaLocatii();
-    //hartaOras.afisareHartaLocatii();
-    hartaOras.creareHartaRute();
-    //hartaOras.afisareHartaRute();
-}
 
-
+/*
 void Meniu::interactiuneJucatorLocatie(Jucator *jucator, Locatie *locatie) {
     locatie->aplicaCoeficienti(jucator);
 }
+*/
