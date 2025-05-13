@@ -24,7 +24,7 @@ public:
     void modificareNivelInteligenta(const int &diferentaInteligenta);
     void modificareNivelDistractie(const int&diferentaDistractie);
     void afisareNivel(const std::string &mesajNivel, const int &nivel);
-    bool verificareId(const int &ID);
+    bool verificareId(const int &id);
     //friend std::ostream& operator<<(std::ostream& out, const Jucarot& jucator);
 };
 
@@ -33,8 +33,8 @@ private:
     std::string parola;
 
 public:
-    JucatorAdmin(const std::string &TIP, const std::string &NUME, const std::string &STATIE,
-        const int &NIVEL_VIATA, const int &NIVEL_ENERGIE, const int &NIVEL_NUTRITIE, const int &NIVEL_INTELIGENTA, const int &NIVEL_DISTRACTIE);
+    JucatorAdmin(const std::string &tip, const std::string &nume, const std::string &statie,
+        const int &nivelViata, const int &nivelEnergie, const int &nivelNutritie, const int &nivelInteligenta, const int &nivelDistractie);
 
     void afisareJucator() override;
 };
@@ -44,9 +44,9 @@ private:
     int balantaBani;
     int balantaCalatorii;
 public:
-    JucatorStandard(const std::string &TIP, const std::string &NUME, const std::string &STATIE,
-        const int &NIVEL_VIATA, const int &NIVEL_ENERGIE, const int &NIVEL_NUTRITIE, const int &NIVEL_INTELIGENTA, const int &NIVEL_DISTRACTIE,
-        const int &BALANTA_BANI, const int &BALANTA_CALATORII);
+    JucatorStandard(const std::string &tip, const std::string &nume, const std::string &statie,
+        const int &nivelViata, const int &nivelEnergie, const int &nivelNutritie, const int &nivelInteligenta, const int &nivelDistractie,
+        const int &balantaBani, const int &balantaCalatorii);
 
     void afisareJucator() override;
     void modificareBalantaBani(const int &diferentaBani);

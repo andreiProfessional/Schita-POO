@@ -22,10 +22,10 @@ JucatorAdmin::JucatorAdmin(const std::string &tip, const std::string &nume, cons
 
 JucatorStandard::JucatorStandard(const std::string &tip, const std::string &nume, const std::string &statie,
     const int &nivelViata, const int &nivelEnergie, const int &nivelNutritie, const int &nivelInteligenta, const int &nivelDistractie,
-    const int &BALANTA_BANI, const int &BALANTA_CALATORII):
+    const int &balantaBani, const int &balantaCalatorii):
     Jucator(tip, nume, statie, nivelViata, nivelEnergie, nivelNutritie, nivelInteligenta, nivelDistractie),
-    balantaBani(BALANTA_BANI),
-    balantaCalatorii(BALANTA_CALATORII) {}
+    balantaBani(balantaBani),
+    balantaCalatorii(balantaCalatorii) {}
 
 void Jucator::afisareNivel(const std::string &mesajNivel, const int &nivel) {
     std::cout << mesajNivel;

@@ -24,9 +24,11 @@ public:
         const int &nivelViata, const int &nivelEnergie, const int &nivelNutritie, const int &nivelInteligenta, const int &nivelDistractie,
         const int &balantaBani, const int &balantaCalatorii);
     void creareListeJucatori();
-    void afisareJucator(const int &ID);
+    void afisareJucator(const int &id);
     void afisareListeJucatori();
     Jucator* gasireJucator(const int &idJucator);
+
+    void creareHartaOras();
 
     void interactiuneJucatorLocatie(Jucator *jucator, Locatie *locatie);
 };

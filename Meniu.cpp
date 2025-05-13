@@ -25,7 +25,7 @@ void Meniu::adaugareJucator(const std::string &tip, const std::string &nume, con
 }
 
 void Meniu::creareListeJucatori() {
-    std::ifstream in("utilizatori.csv");
+    std::ifstream in("jucatori.csv");
     std::string input;
 
     std::getline(in, input);
@@ -68,8 +68,8 @@ void Meniu::creareListeJucatori() {
     in.close();
 }
 
-void Meniu::afisareJucator(const int &ID) {
-    gasireJucator(ID)->afisareJucator();
+void Meniu::afisareJucator(const int &id) {
+    gasireJucator(id)->afisareJucator();
 }
 
 void Meniu::afisareListeJucatori() {
@@ -80,14 +80,22 @@ void Meniu::afisareListeJucatori() {
     std::cout << std::endl;
 }
 
-Jucator* Meniu::gasireJucator(const int &idUtilizator) {
+Jucator* Meniu::gasireJucator(const int &idJucator) {
     for (const auto &jucator: jucatori) {
-        if (jucator->verificareId(idUtilizator)) {
+        if (jucator->verificareId(idJucator)) {
             return jucator;
         }
     }
     return nullptr;
 }
+
+void Meniu::creareHartaOras() {
+    hartaOras.creareHartaLocatii();
+    //hartaOras.afisareHartaLocatii();
+    hartaOras.creareHartaRute();
+    //hartaOras.afisareHartaRute();
+}
+
 
 void Meniu::interactiuneJucatorLocatie(Jucator *jucator, Locatie *locatie) {
     locatie->aplicaCoeficienti(jucator);

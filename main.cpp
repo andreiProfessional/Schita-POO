@@ -4,27 +4,13 @@
 #include "Jucator.h"
 
 int main() {
-    //HartaOras &HO = HartaOras::acceseazaSingleton();
-
-    //HO.creareHartaRute();
-    //HO.afisareHartaRute();
-    //HO.creareHartaLocatii();
-    //HO.afisareHartaLocatii();
-    //HO.creareListeUtilizatori();
-    //HO.afisareListeUtilizatori();
-
-    //HO.afisareStatie(32);
-    //HO.afisareLocatie(15);
-    //HO.afisareUtilizator(3);
-
-    //HO.interactiuneUtilizatorLocatie(HO.gasireUtilizator(2), HO.gasireLocatie(3));
-    //HO.afisareListeUtilizatori();
-
-
     Meniu &Meniu = Meniu::acceseazaSingleton();
     Meniu.creareListeJucatori();
-    Meniu.afisareListeJucatori();
-    Meniu.afisareJucator(5);
+    //Meniu.afisareListeJucatori();
+    //Meniu.afisareJucator(1);
+    Meniu.creareHartaOras();
+
+    //Meniu.interactiuneJucatorLocatie(Meniu.gasireUtilizator(2), Meniu.gasireLocatie(3));
 
     return 0;
 }

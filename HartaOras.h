@@ -24,10 +24,10 @@ public:
     void adaugareRuta(const std::string &tip, const std::string &nume, const std::vector<std::string> &listaStatii);
     void creareHartaRute();
     void afisareHartaRute();
-    //void afisareStatie(const int &ID);
+    //void afisareStatie(const int &id);
     void adaugareLocatie(const std::string &tip, const std::string &nume, const std::string &statie, const std::vector<int> &coeficienti);
     void creareHartaLocatii();
-    //void afisareLocatie(const int &ID);
+    //void afisareLocatie(const int &id);
     void afisareHartaLocatii();
 
     //Statie* gasireStatie(const int &idStatie);
