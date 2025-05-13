@@ -4,13 +4,9 @@
 #include <iostream>
 #include <string>
 
-HartaOras::HartaOras() {
-    std::cout << std::endl << "GOD MESSAGE: A FOST CREAT ORASUL!" << std::endl << std::endl;
-}
+HartaOras::HartaOras() {}
 
-HartaOras::~HartaOras() {
-    std::cout << std::endl << "GOD MESSAGE: A FOST DISTRUS ORASUL!" << std::endl;
-}
+HartaOras::~HartaOras() {}
 
 void HartaOras::adaugareRuta(const std::string &tip, const std::string &nume, const std::vector<std::string> &listaStatii) {
     if (tip == "AUTOBUZ") {

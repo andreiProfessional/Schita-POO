@@ -4,7 +4,7 @@
 #include "Utilizator.h"
 
 int main() {
-    HartaOras &HO = HartaOras::acceseazaSingleton();
+    //HartaOras &HO = HartaOras::acceseazaSingleton();
 
     //HO.creareHartaRute();
     //HO.afisareHartaRute();
@@ -21,10 +21,10 @@ int main() {
     //HO.afisareListeUtilizatori();
 
 
-    Meniu* meniu = new Meniu();
-    meniu->creareListeUtilizatori();
+    Meniu &Meniu = Meniu::acceseazaSingleton();
+    Meniu.creareListeUtilizatori();
     //meniu->afisareListeUtilizatori();
-    meniu->afisareUtilizator(5);
+    Meniu.afisareUtilizator(5);
 
     return 0;
 }

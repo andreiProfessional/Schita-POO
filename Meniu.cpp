@@ -2,6 +2,11 @@
 #include <iostream>
 #include <fstream>
 
+Meniu::Meniu(): hartaOras(HartaOras::acceseazaSingleton()) {}
+
+Meniu::~Meniu() {}
+
+
 void Meniu::adaugareUtilizator(const std::string &tip, const std::string &nume, const std::string &statie,
     const int &nivelViata, const int &nivelEnergie, const int &nivelNutritie, const int &nivelInteligenta, const int &nivelDistractie,
     const int &balantaBani, const int &balantaCalatorii) {
