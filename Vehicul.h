@@ -1,80 +1,47 @@
 #ifndef VEHICUL_H
 #define VEHICUL_H
-#include <string>
+#include "Ruta.h"
+#include "Statie.h"
 
 
 class Vehicul {
 protected:
     static int idContor;
     const int idVehicul;
-    int consum;
-    int capacitateMaximaPasageri;
+    Ruta* ruta;
+    Statie* statieCurenta;
 public:
     Vehicul():idVehicul(idContor ++){}
-    virtual void Calatorie() = 0;
-    virtual void sunetMotor() = 0;
+
 };
 
-class VehiculRoti: public Vehicul {
-protected:
-    int capacitateMotor;
-    std::string tipMotor;
-public:
-    void Calatorie() override;
-    virtual void sunetRoti() = 0;
-};
 
-class Autobuz: public VehiculRoti {
-protected:
-
-public:
-    void Calatorie() override;
-    void sunetRoti() override;
-};
-
-class AutobuzFosil: public Autobuz {
+class Autobuz: public Vehicul {
 private:
 
 public:
 
 };
 
-class AutobuzElectric: public Autobuz {
+class Troleibuz: public Vehicul {
 private:
 
 public:
-    void sunetMotor() override;
+
 };
 
-class Troleibuz: public VehiculRoti {
+class Tramvai: public Vehicul {
 private:
 
 public:
-    void Calatorie() override;
-    void sunetRoti() override;
+
 };
 
-class VehiculSine: public Vehicul {
-protected:
-    int numarVagoane;
-public:
-    virtual void sunetSine() = 0;
-};
-
-class Tramvai: public VehiculSine {
+class Metrou: public Vehicul {
 private:
 
 public:
-    void Calatorie() override;
-    void sunetSine() override;
-};
 
-class Metrou: public VehiculSine {
-private:
-
-public:
-    void Calatorie() override;
-    void sunetSine() override;
 };
 
 

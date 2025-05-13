@@ -3,48 +3,43 @@
 
 int Statie::contorID = 0;
 
-Statie::Statie(const std::string &TIP, const std::string &LINIE, const std::string &NUME,
-    const std::string &PREDECESOR, const std::string &SUCCESOR):
+Statie::Statie(const std::string &nume):
     idStatie(++ contorID),
-    tip(TIP),
-    linie(LINIE),
-    nume(NUME),
-    predecesor(PREDECESOR),
-    succesor(SUCCESOR) {}
+    nume(nume) {}
 
-StatieAutobuz::StatieAutobuz(const std::string &TIP, const std::string &LINIE, const std::string &NUME,
-    const std::string &PREDECESOR, const std::string &SUCCESOR):
-    Statie(TIP, LINIE, NUME, PREDECESOR, SUCCESOR) {}
+StatieAutobuz::StatieAutobuz(const std::string &nume):
+    Statie(nume) {}
 
-StatieTroleibuz::StatieTroleibuz(const std::string &TIP, const std::string &LINIE, const std::string &NUME,
-    const std::string &PREDECESOR, const std::string &SUCCESOR):
-    Statie(TIP, LINIE, NUME, PREDECESOR, SUCCESOR) {}
+StatieTroleibuz::StatieTroleibuz(const std::string &nume):
+    Statie(nume) {}
 
-StatieTramvai::StatieTramvai(const std::string &TIP, const std::string &LINIE, const std::string &NUME,
-    const std::string &PREDECESOR, const std::string &SUCCESOR):
-    Statie(TIP, LINIE, NUME, PREDECESOR, SUCCESOR) {}
+StatieTramvai::StatieTramvai(const std::string &nume):
+    Statie(nume) {}
 
-StatieMetrou::StatieMetrou(const std::string &TIP, const std::string &LINIE, const std::string &NUME,
-    const std::string &PREDECESOR, const std::string &SUCCESOR):
-    Statie(TIP, LINIE, NUME, PREDECESOR, SUCCESOR) {}
+StatieMetrou::StatieMetrou(const std::string &nume):
+    Statie(nume) {}
 
 
 void StatieAutobuz::afisareStatie() {
-    std::cout << idStatie << ": " << nume << " | " << tip << " | " << linie << " | " << predecesor << " | " << succesor << std::endl;
+    std::cout << nume << " (" << idStatie << ")";
 }
 
 void StatieTroleibuz::afisareStatie() {
-    std::cout << idStatie << ": " << nume << " | " << tip << " | " << linie << " | " << predecesor << " | " << succesor << std::endl;
+    std::cout << nume << " (" << idStatie << ")";
 }
 
 void StatieTramvai::afisareStatie() {
-    std::cout << idStatie << ": " << nume << " | " << tip << " | " << linie << " | " << predecesor << " | " << succesor << std::endl;
+    std::cout << nume << " (" << idStatie << ")";
 }
 
 void StatieMetrou::afisareStatie() {
-    std::cout << idStatie << ": " << nume << " | " << tip << " | " << linie << " | " << predecesor << " | " << succesor << std::endl;
+    std::cout << nume << " (" << idStatie << ")";
 }
 
-bool Statie::verificareId(const int &ID) {
-    return (idStatie == ID);
+bool Statie::verificareId(const int &idStatie) {
+    return (this->idStatie == idStatie);
+}
+
+bool Statie::verificareNume(const std::string &nume) {
+    return (this->nume == nume);
 }

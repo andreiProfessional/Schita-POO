@@ -61,8 +61,8 @@ add_executable(${MAIN_EXECUTABLE_NAME}
         Locatie.h
         Utilizator.cpp
         Utilizator.h
-        ml.cpp
-        ml.h
+        Ruta.cpp
+        Ruta.h
 )
 
 # NOTE: Add all defined targets (e.g. executables, libraries, etc. )

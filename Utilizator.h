@@ -31,6 +31,7 @@ public:
 class UtilizatorAdmin: public Utilizator {
 private:
     std::string parola;
+
 public:
     UtilizatorAdmin(const std::string &TIP, const std::string &NUME, const std::string &STATIE,
         const int &NIVEL_VIATA, const int &NIVEL_ENERGIE, const int &NIVEL_NUTRITIE, const int &NIVEL_INTELIGENTA, const int &NIVEL_DISTRACTIE);

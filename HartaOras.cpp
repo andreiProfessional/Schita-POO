@@ -1,4 +1,5 @@
 #include "HartaOras.h"
+#include "Statie.h"
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -11,58 +12,72 @@ HartaOras::~HartaOras() {
     std::cout << std::endl << "GOD MESSAGE: A FOST DISTRUS ORASUL!" << std::endl;
 }
 
-void HartaOras::adaugareStatie(const std::string &tip, const std::string &linie, const std::string &nume, const std::string &predecesor, const std::string &succesor) {
+void HartaOras::adaugareRuta(const std::string &tip, const std::string &nume, const std::vector<std::string> &listaStatii) {
     if (tip == "AUTOBUZ") {
-        statii.emplace_back(new StatieAutobuz(tip, linie, nume, predecesor, succesor));
+        std::vector<Statie*> statii;
+        for (const auto &statie: listaStatii) {
+            statii.emplace_back(new StatieAutobuz(statie));
+        }
+        rute.emplace_back(new RutaAutobuz(nume, statii));
     }
     else if (tip == "TROLEIBUZ") {
-        statii.emplace_back(new StatieTroleibuz(tip, linie, nume, predecesor, succesor));
+        std::vector<Statie*> statii;
+        for (const auto &statie: listaStatii) {
+            statii.emplace_back(new StatieTroleibuz(statie));
+        }
+        rute.emplace_back(new RutaTroleibuz(nume, statii));
     }
     else if (tip == "TRAMVAI") {
-        statii.emplace_back(new StatieTramvai(tip, linie, nume, predecesor, succesor));
+        std::vector<Statie*> statii;
+        for (const auto &statie: listaStatii) {
+            statii.emplace_back(new StatieTramvai(statie));
+        }
+        rute.emplace_back(new RutaTramvai(nume, statii));
     }
     else if (tip == "METROU") {
-        statii.emplace_back(new StatieMetrou(tip, linie, nume, predecesor, succesor));
+        std::vector<Statie*> statii;
+        for (const auto &statie: listaStatii) {
+            statii.emplace_back(new StatieMetrou(statie));
+        }
+        rute.emplace_back(new RutaMetrou(nume, statii));
     }
     else {
         std::cout << "Nu exista acest tip de statie!!!" << std::endl;
     }
 }
 
-void HartaOras::creareHartaStatii() {
-    std::ifstream in("statii.csv");
+void HartaOras::creareHartaRute() {
+    std::ifstream in("rute.csv");
     std::string input;
 
     std::getline(in, input);
     while (std::getline(in, input)) {
-        const std::string INPUT_TIP = input.substr(0, input.find(","));
+        const std::string inputTip = input.substr(0, input.find(","));
         input = input.erase(0, input.find(",") + 1);
 
-        const std::string INPUT_LINIE = input.substr(0, input.find(","));
+        const std::string inputNume = input.substr(0, input.find(","));
         input = input.erase(0, input.find(",") + 1);
 
-        const std::string INPUT_NUME = input.substr(0, input.find(","));
-        input = input.erase(0, input.find(",") + 1);
+        std::vector<std::string> inputListaStatii;
+        while (input.find(";") != std::string::npos) {
+            inputListaStatii.push_back(input.substr(0, input.find(";")));
+            input = input.erase(0, input.find(";") + 1);
+        }
+        inputListaStatii.push_back(input);
 
-        const std::string INPUT_PREDECESOR = input.substr(0, input.find(","));
-        input = input.erase(0, input.find(",") + 1);
-
-        const std::string INPUT_SUCCESOR = input.substr(0, input.find(","));
-        input = input.erase(0, input.find(",") + 1);
-
-        adaugareStatie(INPUT_TIP, INPUT_LINIE, INPUT_NUME, INPUT_PREDECESOR, INPUT_SUCCESOR);
+        adaugareRuta(inputTip, inputNume, inputListaStatii);
     }
 
     in.close();
 }
 
-void HartaOras::afisareStatie(const int &ID) {
+/*void HartaOras::afisareStatie(const int &ID) {
     gasireStatie(ID)->afisareStatie();
-}
+}*/
 
-void HartaOras::afisareHartaStatii() {
-    for (auto const &statie: statii) {
-        statie->afisareStatie();
+void HartaOras::afisareHartaRute() {
+    for (auto const &ruta: rute) {
+        ruta->afisareRuta();
     }
     std::cout << std::endl;
 }
@@ -211,14 +226,14 @@ void HartaOras::afisareListeUtilizatori() {
     std::cout << std::endl;
 }
 
-Statie* HartaOras::gasireStatie(const int &idStatie) {
+/*Statie* HartaOras::gasireStatie(const int &idStatie) {
     for (auto &statie: statii) {
         if (statie->verificareId(idStatie)) {
             return statie;
         }
     }
     return nullptr;
-}
+}*/
 
 Utilizator* HartaOras::gasireUtilizator(const int &idUtilizator) {
     for (const auto &utilizator: utilizatori) {

@@ -5,8 +5,8 @@
 int main() {
     HartaOras &HO = HartaOras::acceseazaSingleton();
 
-    HO.creareHartaStatii();
-    //HO.afisareHartaStatii();
+    HO.creareHartaRute();
+    HO.afisareHartaRute();
     HO.creareHartaLocatii();
     //HO.afisareHartaLocatii();
     HO.creareListeUtilizatori();
