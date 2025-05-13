@@ -1,15 +1,16 @@
 #include <iostream>
 #include "HartaOras.h"
+#include "Meniu.h"
 #include "Utilizator.h"
 
 int main() {
     HartaOras &HO = HartaOras::acceseazaSingleton();
 
-    HO.creareHartaRute();
-    HO.afisareHartaRute();
-    HO.creareHartaLocatii();
+    //HO.creareHartaRute();
+    //HO.afisareHartaRute();
+    //HO.creareHartaLocatii();
     //HO.afisareHartaLocatii();
-    HO.creareListeUtilizatori();
+    //HO.creareListeUtilizatori();
     //HO.afisareListeUtilizatori();
 
     //HO.afisareStatie(32);
@@ -20,6 +21,10 @@ int main() {
     //HO.afisareListeUtilizatori();
 
 
+    Meniu* meniu = new Meniu();
+    meniu->creareListeUtilizatori();
+    //meniu->afisareListeUtilizatori();
+    meniu->afisareUtilizator(5);
 
     return 0;
 }

@@ -63,6 +63,8 @@ add_executable(${MAIN_EXECUTABLE_NAME}
         Utilizator.h
         Ruta.cpp
         Ruta.h
+        Meniu.cpp
+        Meniu.h
 )
 
 # NOTE: Add all defined targets (e.g. executables, libraries, etc. )

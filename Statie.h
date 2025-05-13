@@ -9,7 +9,6 @@ protected:
     const std::string nume;
 public:
     Statie(const std::string &nume);
-    //virtual Statie* creareStatie(const std::string &nume) = 0;
     virtual void afisareStatie() = 0;
     void obtinereListaLocatii();
     bool verificareId(const int &idStatie);
