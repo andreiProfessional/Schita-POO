@@ -12,7 +12,8 @@ void Meniu::golireEcran() {
 
 void Meniu::meniuStart() {
     golireEcran();
-
+    std::cout << std::endl << "Bine ai venit in \"MICUL ORASEL\"!" << std::endl;
+    std::cout << std::endl;
 }
 
 void Meniu::creareHartaOras() {
