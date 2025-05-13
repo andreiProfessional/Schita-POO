@@ -59,8 +59,8 @@ add_executable(${MAIN_EXECUTABLE_NAME}
         HartaOras.h
         Locatie.cpp
         Locatie.h
-        Utilizator.cpp
-        Utilizator.h
+        Jucator.cpp
+        Jucator.h
         Ruta.cpp
         Ruta.h
         Meniu.cpp

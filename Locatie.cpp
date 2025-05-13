@@ -85,54 +85,54 @@ void LocatieRelaxare::afisareLocatie() {
     std::cout << plusEnergie << " | " << plusDistractie << " | " << minusBani << std::endl;
 }
 
-void LocatieResedinta::aplicaCoeficienti(Utilizator *utilizator) {
-    utilizator->modificareNivelEnergie(plusEnergie);
-    utilizator->modificareNivelNutritie(plusNutritie);
-    utilizator->modificareNivelInteligenta(minusInteligenta);
+void LocatieResedinta::aplicaCoeficienti(Jucator *jucator) {
+    jucator->modificareNivelEnergie(plusEnergie);
+    jucator->modificareNivelNutritie(plusNutritie);
+    jucator->modificareNivelInteligenta(minusInteligenta);
 }
 
-void LocatieMedicala::aplicaCoeficienti(Utilizator *utilizator) {
-    utilizator->modificareNivelViata(plusViata);
-    utilizator->modificareNivelEnergie(plusEnergie);
-    utilizator->modificareNivelDistractie(minusDistractie);
-    UtilizatorStandard *utilizatorStandard = dynamic_cast<UtilizatorStandard*>(utilizator);
-    if (utilizatorStandard != nullptr) {
-        utilizatorStandard->modificareBalantaBani(minusBani);
+void LocatieMedicala::aplicaCoeficienti(Jucator *jucator) {
+    jucator->modificareNivelViata(plusViata);
+    jucator->modificareNivelEnergie(plusEnergie);
+    jucator->modificareNivelDistractie(minusDistractie);
+    JucatorStandard *jucatorStandard = dynamic_cast<JucatorStandard *>(jucator);
+    if (jucatorStandard != nullptr) {
+        jucatorStandard->modificareBalantaBani(minusBani);
     }
 }
 
-void LocatieEducatie::aplicaCoeficienti(Utilizator *utilizator) {
-    utilizator->modificareNivelInteligenta(plusInteligenta);
-    utilizator->modificareNivelEnergie(minusEnergie);
-    utilizator->modificareNivelNutritie(minusNutritie);
-    utilizator->modificareNivelDistractie(minusDistractie);
+void LocatieEducatie::aplicaCoeficienti(Jucator *jucator) {
+    jucator->modificareNivelInteligenta(plusInteligenta);
+    jucator->modificareNivelEnergie(minusEnergie);
+    jucator->modificareNivelNutritie(minusNutritie);
+    jucator->modificareNivelDistractie(minusDistractie);
 }
 
-void LocatieMunca::aplicaCoeficienti(Utilizator *utilizator) {
-    UtilizatorStandard *utilizatorStandard = dynamic_cast<UtilizatorStandard*>(utilizator);
-    if (utilizatorStandard != nullptr) {
-        utilizatorStandard->modificareBalantaCalatorii(plusBani);
+void LocatieMunca::aplicaCoeficienti(Jucator *jucator) {
+    JucatorStandard *jucatorStandard = dynamic_cast<JucatorStandard *>(jucator);
+    if (jucatorStandard != nullptr) {
+        jucatorStandard->modificareBalantaCalatorii(plusBani);
     }
-    utilizator->modificareNivelEnergie(minusEnergie);
-    utilizator->modificareNivelNutritie(minusNutritie);
-    utilizator->modificareNivelDistractie(minusDistractie);
+    jucator->modificareNivelEnergie(minusEnergie);
+    jucator->modificareNivelNutritie(minusNutritie);
+    jucator->modificareNivelDistractie(minusDistractie);
 }
 
-void LocatieHoreca::aplicaCoeficienti(Utilizator *utilizator) {
-    utilizator->modificareNivelNutritie(plusNutritie);
-    utilizator->modificareNivelDistractie(plusDistractie);
-    UtilizatorStandard *utilizatorStandard = dynamic_cast<UtilizatorStandard*>(utilizator);
-    if (utilizatorStandard != nullptr) {
-        utilizatorStandard->modificareBalantaCalatorii(minusBani);
+void LocatieHoreca::aplicaCoeficienti(Jucator *jucator) {
+    jucator->modificareNivelNutritie(plusNutritie);
+    jucator->modificareNivelDistractie(plusDistractie);
+    JucatorStandard *jucatorStandard = dynamic_cast<JucatorStandard*>(jucator);
+    if (jucatorStandard != nullptr) {
+        jucatorStandard->modificareBalantaCalatorii(minusBani);
     }
 }
 
-void LocatieRelaxare::aplicaCoeficienti(Utilizator *utilizator) {
-    utilizator->modificareNivelEnergie(plusEnergie);
-    utilizator->modificareNivelDistractie(plusDistractie);
-    UtilizatorStandard *utilizatorStandard = dynamic_cast<UtilizatorStandard*>(utilizator);
-    if (utilizatorStandard != nullptr) {
-        utilizatorStandard->modificareBalantaCalatorii(minusBani);
+void LocatieRelaxare::aplicaCoeficienti(Jucator *jucator) {
+    jucator->modificareNivelEnergie(plusEnergie);
+    jucator->modificareNivelDistractie(plusDistractie);
+    JucatorStandard *jucatorStandard = dynamic_cast<JucatorStandard*>(jucator);
+    if (jucatorStandard != nullptr) {
+        jucatorStandard->modificareBalantaCalatorii(minusBani);
     }
 }
 

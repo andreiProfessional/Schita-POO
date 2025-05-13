@@ -7,24 +7,24 @@ Meniu::Meniu(): hartaOras(HartaOras::acceseazaSingleton()) {}
 Meniu::~Meniu() {}
 
 
-void Meniu::adaugareUtilizator(const std::string &tip, const std::string &nume, const std::string &statie,
+void Meniu::adaugareJucator(const std::string &tip, const std::string &nume, const std::string &statie,
     const int &nivelViata, const int &nivelEnergie, const int &nivelNutritie, const int &nivelInteligenta, const int &nivelDistractie,
     const int &balantaBani, const int &balantaCalatorii) {
     if (tip == "ADMIN") {
-        utilizatori.emplace_back(new UtilizatorAdmin(tip, nume, statie,
+        jucatori.emplace_back(new JucatorAdmin(tip, nume, statie,
             nivelViata, nivelEnergie, nivelNutritie, nivelInteligenta, nivelDistractie));
     }
     else if (tip == "STANDARD") {
-        utilizatori.emplace_back(new UtilizatorStandard(tip, nume, statie,
+        jucatori.emplace_back(new JucatorStandard(tip, nume, statie,
             nivelViata, nivelEnergie, nivelNutritie, nivelInteligenta, nivelDistractie,
             balantaBani, balantaCalatorii));
     }
     else {
-        std::cout << "Nu exista acest tip de utilizator!!!" << std::endl;
+        std::cout << "Nu exista acest tip de jucator!!!" << std::endl;
     }
 }
 
-void Meniu::creareListeUtilizatori() {
+void Meniu::creareListeJucatori() {
     std::ifstream in("utilizatori.csv");
     std::string input;
 
@@ -60,7 +60,7 @@ void Meniu::creareListeUtilizatori() {
         const int INPUT_BALANTA_CALATORII = std::stoi(input.substr(0, input.find(",")));
         input = input.erase(0, input.find(",") + 1);
 
-        adaugareUtilizator(INPUT_TIP, INPUT_NUME, INPUT_STATIE,
+        adaugareJucator(INPUT_TIP, INPUT_NUME, INPUT_STATIE,
             INPUT_NIVEL_VIATA, INPUT_NIVEL_ENERGIE, INPUT_NIVEL_NUTRITIE, INPUT_NIVEL_INTELIGENTA, INPUT_NIVEL_DISTRACTIE,
             INPUT_BALANTA_BANI, INPUT_BALANTA_CALATORII);
     }
@@ -68,27 +68,27 @@ void Meniu::creareListeUtilizatori() {
     in.close();
 }
 
-void Meniu::afisareUtilizator(const int &ID) {
-    gasireUtilizator(ID)->afisareUtilizator();
+void Meniu::afisareJucator(const int &ID) {
+    gasireJucator(ID)->afisareJucator();
 }
 
-void Meniu::afisareListeUtilizatori() {
-    for (const auto &utilizator: utilizatori) {
-        utilizator->afisareUtilizator();
+void Meniu::afisareListeJucatori() {
+    for (const auto &jucator: jucatori) {
+        jucator->afisareJucator();
         std::cout << std::endl;
     }
     std::cout << std::endl;
 }
 
-Utilizator* Meniu::gasireUtilizator(const int &idUtilizator) {
-    for (const auto &utilizator: utilizatori) {
-        if (utilizator->verificareId(idUtilizator)) {
-            return utilizator;
+Jucator* Meniu::gasireJucator(const int &idUtilizator) {
+    for (const auto &jucator: jucatori) {
+        if (jucator->verificareId(idUtilizator)) {
+            return jucator;
         }
     }
     return nullptr;
 }
 
-void Meniu::interactiuneUtilizatorLocatie(Utilizator *utilizator, Locatie *locatie) {
-    locatie->aplicaCoeficienti(utilizator);
+void Meniu::interactiuneJucatorLocatie(Jucator *jucator, Locatie *locatie) {
+    locatie->aplicaCoeficienti(jucator);
 }

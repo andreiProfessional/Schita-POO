@@ -2,7 +2,7 @@
 #define CITYMAP_H
 #include "Ruta.h"
 #include "Locatie.h"
-#include "Utilizator.h"
+#include "Jucator.h"
 #include <vector>
 #include <iostream>
 

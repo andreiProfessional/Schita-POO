@@ -1,7 +1,7 @@
 #include <iostream>
 #include "HartaOras.h"
 #include "Meniu.h"
-#include "Utilizator.h"
+#include "Jucator.h"
 
 int main() {
     //HartaOras &HO = HartaOras::acceseazaSingleton();
@@ -22,9 +22,9 @@ int main() {
 
 
     Meniu &Meniu = Meniu::acceseazaSingleton();
-    Meniu.creareListeUtilizatori();
-    //meniu->afisareListeUtilizatori();
-    Meniu.afisareUtilizator(5);
+    Meniu.creareListeJucatori();
+    Meniu.afisareListeJucatori();
+    Meniu.afisareJucator(5);
 
     return 0;
 }

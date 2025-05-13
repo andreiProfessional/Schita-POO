@@ -1,6 +1,6 @@
 #ifndef LOCATIE_H
 #define LOCATIE_H
-#include "Utilizator.h"
+#include "Jucator.h"
 #include <string>
 
 class Locatie {
@@ -13,7 +13,7 @@ protected:
 public:
     Locatie(const std::string &TIP, const std::string &NUME, const std::string &STATIE);
     virtual void afisareLocatie() = 0;
-    virtual void aplicaCoeficienti(Utilizator *utilizator) = 0;
+    virtual void aplicaCoeficienti(Jucator *jucator) = 0;
     bool verificareId(const int &ID);
 };
 
@@ -27,7 +27,7 @@ public:
         const int &PLUS_ENERGIE, const int &PLUS_NUTRITIE, const int &MINUS_INTELIGENTA);
 
     void afisareLocatie() override;
-    void aplicaCoeficienti(Utilizator *utilizator) override;
+    void aplicaCoeficienti(Jucator *jucator) override;
 };
 
 class LocatieMedicala: public Locatie {
@@ -41,7 +41,7 @@ public:
         const int &PLUS_VIATA, const int &PLUS_ENERGIE, const int &MINUS_DISTRACTIE, const int &MINUS_BANI);
 
     void afisareLocatie() override;
-    void aplicaCoeficienti(Utilizator *utilizator) override;
+    void aplicaCoeficienti(Jucator *jucator) override;
 };
 
 class LocatieEducatie: public Locatie {
@@ -55,7 +55,7 @@ public:
         const int &PLUS_INTELIGENTA, const int &MINUS_ENERGIE, const int &MINUS_NUTRITIE, const int &MINUS_DISTRACTIE);
 
     void afisareLocatie() override;
-    void aplicaCoeficienti(Utilizator *utilizator) override;
+    void aplicaCoeficienti(Jucator *jucator) override;
 };
 
 class LocatieMunca: public Locatie {
@@ -69,7 +69,7 @@ public:
         const int &PLUS_BANI, const int &MINUS_ENERGIE, const int &MINUS_NUTRITIE, const int &MINUS_DISTRACTIE);
 
     void afisareLocatie() override;
-    void aplicaCoeficienti(Utilizator *utilizator) override;
+    void aplicaCoeficienti(Jucator *jucator) override;
 };
 
 class LocatieHoreca: public Locatie {
@@ -82,7 +82,7 @@ public:
         const int &PLUS_NUTRITIE, const int &PLUS_DISTRACTIE, const int &MINUS_BANI);
 
     void afisareLocatie() override;
-    void aplicaCoeficienti(Utilizator *utilizator) override;
+    void aplicaCoeficienti(Jucator *jucator) override;
 };
 
 class LocatieRelaxare: public Locatie {
@@ -95,7 +95,7 @@ public:
         const int &PLUS_ENERGIE, const int &PLUS_DISTRACTIE, const int &MINUS_BANI);
 
     void afisareLocatie() override;
-    void aplicaCoeficienti(Utilizator *utilizator) override;
+    void aplicaCoeficienti(Jucator *jucator) override;
 };
 
 
