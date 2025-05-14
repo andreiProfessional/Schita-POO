@@ -17,62 +17,44 @@ void Meniu::creareHartaOras() {
     //hartaOras.afisareHartaRute();
 }
 
-void Meniu::adaugareJucator(const std::string &tip, const std::string &nume, const std::string &statie,
-    const int &nivelViata, const int &nivelEnergie, const int &nivelNutritie, const int &nivelInteligenta, const int &nivelDistractie,
-    const int &balantaBani, const int &balantaCalatorii) {
-    if (tip == "ADMIN") {
-        jucatori.emplace_back(new JucatorAdmin(tip, nume, statie,
-            nivelViata, nivelEnergie, nivelNutritie, nivelInteligenta, nivelDistractie));
-    }
-    else if (tip == "STANDARD") {
-        jucatori.emplace_back(new JucatorStandard(tip, nume, statie,
-            nivelViata, nivelEnergie, nivelNutritie, nivelInteligenta, nivelDistractie,
-            balantaBani, balantaCalatorii));
-    }
-    else {
-        std::cout << "Nu exista acest tip de jucator!!!" << std::endl;
-    }
-}
-
-void Meniu::creareListeJucatori() {
+void Meniu::creareListaJucatori() {
     std::ifstream in("jucatori.csv");
     std::string input;
 
     std::getline(in, input);
     while (std::getline(in, input)) {
-        const std::string INPUT_TIP = input.substr(0, input.find(","));
+        const std::string inputNume = input.substr(0, input.find(","));
         input = input.erase(0, input.find(",") + 1);
 
-        const std::string INPUT_NUME = input.substr(0, input.find(","));
+        const std::string inputStatie = input.substr(0, input.find(","));
         input = input.erase(0, input.find(",") + 1);
 
-        const std::string INPUT_STATIE = input.substr(0, input.find(","));
+        const int inputNivelViata = std::stoi(input.substr(0, input.find(",")));
         input = input.erase(0, input.find(",") + 1);
 
-        const int INPUT_NIVEL_VIATA = std::stoi(input.substr(0, input.find(",")));
+        const int inputNivelEnergie = std::stoi(input.substr(0, input.find(",")));
         input = input.erase(0, input.find(",") + 1);
 
-        const int INPUT_NIVEL_ENERGIE = std::stoi(input.substr(0, input.find(",")));
+        const int inputNivelNutritie = std::stoi(input.substr(0, input.find(",")));
         input = input.erase(0, input.find(",") + 1);
 
-        const int INPUT_NIVEL_NUTRITIE = std::stoi(input.substr(0, input.find(",")));
+        const int inputNivelInteligenta = std::stoi(input.substr(0, input.find(",")));
         input = input.erase(0, input.find(",") + 1);
 
-        const int INPUT_NIVEL_INTELIGENTA = std::stoi(input.substr(0, input.find(",")));
+        const int inputNivelDistractie = std::stoi(input.substr(0, input.find(",")));
         input = input.erase(0, input.find(",") + 1);
 
-        const int INPUT_NIVEL_DISTRACTIE = std::stoi(input.substr(0, input.find(",")));
+        const int inputbalantaBani = std::stoi(input.substr(0, input.find(",")));
         input = input.erase(0, input.find(",") + 1);
 
-        const int INPUT_BALANTA_BANI = std::stoi(input.substr(0, input.find(",")));
+        const int inputBalantaCalatorii = std::stoi(input.substr(0, input.find(",")));
         input = input.erase(0, input.find(",") + 1);
 
-        const int INPUT_BALANTA_CALATORII = std::stoi(input.substr(0, input.find(",")));
-        input = input.erase(0, input.find(",") + 1);
+        jucatori.emplace_back(new Jucator(inputNume, inputStatie,
+            inputNivelViata, inputNivelEnergie, inputNivelNutritie, inputNivelInteligenta, inputNivelDistractie,
+            inputbalantaBani, inputBalantaCalatorii));
 
-        adaugareJucator(INPUT_TIP, INPUT_NUME, INPUT_STATIE,
-            INPUT_NIVEL_VIATA, INPUT_NIVEL_ENERGIE, INPUT_NIVEL_NUTRITIE, INPUT_NIVEL_INTELIGENTA, INPUT_NIVEL_DISTRACTIE,
-            INPUT_BALANTA_BANI, INPUT_BALANTA_CALATORII);
+        jucatorCurent = jucatori.back();
     }
 
     in.close();
@@ -82,7 +64,7 @@ void Meniu::afisareJucator(const int &idJucator) {
     gasireJucator(id)->afisareJucator();
 }
 */
-void Meniu::afisareListeJucatori() {
+void Meniu::afisareListaJucatori() {
     for (const auto &jucator: jucatori) {
         jucator->afisareJucator();
         std::cout << std::endl;
@@ -98,14 +80,13 @@ Jucator* Meniu::gasireJucator(const int &idJucator) {
     return nullptr;
 }
 
-/*
-void Meniu::interactiuneJucatorLocatie(Jucator *jucator, Locatie *locatie) {
-    locatie->aplicaCoeficienti(jucator);
+bool Meniu::existaStatie(const std::string &numeStatie) {
+    return hartaOras.existaStatie(numeStatie);
 }
-*/
 
 void Meniu::meniuInceput() {
     golireEcran();
+    this->creareListaJucatori();
     std::cout << "Bine ai venit in \"MICUL ORASEL\"!" << std::endl << std::endl;
     std::cout << "1. Selecteaza jucator vechi" << std::endl;
     std::cout << "2. Creeaza jucator nou" << std::endl;
@@ -137,8 +118,7 @@ void Meniu::meniuSfarsit() {
 void Meniu::meniuJucatorVechi() {
     golireEcran();
     std::cout << "Jucatori disponibili: " << std::endl << std::endl;
-    this->creareListeJucatori();
-    this->afisareListeJucatori();
+    this->afisareListaJucatori();
     std::cout << "Alegerea ta: ";
     int optiune;
     std::cin >> optiune;
@@ -151,12 +131,25 @@ void Meniu::meniuJucatorNou() {
     std::cin.ignore();
     std::cout << "Hai sa creem un jucator nou!" << std::endl << std::endl;
     std::cout << "Nume: ";
-    std::string nume;
-    std::getline(std::cin, nume);
-    std::cout << "Statia: ";
-    std::string statie;
-    std::getline(std::cin, statie);
+    std::string inputNume;
+    std::getline(std::cin, inputNume);
+    while (inputNume.length() < 3) {
+        std::cout << "Nume prea scurt! Alege alt nume: ";
+        std::getline(std::cin, inputNume);
+    }
+    std::cout << std::endl;
 
+    std::cout << "Statia: ";
+    std::string inputStatie;
+    std::getline(std::cin, inputStatie);
+    /*while (this->existaStatie(inputStatie)) {
+        std::cout << "Statia nu exista!" << std::endl << std::endl;
+        std::cout << "Statie(care exista): ";
+        getline(std::cin, inputStatie);
+    }*/
+    Jucator* jucatorNou = new Jucator(inputNume, inputStatie);
+    jucatori.push_back(jucatorNou);
+    jucatorCurent = jucatorNou;
 }
 
 void Meniu::meniuStartJoc() {

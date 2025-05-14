@@ -95,10 +95,7 @@ void LocatieMedicala::aplicaCoeficienti(Jucator *jucator) {
     jucator->modificareNivelViata(plusViata);
     jucator->modificareNivelEnergie(plusEnergie);
     jucator->modificareNivelDistractie(minusDistractie);
-    JucatorStandard *jucatorStandard = dynamic_cast<JucatorStandard *>(jucator);
-    if (jucatorStandard != nullptr) {
-        jucatorStandard->modificareBalantaBani(minusBani);
-    }
+    jucator->modificareBalantaBani(minusBani);
 }
 
 void LocatieEducatie::aplicaCoeficienti(Jucator *jucator) {
@@ -109,10 +106,7 @@ void LocatieEducatie::aplicaCoeficienti(Jucator *jucator) {
 }
 
 void LocatieMunca::aplicaCoeficienti(Jucator *jucator) {
-    JucatorStandard *jucatorStandard = dynamic_cast<JucatorStandard *>(jucator);
-    if (jucatorStandard != nullptr) {
-        jucatorStandard->modificareBalantaCalatorii(plusBani);
-    }
+    jucator->modificareBalantaCalatorii(plusBani);
     jucator->modificareNivelEnergie(minusEnergie);
     jucator->modificareNivelNutritie(minusNutritie);
     jucator->modificareNivelDistractie(minusDistractie);
@@ -121,19 +115,13 @@ void LocatieMunca::aplicaCoeficienti(Jucator *jucator) {
 void LocatieHoreca::aplicaCoeficienti(Jucator *jucator) {
     jucator->modificareNivelNutritie(plusNutritie);
     jucator->modificareNivelDistractie(plusDistractie);
-    JucatorStandard *jucatorStandard = dynamic_cast<JucatorStandard*>(jucator);
-    if (jucatorStandard != nullptr) {
-        jucatorStandard->modificareBalantaCalatorii(minusBani);
-    }
+    jucator->modificareBalantaCalatorii(minusBani);
 }
 
 void LocatieRelaxare::aplicaCoeficienti(Jucator *jucator) {
     jucator->modificareNivelEnergie(plusEnergie);
     jucator->modificareNivelDistractie(plusDistractie);
-    JucatorStandard *jucatorStandard = dynamic_cast<JucatorStandard*>(jucator);
-    if (jucatorStandard != nullptr) {
-        jucatorStandard->modificareBalantaCalatorii(minusBani);
-    }
+    jucator->modificareBalantaCalatorii(minusBani);
 }
 
 bool Locatie::verificareId(const int &ID) {

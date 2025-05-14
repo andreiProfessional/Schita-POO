@@ -29,6 +29,7 @@ public:
     void creareHartaLocatii();
     //void afisareLocatie(const int &id);
     void afisareHartaLocatii();
+    //bool existaStatie(const std::string &numeStatie);
 
     //Statie* gasireStatie(const int &idStatie);
     //Locatie* gasireLocatie(const int &idLocatie);

@@ -148,7 +148,16 @@ void HartaOras::afisareHartaLocatii() {
     }
     std::cout << std::endl;
 }
-
+/*
+bool HartaOras::existaStatie(const std::string &numeStatie) {
+    for (const auto &ruta: rute) {
+        if (ruta->existaStatiePeRuta(numeStatie)) {
+            return true;
+        }
+    }
+    return false;
+}
+*/
 /*
 Statie* HartaOras::gasireStatie(const int &idStatie) {
     for (auto &statie: statii) {

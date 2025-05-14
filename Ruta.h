@@ -14,6 +14,8 @@ public:
     Ruta(const std::string &nume, const std::vector<Statie*> &statii);
 
     virtual void afisareRuta() = 0;
+
+    //bool existaStatiePeRuta(const std::string &statie);
 };
 
 class RutaAutobuz: public Ruta {
