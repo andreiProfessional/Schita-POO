@@ -23,6 +23,9 @@ public:
     void golireEcran();
 
     void meniuStart();
+    void meniuIncheiere();
+    void meniuJucatorVechi();
+    void meniuJucatorNou();
 
     void creareHartaOras();
     void adaugareJucator(const std::string &tip, const std::string &nume, const std::string &statie,

@@ -10,12 +10,6 @@ void Meniu::golireEcran() {
     system("clear");
 }
 
-void Meniu::meniuStart() {
-    golireEcran();
-    std::cout << std::endl << "Bine ai venit in \"MICUL ORASEL\"!" << std::endl;
-    std::cout << std::endl;
-}
-
 void Meniu::creareHartaOras() {
     hartaOras.creareHartaLocatii();
     //hartaOras.afisareHartaLocatii();
@@ -105,9 +99,50 @@ Jucator* Meniu::gasireJucator(const int &idJucator) {
     return nullptr;
 }
 
-
 /*
 void Meniu::interactiuneJucatorLocatie(Jucator *jucator, Locatie *locatie) {
     locatie->aplicaCoeficienti(jucator);
 }
 */
+
+void Meniu::meniuStart() {
+    golireEcran();
+    std::cout << "Bine ai venit in \"MICUL ORASEL\"!" << std::endl << std::endl;
+    std::cout << "1. Selecteaza jucator vechi" << std::endl;
+    std::cout << "2. Creeaza jucator nou" << std::endl;
+    std::cout << "0. Pleaca acasa" << std::endl;
+    std::cout << std::endl << "Alegerea ta: ";
+    int optiune;
+    std::cin >> optiune;
+    switch (optiune) {
+        case 1:
+            meniuJucatorVechi();
+            break;
+        case 2:
+            meniuJucatorNou();
+            break;
+        case 0:
+            meniuIncheiere();
+            break;
+        default:
+            std::cout << "Optiunea ta nu este valida!" << std::endl;
+            meniuStart();
+            break;
+        }
+}
+
+
+void Meniu::meniuJucatorVechi() {
+    golireEcran();
+    std::cout << "Jucatorul vechi: ";
+}
+
+void Meniu::meniuJucatorNou() {
+    golireEcran();
+    std::cout << "Jucatorul nou: ";
+}
+
+void Meniu::meniuIncheiere() {
+    golireEcran();
+    std::cout << "Incheierea programului..." << std::endl;
+}
