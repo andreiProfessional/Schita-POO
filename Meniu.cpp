@@ -148,7 +148,15 @@ void Meniu::meniuJucatorVechi() {
 
 void Meniu::meniuJucatorNou() {
     golireEcran();
-    std::cout << "Jucatorul nou: ";
+    std::cin.ignore();
+    std::cout << "Hai sa creem un jucator nou!" << std::endl << std::endl;
+    std::cout << "Nume: ";
+    std::string nume;
+    std::getline(std::cin, nume);
+    std::cout << "Statia: ";
+    std::string statie;
+    std::getline(std::cin, statie);
+
 }
 
 void Meniu::meniuStartJoc() {
