@@ -77,17 +77,16 @@ void Meniu::creareListeJucatori() {
 
     in.close();
 }
-
-void Meniu::afisareJucator(const int &id) {
+/*
+void Meniu::afisareJucator(const int &idJucator) {
     gasireJucator(id)->afisareJucator();
 }
-
+*/
 void Meniu::afisareListeJucatori() {
     for (const auto &jucator: jucatori) {
         jucator->afisareJucator();
         std::cout << std::endl;
     }
-    std::cout << std::endl;
 }
 
 Jucator* Meniu::gasireJucator(const int &idJucator) {
@@ -105,7 +104,7 @@ void Meniu::interactiuneJucatorLocatie(Jucator *jucator, Locatie *locatie) {
 }
 */
 
-void Meniu::meniuStart() {
+void Meniu::meniuInceput() {
     golireEcran();
     std::cout << "Bine ai venit in \"MICUL ORASEL\"!" << std::endl << std::endl;
     std::cout << "1. Selecteaza jucator vechi" << std::endl;
@@ -122,19 +121,29 @@ void Meniu::meniuStart() {
             meniuJucatorNou();
             break;
         case 0:
-            meniuIncheiere();
+            meniuSfarsit();
             break;
         default:
-            std::cout << "Optiunea ta nu este valida!" << std::endl;
-            meniuStart();
+            meniuInceput();
             break;
         }
 }
 
+void Meniu::meniuSfarsit() {
+    golireEcran();
+    std::cout << "Incheierea programului..." << std::endl;
+}
 
 void Meniu::meniuJucatorVechi() {
     golireEcran();
-    std::cout << "Jucatorul vechi: ";
+    std::cout << "Jucatori disponibili: " << std::endl << std::endl;
+    this->creareListeJucatori();
+    this->afisareListeJucatori();
+    std::cout << "Alegerea ta: ";
+    int optiune;
+    std::cin >> optiune;
+    this->jucatorCurent = this->gasireJucator(optiune);
+    meniuStartJoc();
 }
 
 void Meniu::meniuJucatorNou() {
@@ -142,7 +151,24 @@ void Meniu::meniuJucatorNou() {
     std::cout << "Jucatorul nou: ";
 }
 
-void Meniu::meniuIncheiere() {
+void Meniu::meniuStartJoc() {
     golireEcran();
-    std::cout << "Incheierea programului..." << std::endl;
+    jucatorCurent->afisareJucator();
+    std::cout << std::endl << std::endl;
+    std::cout << "1. Incepe jocul" << std::endl;
+    std::cout << "0. Inapoi la Meniul de Inceput" << std::endl;
+    std::cout << std::endl << "Alegerea ta: ";
+    int optiune;
+    std::cin >> optiune;
+    switch (optiune) {
+        case 1:
+            std::cout << "JOCUL A INCEPUT!" << std::endl;
+            break;
+        case 0:
+            meniuInceput();
+            break;
+        default:
+            meniuStartJoc();
+            break;
+    }
 }

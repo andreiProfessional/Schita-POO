@@ -12,6 +12,7 @@ private:
 
     HartaOras& hartaOras;
     std::vector<Jucator*> jucatori;
+    Jucator* jucatorCurent;
 public:
     Meniu(const Meniu&) = delete;
     Meniu& operator=(const Meniu&) = delete;
@@ -22,17 +23,18 @@ public:
 
     void golireEcran();
 
-    void meniuStart();
-    void meniuIncheiere();
+    void meniuInceput();
+    void meniuSfarsit();
     void meniuJucatorVechi();
     void meniuJucatorNou();
+    void meniuStartJoc();
 
     void creareHartaOras();
     void adaugareJucator(const std::string &tip, const std::string &nume, const std::string &statie,
         const int &nivelViata, const int &nivelEnergie, const int &nivelNutritie, const int &nivelInteligenta, const int &nivelDistractie,
         const int &balantaBani, const int &balantaCalatorii);
     void creareListeJucatori();
-    void afisareJucator(const int &id);
+    //void afisareJucator(const int &idJucator);
     void afisareListeJucatori();
     Jucator* gasireJucator(const int &idJucator);
 

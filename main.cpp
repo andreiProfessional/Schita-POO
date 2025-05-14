@@ -10,7 +10,7 @@ int main() {
     //Meniu.afisareJucator(1);
     //Meniu.creareHartaOras();
 
-    Meniu.meniuStart();
+    Meniu.meniuInceput();
 
     //Meniu.interactiuneJucatorLocatie(Meniu.gasireUtilizator(2), Meniu.gasireLocatie(3));
 

@@ -54,8 +54,6 @@ void Jucator::afisareNivel(const std::string &mesajNivel, const int &nivel) {
 
 void JucatorAdmin::afisareJucator() {
     std::cout << "Jucatorul " << idJucator << ": " << nume << " | " << tip << std::endl;
-    std::cout << "Bani: ∞" << std::endl;
-    std::cout << "Calatorii: ∞" << std::endl;
     afisareNivel(std::string("Viata:       "), nivelViata);
     afisareNivel(std::string("Energie:     "), nivelEnergie);
     afisareNivel(std::string("Nutritie:    "), nivelNutritie);
