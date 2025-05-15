@@ -12,6 +12,7 @@ void Meniu::golireEcran() {
 
 void Meniu::creareHartaOras() {
     hartaOras.creareHartaLocatii();
+    hartaOras.afisareHartaLocatii();
     hartaOras.creareHartaRute();
 }
 

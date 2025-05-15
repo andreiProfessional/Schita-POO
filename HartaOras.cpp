@@ -80,28 +80,24 @@ void HartaOras::afisareHartaRute() {
 
 void HartaOras::adaugareLocatie(const std::string &tip, const std::string &nume, Statie *statie, const std::vector<int> &coeficienti) {
     if (tip == "RESEDINTA") {
-        locatii.emplace_back(new LocatieResedinta(tip, nume, statie,
-            coeficienti[0], coeficienti[1], coeficienti[2]));
+        Locatie *locatieNoua = new LocatieResedinta(tip, nume, statie, coeficienti[0]);
+        locatii.push_back(locatieNoua);
+    }
+    else if (tip == "SPORT") {
+        Locatie *locatieNoua = new LocatieSport(tip, nume, statie, coeficienti[0], coeficienti[1], coeficienti[2], coeficienti[3]);
+        locatii.push_back(locatieNoua);
     }
     else if (tip == "MEDICALA") {
-        locatii.emplace_back(new LocatieMedicala(tip, nume, statie,
-            coeficienti[0], coeficienti[1], coeficienti[2], coeficienti[3]));
-    }
-    else if (tip == "EDUCATIE") {
-        locatii.emplace_back(new LocatieEducatie(tip, nume, statie,
-            coeficienti[0], coeficienti[1], coeficienti[2], coeficienti[3]));
+        Locatie *locatieNoua = new LocatieMedicala(tip, nume, statie, coeficienti[0], coeficienti[1]);
+        locatii.push_back(locatieNoua);
     }
     else if (tip == "MUNCA") {
-        locatii.emplace_back(new LocatieMunca(tip, nume, statie,
-            coeficienti[0], coeficienti[1], coeficienti[2], coeficienti[3]));
+        Locatie *locatieNoua = new LocatieMunca(tip, nume, statie, coeficienti[0], coeficienti[1], coeficienti[2]);
+        locatii.push_back(locatieNoua);
     }
     else if (tip == "HORECA") {
-        locatii.emplace_back(new LocatieHoreca(tip, nume, statie,
-            coeficienti[0], coeficienti[1], coeficienti[2]));
-    }
-    else if (tip == "RELAXARE") {
-        locatii.emplace_back(new LocatieRelaxare(tip, nume, statie,
-            coeficienti[0], coeficienti[1], coeficienti[2]));
+        Locatie *locatieNoua = new LocatieHoreca(tip, nume, statie, coeficienti[0], coeficienti[1]);
+        locatii.push_back(locatieNoua);
     }
     else {
         std::cout << "Nu exista acest tip de locatie!!!" << std::endl;
@@ -114,13 +110,13 @@ void HartaOras::creareHartaLocatii() {
 
     std::getline(in, input);
     while (std::getline(in, input)) {
-        const std::string INPUT_TIP = input.substr(0, input.find(","));
+        const std::string inputTip = input.substr(0, input.find(","));
         input = input.erase(0, input.find(",") + 1);
 
-        const std::string INPUT_NUME = input.substr(0, input.find(","));
+        const std::string inputNume = input.substr(0, input.find(","));
         input = input.erase(0, input.find(",") + 1);
 
-        const std::string INPUT_STATIE = input.substr(0, input.find(","));
+        const std::string inputStatie = input.substr(0, input.find(","));
         input = input.erase(0, input.find(",") + 1);
 
         std::string inputCoeficienti = input.substr(0, input.find(","));
@@ -132,7 +128,7 @@ void HartaOras::creareHartaLocatii() {
         coeficienti.push_back(std::stoi(inputCoeficienti));
         input = input.erase(0, input.find(",") + 1);
 
-        adaugareLocatie(INPUT_TIP, INPUT_NUME, this->gasireStatieDupaNume(INPUT_STATIE), coeficienti);
+        adaugareLocatie(inputTip, inputNume, this->gasireStatieDupaNume(inputStatie), coeficienti);
     }
 
     in.close();
