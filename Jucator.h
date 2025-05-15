@@ -13,7 +13,6 @@ protected:
     Locatie *locatie;
     Statie *statie;
     int balantaBani;
-    int balantaCalatorii;
     int nivelViata;
     int nivelEnergie;
     int nivelNutritie;
@@ -21,7 +20,6 @@ public:
     Jucator(const std::string &nume = "NO NAME",
         Locatie *locatie = nullptr, Statie *statie = nullptr,
         const int &balantaBani = 50,
-        const int &balantaCalatorii = 0,
         const int &nivelViata = 100,
         const int &nivelEnergie = 100,
         const int &nivelNutritie = 100);
@@ -31,7 +29,6 @@ public:
     void afisareNivel(const std::string &mesajNivel, const int &nivel);
 
     void modificareBalantaBani(const int &diferentaBani);
-    void modificareBalantaCalatorii(const int &diferentaCalatorii);
     void modificareNivelViata(const int &diferentaViata);
     void modificareNivelEnergie(const int &diferentaEnergie);
     void modificareNivelNutritie(const int &diferentaNutritie);

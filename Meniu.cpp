@@ -30,9 +30,6 @@ void Meniu::creareListaJucatori() {
         const int inputBalantaBani = std::stoi(input.substr(0, input.find(",")));
         input = input.erase(0, input.find(",") + 1);
 
-        const int inputBalantaCalatorii = std::stoi(input.substr(0, input.find(",")));
-        input = input.erase(0, input.find(",") + 1);
-
         const int inputNivelViata = std::stoi(input.substr(0, input.find(",")));
         input = input.erase(0, input.find(",") + 1);
 
@@ -45,8 +42,7 @@ void Meniu::creareListaJucatori() {
         Locatie *locatieNoua = this->gasireLocatieDupaNume(inputLocatieResedinta);
         Jucator *jucatorNou = new Jucator(inputNume,
             locatieNoua, nullptr,
-            inputBalantaBani, inputBalantaCalatorii,
-            inputNivelViata, inputNivelEnergie, inputNivelNutritie);
+            inputBalantaBani, inputNivelViata, inputNivelEnergie, inputNivelNutritie);
         jucatori.push_back(jucatorNou);
     }
 

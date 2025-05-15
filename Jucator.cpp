@@ -6,17 +6,10 @@ int Jucator::contorID = 0;
 
 Jucator::Jucator(const std::string &nume,
     Locatie *locatie, Statie *statie,
-    const int &balantaBani, const int &balantaCalatorii,
-    const int &nivelViata, const int &nivelEnergie, const int &nivelNutritie):
-    idJucator(++ contorID),
-    nume(nume),
-    locatie(locatie),
-    statie(statie),
-    balantaBani(balantaBani),
-    balantaCalatorii(balantaCalatorii),
-    nivelViata(nivelViata),
-    nivelEnergie(nivelEnergie),
-    nivelNutritie(nivelNutritie) {}
+    const int &balantaBani, const int &nivelViata, const int &nivelEnergie, const int &nivelNutritie):
+    idJucator(++ contorID), nume(nume),
+    locatie(locatie), statie(statie),
+    balantaBani(balantaBani), nivelViata(nivelViata), nivelEnergie(nivelEnergie), nivelNutritie(nivelNutritie) {}
 
 bool Jucator::verificareId(const int &ID) {
     return (idJucator == ID);
@@ -51,7 +44,6 @@ void Jucator::afisareJucator() {
     std::cout << "Jucatorul " << idJucator << ": " << nume << std::endl;
     locatie->afisareLocatie();
     std::cout << "Bani: " << balantaBani << " Lei" << std::endl;
-    std::cout << "Calatorii: " << balantaCalatorii << " Calatorii" << std::endl;
     afisareNivel(std::string("Viata:       "), nivelViata);
     afisareNivel(std::string("Energie:     "), nivelEnergie);
     afisareNivel(std::string("Nutritie:    "), nivelNutritie);
@@ -59,10 +51,6 @@ void Jucator::afisareJucator() {
 
 void Jucator::modificareBalantaBani(const int &diferentaBani) {
     balantaBani += diferentaBani;
-}
-
-void Jucator::modificareBalantaCalatorii(const int &diferentaCalatorii) {
-    balantaCalatorii += diferentaCalatorii;
 }
 
 void Jucator::modificareNivelViata(const int &diferentaViata) {
