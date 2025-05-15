@@ -6,19 +6,17 @@ int Jucator::contorID = 0;
 
 Jucator::Jucator(const std::string &nume,
     Locatie *locatie, Statie *statie,
-    const int &nivelViata, const int &nivelEnergie, const int &nivelNutritie, const int &nivelInteligenta, const int &nivelDistractie,
-    const int &balantaBani, const int &balantaCalatorii):
+    const int &balantaBani, const int &balantaCalatorii,
+    const int &nivelViata, const int &nivelEnergie, const int &nivelNutritie):
     idJucator(++ contorID),
     nume(nume),
     locatie(locatie),
     statie(statie),
+    balantaBani(balantaBani),
+    balantaCalatorii(balantaCalatorii),
     nivelViata(nivelViata),
     nivelEnergie(nivelEnergie),
-    nivelNutritie(nivelNutritie),
-    nivelInteligenta(nivelInteligenta),
-    nivelDistractie(nivelDistractie),
-    balantaBani(balantaBani),
-    balantaCalatorii(balantaCalatorii) {}
+    nivelNutritie(nivelNutritie) {}
 
 bool Jucator::verificareId(const int &ID) {
     return (idJucator == ID);
@@ -57,20 +55,15 @@ void Jucator::afisareJucator() {
     afisareNivel(std::string("Viata:       "), nivelViata);
     afisareNivel(std::string("Energie:     "), nivelEnergie);
     afisareNivel(std::string("Nutritie:    "), nivelNutritie);
-    afisareNivel(std::string("Inteligenta: "), nivelInteligenta);
-    afisareNivel(std::string("Distractie:  "), nivelDistractie);
 }
-/*
-std::ostream& operator<<(std::ostream& out, Jucator &jucator) {
-    out << "Jucatorul " << jucator.idJucator << ": " << jucator.nume << " (NEFOR)" << std::endl;
-    //out << "Bani: " << jucator.balantaBani << " Lei" << std::endl;
-    //out << "Calatorii: " << jucator.balantaCalatorii << " Calatorii" << std::endl;
-    jucator->afisareNivel(std::string("Nivel viata:      "), nivelViata);
-    jucator.afisareNivel(std::string("Nivel distractie: "), jucator.nivelDistractie);
-    jucator.afisareNivel(std::string("Nivel bunastare:  "), jucator.nivelViata);
-    return out;
+
+void Jucator::modificareBalantaBani(const int &diferentaBani) {
+    balantaBani += diferentaBani;
 }
-*/
+
+void Jucator::modificareBalantaCalatorii(const int &diferentaCalatorii) {
+    balantaCalatorii += diferentaCalatorii;
+}
 
 void Jucator::modificareNivelViata(const int &diferentaViata) {
     nivelViata += diferentaViata;
@@ -102,30 +95,14 @@ void Jucator::modificareNivelNutritie(const int &diferentaNutritie) {
     }
 }
 
-void Jucator::modificareNivelInteligenta(const int &diferentaInteligenta) {
-    nivelInteligenta += diferentaInteligenta;
-    if (nivelInteligenta > 100) {
-        nivelInteligenta = 100;
-    }
-    else if (nivelInteligenta < 0) {
-        nivelInteligenta = 0;
-    }
+/*
+std::ostream& operator<<(std::ostream& out, Jucator &jucator) {
+    out << "Jucatorul " << jucator.idJucator << ": " << jucator.nume << " (NEFOR)" << std::endl;
+    //out << "Bani: " << jucator.balantaBani << " Lei" << std::endl;
+    //out << "Calatorii: " << jucator.balantaCalatorii << " Calatorii" << std::endl;
+    jucator->afisareNivel(std::string("Nivel viata:      "), nivelViata);
+    jucator.afisareNivel(std::string("Nivel distractie: "), jucator.nivelDistractie);
+    jucator.afisareNivel(std::string("Nivel bunastare:  "), jucator.nivelViata);
+    return out;
 }
-
-void Jucator::modificareNivelDistractie(const int &diferentaDistractie) {
-    nivelDistractie += diferentaDistractie;
-    if (nivelDistractie > 100) {
-        nivelDistractie = 100;
-    }
-    else if (nivelDistractie < 0) {
-        nivelDistractie = 0;
-    }
-}
-
-void Jucator::modificareBalantaBani(const int &diferentaBani) {
-    balantaBani += diferentaBani;
-}
-
-void Jucator::modificareBalantaCalatorii(const int &diferentaCalatorii) {
-    balantaCalatorii += diferentaCalatorii;
-}
+*/
