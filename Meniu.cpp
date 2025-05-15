@@ -139,13 +139,9 @@ void Meniu::meniuJucatorNou() {
     std::cout << "Nume: ";
     std::string inputNume;
     std::getline(std::cin, inputNume);
-    while (inputNume.length() < 3) {
-        std::cout << "Nume prea scurt! Alege alt nume: ";
-        std::getline(std::cin, inputNume);
-    }
     std::cout << std::endl;
 
-    std::cout << "Statia: ";
+    std::cout << "Locatie Resedinta ";
     std::string inputStatie;
     std::getline(std::cin, inputStatie);
 
