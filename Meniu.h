@@ -41,6 +41,7 @@ public:
     void meniuJucatorVechi();
     void meniuJucatorNou();
     void meniuStartJoc();
+    void meniuLocatie();
 };
 
 

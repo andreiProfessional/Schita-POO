@@ -140,6 +140,7 @@ void Meniu::meniuJucatorNou() {
 
 void Meniu::meniuStartJoc() {
     golireEcran();
+    std::cout << "___JUCATORUL TAU___" << std::endl << std::endl;
     jucatorCurent->afisareJucator();
     std::cout << std::endl << std::endl;
     std::cout << "1. Incepe jocul" << std::endl;
@@ -149,7 +150,7 @@ void Meniu::meniuStartJoc() {
     std::cin >> optiune;
     switch (optiune) {
         case 1:
-            std::cout << "JOCUL A INCEPUT!" << std::endl;
+            meniuLocatie();
             break;
         case 0:
             meniuInceput();
@@ -158,4 +159,9 @@ void Meniu::meniuStartJoc() {
             meniuStartJoc();
             break;
     }
+}
+
+void Meniu::meniuLocatie() {
+    golireEcran();
+    jucatorCurent->afisareLocatie();
 }

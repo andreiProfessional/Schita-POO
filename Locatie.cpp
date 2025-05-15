@@ -42,28 +42,23 @@ LocatieHoreca::LocatieHoreca(const std::string &tip, const std::string &nume, St
     minusBani(minusBani) {}
 
 void LocatieResedinta::afisareLocatie() {
-    std::cout << "Locatia " << idLocatie << ": (Resedinta) " << nume;
-    std::cout << " => " << plusEnergie << std::endl;
+    std::cout << "Locatia: " << nume << " (Resedinta)" << std::endl;
 }
 
 void LocatieSport::afisareLocatie() {
-    std::cout << "Locatia " << idLocatie << ": (Sport) " << nume << " - Statia " << statie << " => ";
-    std::cout << plusViata << " | " << minusBani << " | " << minusEnergie << " | " << minusNutritie << std::endl;
+    std::cout << "Locatia: " << nume << " (Sport)" << std::endl;
 }
 
 void LocatieMedicala::afisareLocatie() {
-    std::cout << "Locatia " << idLocatie << ": (Medicala) " << nume << " - Statia " << statie ;
-    std::cout << " => " << plusViata << " | " << minusBani << std::endl;
+    std::cout << "Locatia: " << nume << " (Medical)" << std::endl;
 }
 
 void LocatieMunca::afisareLocatie() {
-    std::cout << "Locatia " << idLocatie << ": (Munca) " << nume << " - Statia " << statie << " => ";
-    std::cout << plusBani << " | " << minusEnergie << " | " << minusNutritie << std::endl;
+    std::cout << "Locatia: " << nume << " (Munca)" << std::endl;
 }
 
 void LocatieHoreca::afisareLocatie() {
-    std::cout << "Locatia " << idLocatie << ": (Horeca) " << nume << " - Statia " << statie << " => ";
-    std::cout << plusNutritie << " | " << minusBani << std::endl;
+    std::cout << "Locatia: " << nume << " (Horeca)" << std::endl;
 }
 
 bool Locatie::verificareId(const int &idLocatie) {
