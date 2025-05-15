@@ -7,11 +7,10 @@ class Locatie {
 protected:
     static int contorID;
     const int idLocatie;
-    const std::string tip;
     const std::string nume;
     Statie *statie;
 public:
-    Locatie(const std::string &tip, const std::string &nume, Statie *statie);
+    Locatie(const std::string &nume, Statie *statie);
     virtual void afisareLocatie() = 0;
     virtual void afisareOptiuniLocatie() = 0;
     bool verificareId(const int &idLocatie);
@@ -24,7 +23,7 @@ class LocatieResedinta: public Locatie {
 private:
     const int plusEnergie;
 public:
-    LocatieResedinta(const std::string &tip, const std::string &nume, Statie *statie,
+    LocatieResedinta(const std::string &nume, Statie *statie,
         const int &plusEnergie);
 
     void afisareLocatie() override;
@@ -38,7 +37,7 @@ private:
     const int minusEnergie;
     const int minusNutritie;
 public:
-    LocatieSport(const std::string &tip, const std::string &nume, Statie *statie,
+    LocatieSport(const std::string &nume, Statie *statie,
         const int &plusViata, const int &minusBani, const int &minusEnergie, const int &minusNutritie);
 
     void afisareLocatie() override;
@@ -50,7 +49,7 @@ private:
     const int plusViata;
     const int minusBani;
 public:
-    LocatieMedicala(const std::string &tip, const std::string &nume, Statie *statie,
+    LocatieMedicala(const std::string &nume, Statie *statie,
         const int &plusViata, const int &minusBani);
 
     void afisareLocatie() override;
@@ -63,7 +62,7 @@ private:
     const int minusEnergie;
     const int minusNutritie;
 public:
-    LocatieMunca(const std::string &tip, const std::string &nume, Statie *statie,
+    LocatieMunca(const std::string &nume, Statie *statie,
         const int &plusBani, const int &minusEnergie, const int &minusNutritie);
 
     void afisareLocatie() override;
@@ -75,7 +74,7 @@ private:
     const int plusNutritie;
     const int minusBani;
 public:
-    LocatieHoreca(const std::string &tip, const std::string &nume, Statie *statie,
+    LocatieHoreca(const std::string &nume, Statie *statie,
         const int &plusNutritie, const int &minusBani);
 
     void afisareLocatie() override;

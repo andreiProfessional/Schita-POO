@@ -3,41 +3,40 @@
 
 int Locatie::contorID = 0;
 
-Locatie::Locatie(const std::string &tip, const std::string &nume, Statie *statie):
+Locatie::Locatie(const std::string &nume, Statie *statie):
     idLocatie(++ contorID),
-    tip(tip),
     nume(nume),
     statie(statie) {}
 
-LocatieResedinta::LocatieResedinta(const std::string &tip, const std::string &nume, Statie *statie,
+LocatieResedinta::LocatieResedinta(const std::string &nume, Statie *statie,
         const int &plusEnergie):
-        Locatie(tip, nume, statie),
+        Locatie(nume, statie),
         plusEnergie(plusEnergie) {}
 
-LocatieSport::LocatieSport(const std::string &tip, const std::string &nume, Statie *statie,
+LocatieSport::LocatieSport(const std::string &nume, Statie *statie,
     const int &plusViata, const int &minusBani, const int &minusEnergie, const int &minusNutritie):
-    Locatie(tip, nume, statie),
+    Locatie(nume, statie),
     plusViata(plusViata),
     minusBani(minusBani),
     minusEnergie(minusEnergie),
     minusNutritie(minusNutritie) {}
 
-LocatieMedicala::LocatieMedicala(const std::string &tip, const std::string &nume, Statie *statie,
+LocatieMedicala::LocatieMedicala(const std::string &nume, Statie *statie,
         const int &plusViata, const int &minusBani):
-        Locatie(tip, nume, statie),
+        Locatie(nume, statie),
         plusViata(plusViata),
         minusBani(minusBani) {}
 
-LocatieMunca::LocatieMunca(const std::string &tip, const std::string &nume, Statie *statie,
+LocatieMunca::LocatieMunca(const std::string &nume, Statie *statie,
         const int &plusBani, const int &minusEnergie, const int &minusNutritie):
-        Locatie(tip, nume, statie),
+        Locatie(nume, statie),
         plusBani(plusBani),
         minusEnergie(minusEnergie),
         minusNutritie(minusNutritie) {}
 
-LocatieHoreca::LocatieHoreca(const std::string &tip, const std::string &nume, Statie *statie,
+LocatieHoreca::LocatieHoreca(const std::string &nume, Statie *statie,
         const int &plusNutritie, const int &minusBani):
-    Locatie(tip, nume, statie),
+    Locatie(nume, statie),
     plusNutritie(plusNutritie),
     minusBani(minusBani) {}
 

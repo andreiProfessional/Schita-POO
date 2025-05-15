@@ -80,23 +80,23 @@ void HartaOras::afisareHartaRute() {
 
 void HartaOras::adaugareLocatie(const std::string &tip, const std::string &nume, Statie *statie, const std::vector<int> &coeficienti) {
     if (tip == "RESEDINTA") {
-        Locatie *locatieNoua = new LocatieResedinta(tip, nume, statie, coeficienti[0]);
+        Locatie *locatieNoua = new LocatieResedinta(nume, statie, coeficienti[0]);
         locatii.push_back(locatieNoua);
     }
     else if (tip == "SPORT") {
-        Locatie *locatieNoua = new LocatieSport(tip, nume, statie, coeficienti[0], coeficienti[1], coeficienti[2], coeficienti[3]);
+        Locatie *locatieNoua = new LocatieSport(nume, statie, coeficienti[0], coeficienti[1], coeficienti[2], coeficienti[3]);
         locatii.push_back(locatieNoua);
     }
     else if (tip == "MEDICALA") {
-        Locatie *locatieNoua = new LocatieMedicala(tip, nume, statie, coeficienti[0], coeficienti[1]);
+        Locatie *locatieNoua = new LocatieMedicala(nume, statie, coeficienti[0], coeficienti[1]);
         locatii.push_back(locatieNoua);
     }
     else if (tip == "MUNCA") {
-        Locatie *locatieNoua = new LocatieMunca(tip, nume, statie, coeficienti[0], coeficienti[1], coeficienti[2]);
+        Locatie *locatieNoua = new LocatieMunca(nume, statie, coeficienti[0], coeficienti[1], coeficienti[2]);
         locatii.push_back(locatieNoua);
     }
     else if (tip == "HORECA") {
-        Locatie *locatieNoua = new LocatieHoreca(tip, nume, statie, coeficienti[0], coeficienti[1]);
+        Locatie *locatieNoua = new LocatieHoreca(nume, statie, coeficienti[0], coeficienti[1]);
         locatii.push_back(locatieNoua);
     }
     else {
