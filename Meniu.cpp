@@ -12,7 +12,6 @@ void Meniu::golireEcran() {
 
 void Meniu::creareHartaOras() {
     hartaOras.creareHartaLocatii();
-    hartaOras.afisareHartaLocatii();
     hartaOras.creareHartaRute();
 }
 
@@ -130,7 +129,7 @@ void Meniu::meniuJucatorNou() {
     std::getline(std::cin, inputNume);
     std::cout << std::endl;
 
-    std::cout << "Locatie Resedinta ";
+    std::cout << "Locatie Resedinta: ";
     std::string inputStatie;
     std::getline(std::cin, inputStatie);
 

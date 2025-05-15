@@ -15,7 +15,7 @@ bool Jucator::verificareId(const int &ID) {
     return (idJucator == ID);
 }
 
-void Jucator::afisareNivel(const std::string &mesajNivel, const int &nivel) {
+void Jucator::afisareNivel(const std::string &mesajNivel, const std::string &simbolPozitiv, const std::string &simbolNegativ, const int &nivel) {
     std::cout << mesajNivel;
     std::cout << "[";
     int nivelAfisaj;
@@ -26,13 +26,13 @@ void Jucator::afisareNivel(const std::string &mesajNivel, const int &nivel) {
         nivelAfisaj = nivel / 10;
     }
     for (int i = 0; i < nivelAfisaj; i++) {
-        std::cout << "█";
+        std::cout << simbolPozitiv;
         if (i != 9) {
             std::cout << "|";
         }
     }
     for (int i = nivelAfisaj; i < 10; i++) {
-        std::cout << "░";
+        std::cout << simbolNegativ;
         if (i != 9) {
             std::cout << "|";
         }
@@ -43,10 +43,10 @@ void Jucator::afisareNivel(const std::string &mesajNivel, const int &nivel) {
 void Jucator::afisareJucator() {
     std::cout << "Jucatorul " << idJucator << ": " << nume << std::endl;
     locatie->afisareLocatie();
-    std::cout << "Bani: " << balantaBani << " Lei" << std::endl;
-    afisareNivel(std::string("Viata:       "), nivelViata);
-    afisareNivel(std::string("Energie:     "), nivelEnergie);
-    afisareNivel(std::string("Nutritie:    "), nivelNutritie);
+    std::cout << "Bani:     " << balantaBani << " Lei" << std::endl;
+    afisareNivel(std::string("Viata:    "), "❤️", "🖤", nivelViata);
+    afisareNivel(std::string("Energie:  "), "🔋", "🪫", nivelEnergie);
+    afisareNivel(std::string("Nutritie: "), "🍗", "🦴", nivelNutritie);
 }
 
 void Jucator::modificareBalantaBani(const int &diferentaBani) {
