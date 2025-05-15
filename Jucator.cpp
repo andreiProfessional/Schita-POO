@@ -4,11 +4,13 @@
 
 int Jucator::contorID = 0;
 
-Jucator::Jucator(const std::string &nume, const std::string &statie,
+Jucator::Jucator(const std::string &nume,
+    Locatie *locatie, Statie *statie,
     const int &nivelViata, const int &nivelEnergie, const int &nivelNutritie, const int &nivelInteligenta, const int &nivelDistractie,
     const int &balantaBani, const int &balantaCalatorii):
     idJucator(++ contorID),
     nume(nume),
+    locatie(locatie),
     statie(statie),
     nivelViata(nivelViata),
     nivelEnergie(nivelEnergie),
@@ -49,6 +51,7 @@ void Jucator::afisareNivel(const std::string &mesajNivel, const int &nivel) {
 
 void Jucator::afisareJucator() {
     std::cout << "Jucatorul " << idJucator << ": " << nume << std::endl;
+    locatie->afisareLocatie();
     std::cout << "Bani: " << balantaBani << " Lei" << std::endl;
     std::cout << "Calatorii: " << balantaCalatorii << " Calatorii" << std::endl;
     afisareNivel(std::string("Viata:       "), nivelViata);

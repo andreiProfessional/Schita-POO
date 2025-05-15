@@ -1,13 +1,17 @@
 #ifndef UTILIZATOR_H
 #define UTILIZATOR_H
+#include "Statie.h"
+#include "Locatie.h"
 #include <string>
+
 
 class Jucator {
 protected:
     static int contorID;
     const int idJucator;
     std::string nume;
-    std::string statie;
+    Locatie *locatie;
+    Statie *statie;
     int nivelViata;
     int nivelEnergie;
     int nivelNutritie;
@@ -16,13 +20,15 @@ protected:
     int balantaBani;
     int balantaCalatorii;
 public:
-    Jucator(const std::string &nume, const std::string &statie,
+    Jucator(const std::string &nume = "NO NAME",
+        Locatie *locatie = nullptr, Statie *statie = nullptr,
         const int &nivelViata = 100,
         const int &nivelEnergie = 100,
         const int &nivelNutritie = 100,
         const int &nivelInteligenta = 100,
         const int &nivelDistractie = 100,
-        const int &balantaBani = 50, const int &balantaCalatorii = 0);
+        const int &balantaBani = 50,
+        const int &balantaCalatorii = 0);
 
     bool verificareId(const int &id);
     void afisareJucator();

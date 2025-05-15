@@ -2,7 +2,6 @@
 #define MENIU_H
 #include "Jucator.h"
 #include "HartaOras.h"
-#include "Locatie.h"
 #include <vector>
 
 class Meniu {
@@ -31,6 +30,9 @@ public:
     //void afisareJucator(const int &idJucator);
     void afisareListaJucatori();
     Jucator* gasireJucator(const int &idJucator);
+
+    Locatie* gasireLocatieDupaNume(const std::string &numeLocatie);
+    Statie* gasireStatieDupaLocatie(Locatie *locatie);
 
     bool existaStatie(const std::string &statie);
 

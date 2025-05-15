@@ -78,7 +78,7 @@ void HartaOras::afisareHartaRute() {
     std::cout << std::endl;
 }
 
-void HartaOras::adaugareLocatie(const std::string &tip, const std::string &nume, const std::string &statie, const std::vector<int> &coeficienti) {
+void HartaOras::adaugareLocatie(const std::string &tip, const std::string &nume, Statie *statie, const std::vector<int> &coeficienti) {
     if (tip == "RESEDINTA") {
         locatii.emplace_back(new LocatieResedinta(tip, nume, statie,
             coeficienti[0], coeficienti[1], coeficienti[2]));
@@ -132,7 +132,7 @@ void HartaOras::creareHartaLocatii() {
         coeficienti.push_back(std::stoi(inputCoeficienti));
         input = input.erase(0, input.find(",") + 1);
 
-        adaugareLocatie(INPUT_TIP, INPUT_NUME, INPUT_STATIE, coeficienti);
+        adaugareLocatie(INPUT_TIP, INPUT_NUME, this->gasireStatieDupaNume(INPUT_STATIE), coeficienti);
     }
 
     in.close();
@@ -148,26 +148,25 @@ void HartaOras::afisareHartaLocatii() {
     }
     std::cout << std::endl;
 }
-/*
-bool HartaOras::existaStatie(const std::string &numeStatie) {
-    for (const auto &ruta: rute) {
-        if (ruta->existaStatiePeRuta(numeStatie)) {
-            return true;
-        }
-    }
-    return false;
-}
-*/
-/*
-Statie* HartaOras::gasireStatie(const int &idStatie) {
-    for (auto &statie: statii) {
-        if (statie->verificareId(idStatie)) {
-            return statie;
+
+Locatie* HartaOras::gasireLocatieDupaNume(const std::string &numeLocatie) {
+    for (const auto &locatie: locatii) {
+        if (locatie->verificareNume(numeLocatie)) {
+            return locatie;
         }
     }
     return nullptr;
 }
-*/
+
+Statie* HartaOras::gasireStatieDupaNume(const std::string &numeStatie) {
+    for (const auto &ruta: rute) {
+        Statie *statiePosibila = ruta->gasireStatie(numeStatie);
+        if (statiePosibila != nullptr) {
+            return statiePosibila;
+        }
+    }
+    return nullptr;
+}
 
 /*
 Locatie* HartaOras::gasireLocatie(const int &idLocatie) {

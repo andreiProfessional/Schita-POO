@@ -15,7 +15,7 @@ public:
 
     virtual void afisareRuta() = 0;
 
-    //bool existaStatiePeRuta(const std::string &statie);
+    Statie* gasireStatie(const std::string &numeStatie);
 };
 
 class RutaAutobuz: public Ruta {

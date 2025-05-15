@@ -54,13 +54,11 @@ void RutaMetrou::afisareRuta() {
     std::cout << std::endl;
 }
 
-/*
-bool Ruta::existaStatiePeRuta(const std::string &numeStatie) {
+Statie* Ruta::gasireStatie(const std::string &numeStatie) {
     for (const auto &statie: statii) {
         if (statie->verificareNume(numeStatie)) {
-            return true;
+            return statie;
         }
     }
-    return false;
+    return nullptr;
 }
-*/

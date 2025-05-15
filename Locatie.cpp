@@ -3,60 +3,60 @@
 
 int Locatie::contorID = 0;
 
-Locatie::Locatie(const std::string &TIP, const std::string &NUME, const std::string &STATIE):
+Locatie::Locatie(const std::string &TIP, const std::string &NUME, Statie *statie):
     idLocatie(++ contorID),
     tip(TIP),
     nume(NUME),
-    statie(STATIE) {}
+    statie(statie) {}
 
-LocatieResedinta::LocatieResedinta(const std::string &TIP, const std::string &NUME, const std::string &STATIE,
+LocatieResedinta::LocatieResedinta(const std::string &TIP, const std::string &NUME, Statie *statie,
     const int &PLUS_ENERGIE, const int &PLUS_NUTRITIE, const int &MINUS_INTELIGENTA):
-        Locatie(TIP, NUME, STATIE),
+        Locatie(TIP, NUME, statie),
         plusEnergie(PLUS_ENERGIE),
         plusNutritie(PLUS_NUTRITIE),
         minusInteligenta(MINUS_INTELIGENTA) {}
 
-LocatieMedicala::LocatieMedicala(const std::string &TIP, const std::string &NUME, const std::string &STATIE,
+LocatieMedicala::LocatieMedicala(const std::string &TIP, const std::string &NUME, Statie *statie,
     const int &PLUS_VIATA, const int &PLUS_ENERGIE, const int &MINUS_DISTRACTIE, const int &MINUS_BANI):
-        Locatie(TIP, NUME, STATIE),
+        Locatie(TIP, NUME, statie),
         plusViata(PLUS_VIATA),
         plusEnergie(PLUS_ENERGIE),
         minusDistractie(MINUS_DISTRACTIE),
         minusBani(MINUS_BANI) {}
 
-LocatieEducatie::LocatieEducatie(const std::string &TIP, const std::string &NUME, const std::string &STATIE,
+LocatieEducatie::LocatieEducatie(const std::string &TIP, const std::string &NUME, Statie *statie,
     const int &PLUS_INTELIGENTA, const int &MINUS_ENERGIE, const int &MINUS_NUTRITIE, const int &MINUS_DISTRACTIE):
-        Locatie(TIP, NUME, STATIE),
+        Locatie(TIP, NUME, statie),
         plusInteligenta(PLUS_INTELIGENTA),
         minusEnergie(MINUS_ENERGIE),
         minusNutritie(MINUS_NUTRITIE),
         minusDistractie(MINUS_DISTRACTIE) {}
 
-LocatieMunca::LocatieMunca(const std::string &TIP, const std::string &NUME, const std::string &STATIE,
+LocatieMunca::LocatieMunca(const std::string &TIP, const std::string &NUME, Statie *statie,
     const int &PLUS_BANI, const int &MINUS_ENERGIE, const int &MINUS_NUTRITIE, const int &MINUS_DISTRACTIE):
-        Locatie(TIP, NUME, STATIE),
+        Locatie(TIP, NUME, statie),
         plusBani(PLUS_BANI),
         minusEnergie(MINUS_ENERGIE),
         minusNutritie(MINUS_NUTRITIE),
         minusDistractie(MINUS_DISTRACTIE)
         {}
 
-LocatieHoreca::LocatieHoreca(const std::string &TIP, const std::string &NUME, const std::string &STATIE,
+LocatieHoreca::LocatieHoreca(const std::string &TIP, const std::string &NUME, Statie *statie,
     const int &PLUS_NUTRITIE, const int &PLUS_DISTRACTIE, const int &MINUS_BANI):
-    Locatie(TIP, NUME, STATIE),
+    Locatie(TIP, NUME, statie),
     plusNutritie(PLUS_NUTRITIE),
     plusDistractie(PLUS_DISTRACTIE),
     minusBani(MINUS_BANI) {}
 
-LocatieRelaxare::LocatieRelaxare(const std::string &TIP, const std::string &NUME, const std::string &STATIE,
+LocatieRelaxare::LocatieRelaxare(const std::string &TIP, const std::string &NUME, Statie *statie,
     const int &PLUS_ENERGIE, const int &PLUS_DISTRACTIE, const int &MINUS_BANI):
-    Locatie(TIP, NUME, STATIE),
+    Locatie(TIP, NUME, statie),
     plusEnergie(PLUS_ENERGIE),
     plusDistractie(PLUS_DISTRACTIE),
     minusBani(MINUS_BANI) {}
 
 void LocatieResedinta::afisareLocatie() {
-    std::cout << "Locatia " << idLocatie << ": (Resedinta) " << nume << " - Statia " << statie;
+    std::cout << "Locatia " << idLocatie << ": (Resedinta) " << nume;
     std::cout << " => " << plusEnergie << " | " << plusNutritie << " | " << minusInteligenta << std::endl;
 }
 
@@ -84,7 +84,7 @@ void LocatieRelaxare::afisareLocatie() {
     std::cout << "Locatia " << idLocatie << ": (Relaxare) " << nume << " - Statia " << statie << " => ";
     std::cout << plusEnergie << " | " << plusDistractie << " | " << minusBani << std::endl;
 }
-
+/*
 void LocatieResedinta::aplicaCoeficienti(Jucator *jucator) {
     jucator->modificareNivelEnergie(plusEnergie);
     jucator->modificareNivelNutritie(plusNutritie);
@@ -123,7 +123,16 @@ void LocatieRelaxare::aplicaCoeficienti(Jucator *jucator) {
     jucator->modificareNivelDistractie(plusDistractie);
     jucator->modificareBalantaCalatorii(minusBani);
 }
+*/
 
-bool Locatie::verificareId(const int &ID) {
-    return (idLocatie == ID);
+bool Locatie::verificareId(const int &idLocatie) {
+    return (this->idLocatie == idLocatie);
+}
+
+bool Locatie::verificareNume(const std::string &nume) {
+    return (this->nume == nume);
+}
+
+Statie* Locatie::gasireStatie() {
+    return this->statie;
 }

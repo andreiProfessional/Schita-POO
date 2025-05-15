@@ -12,9 +12,7 @@ void Meniu::golireEcran() {
 
 void Meniu::creareHartaOras() {
     hartaOras.creareHartaLocatii();
-    //hartaOras.afisareHartaLocatii();
     hartaOras.creareHartaRute();
-    //hartaOras.afisareHartaRute();
 }
 
 void Meniu::creareListaJucatori() {
@@ -26,7 +24,7 @@ void Meniu::creareListaJucatori() {
         const std::string inputNume = input.substr(0, input.find(","));
         input = input.erase(0, input.find(",") + 1);
 
-        const std::string inputStatie = input.substr(0, input.find(","));
+        const std::string inputLocatieResedinta = input.substr(0, input.find(","));
         input = input.erase(0, input.find(",") + 1);
 
         const int inputNivelViata = std::stoi(input.substr(0, input.find(",")));
@@ -50,11 +48,14 @@ void Meniu::creareListaJucatori() {
         const int inputBalantaCalatorii = std::stoi(input.substr(0, input.find(",")));
         input = input.erase(0, input.find(",") + 1);
 
-        jucatori.emplace_back(new Jucator(inputNume, inputStatie,
-            inputNivelViata, inputNivelEnergie, inputNivelNutritie, inputNivelInteligenta, inputNivelDistractie,
-            inputbalantaBani, inputBalantaCalatorii));
+        std::cout << inputLocatieResedinta << std::endl;
 
-        jucatorCurent = jucatori.back();
+        Locatie *locatieNoua = this->gasireLocatieDupaNume(inputLocatieResedinta);
+        Jucator *jucatorNou = new Jucator(inputNume,
+            locatieNoua, nullptr,
+            inputNivelViata, inputNivelEnergie, inputNivelNutritie, inputNivelInteligenta, inputNivelDistractie,
+            inputbalantaBani, inputBalantaCalatorii);
+        jucatori.push_back(jucatorNou);
     }
 
     in.close();
@@ -80,12 +81,17 @@ Jucator* Meniu::gasireJucator(const int &idJucator) {
     return nullptr;
 }
 
-bool Meniu::existaStatie(const std::string &numeStatie) {
-    return hartaOras.existaStatie(numeStatie);
+Locatie* Meniu::gasireLocatieDupaNume(const std::string &numeLocatie) {
+    return hartaOras.gasireLocatieDupaNume(numeLocatie);
+}
+
+Statie* Meniu::gasireStatieDupaLocatie(Locatie *locatie) {
+    return locatie->gasireStatie();
 }
 
 void Meniu::meniuInceput() {
     golireEcran();
+    this->creareHartaOras();
     this->creareListaJucatori();
     std::cout << "Bine ai venit in \"MICUL ORASEL\"!" << std::endl << std::endl;
     std::cout << "1. Selecteaza jucator vechi" << std::endl;
@@ -142,14 +148,10 @@ void Meniu::meniuJucatorNou() {
     std::cout << "Statia: ";
     std::string inputStatie;
     std::getline(std::cin, inputStatie);
-    /*while (this->existaStatie(inputStatie)) {
-        std::cout << "Statia nu exista!" << std::endl << std::endl;
-        std::cout << "Statie(care exista): ";
-        getline(std::cin, inputStatie);
-    }*/
-    Jucator* jucatorNou = new Jucator(inputNume, inputStatie);
-    jucatori.push_back(jucatorNou);
-    jucatorCurent = jucatorNou;
+
+    //Jucator* jucatorNou = new Jucator(inputNume, inputStatie);
+    //jucatori.push_back(jucatorNou);
+    //jucatorCurent = jucatorNou;
 }
 
 void Meniu::meniuStartJoc() {
