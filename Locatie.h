@@ -13,9 +13,11 @@ protected:
 public:
     Locatie(const std::string &tip, const std::string &nume, Statie *statie);
     virtual void afisareLocatie() = 0;
+    virtual void afisareOptiuniLocatie() = 0;
     bool verificareId(const int &idLocatie);
     bool verificareNume(const std::string &nume);
     Statie* gasireStatie();
+    std::string gasesteNumeLocatie();
 };
 
 class LocatieResedinta: public Locatie {
@@ -26,6 +28,7 @@ public:
         const int &plusEnergie);
 
     void afisareLocatie() override;
+    void afisareOptiuniLocatie() override;
 };
 
 class LocatieSport: public Locatie {
@@ -39,6 +42,7 @@ public:
         const int &plusViata, const int &minusBani, const int &minusEnergie, const int &minusNutritie);
 
     void afisareLocatie() override;
+    void afisareOptiuniLocatie() override;
 };
 
 class LocatieMedicala: public Locatie {
@@ -50,6 +54,7 @@ public:
         const int &plusViata, const int &minusBani);
 
     void afisareLocatie() override;
+    void afisareOptiuniLocatie() override;
 };
 
 class LocatieMunca: public Locatie {
@@ -62,6 +67,7 @@ public:
         const int &plusBani, const int &minusEnergie, const int &minusNutritie);
 
     void afisareLocatie() override;
+    void afisareOptiuniLocatie() override;
 };
 
 class LocatieHoreca: public Locatie {
@@ -73,6 +79,7 @@ public:
         const int &plusNutritie, const int &minusBani);
 
     void afisareLocatie() override;
+    void afisareOptiuniLocatie() override;
 };
 
 

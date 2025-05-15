@@ -28,6 +28,7 @@ public:
     void afisareJucator();
     void afisareNivel(const std::string &mesajNivel, const std::string &simbolPozitiv, const std::string &simbolNegativ, const int &nivel);
     void afisareLocatie();
+    void afisareOptiuniLocatie();
 
     void modificareBalantaBani(const int &diferentaBani);
     void modificareNivelViata(const int &diferentaViata);

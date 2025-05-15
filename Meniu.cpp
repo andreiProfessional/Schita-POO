@@ -111,9 +111,9 @@ void Meniu::meniuSfarsit() {
 
 void Meniu::meniuJucatorVechi() {
     golireEcran();
-    std::cout << "Jucatori disponibili: " << std::endl << std::endl;
+    std::cout << "JUCATORI DISPONIBILI: " << std::endl << std::endl;
     this->afisareListaJucatori();
-    std::cout << "Alegerea ta: ";
+    std::cout << std::endl << "Alegerea ta (ID Jucator): ";
     int optiune;
     std::cin >> optiune;
     this->jucatorCurent = this->gasireJucator(optiune);
@@ -164,4 +164,8 @@ void Meniu::meniuStartJoc() {
 void Meniu::meniuLocatie() {
     golireEcran();
     jucatorCurent->afisareLocatie();
+    std::cout << std::endl;
+    jucatorCurent->afisareOptiuniLocatie();
+    std::cout << "0. Iesi din joc" << std::endl;
+
 }

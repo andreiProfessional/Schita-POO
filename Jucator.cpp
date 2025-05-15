@@ -41,16 +41,28 @@ void Jucator::afisareNivel(const std::string &mesajNivel, const std::string &sim
 }
 
 void Jucator::afisareJucator() {
-    std::cout << "Nume: " << nume << std::endl;
-    locatie->afisareLocatie();
-    std::cout << "Bani:     " << balantaBani << " Lei" << std::endl;
-    afisareNivel(std::string("Viata:    "), "❤️", "🖤", nivelViata);
-    afisareNivel(std::string("Energie:  "), "🔋", "🪫", nivelEnergie);
-    afisareNivel(std::string("Nutritie: "), "🍗", "🦴", nivelNutritie);
+    for (int i = 0; i < 50; i++) {
+        std::cout << "*";
+    }
+    std::cout << std::endl;
+    std::cout << "ID Jucator: " << idJucator << std::endl;
+    std::cout << "Nume:       " << nume << std::endl;
+    std::cout << "Locatie:    " << locatie->gasesteNumeLocatie() << std::endl;
+    std::cout << "Bani:       " << balantaBani << " Lei" << std::endl;
+    afisareNivel(std::string("Viata:      "), "❤️", "🖤", nivelViata);
+    afisareNivel(std::string("Energie:    "), "🔋", "🪫", nivelEnergie);
+    afisareNivel(std::string("Nutritie:   "), "🍗", "🦴", nivelNutritie);
+    for (int i = 0; i < 50; i++) {
+        std::cout << "*";
+    }
 }
 
 void Jucator::afisareLocatie() {
     locatie->afisareLocatie();
+}
+
+void Jucator::afisareOptiuniLocatie() {
+    locatie->afisareOptiuniLocatie();
 }
 
 

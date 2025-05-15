@@ -42,23 +42,101 @@ LocatieHoreca::LocatieHoreca(const std::string &tip, const std::string &nume, St
     minusBani(minusBani) {}
 
 void LocatieResedinta::afisareLocatie() {
-    std::cout << "Locatia: " << nume << " (Resedinta)" << std::endl;
+    for (int i = 0; i < 50; i ++) {
+        std::cout << "=";
+    }
+    std::cout << std::endl;
+    std::cout << "Locatie: " << nume << std::endl;
+    std::cout << "Tip:     " << "Resedinta" << std::endl;
+    std::cout << "Energie: +" << plusEnergie << std::endl;
+    for (int i = 0; i < 50; i ++) {
+        std::cout << "=";
+    }
+    std::cout << std::endl;
 }
 
 void LocatieSport::afisareLocatie() {
-    std::cout << "Locatia: " << nume << " (Sport)" << std::endl;
+    for (int i = 0; i < 50; i ++) {
+        std::cout << "=";
+    }
+    std::cout << std::endl;
+    std::cout << "Locatie:  " << nume << std::endl;
+    std::cout << "Tip:      " << "Sport" << std::endl;
+    std::cout << "Viata:    +" << plusViata << std::endl;
+    std::cout << "Bani:     " << minusBani << std::endl;
+    std::cout << "Energie:  " << minusEnergie << std::endl;
+    std::cout << "Nutritie: " << minusNutritie << std::endl;
+    for (int i = 0; i < 50; i ++) {
+        std::cout << "=";
+    }
+    std::cout << std::endl;
 }
 
 void LocatieMedicala::afisareLocatie() {
-    std::cout << "Locatia: " << nume << " (Medical)" << std::endl;
+    for (int i = 0; i < 50; i ++) {
+        std::cout << "=";
+    }
+    std::cout << std::endl;
+    std::cout << "Locatie: " << nume << std::endl;
+    std::cout << "Tip:     " << "Medicala" << std::endl;
+    std::cout << "Viata:   +" << plusViata << std::endl;
+    std::cout << "Bani:    " << minusBani << std::endl;
+    for (int i = 0; i < 50; i ++) {
+        std::cout << "=";
+    }
+    std::cout << std::endl;
 }
 
 void LocatieMunca::afisareLocatie() {
-    std::cout << "Locatia: " << nume << " (Munca)" << std::endl;
+    for (int i = 0; i < 50; i ++) {
+        std::cout << "=";
+    }
+    std::cout << std::endl;
+    std::cout << "Locatie:  " << nume << std::endl;
+    std::cout << "Tip:      " << "Munca" << std::endl;
+    std::cout << "Bani:     +" << plusBani << std::endl;
+    std::cout << "Energie:  " << minusEnergie << std::endl;
+    std::cout << "Nutritie: " << minusNutritie << std::endl;
+    for (int i = 0; i < 50; i ++) {
+        std::cout << "=";
+    }
+    std::cout << std::endl;
 }
 
 void LocatieHoreca::afisareLocatie() {
-    std::cout << "Locatia: " << nume << " (Horeca)" << std::endl;
+    for (int i = 0; i < 50; i ++) {
+        std::cout << "=";
+    }
+    std::cout << std::endl;
+    std::cout << "Locatie:  " << nume << std::endl;
+    std::cout << "Tip:      " << "Horeca" << std::endl;
+    std::cout << "Nutritie: +" << plusNutritie << std::endl;
+    std::cout << "Bani:     " << minusBani << std::endl;
+    for (int i = 0; i < 50; i ++) {
+        std::cout << "=";
+    }
+    std::cout << std::endl;
+}
+
+void LocatieResedinta::afisareOptiuniLocatie() {
+    std::cout << "1. Dormi ( +++ Energie +++ )" << std::endl;
+    std::cout << "2. Du-te afara" << std::endl;
+}
+
+void LocatieSport::afisareOptiuniLocatie() {
+    std::cout << "OPTIUNI LOCATIE SPORT" << std::endl;
+}
+
+void LocatieMedicala::afisareOptiuniLocatie() {
+    std::cout << "OPTIUNI LOCATIE MEDICALA" << std::endl;
+}
+
+void LocatieMunca::afisareOptiuniLocatie() {
+    std::cout << "OPTIUNI LOCATIE MUNCA" << std::endl;
+}
+
+void LocatieHoreca::afisareOptiuniLocatie() {
+    std::cout << "OPTIUNI LOCATIE HORECA" << std::endl;
 }
 
 bool Locatie::verificareId(const int &idLocatie) {
@@ -71,4 +149,8 @@ bool Locatie::verificareNume(const std::string &nume) {
 
 Statie* Locatie::gasireStatie() {
     return this->statie;
+}
+
+std::string Locatie::gasesteNumeLocatie() {
+    return nume;
 }
