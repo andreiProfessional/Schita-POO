@@ -163,9 +163,10 @@ void Meniu::meniuStartJoc() {
 
 void Meniu::meniuLocatie() {
     golireEcran();
+    jucatorCurent->afisareJucator();
+    std::cout << std::endl;
     jucatorCurent->afisareLocatie();
     std::cout << std::endl;
     jucatorCurent->afisareOptiuniLocatie();
     std::cout << "0. Iesi din joc" << std::endl;
-
 }

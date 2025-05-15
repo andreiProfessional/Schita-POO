@@ -118,12 +118,19 @@ void LocatieHoreca::afisareLocatie() {
 }
 
 void LocatieResedinta::afisareOptiuniLocatie() {
-    std::cout << "1. Dormi ( +++ Energie +++ )" << std::endl;
+    std::cout << "1. Du-te la culcare ";
+    std::cout << "(+" << plusEnergie << " Energie)";
+    std::cout << std::endl;
     std::cout << "2. Du-te afara" << std::endl;
 }
 
 void LocatieSport::afisareOptiuniLocatie() {
-    std::cout << "OPTIUNI LOCATIE SPORT" << std::endl;
+    std::cout << "1. Practica sport ";
+    std::cout << "(+" << plusViata << " Viata) ";
+    std::cout << "(" << minusBani << " Bani) ";
+    std::cout << "(" << minusEnergie << " Energie) ";
+    std::cout << "(" << minusNutritie << " Nutritie) ";
+    std::cout << std::endl;
 }
 
 void LocatieMedicala::afisareOptiuniLocatie() {
