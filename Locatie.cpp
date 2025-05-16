@@ -121,28 +121,42 @@ void LocatieResedinta::afisareOptiuniLocatie() {
     std::cout << "1. Du-te la culcare ";
     std::cout << "(+" << plusEnergie << " Energie)";
     std::cout << std::endl;
-    std::cout << "2. Du-te afara" << std::endl;
+    std::cout << "0. Du-te afara" << std::endl;
 }
 
 void LocatieSport::afisareOptiuniLocatie() {
     std::cout << "1. Practica sport ";
     std::cout << "(+" << plusViata << " Viata) ";
-    std::cout << "(" << minusBani << " Bani) ";
+    std::cout << "(" << minusBani << " Lei) ";
     std::cout << "(" << minusEnergie << " Energie) ";
     std::cout << "(" << minusNutritie << " Nutritie) ";
     std::cout << std::endl;
+    std::cout << "0. Du-te afara" << std::endl;
 }
 
 void LocatieMedicala::afisareOptiuniLocatie() {
-    std::cout << "OPTIUNI LOCATIE MEDICALA" << std::endl;
+    std::cout << "1. Tratament medical ";
+    std::cout << "(+" << plusViata << " Viata) ";
+    std::cout << "(" << minusBani << " Lei) ";
+    std::cout << std::endl;
+    std::cout << "0. Du-te afara" << std::endl;
 }
 
 void LocatieMunca::afisareOptiuniLocatie() {
-    std::cout << "OPTIUNI LOCATIE MUNCA" << std::endl;
+    std::cout << "1. Zi de munca ";
+    std::cout << "(+" << plusBani << " Lei) ";
+    std::cout << "(" << minusEnergie << " Energie) ";
+    std::cout << "(" << minusNutritie << " Nutritie) ";
+    std::cout << std::endl;
+    std::cout << "0. Du-te afara" << std::endl;
 }
 
 void LocatieHoreca::afisareOptiuniLocatie() {
-    std::cout << "OPTIUNI LOCATIE HORECA" << std::endl;
+    std::cout << "1. Mananca portie normala ";
+    std::cout << "(+" << plusNutritie << " Nutritie) ";
+    std::cout << "(" << minusBani << " Lei) ";
+    std::cout << std::endl;
+    std::cout << "0. Du-te afara" << std::endl;
 }
 
 bool Locatie::verificareId(const int &idLocatie) {

@@ -168,5 +168,5 @@ void Meniu::meniuLocatie() {
     jucatorCurent->afisareLocatie();
     std::cout << std::endl;
     jucatorCurent->afisareOptiuniLocatie();
-    std::cout << "0. Iesi din joc" << std::endl;
+    std::cout << "-1. Iesi din joc" << std::endl;
 }
