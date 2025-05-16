@@ -65,6 +65,7 @@ add_executable(${MAIN_EXECUTABLE_NAME}
         Ruta.h
         Meniu.cpp
         Meniu.h
+        CuloriText.h
 )
 
 # NOTE: Add all defined targets (e.g. executables, libraries, etc. )

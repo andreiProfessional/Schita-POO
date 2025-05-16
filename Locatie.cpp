@@ -1,4 +1,5 @@
 #include "Locatie.h"
+#include "CuloriText.h"
 #include <iostream>
 
 int Locatie::contorID = 0;
@@ -45,9 +46,9 @@ void LocatieResedinta::afisareLocatie() {
         std::cout << "=";
     }
     std::cout << std::endl;
-    std::cout << "Locatie: " << nume << std::endl;
-    std::cout << "Tip:     " << "Resedinta" << std::endl;
-    std::cout << "Energie: +" << plusEnergie << std::endl;
+    std::cout << "Locatie:  " << nume << std::endl;
+    std::cout << "Tip:      " << "Resedinta" << std::endl;
+    std::cout << "Avantaje: " << VERDE << "Energie" << RESETARE << std::endl;
     for (int i = 0; i < 50; i ++) {
         std::cout << "=";
     }
@@ -59,12 +60,12 @@ void LocatieSport::afisareLocatie() {
         std::cout << "=";
     }
     std::cout << std::endl;
-    std::cout << "Locatie:  " << nume << std::endl;
-    std::cout << "Tip:      " << "Sport" << std::endl;
-    std::cout << "Viata:    +" << plusViata << std::endl;
-    std::cout << "Bani:     " << minusBani << std::endl;
-    std::cout << "Energie:  " << minusEnergie << std::endl;
-    std::cout << "Nutritie: " << minusNutritie << std::endl;
+    std::cout << "Locatie:     " << nume << std::endl;
+    std::cout << "Tip:         " << "Sport" << std::endl;
+    std::cout << "Avantaje:    " << VERDE << "Viata" << RESETARE << std::endl;
+    std::cout << "Dezavantaje: " << ROSU << "Bani" << RESETARE << " | "
+                                 << ROSU << "Energie" << RESETARE << " | "
+                                 << ROSU << "Nutritie" << RESETARE << std::endl;
     for (int i = 0; i < 50; i ++) {
         std::cout << "=";
     }
@@ -76,10 +77,10 @@ void LocatieMedicala::afisareLocatie() {
         std::cout << "=";
     }
     std::cout << std::endl;
-    std::cout << "Locatie: " << nume << std::endl;
-    std::cout << "Tip:     " << "Medicala" << std::endl;
-    std::cout << "Viata:   +" << plusViata << std::endl;
-    std::cout << "Bani:    " << minusBani << std::endl;
+    std::cout << "Locatie:     " << nume << std::endl;
+    std::cout << "Tip:         " << "Medicala" << std::endl;
+    std::cout << "Avantaje:    " << VERDE << "Viata" << RESETARE << std::endl;
+    std::cout << "Dezavantaje: " << ROSU << "Bani" << RESETARE << std::endl;
     for (int i = 0; i < 50; i ++) {
         std::cout << "=";
     }
@@ -91,11 +92,11 @@ void LocatieMunca::afisareLocatie() {
         std::cout << "=";
     }
     std::cout << std::endl;
-    std::cout << "Locatie:  " << nume << std::endl;
-    std::cout << "Tip:      " << "Munca" << std::endl;
-    std::cout << "Bani:     +" << plusBani << std::endl;
-    std::cout << "Energie:  " << minusEnergie << std::endl;
-    std::cout << "Nutritie: " << minusNutritie << std::endl;
+    std::cout << "Locatie:     " << nume << std::endl;
+    std::cout << "Tip:         " << "Munca" << std::endl;
+    std::cout << "Avantaje:    " << VERDE << "Bani" << RESETARE << std::endl;
+    std::cout << "Dezavantaje: " << ROSU << "Energie" << RESETARE << " | "
+                                 << ROSU << "Nutritie" << RESETARE << std::endl;
     for (int i = 0; i < 50; i ++) {
         std::cout << "=";
     }
@@ -107,10 +108,10 @@ void LocatieHoreca::afisareLocatie() {
         std::cout << "=";
     }
     std::cout << std::endl;
-    std::cout << "Locatie:  " << nume << std::endl;
-    std::cout << "Tip:      " << "Horeca" << std::endl;
-    std::cout << "Nutritie: +" << plusNutritie << std::endl;
-    std::cout << "Bani:     " << minusBani << std::endl;
+    std::cout << "Locatie:     " << nume << std::endl;
+    std::cout << "Tip:         " << "Horeca" << std::endl;
+    std::cout << "Avantaje:    " << VERDE << "Nutritie" << RESETARE << std::endl;
+    std::cout << "Dezavantaje: " << ROSU << "Bani" << RESETARE << std::endl;
     for (int i = 0; i < 50; i ++) {
         std::cout << "=";
     }
