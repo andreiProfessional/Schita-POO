@@ -148,10 +148,15 @@ void LocatieSport::afisareOptiuniLocatie() {
 }
 
 void LocatieMedicala::afisareOptiuniLocatie() {
-    std::cout << "1. Tratament medical ";
-    std::cout << "(+" << plusViata << " Viata) ";
-    std::cout << "(" << minusBani << " Lei) ";
-    std::cout << std::endl;
+    std::cout << "1. Consultatie "
+              << "(" << VERDE << "+" << plusViata << " Viata" << RESETARE
+              << " | " << ROSU << minusBani << " Lei" << RESETARE << ")" << std::endl;
+    std::cout << "2. Tratament periodic "
+              << "(" << VERDE << "+" << 3 * plusViata << " Viata" << RESETARE
+              << " | " << ROSU << 2 * minusBani << " Lei" << RESETARE << ")" << std::endl;
+    std::cout << "3. Operatie "
+              << "(" << VERDE << "+" << 6 * plusViata << " Viata" << RESETARE
+              << " | " << ROSU << 5 * minusBani << " Lei" << RESETARE << ")" << std::endl;
     std::cout << "0. Du-te afara" << std::endl;
 }
 
