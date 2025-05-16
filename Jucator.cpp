@@ -100,14 +100,9 @@ void Jucator::modificareNivelNutritie(const int &diferentaNutritie) {
     }
 }
 
-/*
-std::ostream& operator<<(std::ostream& out, Jucator &jucator) {
-    out << "Jucatorul " << jucator.idJucator << ": " << jucator.nume << " (NEFOR)" << std::endl;
-    //out << "Bani: " << jucator.balantaBani << " Lei" << std::endl;
-    //out << "Calatorii: " << jucator.balantaCalatorii << " Calatorii" << std::endl;
-    jucator->afisareNivel(std::string("Nivel viata:      "), nivelViata);
-    jucator.afisareNivel(std::string("Nivel distractie: "), jucator.nivelDistractie);
-    jucator.afisareNivel(std::string("Nivel bunastare:  "), jucator.nivelViata);
-    return out;
+void Jucator::aplicareCoeficienti(const int &optiune) {
+    this->modificareBalantaBani(locatie->diferentaBani(optiune));
+    this->modificareNivelViata(locatie->diferentaViata(optiune));
+    //this->modificareNivelEnergie();
+    //this->modificareNivelNutritie();
 }
-*/

@@ -41,6 +41,7 @@ LocatieHoreca::LocatieHoreca(const std::string &nume, Statie *statie,
     plusNutritie(plusNutritie),
     minusBani(minusBani) {}
 
+
 void LocatieResedinta::afisareLocatie() {
     for (int i = 0; i < 50; i ++) {
         std::cout << "=";
@@ -117,6 +118,7 @@ void LocatieHoreca::afisareLocatie() {
     }
     std::cout << std::endl;
 }
+
 
 void LocatieResedinta::afisareOptiuniLocatie() {
     std::cout << "1. Pui de somn "
@@ -195,6 +197,112 @@ void LocatieHoreca::afisareOptiuniLocatie() {
               << " | " << ROSU << 4 * minusBani << " Lei" << RESETARE << ")" << std::endl;
     std::cout << "0. Du-te afara" << std::endl;
 }
+
+
+int LocatieResedinta::diferentaBani(const int &optiune) {
+    return 0;
+}
+
+int LocatieSport::diferentaBani(const int &optiune) {
+    if (optiune == 1) {
+        return minusBani;
+    }
+    if (optiune == 2) {
+        return 2 * minusBani;
+    }
+    if (optiune == 3) {
+        return 3 * minusBani;
+    }
+    return 0;
+}
+
+int LocatieMedicala::diferentaBani(const int &optiune) {
+    if (optiune == 1) {
+        return minusBani;
+    }
+    if (optiune == 2) {
+        return 2 * minusBani;
+    }
+    if (optiune == 3) {
+        return 5 * minusBani;
+    }
+    return 0;
+}
+
+int LocatieMunca::diferentaBani(const int &optiune) {
+    if (optiune == 1) {
+        return plusBani;
+    }
+    if (optiune == 2) {
+        return 3 * plusBani;
+    }
+    if (optiune == 3) {
+        return 5 * plusBani;
+    }
+    if (optiune == 4) {
+        return 7 * plusBani;
+    }
+    return 0;
+}
+
+int LocatieHoreca::diferentaBani(const int &optiune) {
+    if (optiune == 1) {
+        return minusBani;
+    }
+    if (optiune == 2) {
+        return 2 * minusBani;
+    }
+    if (optiune == 3) {
+        return 3 * minusBani;
+    }
+    if (optiune == 4) {
+        return 4 * minusBani;
+    }
+    return 0;
+}
+
+
+int LocatieResedinta::diferentaViata(const int &optiune) {
+    return 0;
+}
+
+int LocatieSport::diferentaViata(const int &optiune) {
+    if (optiune == 1) {
+        return plusViata;
+    }
+    if (optiune == 2) {
+        return 2 * plusViata;
+    }
+    if (optiune == 3) {
+        return 4 * plusViata;
+    }
+    return 0;
+}
+
+int LocatieMedicala::diferentaViata(const int &optiune) {
+    if (optiune == 1) {
+        return plusViata;
+    }
+    if (optiune == 2) {
+        return 3 * plusViata;
+    }
+    if (optiune == 3) {
+        return 6 * plusViata;
+    }
+    return 0;
+}
+
+int LocatieMunca::diferentaViata(const int &optiune) {
+    return 0;
+}
+
+int LocatieHoreca::diferentaViata(const int &optiune) {
+    return 0;
+}
+
+
+
+
 
 bool Locatie::verificareId(const int &idLocatie) {
     return (this->idLocatie == idLocatie);

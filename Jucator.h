@@ -35,7 +35,7 @@ public:
     void modificareNivelEnergie(const int &diferentaEnergie);
     void modificareNivelNutritie(const int &diferentaNutritie);
 
-    //friend std::ostream& operator<<(std::ostream& out, const Jucarot& jucator);
+    void aplicareCoeficienti(const int &optiune);
 };
 
 

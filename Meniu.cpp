@@ -168,5 +168,21 @@ void Meniu::meniuLocatie() {
     jucatorCurent->afisareLocatie();
     std::cout << std::endl;
     jucatorCurent->afisareOptiuniLocatie();
-    std::cout << "-1. Iesi din joc" << std::endl;
+    std::cout << "-1. Iesi din joc" << std::endl << std::endl;
+    std::cout << "Alegerea ta: ";
+    int optiune;
+    std::cin >> optiune;
+    switch (optiune) {
+        case 0:
+            //meniuStatie();
+            break;
+        case -1:
+            meniuSfarsit();
+            break;
+        default:
+            jucatorCurent->aplicareCoeficienti(optiune);
+            jucatorCurent->afisareJucator();
+            break;
+    }
+
 }
