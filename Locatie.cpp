@@ -161,11 +161,22 @@ void LocatieMedicala::afisareOptiuniLocatie() {
 }
 
 void LocatieMunca::afisareOptiuniLocatie() {
-    std::cout << "1. Zi de munca ";
-    std::cout << "(+" << plusBani << " Lei) ";
-    std::cout << "(" << minusEnergie << " Energie) ";
-    std::cout << "(" << minusNutritie << " Nutritie) ";
-    std::cout << std::endl;
+    std::cout << "1. Program de lenes (1h) "
+              << "(" << VERDE << "+" << plusBani << " Lei" << RESETARE
+              << " | " << ROSU << minusEnergie << " Energie" << RESETARE
+              << " | " << ROSU << minusNutritie << " Nutritie" << RESETARE << ")" << std::endl;
+    std::cout << "2. Program part-time (4h) "
+              << "(" << VERDE << "+" << 3 * plusBani << " Lei" << RESETARE
+              << " | " << ROSU << 2 * minusEnergie << " Energie" << RESETARE
+              << " | " << ROSU << 2 * minusNutritie << " Nutritie" << RESETARE << ")" << std::endl;
+    std::cout << "3. Program full-time (8h) "
+              << "(" << VERDE << "+" << 5 * plusBani << " Lei" << RESETARE
+              << " | " << ROSU << 3 * minusEnergie << " Energie" << RESETARE
+              << " | " << ROSU << 4 * minusNutritie << " Nutritie" << RESETARE << ")" << std::endl;
+    std::cout << "4. Program de robot (10h) "
+              << "(" << VERDE << "+" << 7 * plusBani << " Lei" << RESETARE
+              << " | " << ROSU << 6 * minusEnergie << " Energie" << RESETARE
+              << " | " << ROSU << 5 * minusNutritie << " Nutritie" << RESETARE << ")" << std::endl;
     std::cout << "0. Du-te afara" << std::endl;
 }
 
