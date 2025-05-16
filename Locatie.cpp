@@ -129,12 +129,21 @@ void LocatieResedinta::afisareOptiuniLocatie() {
 }
 
 void LocatieSport::afisareOptiuniLocatie() {
-    std::cout << "1. Practica sport ";
-    std::cout << "(+" << plusViata << " Viata) ";
-    std::cout << "(" << minusBani << " Lei) ";
-    std::cout << "(" << minusEnergie << " Energie) ";
-    std::cout << "(" << minusNutritie << " Nutritie) ";
-    std::cout << std::endl;
+    std::cout << "1. Antrenament de tonifiere "
+              << "(" << VERDE << "+" << plusViata << " Viata" << RESETARE
+              << " | " << ROSU << minusBani << " Lei" << RESETARE
+              << " | " << ROSU << minusEnergie << " Energie" << RESETARE
+              << " | " << ROSU << minusNutritie << " Nutritie" << RESETARE << ")" << std::endl;
+    std::cout << "2. Antrenament mediu "
+              << "(" << VERDE << "+" << 2 * plusViata << " Viata" << RESETARE
+              << " | " << ROSU << 2 * minusBani << " Lei" << RESETARE
+              << " | " << ROSU << 2 * minusEnergie << " Energie" << RESETARE
+              << " | " << ROSU << 3 * minusNutritie << " Nutritie" << RESETARE << ")" << std::endl;
+    std::cout << "3. Antrenamentul campionilor "
+              << "(" << VERDE << "+" << 4 * plusViata << " Viata" << RESETARE
+              << " | " << ROSU << 3 * minusBani << " Lei" << RESETARE
+              << " | " << ROSU << 3 * minusEnergie << " Energie" << RESETARE
+              << " | " << ROSU << 4 * minusNutritie << " Nutritie" << RESETARE << ")" << std::endl;
     std::cout << "0. Du-te afara" << std::endl;
 }
 
