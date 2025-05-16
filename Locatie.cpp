@@ -181,10 +181,18 @@ void LocatieMunca::afisareOptiuniLocatie() {
 }
 
 void LocatieHoreca::afisareOptiuniLocatie() {
-    std::cout << "1. Mananca portie normala ";
-    std::cout << "(+" << plusNutritie << " Nutritie) ";
-    std::cout << "(" << minusBani << " Lei) ";
-    std::cout << std::endl;
+    std::cout << "1. Bea un suc "
+              << "(" << VERDE << "+" << plusNutritie << " Nutritie" << RESETARE
+              << " | " << ROSU << minusBani << " Lei" << RESETARE << ")" << std::endl;
+    std::cout << "2. Ciuguleste ceva "
+              << "(" << VERDE << "+" << 2 * plusNutritie << " Nutritie" << RESETARE
+              << " | " << ROSU << 2 * minusBani << " Lei" << RESETARE << ")" << std::endl;
+    std::cout << "3. Meniul zilei "
+              << "(" << VERDE << "+" << 4 * plusNutritie << " Nutritie" << RESETARE
+              << " | " << ROSU << 3 * minusBani << " Lei" << RESETARE << ")" << std::endl;
+    std::cout << "4. Festin regesc "
+              << "(" << VERDE << "+" << 5 * plusNutritie << " Nutritie" << RESETARE
+              << " | " << ROSU << 4 * minusBani << " Lei" << RESETARE << ")" << std::endl;
     std::cout << "0. Du-te afara" << std::endl;
 }
 
