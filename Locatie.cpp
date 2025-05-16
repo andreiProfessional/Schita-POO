@@ -119,9 +119,12 @@ void LocatieHoreca::afisareLocatie() {
 }
 
 void LocatieResedinta::afisareOptiuniLocatie() {
-    std::cout << "1. Du-te la culcare ";
-    std::cout << "(+" << plusEnergie << " Energie)";
-    std::cout << std::endl;
+    std::cout << "1. Pui de somn "
+              << "(" << VERDE << "+" << plusEnergie << " Energie" << RESETARE << ")" << std::endl;
+    std::cout << "2. Somn de frumusete "
+              << "(" << VERDE << "+" << 2 * plusEnergie << " Energie" << RESETARE << ")" << std::endl;
+    std::cout << "3. Somn de noapte "
+              << "(" << VERDE << "+" << 4 * plusEnergie << " Energie" << RESETARE << ")" << std::endl;
     std::cout << "0. Du-te afara" << std::endl;
 }
 
