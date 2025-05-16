@@ -301,7 +301,109 @@ int LocatieHoreca::diferentaViata(const int &optiune) {
 }
 
 
+int LocatieResedinta::diferentaEnergie(const int &optiune) {
+    if (optiune == 1) {
+        return plusEnergie;
+    }
+    if (optiune == 2) {
+        return 2 * plusEnergie;
+    }
+    if (optiune == 3) {
+        return 4 * plusEnergie;
+    }
+    return 0;
+}
 
+int LocatieSport::diferentaEnergie(const int &optiune) {
+    if (optiune == 1) {
+        return minusEnergie;
+    }
+    if (optiune == 2) {
+        return 2 * minusEnergie;
+    }
+    if (optiune == 3) {
+        return 3 * minusEnergie;
+    }
+    return 0;
+}
+
+int LocatieMedicala::diferentaEnergie(const int &optiune) {
+    return 0;
+}
+
+int LocatieMunca::diferentaEnergie(const int &optiune) {
+    if (optiune == 1) {
+        return minusEnergie;
+    }
+    if (optiune == 2) {
+        return 2 * minusEnergie;
+    }
+    if (optiune == 3) {
+        return 3 * minusEnergie;
+    }
+    if (optiune == 4) {
+        return 6 * minusEnergie;
+    }
+    return 0;
+}
+
+int LocatieHoreca::diferentaEnergie(const int &optiune) {
+    return 0;
+}
+
+
+int LocatieResedinta::diferentaNutritie(const int &optiune) {
+    return 0;
+}
+
+int LocatieSport::diferentaNutritie(const int &optiune) {
+    if (optiune == 1) {
+        return minusNutritie;
+    }
+    if (optiune == 2) {
+        return 3 * minusNutritie;
+    }
+    if (optiune == 3) {
+        return 4 * minusNutritie;
+    }
+    return 0;
+}
+
+int LocatieMedicala::diferentaNutritie(const int &optiune) {
+    return 0;
+}
+
+int LocatieMunca::diferentaNutritie(const int &optiune) {
+    if (optiune == 1) {
+        return minusNutritie;
+    }
+    if (optiune == 2) {
+        return 2 * minusNutritie;
+    }
+    if (optiune == 3) {
+        return 4 * minusNutritie;
+    }
+    if (optiune == 4) {
+        return 5 * minusNutritie;
+    }
+    return 0;
+}
+
+int LocatieHoreca::diferentaNutritie(const int &optiune) {
+    if (optiune == 1) {
+        return plusNutritie;
+    }
+    if (optiune == 2) {
+        return 2 * plusNutritie;
+    }
+    if (optiune == 3) {
+        return 4 * plusNutritie;
+    }
+    if (optiune == 4) {
+        return 5 * plusNutritie;
+    }
+    return 0;
+}
 
 
 bool Locatie::verificareId(const int &idLocatie) {

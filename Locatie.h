@@ -15,6 +15,8 @@ public:
     virtual void afisareOptiuniLocatie() = 0;
     virtual int diferentaBani(const int &optiune) = 0;
     virtual int diferentaViata(const int &optiune) = 0;
+    virtual int diferentaEnergie(const int &optiune) = 0;
+    virtual int diferentaNutritie(const int &optiune) = 0;
     bool verificareId(const int &idLocatie);
     bool verificareNume(const std::string &nume);
     Statie* gasireStatie();
@@ -32,6 +34,8 @@ public:
     void afisareOptiuniLocatie() override;
     int diferentaBani(const int &optiune) override;
     int diferentaViata(const int &optiune) override;
+    int diferentaEnergie(const int &optiune) override;
+    int diferentaNutritie(const int &optiune) override;
 };
 
 class LocatieSport: public Locatie {
@@ -48,6 +52,8 @@ public:
     void afisareOptiuniLocatie() override;
     int diferentaBani(const int &optiune) override;
     int diferentaViata(const int &optiune) override;
+    int diferentaEnergie(const int &optiune) override;
+    int diferentaNutritie(const int &optiune) override;
 };
 
 class LocatieMedicala: public Locatie {
@@ -62,6 +68,8 @@ public:
     void afisareOptiuniLocatie() override;
     int diferentaBani(const int &optiune) override;
     int diferentaViata(const int &optiune) override;
+    int diferentaEnergie(const int &optiune) override;
+    int diferentaNutritie(const int &optiune) override;
 };
 
 class LocatieMunca: public Locatie {
@@ -77,6 +85,8 @@ public:
     void afisareOptiuniLocatie() override;
     int diferentaBani(const int &optiune) override;
     int diferentaViata(const int &optiune) override;
+    int diferentaEnergie(const int &optiune) override;
+    int diferentaNutritie(const int &optiune) override;
 };
 
 class LocatieHoreca: public Locatie {
@@ -91,6 +101,8 @@ public:
     void afisareOptiuniLocatie() override;
     int diferentaBani(const int &optiune) override;
     int diferentaViata(const int &optiune) override;
+    int diferentaEnergie(const int &optiune) override;
+    int diferentaNutritie(const int &optiune) override;
 };
 
 

@@ -181,7 +181,7 @@ void Meniu::meniuLocatie() {
             break;
         default:
             jucatorCurent->aplicareCoeficienti(optiune);
-            jucatorCurent->afisareJucator();
+            meniuLocatie();
             break;
     }
 

@@ -37,7 +37,7 @@ void Jucator::afisareNivel(const std::string &mesajNivel, const std::string &sim
             std::cout << "|";
         }
     }
-    std::cout << "]" << std::endl;
+    std::cout << "]" << "   " << nivel << std::endl;
 }
 
 void Jucator::afisareJucator() {
@@ -103,6 +103,6 @@ void Jucator::modificareNivelNutritie(const int &diferentaNutritie) {
 void Jucator::aplicareCoeficienti(const int &optiune) {
     this->modificareBalantaBani(locatie->diferentaBani(optiune));
     this->modificareNivelViata(locatie->diferentaViata(optiune));
-    //this->modificareNivelEnergie();
-    //this->modificareNivelNutritie();
+    this->modificareNivelEnergie(locatie->diferentaEnergie(optiune));
+    this->modificareNivelNutritie(locatie->diferentaNutritie(optiune));
 }
