@@ -37,7 +37,7 @@ void Jucator::afisareNivel(const std::string &mesajNivel, const std::string &sim
             std::cout << "|";
         }
     }
-    std::cout << "]" << "   " << nivel << std::endl;
+    std::cout << "]" << std::endl;
 }
 
 void Jucator::afisareJucator() {
