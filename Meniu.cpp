@@ -153,6 +153,7 @@ void Meniu::meniuStartJoc() {
             meniuLocatie();
             break;
         case 0:
+            jucatorCurent = nullptr;
             meniuInceput();
             break;
         default:
@@ -166,12 +167,18 @@ void Meniu::meniuAfara() {
     std::cout << "Statiile din apropiere:" << std::endl << std::endl;
     const std::string numeStatieCurenta = jucatorCurent->gasireLocatie()->gasireNumeStatie();
     const std::vector<std::pair<Ruta*, int>> statii = hartaOras.gasireStatii(numeStatieCurenta);
-    jucatorCurent->setareStatii(statii);
-    jucatorCurent->afisareStatii();
+    const int numarStatii = statii.size();
+    for (int i = 0; i < numarStatii; i ++) {
+        std::cout << i + 1 << ". ";
+        statii[i].first->afisareDetaliiRuta();
+        statii[i].first->afisareStatie(statii[i].second);
+        std::cout << std::endl;
+    }
     int optiune;
     std::cout << std::endl << "Alegerea ta: ";
     std::cin >> optiune;
-
+    jucatorCurent->setareStatie(std::make_pair(statii[optiune - 1].first, statii[optiune - 1].second));
+    jucatorCurent->afisareStatie();
 }
 
 void Meniu::meniuLocatie() {

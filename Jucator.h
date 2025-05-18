@@ -12,14 +12,14 @@ protected:
     const int idJucator;
     std::string nume;
     Locatie *locatie;
-    std::vector<std::pair<Ruta*, int>> statii;
+    std::pair<Ruta*, int> statie;
     int balantaBani;
     int nivelViata;
     int nivelEnergie;
     int nivelNutritie;
 public:
     Jucator(const std::string &nume = "NO NAME",
-        Locatie *locatie = nullptr, const std::vector<std::pair<Ruta*, int>> &statii = {},
+        Locatie *locatie = nullptr, const std::pair<Ruta*, int> &statie = {nullptr, -1},
         const int &balantaBani = 50,
         const int &nivelViata = 100,
         const int &nivelEnergie = 100,
@@ -31,8 +31,8 @@ public:
     void afisareLocatie();
     void afisareOptiuniLocatie();
     Locatie *gasireLocatie();
-    void setareStatii(const std::vector<std::pair<Ruta*, int>> &statii);
-    void afisareStatii();
+    void setareStatie(const std::pair<Ruta*, int> &statie);
+    void afisareStatie();
 
     void modificareBalantaBani(const int &diferentaBani);
     void modificareNivelViata(const int &diferentaViata);

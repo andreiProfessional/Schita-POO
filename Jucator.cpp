@@ -5,10 +5,10 @@
 int Jucator::contorID = 0;
 
 Jucator::Jucator(const std::string &nume,
-    Locatie *locatie, const std::vector<std::pair<Ruta*, int>> &statii,
+    Locatie *locatie, const std::pair<Ruta*, int> &statie,
     const int &balantaBani, const int &nivelViata, const int &nivelEnergie, const int &nivelNutritie):
     idJucator(++ contorID), nume(nume),
-    locatie(locatie), statii(statii),
+    locatie(locatie), statie(statie),
     balantaBani(balantaBani), nivelViata(nivelViata), nivelEnergie(nivelEnergie), nivelNutritie(nivelNutritie) {}
 
 bool Jucator::verificareId(const int &ID) {
@@ -69,18 +69,14 @@ Locatie* Jucator::gasireLocatie() {
     return locatie;
 }
 
-void Jucator::setareStatii(const std::vector<std::pair<Ruta*, int>> &statii) {
-    this->statii = statii;
+void Jucator::setareStatie(const std::pair<Ruta*, int> &statie) {
+    this->statie = statie;
 }
 
-void Jucator::afisareStatii() {
-    const int numarStatii = statii.size();
-    for (int indice = 0; indice < numarStatii; indice ++) {
-        std::cout << indice + 1 << ". ";
-        statii[indice].first->afisareDetaliiRuta();
-        statii[indice].first->afisareStatie(statii[indice].second);
-        std::cout << std::endl;
-    }
+void Jucator::afisareStatie() {
+    statie.first->afisareDetaliiRuta();
+    statie.first->afisareStatie(statie.second);
+    std::cout << std::endl;
 }
 
 
