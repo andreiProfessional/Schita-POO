@@ -21,19 +21,19 @@ StatieMetrou::StatieMetrou(const std::string &nume):
 
 
 void StatieAutobuz::afisareStatie() {
-    std::cout << "Statia " << idStatie << ": (Autobuz) " << nume;
+    std::cout << nume;
 }
 
 void StatieTroleibuz::afisareStatie() {
-    std::cout << "Statia " << idStatie << ": (Troleibuz) " << nume;
+    std::cout << nume;
 }
 
 void StatieTramvai::afisareStatie() {
-    std::cout << "Statia " << idStatie << ": (Tramvai) " << nume;
+    std::cout << nume;
 }
 
 void StatieMetrou::afisareStatie() {
-    std::cout << "Statia " << idStatie << ": (Metrou) " << nume;
+    std::cout << nume;
 }
 
 bool Statie::verificareId(const int &idStatie) {

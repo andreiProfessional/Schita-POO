@@ -3,6 +3,7 @@
 #include "Statie.h"
 #include "Locatie.h"
 #include <string>
+#include <vector>
 
 
 class Jucator {
@@ -11,14 +12,14 @@ protected:
     const int idJucator;
     std::string nume;
     Locatie *locatie;
-    Statie *statie;
+    std::vector<std::pair<Ruta*, int>> statii;
     int balantaBani;
     int nivelViata;
     int nivelEnergie;
     int nivelNutritie;
 public:
     Jucator(const std::string &nume = "NO NAME",
-        Locatie *locatie = nullptr, Statie *statie = nullptr,
+        Locatie *locatie = nullptr, const std::vector<std::pair<Ruta*, int>> &statii = {},
         const int &balantaBani = 50,
         const int &nivelViata = 100,
         const int &nivelEnergie = 100,
@@ -29,12 +30,14 @@ public:
     void afisareNivel(const std::string &mesajNivel, const std::string &simbolPozitiv, const std::string &simbolNegativ, const int &nivel);
     void afisareLocatie();
     void afisareOptiuniLocatie();
+    Locatie *gasireLocatie();
+    void setareStatii(const std::vector<std::pair<Ruta*, int>> &statii);
+    void afisareStatii();
 
     void modificareBalantaBani(const int &diferentaBani);
     void modificareNivelViata(const int &diferentaViata);
     void modificareNivelEnergie(const int &diferentaEnergie);
     void modificareNivelNutritie(const int &diferentaNutritie);
-
     void aplicareCoeficienti(const int &optiune);
 };
 

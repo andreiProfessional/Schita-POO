@@ -4,17 +4,17 @@
 
 int Locatie::contorID = 0;
 
-Locatie::Locatie(const std::string &nume, Statie *statie):
+Locatie::Locatie(const std::string &nume, const std::string &statie):
     idLocatie(++ contorID),
     nume(nume),
     statie(statie) {}
 
-LocatieResedinta::LocatieResedinta(const std::string &nume, Statie *statie,
+LocatieResedinta::LocatieResedinta(const std::string &nume, const std::string &statie,
         const int &plusEnergie):
         Locatie(nume, statie),
         plusEnergie(plusEnergie) {}
 
-LocatieSport::LocatieSport(const std::string &nume, Statie *statie,
+LocatieSport::LocatieSport(const std::string &nume, const std::string &statie,
     const int &plusViata, const int &minusBani, const int &minusEnergie, const int &minusNutritie):
     Locatie(nume, statie),
     plusViata(plusViata),
@@ -22,20 +22,20 @@ LocatieSport::LocatieSport(const std::string &nume, Statie *statie,
     minusEnergie(minusEnergie),
     minusNutritie(minusNutritie) {}
 
-LocatieMedicala::LocatieMedicala(const std::string &nume, Statie *statie,
+LocatieMedicala::LocatieMedicala(const std::string &nume, const std::string &statie,
         const int &plusViata, const int &minusBani):
         Locatie(nume, statie),
         plusViata(plusViata),
         minusBani(minusBani) {}
 
-LocatieMunca::LocatieMunca(const std::string &nume, Statie *statie,
+LocatieMunca::LocatieMunca(const std::string &nume, const std::string &statie,
         const int &plusBani, const int &minusEnergie, const int &minusNutritie):
         Locatie(nume, statie),
         plusBani(plusBani),
         minusEnergie(minusEnergie),
         minusNutritie(minusNutritie) {}
 
-LocatieHoreca::LocatieHoreca(const std::string &nume, Statie *statie,
+LocatieHoreca::LocatieHoreca(const std::string &nume, const std::string &statie,
         const int &plusNutritie, const int &minusBani):
     Locatie(nume, statie),
     plusNutritie(plusNutritie),
@@ -413,11 +413,16 @@ bool Locatie::verificareId(const int &idLocatie) {
 bool Locatie::verificareNume(const std::string &nume) {
     return (this->nume == nume);
 }
-
+/*
 Statie* Locatie::gasireStatie() {
     return this->statie;
 }
-
+*/
 std::string Locatie::gasesteNumeLocatie() {
     return nume;
 }
+
+std::string Locatie::gasireNumeStatie() {
+    return statie;
+}
+

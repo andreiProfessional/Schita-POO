@@ -25,13 +25,15 @@ public:
     void creareHartaRute();
     void afisareHartaRute();
     //void afisareStatie(const int &id);
-    void adaugareLocatie(const std::string &tip, const std::string &nume, Statie *statie, const std::vector<int> &coeficienti);
+    //std::vector <std::pair<Ruta*, int>> gasireStatieDupaNume(const std::string &numeStatie);
+    void adaugareLocatie(const std::string &tip, const std::string &nume, const std::string &statie,
+        const std::vector<int> &coeficienti);
     void creareHartaLocatii();
     //void afisareLocatie(const int &id);
     void afisareHartaLocatii();
 
     Locatie* gasireLocatieDupaNume(const std::string &numeLocatie);
-    Statie* gasireStatieDupaNume(const std::string &numeStatie);
+    std::vector<std::pair<Ruta*, int>> gasireStatii(const std::string &numeStatieCurenta);
     //Locatie* gasireLocatie(const int &idLocatie);
 };
 

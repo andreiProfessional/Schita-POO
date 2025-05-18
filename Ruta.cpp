@@ -54,11 +54,34 @@ void RutaMetrou::afisareRuta() {
     std::cout << std::endl;
 }
 
-Statie* Ruta::gasireStatie(const std::string &numeStatie) {
-    for (const auto &statie: statii) {
-        if (statie->verificareNume(numeStatie)) {
-            return statie;
+
+void RutaAutobuz::afisareDetaliiRuta() {
+    std::cout << "Autobuz " << nume << ": ";
+}
+
+void RutaTroleibuz::afisareDetaliiRuta() {
+    std::cout << "Troleibuz " << nume << ": ";
+}
+
+void RutaTramvai::afisareDetaliiRuta() {
+    std::cout << "Tramvai " << nume << ": ";
+}
+
+void RutaMetrou::afisareDetaliiRuta() {
+    std::cout << "Metrou " << nume << ": ";
+}
+
+
+std::pair<Ruta*, int> Ruta::gasireStatie(const std::string &numeStatie) {
+    const int numarStatii = statii.size();
+    for (int indice = 0; indice < numarStatii; indice ++) {
+        if (statii[indice]->verificareNume(numeStatie)) {
+            return std::make_pair(this, indice);
         }
     }
-    return nullptr;
+    return std::make_pair(nullptr, -1);
+}
+
+void Ruta::afisareStatie(const int &pozitie) {
+    statii[pozitie]->afisareStatie();
 }

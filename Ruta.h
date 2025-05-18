@@ -14,8 +14,10 @@ public:
     Ruta(const std::string &nume, const std::vector<Statie*> &statii);
 
     virtual void afisareRuta() = 0;
+    virtual void afisareDetaliiRuta() = 0;
 
-    Statie* gasireStatie(const std::string &numeStatie);
+    std::pair<Ruta*, int> gasireStatie(const std::string &numeStatie);
+    void afisareStatie(const int &pozitie);
 };
 
 class RutaAutobuz: public Ruta {
@@ -25,6 +27,7 @@ public:
     RutaAutobuz(const std::string &nume, const std::vector<Statie*> &statii);
 
     void afisareRuta() override;
+    void afisareDetaliiRuta() override;
 };
 
 
@@ -35,6 +38,7 @@ public:
     RutaTroleibuz(const std::string &nume, const std::vector<Statie*> &statii);
 
     void afisareRuta() override;
+    void afisareDetaliiRuta() override;
 };
 
 class RutaTramvai: public Ruta {
@@ -44,6 +48,7 @@ public:
     RutaTramvai(const std::string &nume, const std::vector<Statie*> &statii);
 
     void afisareRuta() override;
+    void afisareDetaliiRuta() override;
 };
 
 class RutaMetrou: public Ruta {
@@ -53,6 +58,7 @@ public:
     RutaMetrou(const std::string &nume, const std::vector<Statie*> &statii);
 
     void afisareRuta() override;
+    void afisareDetaliiRuta() override;
 };
 
 

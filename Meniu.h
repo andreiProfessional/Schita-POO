@@ -32,7 +32,7 @@ public:
     Jucator* gasireJucator(const int &idJucator);
 
     Locatie* gasireLocatieDupaNume(const std::string &numeLocatie);
-    Statie* gasireStatieDupaLocatie(Locatie *locatie);
+    //Statie* gasireStatieDupaLocatie(Locatie *locatie);
 
     bool existaStatie(const std::string &statie);
 
@@ -42,6 +42,7 @@ public:
     void meniuJucatorNou();
     void meniuStartJoc();
     void meniuLocatie();
+    void meniuAfara();
 };
 
 

@@ -77,31 +77,50 @@ void HartaOras::afisareHartaRute() {
     }
     std::cout << std::endl;
 }
-
-void HartaOras::adaugareLocatie(const std::string &tip, const std::string &nume, Statie *statie, const std::vector<int> &coeficienti) {
-    if (tip == "RESEDINTA") {
-        Locatie *locatieNoua = new LocatieResedinta(nume, statie, coeficienti[0]);
-        locatii.push_back(locatieNoua);
+/*
+std::vector <std::pair<Ruta*, int>> HartaOras::gasireStatieDupaNume(const std::string &numeStatie) {
+    std::vector<std::pair<Ruta*, int>> listaStatii;
+    int numarRute = rute.size();
+    for (int indice = 0; indice < numarRute; indice ++) {
+        Statie *statieNoua = rute[indice]->gasireStatie(numeStatie);
+        if (statieNoua != nullptr) {
+            listaStatii.push_back(std::make_pair(rute[indice], indice));
+        }
     }
-    else if (tip == "SPORT") {
-        Locatie *locatieNoua = new LocatieSport(nume, statie, coeficienti[0], coeficienti[1], coeficienti[2], coeficienti[3]);
-        locatii.push_back(locatieNoua);
+    std::cout << "JASFKAJKJDSKJ" << std::endl;
+    for (auto &statie: listaStatii) {
+        statie.first->afisareStatie(statie.second);
+        std::cout << std::endl;
     }
-    else if (tip == "MEDICALA") {
-        Locatie *locatieNoua = new LocatieMedicala(nume, statie, coeficienti[0], coeficienti[1]);
-        locatii.push_back(locatieNoua);
-    }
-    else if (tip == "MUNCA") {
-        Locatie *locatieNoua = new LocatieMunca(nume, statie, coeficienti[0], coeficienti[1], coeficienti[2]);
-        locatii.push_back(locatieNoua);
-    }
-    else if (tip == "HORECA") {
-        Locatie *locatieNoua = new LocatieHoreca(nume, statie, coeficienti[0], coeficienti[1]);
-        locatii.push_back(locatieNoua);
-    }
-    else {
-        std::cout << "Nu exista acest tip de locatie!!!" << std::endl;
-    }
+    std::cout << std::endl;
+    return listaStatii;
+}
+*/
+void HartaOras::adaugareLocatie(const std::string &tip, const std::string &nume, const std::string &statie,
+    const std::vector<int> &coeficienti) {
+        if (tip == "RESEDINTA") {
+            Locatie *locatieNoua = new LocatieResedinta(nume, statie, coeficienti[0]);
+            locatii.push_back(locatieNoua);
+        }
+        else if (tip == "SPORT") {
+            Locatie *locatieNoua = new LocatieSport(nume, statie, coeficienti[0], coeficienti[1], coeficienti[2], coeficienti[3]);
+            locatii.push_back(locatieNoua);
+        }
+        else if (tip == "MEDICALA") {
+            Locatie *locatieNoua = new LocatieMedicala(nume, statie, coeficienti[0], coeficienti[1]);
+            locatii.push_back(locatieNoua);
+        }
+        else if (tip == "MUNCA") {
+            Locatie *locatieNoua = new LocatieMunca(nume, statie, coeficienti[0], coeficienti[1], coeficienti[2]);
+            locatii.push_back(locatieNoua);
+        }
+        else if (tip == "HORECA") {
+            Locatie *locatieNoua = new LocatieHoreca(nume, statie, coeficienti[0], coeficienti[1]);
+            locatii.push_back(locatieNoua);
+        }
+        else {
+            std::cout << "Nu exista acest tip de locatie!!!" << std::endl;
+        }
 }
 
 void HartaOras::creareHartaLocatii() {
@@ -128,7 +147,7 @@ void HartaOras::creareHartaLocatii() {
         coeficienti.push_back(std::stoi(inputCoeficienti));
         input = input.erase(0, input.find(",") + 1);
 
-        adaugareLocatie(inputTip, inputNume, this->gasireStatieDupaNume(inputStatie), coeficienti);
+        adaugareLocatie(inputTip, inputNume, inputStatie, coeficienti);
     }
 
     in.close();
@@ -154,14 +173,16 @@ Locatie* HartaOras::gasireLocatieDupaNume(const std::string &numeLocatie) {
     return nullptr;
 }
 
-Statie* HartaOras::gasireStatieDupaNume(const std::string &numeStatie) {
-    for (const auto &ruta: rute) {
-        Statie *statiePosibila = ruta->gasireStatie(numeStatie);
-        if (statiePosibila != nullptr) {
-            return statiePosibila;
+std::vector<std::pair<Ruta*, int>> HartaOras::gasireStatii(const std::string &numeStatieCurenta) {
+    std::vector<std::pair<Ruta*, int>> listaStatii;
+    int numarRute = rute.size();
+    for (int indice = 0; indice < numarRute; indice ++) {
+        std::pair<Ruta*, int> statieNoua = rute[indice]->gasireStatie(numeStatieCurenta);
+        if (statieNoua.first != nullptr) {
+            listaStatii.push_back(statieNoua);
         }
     }
-    return nullptr;
+    return listaStatii;
 }
 
 /*

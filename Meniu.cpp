@@ -11,8 +11,8 @@ void Meniu::golireEcran() {
 }
 
 void Meniu::creareHartaOras() {
-    hartaOras.creareHartaLocatii();
     hartaOras.creareHartaRute();
+    hartaOras.creareHartaLocatii();
 }
 
 void Meniu::creareListaJucatori() {
@@ -41,7 +41,7 @@ void Meniu::creareListaJucatori() {
 
         Locatie *locatieNoua = this->gasireLocatieDupaNume(inputLocatieResedinta);
         Jucator *jucatorNou = new Jucator(inputNume,
-            locatieNoua, nullptr,
+            locatieNoua, {},
             inputBalantaBani, inputNivelViata, inputNivelEnergie, inputNivelNutritie);
         jucatori.push_back(jucatorNou);
     }
@@ -72,11 +72,11 @@ Jucator* Meniu::gasireJucator(const int &idJucator) {
 Locatie* Meniu::gasireLocatieDupaNume(const std::string &numeLocatie) {
     return hartaOras.gasireLocatieDupaNume(numeLocatie);
 }
-
+/*
 Statie* Meniu::gasireStatieDupaLocatie(Locatie *locatie) {
     return locatie->gasireStatie();
 }
-
+*/
 void Meniu::meniuInceput() {
     golireEcran();
     this->creareHartaOras();
@@ -161,6 +161,19 @@ void Meniu::meniuStartJoc() {
     }
 }
 
+void Meniu::meniuAfara() {
+    golireEcran();
+    std::cout << "Statiile din apropiere:" << std::endl << std::endl;
+    const std::string numeStatieCurenta = jucatorCurent->gasireLocatie()->gasireNumeStatie();
+    const std::vector<std::pair<Ruta*, int>> statii = hartaOras.gasireStatii(numeStatieCurenta);
+    jucatorCurent->setareStatii(statii);
+    jucatorCurent->afisareStatii();
+    int optiune;
+    std::cout << std::endl << "Alegerea ta: ";
+    std::cin >> optiune;
+
+}
+
 void Meniu::meniuLocatie() {
     golireEcran();
     jucatorCurent->afisareJucator();
@@ -174,7 +187,7 @@ void Meniu::meniuLocatie() {
     std::cin >> optiune;
     switch (optiune) {
         case 0:
-            //meniuStatie();
+            meniuAfara();
             break;
         case -1:
             meniuSfarsit();
@@ -186,3 +199,5 @@ void Meniu::meniuLocatie() {
     }
 
 }
+
+
