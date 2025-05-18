@@ -45,6 +45,8 @@ public:
     void modificareNivelNutritie(const int &diferentaNutritie);
     void aplicareCoeficienti(const int &optiune);
     void plataMijlocTransport();
+
+    void calatorieStatiiVecine(const bool &catreDus);
 };
 
 

@@ -145,3 +145,12 @@ void Jucator::aplicareCoeficienti(const int &optiune) {
 void Jucator::plataMijlocTransport() {
     modificareBalantaBani(statie.first->gasirePret(balantaBani));
 }
+
+void Jucator::calatorieStatiiVecine(const bool &catreDus) {
+    if (catreDus) {
+        statie.second = statie.second + 1;
+    }
+    else {
+        statie.second = statie.second - 1;
+    }
+}

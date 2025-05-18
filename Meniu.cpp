@@ -238,21 +238,80 @@ void Meniu::meniuStatie() {
     if (numeStatieCurenta == numeCapatDus) {
         const std::string numeStatiePredecesor = jucatorCurent->gasireNumeStatieUrmatoare(false);
         std::cout << "1. Statia " << numeStatiePredecesor << " (Directia: " << numeCapatIntors << ")" << std::endl;
+        std::cout << "0. Du-te afara" << std::endl;
+        std::cout << "-1. Iesi din joc" << std::endl;
+        std::cout << std::endl << "Alegerea ta: ";
+        int optiune;
+        std::cin >> optiune;
+        switch (optiune) {
+            case 1:
+                jucatorCurent->calatorieStatiiVecine(false);
+                meniuStatie();
+                break;
+            case 0:
+                meniuAfara();
+                break;
+            case -1:
+                meniuSfarsit();
+                break;
+            default:
+                meniuStatie();
+                break;
+        }
     }
     else if (numeStatieCurenta == numeCapatIntors) {
         const std::string numeStatieSuccesor = jucatorCurent->gasireNumeStatieUrmatoare(true);
         std::cout << "1. Statia " << numeStatieSuccesor << " (Directia: " << numeCapatDus << ")" << std::endl;
+        std::cout << "0. Du-te afara" << std::endl;
+        std::cout << "-1. Iesi din joc" << std::endl;
+        std::cout << std::endl << "Alegerea ta: ";
+        int optiune;
+        std::cin >> optiune;
+        switch (optiune) {
+            case 1:
+                jucatorCurent->calatorieStatiiVecine(true);
+                meniuStatie();
+                break;
+            case 0:
+                meniuAfara();
+                break;
+            case -1:
+                meniuSfarsit();
+                break;
+            default:
+                meniuStatie();
+                break;
+        }
     }
     else {
         const std::string numeStatieSuccesor = jucatorCurent->gasireNumeStatieUrmatoare(true);
         const std::string numeStatiePredecesor = jucatorCurent->gasireNumeStatieUrmatoare(false);
         std::cout << "1. Statia " << numeStatieSuccesor << " (Directia: " << numeCapatDus << ")" << std::endl;
         std::cout << "2. Statia " << numeStatiePredecesor << " (Directia: " << numeCapatIntors << ")" << std::endl;
+        std::cout << "0. Du-te afara" << std::endl;
+        std::cout << "-1. Iesi din joc" << std::endl;
+        std::cout << std::endl << "Alegerea ta: ";
+        int optiune;
+        std::cin >> optiune;
+        switch (optiune) {
+            case 1:
+                jucatorCurent->calatorieStatiiVecine(true);
+                meniuStatie();
+                break;
+            case 2:
+                jucatorCurent->calatorieStatiiVecine(false);
+                meniuStatie();
+            case 0:
+                meniuAfara();
+                break;
+            case -1:
+                meniuSfarsit();
+                break;
+            default:
+                meniuStatie();
+                break;
+        }
     }
-    std::cout << "0. Du-te afara" << std::endl;
-    std::cout << "-1. Iesi din joc" << std::endl;
-    std::cout << std::endl << "Alegerea ta: ";
-    //int optiune;
 }
 
 
