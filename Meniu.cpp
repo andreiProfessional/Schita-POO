@@ -232,11 +232,14 @@ void Meniu::meniuStatie() {
     std::cout << "___STATIA ACTUALA___" << std::endl << std::endl;
     jucatorCurent->afisareStatie();
     std::cout << std::endl;
-    std::cout << "1. Directia " << jucatorCurent->gasireNumeCapat(true) << std::endl;
-    std::cout << "2. Directia " << jucatorCurent->gasireNumeCapat(false) << std::endl;
+    std::cout << "1. Directia " << jucatorCurent->gasireNumeCapat(true) << " (Urmatoarea statie: "
+                                << jucatorCurent->gasireNumeStatieUrmatoare(true) << ")" << std::endl;
+    std::cout << "2. Directia " << jucatorCurent->gasireNumeCapat(false) << " (Urmatoarea statie: "
+                                << jucatorCurent->gasireNumeStatieUrmatoare(false) << ")" << std::endl;
     std::cout << "0. Du-te afara" << std::endl;
     std::cout << "-1. Iesi din joc" << std::endl;
     std::cout << std::endl << "Alegerea ta: ";
+    //int optiune;
 }
 
 

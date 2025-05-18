@@ -35,6 +35,7 @@ public:
     void setareStatie(const std::pair<Ruta*, int> &statie);
     void afisareStatie();
     std::string gasireNumeCapat(const bool &catreDus);
+    std::string gasireNumeStatieUrmatoare(const bool &catreDus);
 
     int calcularePretRuta();
     void modificareBalantaBani(const int &diferentaBani);
