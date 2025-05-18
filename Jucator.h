@@ -31,6 +31,7 @@ public:
     void afisareLocatie();
     void afisareOptiuniLocatie();
     Locatie *gasireLocatie();
+    std::pair<Ruta*, int> gasireStatie();
     void setareStatie(const std::pair<Ruta*, int> &statie);
     void afisareStatie();
 
@@ -39,6 +40,7 @@ public:
     void modificareNivelEnergie(const int &diferentaEnergie);
     void modificareNivelNutritie(const int &diferentaNutritie);
     void aplicareCoeficienti(const int &optiune);
+    void plataMijlocTransport();
 };
 
 

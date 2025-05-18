@@ -1,4 +1,5 @@
 #include "Statie.h"
+#include "CuloriText.h"
 #include <iostream>
 
 int Statie::contorID = 0;

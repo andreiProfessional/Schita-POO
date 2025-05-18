@@ -69,6 +69,10 @@ Locatie* Jucator::gasireLocatie() {
     return locatie;
 }
 
+std::pair<Ruta*, int> Jucator::gasireStatie() {
+    return statie;
+}
+
 void Jucator::setareStatie(const std::pair<Ruta*, int> &statie) {
     this->statie = statie;
 }
@@ -119,4 +123,8 @@ void Jucator::aplicareCoeficienti(const int &optiune) {
     this->modificareNivelViata(locatie->diferentaViata(optiune));
     this->modificareNivelEnergie(locatie->diferentaEnergie(optiune));
     this->modificareNivelNutritie(locatie->diferentaNutritie(optiune));
+}
+
+void Jucator::plataMijlocTransport() {
+    modificareBalantaBani(statie.first->gasirePret(balantaBani));
 }

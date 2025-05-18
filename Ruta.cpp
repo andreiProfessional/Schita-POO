@@ -72,6 +72,47 @@ void RutaMetrou::afisareDetaliiRuta() {
 }
 
 
+int RutaAutobuz::gasirePret(const int &balantaBani) {
+    if (balantaBani < 100) {
+        return -5;
+    }
+    if (balantaBani > 1000) {
+        return -1 * balantaBani * 5 / 100;
+    }
+    return -1 * balantaBani * 3 / 100;
+}
+
+int RutaTroleibuz::gasirePret(const int &balantaBani) {
+    if (balantaBani < 150) {
+        return -4;
+    }
+    if (balantaBani > 750) {
+        return -1 * balantaBani * 4 / 100;
+    }
+    return -1 * balantaBani * 2 / 100;
+}
+
+int RutaTramvai::gasirePret(const int &balantaBani) {
+    if (balantaBani < 200) {
+        return -3;
+    }
+    if (balantaBani > 500) {
+        return -1 * balantaBani * 3 / 100;
+    }
+    return -1 * balantaBani * 2 / 100;
+}
+
+int RutaMetrou::gasirePret(const int &balantaBani) {
+    if (balantaBani < 500) {
+        return -10;
+    }
+    if (balantaBani > 2500) {
+        return -1 * balantaBani * 8 / 100;
+    }
+    return -1 * balantaBani * 5 / 100;
+}
+
+
 std::pair<Ruta*, int> Ruta::gasireStatie(const std::string &numeStatie) {
     const int numarStatii = statii.size();
     for (int indice = 0; indice < numarStatii; indice ++) {

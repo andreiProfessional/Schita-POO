@@ -35,7 +35,7 @@ class StatieTramvai: public Statie {
 private:
 
 public:
-    StatieTramvai(const std::string &nume);
+    StatieTramvai(const std::string &nume4);
     void afisareStatie() override;
 };
 

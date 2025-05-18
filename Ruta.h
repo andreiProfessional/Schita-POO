@@ -15,6 +15,7 @@ public:
 
     virtual void afisareRuta() = 0;
     virtual void afisareDetaliiRuta() = 0;
+    virtual int gasirePret(const int &balantaBani) = 0;
 
     std::pair<Ruta*, int> gasireStatie(const std::string &numeStatie);
     void afisareStatie(const int &pozitie);
@@ -28,6 +29,7 @@ public:
 
     void afisareRuta() override;
     void afisareDetaliiRuta() override;
+    int gasirePret(const int &balantaBani) override;
 };
 
 
@@ -39,6 +41,7 @@ public:
 
     void afisareRuta() override;
     void afisareDetaliiRuta() override;
+    int gasirePret(const int &balantaBani) override;
 };
 
 class RutaTramvai: public Ruta {
@@ -49,6 +52,7 @@ public:
 
     void afisareRuta() override;
     void afisareDetaliiRuta() override;
+    int gasirePret(const int &balantaBani) override;
 };
 
 class RutaMetrou: public Ruta {
@@ -59,6 +63,7 @@ public:
 
     void afisareRuta() override;
     void afisareDetaliiRuta() override;
+    int gasirePret(const int &balantaBani) override;
 };
 
 

@@ -164,6 +164,8 @@ void Meniu::meniuStartJoc() {
 
 void Meniu::meniuAfara() {
     golireEcran();
+    jucatorCurent->afisareJucator();
+    std::cout << std::endl << std::endl;
     std::cout << "Statiile din apropiere:" << std::endl << std::endl;
     const std::string numeStatieCurenta = jucatorCurent->gasireLocatie()->gasireNumeStatie();
     const std::vector<std::pair<Ruta*, int>> statii = hartaOras.gasireStatii(numeStatieCurenta);
@@ -172,13 +174,15 @@ void Meniu::meniuAfara() {
         std::cout << i + 1 << ". ";
         statii[i].first->afisareDetaliiRuta();
         statii[i].first->afisareStatie(statii[i].second);
+        //statii[i].first->afisarePretRuta();
         std::cout << std::endl;
     }
     int optiune;
     std::cout << std::endl << "Alegerea ta: ";
     std::cin >> optiune;
     jucatorCurent->setareStatie(std::make_pair(statii[optiune - 1].first, statii[optiune - 1].second));
-    jucatorCurent->afisareStatie();
+    jucatorCurent->plataMijlocTransport();
+    meniuStatie();
 }
 
 void Meniu::meniuLocatie() {
@@ -204,7 +208,12 @@ void Meniu::meniuLocatie() {
             meniuLocatie();
             break;
     }
-
 }
+
+void Meniu::meniuStatie() {
+    golireEcran();
+    std::cout << "Let's GO Champ!";
+}
+
 
 

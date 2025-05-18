@@ -42,6 +42,7 @@ public:
     void meniuJucatorNou();
     void meniuStartJoc();
     void meniuLocatie();
+    void meniuStatie();
     void meniuAfara();
 };
 
