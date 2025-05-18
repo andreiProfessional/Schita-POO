@@ -165,6 +165,7 @@ void Meniu::meniuStartJoc() {
 
 void Meniu::meniuAfara() {
     golireEcran();
+    std::cout << "___JUCATORUL TAU___" << std::endl << std::endl;
     jucatorCurent->afisareJucator();
     std::cout << std::endl << std::endl;
     std::cout << "Statiile din apropiere:" << std::endl << std::endl;
@@ -188,8 +189,10 @@ void Meniu::meniuAfara() {
 
 void Meniu::meniuLocatie() {
     golireEcran();
+    std::cout << "___JUCATORUL TAU___" << std::endl << std::endl;
     jucatorCurent->afisareJucator();
-    std::cout << std::endl;
+    std::cout << std::endl << std::endl << std::endl;
+    std::cout << "___LOCATIA TA___" << std::endl << std::endl;
     jucatorCurent->afisareLocatie();
     std::cout << std::endl;
     jucatorCurent->afisareOptiuniLocatie();
@@ -213,7 +216,14 @@ void Meniu::meniuLocatie() {
 
 void Meniu::meniuStatie() {
     golireEcran();
-    std::cout << "Let's GO Champ!";
+    std::cout << "___JUCATORUL TAU___" << std::endl << std::endl;
+    jucatorCurent->afisareJucator();
+    std::cout << std::endl << std::endl << std::endl;
+    std::cout << "___STATIA ACTUALA___" << std::endl << std::endl;
+    jucatorCurent->afisareStatie();
+    std::cout << std::endl;
+    std::cout << "1. Directie dus" << std::endl;
+    std::cout << "2. Directie intors" << std::endl;
 }
 
 
