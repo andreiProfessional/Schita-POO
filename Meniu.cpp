@@ -1,4 +1,5 @@
 #include "Meniu.h"
+#include "CuloriText.h"
 #include <iostream>
 #include <fstream>
 
@@ -174,7 +175,7 @@ void Meniu::meniuAfara() {
         std::cout << i + 1 << ". ";
         statii[i].first->afisareDetaliiRuta();
         statii[i].first->afisareStatie(statii[i].second);
-        //statii[i].first->afisarePretRuta();
+        std::cout << " (" << ROSU << "-" << statii[i].first->calcularePretProcent() << "% Lei" << RESETARE << ")";
         std::cout << std::endl;
     }
     int optiune;

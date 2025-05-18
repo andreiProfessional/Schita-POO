@@ -83,6 +83,10 @@ void Jucator::afisareStatie() {
     std::cout << std::endl;
 }
 
+int Jucator::calcularePretRuta() {
+    return statie.first->gasirePret(balantaBani);
+}
+
 
 void Jucator::modificareBalantaBani(const int &diferentaBani) {
     balantaBani += diferentaBani;

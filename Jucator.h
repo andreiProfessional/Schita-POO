@@ -35,6 +35,7 @@ public:
     void setareStatie(const std::pair<Ruta*, int> &statie);
     void afisareStatie();
 
+    int calcularePretRuta();
     void modificareBalantaBani(const int &diferentaBani);
     void modificareNivelViata(const int &diferentaViata);
     void modificareNivelEnergie(const int &diferentaEnergie);
