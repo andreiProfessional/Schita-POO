@@ -232,10 +232,23 @@ void Meniu::meniuStatie() {
     std::cout << "___STATIA ACTUALA___" << std::endl << std::endl;
     jucatorCurent->afisareStatie();
     std::cout << std::endl;
-    std::cout << "1. Directia " << jucatorCurent->gasireNumeCapat(true) << " (Urmatoarea statie: "
-                                << jucatorCurent->gasireNumeStatieUrmatoare(true) << ")" << std::endl;
-    std::cout << "2. Directia " << jucatorCurent->gasireNumeCapat(false) << " (Urmatoarea statie: "
-                                << jucatorCurent->gasireNumeStatieUrmatoare(false) << ")" << std::endl;
+    const std::string numeStatieCurenta = jucatorCurent->gasireNumeStatie();
+    const std::string numeCapatDus = jucatorCurent->gasireNumeCapat(true);
+    const std::string numeCapatIntors = jucatorCurent->gasireNumeCapat(false);
+    if (numeStatieCurenta == numeCapatDus) {
+        const std::string numeStatiePredecesor = jucatorCurent->gasireNumeStatieUrmatoare(false);
+        std::cout << "1. Statia " << numeStatiePredecesor << " (Directia: " << numeCapatIntors << ")" << std::endl;
+    }
+    else if (numeStatieCurenta == numeCapatIntors) {
+        const std::string numeStatieSuccesor = jucatorCurent->gasireNumeStatieUrmatoare(true);
+        std::cout << "1. Statia " << numeStatieSuccesor << " (Directia: " << numeCapatDus << ")" << std::endl;
+    }
+    else {
+        const std::string numeStatieSuccesor = jucatorCurent->gasireNumeStatieUrmatoare(true);
+        const std::string numeStatiePredecesor = jucatorCurent->gasireNumeStatieUrmatoare(false);
+        std::cout << "1. Statia " << numeStatieSuccesor << " (Directia: " << numeCapatDus << ")" << std::endl;
+        std::cout << "2. Statia " << numeStatiePredecesor << " (Directia: " << numeCapatIntors << ")" << std::endl;
+    }
     std::cout << "0. Du-te afara" << std::endl;
     std::cout << "-1. Iesi din joc" << std::endl;
     std::cout << std::endl << "Alegerea ta: ";

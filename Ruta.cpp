@@ -130,7 +130,11 @@ void Ruta::afisareStatie(const int &pozitie) {
     statii[pozitie]->afisareStatie();
 }
 
-std::string Ruta::gasireNumeStatie(const bool &catreDus, const int &pozitie) {
+std::string Ruta::gasireNumeStatie(const int &pozitie) {
+    return statii[pozitie]->gasireNumeStatie();
+}
+
+std::string Ruta::gasireNumeStatieUrmatoare(const bool &catreDus, const int &pozitie) {
     if (catreDus) {
         return statii[pozitie + 1]->gasireNumeStatie();
     }

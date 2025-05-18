@@ -34,6 +34,7 @@ public:
     std::pair<Ruta*, int> gasireStatie();
     void setareStatie(const std::pair<Ruta*, int> &statie);
     void afisareStatie();
+    std::string gasireNumeStatie();
     std::string gasireNumeCapat(const bool &catreDus);
     std::string gasireNumeStatieUrmatoare(const bool &catreDus);
 

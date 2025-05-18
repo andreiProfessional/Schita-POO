@@ -20,7 +20,8 @@ public:
 
     std::pair<Ruta*, int> gasireStatie(const std::string &numeStatie);
     void afisareStatie(const int &pozitie);
-    std::string gasireNumeStatie(const bool &catreDus, const int &pozitie);
+    std::string gasireNumeStatie(const int &pozitie);
+    std::string gasireNumeStatieUrmatoare(const bool &catreDus, const int &pozitie);
     std::string gasireNumeCapat(const bool &catreDus);
 };
 

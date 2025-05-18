@@ -83,11 +83,16 @@ void Jucator::afisareStatie() {
     std::cout << std::endl;
 }
 
+std::string Jucator::gasireNumeStatie() {
+    return statie.first->gasireNumeStatie(statie.second);
+}
+
+
 std::string Jucator::gasireNumeCapat(const bool &catreDus) {
     return statie.first->gasireNumeCapat(catreDus);
 }
 std::string Jucator::gasireNumeStatieUrmatoare(const bool &catreDus) {
-    return statie.first->gasireNumeStatie(catreDus, statie.second);
+    return statie.first->gasireNumeStatieUrmatoare(catreDus, statie.second);
 }
 
 
