@@ -85,7 +85,7 @@ void Meniu::meniuInceput() {
     std::cout << "Bine ai venit in \"MICUL ORASEL\"!" << std::endl << std::endl;
     std::cout << "1. Selecteaza jucator vechi" << std::endl;
     std::cout << "2. Creeaza jucator nou" << std::endl;
-    std::cout << "0. Pleaca acasa" << std::endl;
+    std::cout << "-1. Pleaca acasa" << std::endl;
     std::cout << std::endl << "Alegerea ta: ";
     int optiune;
     std::cin >> optiune;
@@ -96,7 +96,7 @@ void Meniu::meniuInceput() {
         case 2:
             meniuJucatorNou();
             break;
-        case 0:
+        case -1:
             meniuSfarsit();
             break;
         default:
@@ -146,6 +146,7 @@ void Meniu::meniuStartJoc() {
     std::cout << std::endl << std::endl;
     std::cout << "1. Incepe jocul" << std::endl;
     std::cout << "0. Inapoi la Meniul de Inceput" << std::endl;
+    std::cout << "-1. Iesi din joc" << std::endl;
     std::cout << std::endl << "Alegerea ta: ";
     int optiune;
     std::cin >> optiune;
@@ -156,6 +157,9 @@ void Meniu::meniuStartJoc() {
         case 0:
             jucatorCurent = nullptr;
             meniuInceput();
+            break;
+        case -1:
+            meniuSfarsit();
             break;
         default:
             meniuStartJoc();
@@ -179,12 +183,18 @@ void Meniu::meniuAfara() {
         std::cout << " (" << ROSU << "-" << statii[i].first->calcularePretProcent() << "% Lei" << RESETARE << ")";
         std::cout << std::endl;
     }
+    std::cout << "-1. Iesi din joc" << std::endl;
     int optiune;
     std::cout << std::endl << "Alegerea ta: ";
     std::cin >> optiune;
-    jucatorCurent->setareStatie(std::make_pair(statii[optiune - 1].first, statii[optiune - 1].second));
-    jucatorCurent->plataMijlocTransport();
-    meniuStatie();
+    if (optiune == -1) {
+        meniuSfarsit();
+    }
+    else {
+        jucatorCurent->setareStatie(std::make_pair(statii[optiune - 1].first, statii[optiune - 1].second));
+        jucatorCurent->plataMijlocTransport();
+        meniuStatie();
+    }
 }
 
 void Meniu::meniuLocatie() {
