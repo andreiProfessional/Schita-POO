@@ -129,3 +129,10 @@ std::pair<Ruta*, int> Ruta::gasireStatie(const std::string &numeStatie) {
 void Ruta::afisareStatie(const int &pozitie) {
     statii[pozitie]->afisareStatie();
 }
+
+std::string Ruta::gasireNumeCapat(const bool &catreDus) {
+    if (catreDus) {
+        return statii[statii.size() - 1]->gasireNumeStatie();
+    }
+    return statii[0]->gasireNumeStatie();
+}

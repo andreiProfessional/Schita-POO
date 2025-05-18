@@ -20,6 +20,7 @@ public:
 
     std::pair<Ruta*, int> gasireStatie(const std::string &numeStatie);
     void afisareStatie(const int &pozitie);
+    std::string gasireNumeCapat(const bool &catreDus);
 };
 
 class RutaAutobuz: public Ruta {

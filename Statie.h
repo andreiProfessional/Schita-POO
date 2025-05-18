@@ -13,6 +13,7 @@ public:
     void obtinereListaLocatii();
     bool verificareId(const int &idStatie);
     bool verificareNume(const std::string &nume);
+    std::string gasireNumeStatie();
 };
 
 class StatieAutobuz: public Statie {

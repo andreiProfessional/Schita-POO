@@ -44,3 +44,7 @@ bool Statie::verificareId(const int &idStatie) {
 bool Statie::verificareNume(const std::string &nume) {
     return (this->nume == nume);
 }
+
+std::string Statie::gasireNumeStatie() {
+    return nume;
+}

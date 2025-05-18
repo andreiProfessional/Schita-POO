@@ -83,6 +83,12 @@ void Jucator::afisareStatie() {
     std::cout << std::endl;
 }
 
+std::string Jucator::gasireNumeCapat(const bool &catreDus) {
+    return statie.first->gasireNumeCapat(catreDus);
+}
+
+
+
 int Jucator::calcularePretRuta() {
     return statie.first->gasirePret(balantaBani);
 }
