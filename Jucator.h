@@ -37,6 +37,7 @@ public:
     std::string gasireNumeStatie();
     std::string gasireNumeCapat(const bool &catreDus);
     std::string gasireNumeStatieUrmatoare(const bool &catreDus);
+    std::string schimbareStatie(const std::string &numeStatie);
 
     int calcularePretRuta();
     void modificareBalantaBani(const int &diferentaBani);
