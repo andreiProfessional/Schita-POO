@@ -1,51 +1,18 @@
 #ifndef STATIE_H
 #define STATIE_H
+#include <vector>
 #include <string>
 
 class Statie {
-protected:
+private:
     static int contorID;
-    const int idStatie;
-    const std::string nume;
+    const int id;
+    std::string nume;
+    std::vector<std::string> rute;
 public:
-    Statie(const std::string &nume);
-    virtual void afisareStatie() = 0;
-    void obtinereListaLocatii();
-    bool verificareId(const int &idStatie);
-    bool verificareNume(const std::string &nume);
-    std::string gasireNumeStatie();
-};
-
-class StatieAutobuz: public Statie {
-private:
-
-public:
-    StatieAutobuz(const std::string &nume);
-    void afisareStatie() override;
-};
-
-class StatieTroleibuz: public Statie {
-private:
-
-public:
-    StatieTroleibuz(const std::string &nume);
-    void afisareStatie() override;
-};
-
-class StatieTramvai: public Statie {
-private:
-
-public:
-    StatieTramvai(const std::string &nume4);
-    void afisareStatie() override;
-};
-
-class StatieMetrou: public Statie {
-private:
-
-public:
-    StatieMetrou(const std::string &nume);
-    void afisareStatie() override;
+    Statie(const std::string &nume_, const std::vector<std::string> &rute_);
+    void afisare() const;
+    void adaugareRuta(const std::string &ruta);
 };
 
 

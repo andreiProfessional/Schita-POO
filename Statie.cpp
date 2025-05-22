@@ -1,50 +1,24 @@
 #include "Statie.h"
-#include "CuloriText.h"
 #include <iostream>
+
 
 int Statie::contorID = 0;
 
-Statie::Statie(const std::string &nume):
-    idStatie(++ contorID),
-    nume(nume) {}
+Statie::Statie(const std::string &nume_, const std::vector<std::string> &rute_):
+    id(++ contorID),
+    nume(nume_),
+    rute(rute_)
+{}
 
-StatieAutobuz::StatieAutobuz(const std::string &nume):
-    Statie(nume) {}
-
-StatieTroleibuz::StatieTroleibuz(const std::string &nume):
-    Statie(nume) {}
-
-StatieTramvai::StatieTramvai(const std::string &nume):
-    Statie(nume) {}
-
-StatieMetrou::StatieMetrou(const std::string &nume):
-    Statie(nume) {}
-
-
-void StatieAutobuz::afisareStatie() {
-    std::cout << nume;
+void Statie::afisare() const {
+    std::cout << "Statia " << this->id << " : "
+              << this->nume << " | ";
+    for (auto &ruta: this->rute) {
+        std::cout << ruta << "   ";
+    }
+    std::cout << std::endl;
 }
 
-void StatieTroleibuz::afisareStatie() {
-    std::cout << nume;
-}
-
-void StatieTramvai::afisareStatie() {
-    std::cout << nume;
-}
-
-void StatieMetrou::afisareStatie() {
-    std::cout << nume;
-}
-
-bool Statie::verificareId(const int &idStatie) {
-    return (this->idStatie == idStatie);
-}
-
-bool Statie::verificareNume(const std::string &nume) {
-    return (this->nume == nume);
-}
-
-std::string Statie::gasireNumeStatie() {
-    return nume;
+void Statie::adaugareRuta(const std::string &ruta) {
+    this->rute.push_back(ruta);
 }

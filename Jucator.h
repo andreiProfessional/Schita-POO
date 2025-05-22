@@ -1,54 +1,29 @@
 #ifndef UTILIZATOR_H
 #define UTILIZATOR_H
-#include "Statie.h"
-#include "Locatie.h"
 #include <string>
-#include <vector>
 
 
 class Jucator {
-protected:
+private:
     static int contorID;
-    const int idJucator;
+    const int id;
     std::string nume;
-    Locatie *locatie;
-    std::pair<Ruta*, int> statie;
-    int balantaBani;
     int nivelViata;
-    int nivelEnergie;
-    int nivelNutritie;
+    int nivelHrana;
+    int balantaBani;
 public:
-    Jucator(const std::string &nume = "NO NAME",
-        Locatie *locatie = nullptr, const std::pair<Ruta*, int> &statie = {nullptr, -1},
-        const int &balantaBani = 50,
-        const int &nivelViata = 100,
-        const int &nivelEnergie = 100,
-        const int &nivelNutritie = 100);
-
-    bool verificareId(const int &id);
-    void afisareJucator();
-    void afisareNivel(const std::string &mesajNivel, const std::string &simbolPozitiv, const std::string &simbolNegativ, const int &nivel);
-    void afisareLocatie();
-    void afisareOptiuniLocatie();
-    Locatie *gasireLocatie();
-    std::pair<Ruta*, int> gasireStatie();
-    void setareStatie(const std::pair<Ruta*, int> &statie);
-    void afisareStatie();
-    std::string gasireNumeStatie();
-    std::string gasireNumeCapat(const bool &catreDus);
-    std::string gasireNumeStatieUrmatoare(const bool &catreDus);
-    std::string schimbareStatie(const std::string &numeStatie);
-
-    int calcularePretRuta();
-    void modificareBalantaBani(const int &diferentaBani);
-    void modificareNivelViata(const int &diferentaViata);
-    void modificareNivelEnergie(const int &diferentaEnergie);
-    void modificareNivelNutritie(const int &diferentaNutritie);
-    void aplicareCoeficienti(const int &optiune);
-    void plataMijlocTransport();
-
-    void calatorieStatiiVecine(const bool &catreDus);
+    Jucator(const std::string &nume_, const int &nivelViata_, const int &nivelHrana_, const int &balantaBani_);
+    void afisare() const;
+    void modificareStatistici(const int &diferentaNivel, const int &diferentaHrana, const int &diferentaBani);
 };
 
+class JucatorFactory {
+public:
+    static Jucator* tataBogat(const std::string &nume_) {return new Jucator(nume_, 90, 80, 2000);}
+    static Jucator* tataSarac(const std::string &nume_) {return new Jucator(nume_, 45, 40, 500);}
+    static Jucator* magnatBatran(const std::string &nume_) {return new Jucator(nume_, 40, 70, 5000);}
+    static Jucator* omDeRand(const std::string &nume_) {return new Jucator(nume_, 75, 75, 750);}
+    static Jucator* pierdeVara(const std::string &nume_) {return new Jucator(nume_, 80, 40, 350);}
+};
 
 #endif

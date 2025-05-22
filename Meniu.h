@@ -1,9 +1,6 @@
 #ifndef MENIU_H
 #define MENIU_H
-#include "Jucator.h"
-#include "HartaOras.h"
-#include <vector>
-
+/*
 class Meniu {
 private:
     Meniu();
@@ -45,6 +42,5 @@ public:
     void meniuStatie();
     void meniuAfara();
 };
-
-
+*/
 #endif

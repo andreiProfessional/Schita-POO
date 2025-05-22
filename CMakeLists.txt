@@ -53,17 +53,17 @@ add_executable(${MAIN_EXECUTABLE_NAME}
     generated/src/Helper.cpp
         Statie.cpp
         Statie.h
-        HartaOras.cpp
-        HartaOras.h
         Locatie.cpp
         Locatie.h
         Jucator.cpp
         Jucator.h
-        Ruta.cpp
-        Ruta.h
         Meniu.cpp
         Meniu.h
         CuloriText.h
+        Inventar.cpp
+        Inventar.h
+        Activitate.cpp
+        Activitate.h
 )
 
 # NOTE: Add all defined targets (e.g. executables, libraries, etc. )

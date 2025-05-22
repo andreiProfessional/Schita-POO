@@ -2,7 +2,7 @@
 #include "CuloriText.h"
 #include <iostream>
 #include <fstream>
-
+/*
 Meniu::Meniu(): hartaOras(HartaOras::acceseazaSingleton()) {
     this->creareHartaOras();
     this->creareListaJucatori();
@@ -56,7 +56,7 @@ void Meniu::creareListaJucatori() {
 void Meniu::afisareJucator(const int &idJucator) {
     gasireJucator(id)->afisareJucator();
 }
-*/
+
 void Meniu::afisareListaJucatori() {
     for (const auto &jucator: jucatori) {
         jucator->afisareJucator();
@@ -80,7 +80,7 @@ Locatie* Meniu::gasireLocatieDupaNume(const std::string &numeLocatie) {
 Statie* Meniu::gasireStatieDupaLocatie(Locatie *locatie) {
     return locatie->gasireStatie();
 }
-*/
+
 void Meniu::meniuInceput() {
     golireEcran();
     std::cout << "Bine ai venit in \"MICUL ORASEL\"!" << std::endl << std::endl;
@@ -314,6 +314,6 @@ void Meniu::meniuStatie() {
         }
     }
 }
-
+*/
 
 
