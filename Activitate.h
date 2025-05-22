@@ -5,6 +5,7 @@
 #include <vector>
 #include <string>
 
+
 class Activitate {
 protected:
     static int contorID;
