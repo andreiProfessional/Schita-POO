@@ -1,5 +1,7 @@
 #ifndef UTILIZATOR_H
 #define UTILIZATOR_H
+#include "Locatie.h"
+#include "Statie.h"
 #include <string>
 
 
@@ -11,19 +13,23 @@ private:
     int nivelViata;
     int nivelHrana;
     int balantaBani;
+    Locatie *locatie;
+    Statie *statie;
 public:
-    Jucator(const std::string &nume_, const int &nivelViata_, const int &nivelHrana_, const int &balantaBani_);
+    Jucator(const std::string &nume_, const int &nivelViata_, const int &nivelHrana_, const int &balantaBani_,
+        Locatie *locatie_, Statie *statie_);
     void afisare() const;
-    void modificareStatistici(const int &diferentaNivel, const int &diferentaHrana, const int &diferentaBani);
+    void modificareStatistici(const int &multiplicator);
+    void setLocatie(Locatie *locatie);
 };
 
 class JucatorFactory {
 public:
-    static Jucator* tataBogat(const std::string &nume_) {return new Jucator(nume_, 90, 80, 2000);}
-    static Jucator* tataSarac(const std::string &nume_) {return new Jucator(nume_, 45, 40, 500);}
-    static Jucator* magnatBatran(const std::string &nume_) {return new Jucator(nume_, 40, 70, 5000);}
-    static Jucator* omDeRand(const std::string &nume_) {return new Jucator(nume_, 75, 75, 750);}
-    static Jucator* pierdeVara(const std::string &nume_) {return new Jucator(nume_, 80, 40, 350);}
+    static Jucator* tataBogat(const std::string &nume_, Locatie *locatie, Statie *statie);
+    static Jucator* tataSarac(const std::string &nume_, Locatie *locatie, Statie *statie);
+    static Jucator* magnatBatran(const std::string &nume_, Locatie *locatie, Statie *statie);
+    static Jucator* omDeRand(const std::string &nume, Locatie *locatie, Statie *statie);
+    static Jucator* pierdeVara(const std::string &nume_, Locatie *locatie, Statie *statie);
 };
 
 #endif

@@ -19,3 +19,15 @@ void Locatie::afisare() const {
               << this->coeficientHrana << " | "
               << this->coeficientBani << std::endl;
 }
+
+int Locatie::getCoeficientViata() const {
+    return this->coeficientViata;
+}
+
+int Locatie::getCoeficientHrana() const {
+    return this->coeficientHrana;
+}
+
+int Locatie::getCoeficientBani() const {
+    return this->coeficientBani;
+}

@@ -4,7 +4,6 @@
 #include <vector>
 #include <unordered_map>
 
-
 Inventar::Inventar() {
     jucatori = std::vector<Jucator*>();
     locatii = std::vector<Locatie*>();

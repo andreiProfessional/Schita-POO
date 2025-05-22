@@ -11,9 +11,9 @@ private:
     Inventar();
     ~Inventar();
 
-    std::vector<Jucator*> jucatori;
     std::vector<Locatie*> locatii;
     std::unordered_map<Statie*, std::vector<Statie*>> statii;
+    std::vector<Jucator*> jucatori;
     std::vector<Activitate*> istoricActivitati;
 public:
     Inventar(const Inventar&) = delete;

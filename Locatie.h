@@ -13,6 +13,9 @@ private:
 public:
     Locatie(const std::string &nume_, const int &coeficientViata_, const int &coeficientHrana_, const int &coeficientBani_);
     void afisare() const;
+    int getCoeficientViata() const;
+    int getCoeficientHrana() const;
+    int getCoeficientBani() const;
 };
 
 
