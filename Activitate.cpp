@@ -7,10 +7,10 @@
 
 int Activitate::contorID = 0;
 
-Activitate::Activitate(): id(++ contorID) {}
+Activitate::Activitate(Jucator *jucator_): id(++ contorID), jucator(jucator_) {}
 
 ActivitateLocatie::ActivitateLocatie(Jucator *jucator_, const std::vector<std::pair<std::string, int>> &optiuni_):
-    jucator(jucator_),
+    Activitate(jucator_),
     optiuni(optiuni_) {}
 
 void ActivitateLocatie::afisare() {
@@ -28,7 +28,7 @@ void ActivitateLocatie::activitate(const int &alegere) {
 }
 
 ActivitateTaxi::ActivitateTaxi(Jucator *jucator_, const std::vector<Locatie*> &locatii_):
-    jucator(jucator_),
+    Activitate(jucator_),
     locatii(locatii_) {}
 
 void ActivitateTaxi::afisare() {
