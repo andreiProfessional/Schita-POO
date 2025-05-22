@@ -37,7 +37,6 @@ public:
     int calcularePretProcent() override;
 };
 
-
 class RutaTroleibuz: public Ruta {
 private:
 

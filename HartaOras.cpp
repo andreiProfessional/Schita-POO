@@ -4,9 +4,9 @@
 #include <iostream>
 #include <string>
 
-HartaOras::HartaOras() {}
+HartaOras::HartaOras() {std::cout << "Creare Harta" << std::endl << std::endl;}
 
-HartaOras::~HartaOras() {}
+HartaOras::~HartaOras() {std::cout << "Distrugere Harta" << std::endl << std::endl;}
 
 void HartaOras::adaugareRuta(const std::string &tip, const std::string &nume, const std::vector<std::string> &listaStatii) {
     if (tip == "AUTOBUZ") {
@@ -48,16 +48,16 @@ void HartaOras::creareHartaRute() {
 
     std::getline(in, input);
     while (std::getline(in, input)) {
-        const std::string inputTip = input.substr(0, input.find(","));
-        input = input.erase(0, input.find(",") + 1);
+        const std::string inputTip = input.substr(0, input.find(','));
+        input = input.erase(0, input.find(',') + 1);
 
-        const std::string inputNume = input.substr(0, input.find(","));
-        input = input.erase(0, input.find(",") + 1);
+        const std::string inputNume = input.substr(0, input.find(','));
+        input = input.erase(0, input.find(',') + 1);
 
         std::vector<std::string> inputListaStatii;
-        while (input.find(";") != std::string::npos) {
-            inputListaStatii.push_back(input.substr(0, input.find(";")));
-            input = input.erase(0, input.find(";") + 1);
+        while (input.find(';') != std::string::npos) {
+            inputListaStatii.push_back(input.substr(0, input.find(';')));
+            input = input.erase(0, input.find(';') + 1);
         }
         inputListaStatii.push_back(input);
 
@@ -71,7 +71,7 @@ void HartaOras::creareHartaRute() {
     gasireStatie(ID)->afisareStatie();
 }*/
 
-void HartaOras::afisareHartaRute() {
+void HartaOras::afisareHartaRute() const {
     for (auto const &ruta: rute) {
         ruta->afisareRuta();
     }
@@ -129,23 +129,23 @@ void HartaOras::creareHartaLocatii() {
 
     std::getline(in, input);
     while (std::getline(in, input)) {
-        const std::string inputTip = input.substr(0, input.find(","));
-        input = input.erase(0, input.find(",") + 1);
+        const std::string inputTip = input.substr(0, input.find(','));
+        input = input.erase(0, input.find(',') + 1);
 
-        const std::string inputNume = input.substr(0, input.find(","));
-        input = input.erase(0, input.find(",") + 1);
+        const std::string inputNume = input.substr(0, input.find(','));
+        input = input.erase(0, input.find(',') + 1);
 
-        const std::string inputStatie = input.substr(0, input.find(","));
-        input = input.erase(0, input.find(",") + 1);
+        const std::string inputStatie = input.substr(0, input.find(','));
+        input = input.erase(0, input.find(',') + 1);
 
-        std::string inputCoeficienti = input.substr(0, input.find(","));
+        std::string inputCoeficienti = input.substr(0, input.find(','));
         std::vector<int> coeficienti;
-        while (inputCoeficienti.find(";") != std::string::npos) {
-            coeficienti.push_back(std::stoi(inputCoeficienti.substr(0, inputCoeficienti.find(";"))));
-            inputCoeficienti = inputCoeficienti.erase(0, inputCoeficienti.find(";") + 1);
+        while (inputCoeficienti.find(';') != std::string::npos) {
+            coeficienti.push_back(std::stoi(inputCoeficienti.substr(0, inputCoeficienti.find(';'))));
+            inputCoeficienti = inputCoeficienti.erase(0, inputCoeficienti.find(';') + 1);
         }
         coeficienti.push_back(std::stoi(inputCoeficienti));
-        input = input.erase(0, input.find(",") + 1);
+        input = input.erase(0, input.find(',') + 1);
 
         adaugareLocatie(inputTip, inputNume, inputStatie, coeficienti);
     }
@@ -175,8 +175,8 @@ Locatie* HartaOras::gasireLocatieDupaNume(const std::string &numeLocatie) {
 
 std::vector<std::pair<Ruta*, int>> HartaOras::gasireStatii(const std::string &numeStatieCurenta) {
     std::vector<std::pair<Ruta*, int>> listaStatii;
-    int numarRute = rute.size();
-    for (int indice = 0; indice < numarRute; indice ++) {
+    unsigned int numarRute = rute.size();
+    for (unsigned indice = 0; indice < numarRute; indice ++) {
         std::pair<Ruta*, int> statieNoua = rute[indice]->gasireStatie(numeStatieCurenta);
         if (statieNoua.first != nullptr) {
             listaStatii.push_back(statieNoua);

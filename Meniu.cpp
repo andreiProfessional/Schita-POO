@@ -3,7 +3,10 @@
 #include <iostream>
 #include <fstream>
 
-Meniu::Meniu(): hartaOras(HartaOras::acceseazaSingleton()) {}
+Meniu::Meniu(): hartaOras(HartaOras::acceseazaSingleton()) {
+    this->creareHartaOras();
+    this->creareListaJucatori();
+}
 
 Meniu::~Meniu() {}
 
@@ -80,8 +83,6 @@ Statie* Meniu::gasireStatieDupaLocatie(Locatie *locatie) {
 */
 void Meniu::meniuInceput() {
     golireEcran();
-    this->creareHartaOras();
-    this->creareListaJucatori();
     std::cout << "Bine ai venit in \"MICUL ORASEL\"!" << std::endl << std::endl;
     std::cout << "1. Selecteaza jucator vechi" << std::endl;
     std::cout << "2. Creeaza jucator nou" << std::endl;

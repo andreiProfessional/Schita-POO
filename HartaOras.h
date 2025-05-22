@@ -2,7 +2,6 @@
 #define CITYMAP_H
 #include "Ruta.h"
 #include "Locatie.h"
-#include "Jucator.h"
 #include <vector>
 #include <iostream>
 
@@ -23,7 +22,7 @@ public:
 
     void adaugareRuta(const std::string &tip, const std::string &nume, const std::vector<std::string> &listaStatii);
     void creareHartaRute();
-    void afisareHartaRute();
+    void afisareHartaRute() const;
     //void afisareStatie(const int &id);
     //std::vector <std::pair<Ruta*, int>> gasireStatieDupaNume(const std::string &numeStatie);
     void adaugareLocatie(const std::string &tip, const std::string &nume, const std::string &statie,
