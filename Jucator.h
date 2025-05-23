@@ -21,7 +21,9 @@ public:
     void afisare() const;
     void modificareStatistici(const int &multiplicator);
     void setLocatie(Locatie *locatie);
+    void setStatie(Statie *statie);
 };
+
 
 class JucatorFactory {
 public:

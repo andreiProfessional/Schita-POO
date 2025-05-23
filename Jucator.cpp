@@ -22,6 +22,7 @@ void Jucator::afisare() const {
               << this->nivelHrana << " | "
               << this-> balantaBani << std::endl;
     this->locatie->afisare();
+    this->statie->afisare();
 }
 
 void Jucator::modificareStatistici(const int &multiplicator) {
@@ -48,6 +49,11 @@ void Jucator::modificareStatistici(const int &multiplicator) {
 void Jucator::setLocatie(Locatie *locatie) {
     this->locatie = locatie;
 }
+
+void Jucator::setStatie(Statie *statie) {
+    this->statie = statie;
+}
+
 
 Jucator* JucatorFactory::tataBogat(const std::string &nume_, Locatie *locatie, Statie *statie) {
     return new Jucator(nume_, 90, 80, 2000, locatie, statie);

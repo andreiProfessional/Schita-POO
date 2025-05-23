@@ -43,3 +43,18 @@ void ActivitateTaxi::activitate(const int &alegere) {
     this->jucator->setLocatie(locatii[alegere - 1]);
 }
 
+ActivitateStatie::ActivitateStatie(Jucator *jucator_, const std::vector<Statie*> &statiiVecine_):
+    Activitate(jucator_),
+    statiiVecine(statiiVecine_) {}
+
+void ActivitateStatie::afisare() {
+    int numarStatiiVecine = statiiVecine.size();
+    for (int index = 0; index < numarStatiiVecine; index ++) {
+        std::cout << index + 1 << ". ";
+        statiiVecine[index]->afisare();
+    }
+}
+
+void ActivitateStatie::activitate(const int &alegere) {
+    this->jucator->setStatie(statiiVecine[alegere - 1]);
+}

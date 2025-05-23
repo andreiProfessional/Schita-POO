@@ -4,6 +4,7 @@
 #include "Locatie.h"
 #include <vector>
 #include <string>
+#include <unordered_map>
 
 
 class Activitate {
@@ -33,6 +34,15 @@ private:
     std::vector<Locatie*> locatii;
 public:
     ActivitateTaxi(Jucator *jucator_, const std::vector<Locatie*> &locatii_);
+    void afisare() override;
+    void activitate(const int &alegere) override;
+};
+
+class ActivitateStatie: public Activitate {
+private:
+    std::vector<Statie*> statiiVecine;
+public:
+    ActivitateStatie(Jucator *jucator_, const std::vector<Statie*> &statiiVecine_);
     void afisare() override;
     void activitate(const int &alegere) override;
 };
