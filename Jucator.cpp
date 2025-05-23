@@ -1,4 +1,5 @@
 #include "Jucator.h"
+#include "CuloriText.h"
 #include <iostream>
 
 
@@ -16,13 +17,47 @@ Jucator::Jucator(const std::string &nume_, const int &nivelViata_, const int &ni
     {}
 
 void Jucator::afisare() const {
-    std::cout << "Jucatorul " << this->id << " : "
-              << this->nume << " | "
-              << this->nivelViata << " | "
-              << this->nivelHrana << " | "
-              << this-> balantaBani << std::endl;
-    this->locatie->afisare();
-    this->statie->afisare();
+    for (int i = 0; i < 50; i ++) {
+        std::cout << "=";
+    }
+    std::cout << std::endl;
+    std::cout << "Nume: " << this->nume << std::endl;
+    std::cout << "Viata: " << "[";
+    int nivelAfisajViata = (this->nivelViata + 9) / 10;
+    for (int i = 0; i < nivelAfisajViata; i ++) {
+        std::cout << INIMA_ROSIE;
+        if (i != 9) {
+            std::cout << "|";
+        }
+    }
+    for (int i = nivelAfisajViata; i < 10; i ++) {
+        std::cout << INIMA_NEAGRA;
+        if (i != 9) {
+            std::cout << "|";
+        }
+    }
+    std::cout << "]" << std::endl;
+    std::cout << "Hrana: " << "[";
+    int nivelAfisajHrana = (this->nivelHrana + 9) / 10;
+    for (int i = 0; i < nivelAfisajHrana; i ++) {
+        std::cout << COPAN_PLIN;
+        if (i != 9) {
+            std::cout << "|";
+        }
+    }
+    for (int i = nivelAfisajHrana; i < 10; i ++) {
+        std::cout << COPAN_GOL;
+        if (i != 9) {
+            std::cout << "|";
+        }
+    }
+    std::cout << "]" << std::endl;
+    std::cout << "Bani: " << this->balantaBani << " Lei" << std::endl;
+    std::cout << "Locatie: "; this->locatie->afisare();
+    std::cout << "Statie: "; this->statie->afisare();
+    for (int i = 0; i < 50; i ++) {
+        std::cout << "=";
+    }
 }
 
 void Jucator::modificareNivelViata(const int &diferentaViata) {

@@ -12,20 +12,20 @@ int main() {
     Statie *s1 = new Statie("Piata Romana", {"M2"});
     Statie *s2 = new Statie("Piata Unirii", {"M1", "M2", "104"});
     Statie *s3 = new Statie("Piata Victoriei", {"M1", "M2"});
-    s1->afisare();
-    s2->afisare();
-    s3->afisare();
+    // s1->afisare();
+    // s2->afisare();
+    // s3->afisare();
 
     Jucator *j1 = JucatorFactory::tataBogat("Charles", l1, s1);
     Jucator *j2 = JucatorFactory::omDeRand("John Pork", l2, s2);
-    // j1->afisare();
-    // j2->afisare();
+    // j1->afisare();std::cout << std::endl;
+    //j2->afisare();
 
-    // Activitate *a1 = new ActivitateLocatie(j1,
-    //     {{"Suculetz de portocale", 1}, {"Happy meal", 4}, {"Meniu Big Mac", 6}});
-    // a1->afisare(); std::cout << std::endl;
-    // a1->activitate(1); std::cout << std::endl;
-    // a1->afisare();
+    Activitate *a1 = new ActivitateLocatie(j1,
+        {{"Suculetz de portocale", 1}, {"Happy meal", 4}, {"Meniu Big Mac", 6}});
+    a1->afisare(); std::cout << std::endl;
+    a1->activitate(1); std::cout << std::endl;
+    a1->afisare();
     // Activitate *a2 = new ActivitateTaxi(j2, {l1, l2, l3});
     // a2->afisare();
     // a2->activitate(3);

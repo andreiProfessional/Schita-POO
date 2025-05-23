@@ -15,7 +15,7 @@ Locatie::Locatie(const std::string &nume_, const int &coeficientViata_, const in
 {}
 
 void Locatie::afisare() const {
-    std::cout << this->id << ". " << this->nume << ": ";
+    std::cout << this->nume << " - ";
     if (coeficientViata > 0) {
         std::cout << VERDE << "Viata";
     }
