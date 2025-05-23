@@ -19,8 +19,12 @@ public:
     Jucator(const std::string &nume_, const int &nivelViata_, const int &nivelHrana_, const int &balantaBani_,
         Locatie *locatie_, Statie *statie_);
     void afisare() const;
-    void modificareStatistici(const int &multiplicator);
+    void modificareNivelViata(const int &diferentaViata);
+    void modificareNivelHrana(const int &diferentaHrana);
     void modificareBalantaBani(const int &diferentaBani);
+    int getCoeficientViataLocatie();
+    int getCoeficientHranaLocatie();
+    int getCoeficientBaniLocatie();
     void setLocatie(Locatie *locatie);
     void setStatie(Statie *statie);
 };

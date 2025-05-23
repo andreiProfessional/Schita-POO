@@ -21,16 +21,16 @@ int main() {
     // j1->afisare();
     // j2->afisare();
 
-    // Activitate *a1 = new ActivitateLocatie(j1,
-    //     {{"Suculetz de portocale", 2}, {"Happy meal", 4}, {"Meniu Big Mac", 8}});
-    // a1->afisare(); std::cout << std::endl;
-    // a1->activitate(2); std::cout << std::endl;
-    // a1->afisare();
-    Activitate *a2 = new ActivitateTaxi(j2, {l1, l2, l3});
-    a2->afisare();
-    a2->activitate(3);
-    std::cout << std::endl;
-    j2->afisare();
+    Activitate *a1 = new ActivitateLocatie(j1,
+        {{"Suculetz de portocale", 1}, {"Happy meal", 4}, {"Meniu Big Mac", 6}});
+    a1->afisare(); std::cout << std::endl;
+    a1->activitate(1); std::cout << std::endl;
+    a1->afisare();
+    // Activitate *a2 = new ActivitateTaxi(j2, {l1, l2, l3});
+    // a2->afisare();
+    // a2->activitate(3);
+    // std::cout << std::endl;
+    // j2->afisare();
     // Activitate *a3 = new ActivitateStatie(j1, {s2, s3});
     // a3->afisare();
     // a3->activitate(2); std::cout << std::endl;
@@ -56,8 +56,8 @@ int main() {
         delete s1;
         delete s2;
         delete s3;
-        // delete a1;
-        delete a2;
+        delete a1;
+        // delete a2;
         // delete a3;
     } // deletes
 

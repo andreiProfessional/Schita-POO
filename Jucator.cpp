@@ -25,24 +25,23 @@ void Jucator::afisare() const {
     this->statie->afisare();
 }
 
-void Jucator::modificareStatistici(const int &multiplicator) {
-    this->nivelViata += multiplicator * this->locatie->getCoeficientViata();
-    if (this->nivelViata < 0) {
-        this->nivelViata = 0;
+void Jucator::modificareNivelViata(const int &diferentaViata) {
+    this->nivelViata += diferentaViata;
+    if (nivelViata < 0) {
+        nivelViata = 0;
     }
-    else if (this->nivelViata > 100) {
-        this->nivelViata = 100;
+    else if (nivelViata > 100) {
+        nivelViata = 100;
     }
-    this->nivelHrana += multiplicator * this->locatie->getCoeficientHrana();
+}
+
+void Jucator::modificareNivelHrana(const int &diferentaHrana) {
+    this->nivelHrana += diferentaHrana;
     if (this->nivelHrana < 0) {
         this->nivelHrana = 0;
     }
     else if (this->nivelHrana > 100) {
         this->nivelHrana = 100;
-    }
-    this->balantaBani += multiplicator * this->locatie->getCoeficientBani();
-    if (this->balantaBani < 0) {
-        this->balantaBani = 0;
     }
 }
 
@@ -53,6 +52,17 @@ void Jucator::modificareBalantaBani(const int &diferentaBani) {
     }
 }
 
+int Jucator::getCoeficientViataLocatie() {
+    return this->locatie->getCoeficientViata();
+}
+
+int Jucator::getCoeficientHranaLocatie() {
+    return this->locatie->getCoeficientHrana();
+}
+
+int Jucator::getCoeficientBaniLocatie() {
+    return this->locatie->getCoeficientBani();
+}
 
 void Jucator::setLocatie(Locatie *locatie) {
     this->locatie = locatie;

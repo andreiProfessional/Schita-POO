@@ -23,8 +23,9 @@ void ActivitateLocatie::afisare() {
 }
 
 void ActivitateLocatie::activitate(const int &alegere) {
-    this->jucator->modificareStatistici(optiuni[alegere - 1].second);
-    // TODO: Caz Moarte
+    this->jucator->modificareNivelViata(optiuni[alegere - 1].second * this->jucator->getCoeficientViataLocatie());
+    this->jucator->modificareNivelHrana(optiuni[alegere - 1].second * this->jucator->getCoeficientHranaLocatie());
+    this->jucator->modificareBalantaBani(optiuni[alegere - 1].second * this->jucator->getCoeficientBaniLocatie());
 }
 
 ActivitateTaxi::ActivitateTaxi(Jucator *jucator_, const std::vector<Locatie*> &locatii_):
