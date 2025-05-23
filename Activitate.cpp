@@ -64,6 +64,8 @@ ActivitateStatie::ActivitateStatie(Jucator *jucator_, const std::vector<Statie*>
     statiiVecine(statiiVecine_) {}
 
 void ActivitateStatie::afisare() {
+    this->jucator->afisare(); std::cout << std::endl;
+    std::cout << "Statii vecine:" << std::endl;
     int numarStatiiVecine = statiiVecine.size();
     for (int index = 0; index < numarStatiiVecine; index ++) {
         std::cout << index + 1 << ". ";
