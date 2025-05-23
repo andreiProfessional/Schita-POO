@@ -25,8 +25,8 @@ public:
     int getCoeficientViataLocatie();
     int getCoeficientHranaLocatie();
     int getCoeficientBaniLocatie();
-    void setLocatie(Locatie *locatie);
-    void setStatie(Statie *statie);
+    void setLocatie(Locatie *locatie_);
+    void setStatie(Statie *statie_);
 };
 
 

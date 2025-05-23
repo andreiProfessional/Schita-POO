@@ -64,12 +64,12 @@ int Jucator::getCoeficientBaniLocatie() {
     return this->locatie->getCoeficientBani();
 }
 
-void Jucator::setLocatie(Locatie *locatie) {
-    this->locatie = locatie;
+void Jucator::setLocatie(Locatie *locatie_) {
+    this->locatie = locatie_;
 }
 
-void Jucator::setStatie(Statie *statie) {
-    this->statie = statie;
+void Jucator::setStatie(Statie *statie_) {
+    this->statie = statie_;
 }
 
 
