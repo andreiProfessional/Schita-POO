@@ -11,11 +11,12 @@ Statie::Statie(const std::string &nume_, const std::vector<std::string> &rute_):
 {}
 
 void Statie::afisare() const {
-    std::cout << "Statia " << this->id << " : "
-              << this->nume << " | ";
-    for (auto &ruta: this->rute) {
-        std::cout << ruta << "   ";
+    std::cout << this->id << ". " << this->nume << " - ";
+    const int numarRute = this->rute.size();
+    for (int index = 0; index < numarRute - 1; index ++) {
+        std::cout << rute[index] << " + ";
     }
+    std::cout << rute[numarRute - 1];
     std::cout << std::endl;
 }
 

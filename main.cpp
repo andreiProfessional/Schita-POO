@@ -5,16 +5,16 @@ int main() {
     Locatie *l1 = new Locatie("McDonald's", -20, 15, -25);
     Locatie *l2 = new Locatie("Starbucks", -10, 5, -20);
     Locatie *l3 = new Locatie("Luca Patiserie", -5, 10, -15);
-    l1->afisare();
-    l2->afisare();
-    l3->afisare();
+    // l1->afisare();
+    // l2->afisare();
+    // l3->afisare();
 
     Statie *s1 = new Statie("Piata Romana", {"M2"});
-    Statie *s2 = new Statie("Piata Unirii", {"M1", "M2"});
+    Statie *s2 = new Statie("Piata Unirii", {"M1", "M2", "104"});
     Statie *s3 = new Statie("Piata Victoriei", {"M1", "M2"});
-    // s1->afisare();
-    // s2->afisare();
-    // s3->afisare();
+    s1->afisare();
+    s2->afisare();
+    s3->afisare();
 
     Jucator *j1 = JucatorFactory::tataBogat("Charles", l1, s1);
     Jucator *j2 = JucatorFactory::omDeRand("John Pork", l2, s2);
