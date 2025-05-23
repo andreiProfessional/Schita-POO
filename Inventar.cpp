@@ -13,10 +13,6 @@ Inventar::Inventar() {
 
 Inventar::~Inventar(){std::cout << std::endl << "Gata joaca!";}
 
-void Inventar::adaugareJucator(Jucator *jucator) {
-    jucatori.push_back(jucator);
-}
-
 void Inventar::adaugareLocatie(Locatie *locatie) {
     locatii.push_back(locatie);
 }
@@ -28,10 +24,8 @@ void Inventar::adaugareMuchieStatii(Statie *statie1, Statie *statie2, const std:
     statie2->adaugareRuta(ruta);
 }
 
-void Inventar::afisareJucatori() const {
-    for (const auto &jucator: this->jucatori) {
-        jucator->afisare();
-    }
+void Inventar::adaugareJucator(Jucator *jucator) {
+    jucatori.push_back(jucator);
 }
 
 void Inventar::afisareLocatii() const {
@@ -43,5 +37,11 @@ void Inventar::afisareLocatii() const {
 void Inventar::afisareStatii() const {
     for (const auto &statie: this->statii) {
         statie.first->afisare();
+    }
+}
+
+void Inventar::afisareJucatori() const {
+    for (const auto &jucator: this->jucatori) {
+        jucator->afisare();
     }
 }

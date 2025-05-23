@@ -23,9 +23,10 @@ public:
         return instanta;
     }
 
-    void adaugareJucator(Jucator *jucator);
     void adaugareLocatie(Locatie *locatie);
     void adaugareMuchieStatii(Statie *statie1, Statie *statie2, const std::string &ruta);
+    void adaugareJucator(Jucator *jucator);
+
     void afisareJucatori() const;
     void afisareLocatii() const;
     void afisareStatii() const;

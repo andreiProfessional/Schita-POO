@@ -1,5 +1,7 @@
 #include "Locatie.h"
+#include "CuloriText.h"
 #include <iostream>
+#include <vector>
 
 
 int Locatie::contorID = 0;
@@ -13,11 +15,37 @@ Locatie::Locatie(const std::string &nume_, const int &coeficientViata_, const in
 {}
 
 void Locatie::afisare() const {
-    std::cout << "Locatia " << this->id << " : "
-              << this->nume << " | "
-              << this->coeficientViata << " | "
-              << this->coeficientHrana << " | "
-              << this->coeficientBani << std::endl;
+    std::cout << this->id << ". " << this->nume << ": ";
+    if (coeficientViata > 0) {
+        std::cout << VERDE << "Viata";
+    }
+    else if (coeficientViata < 0) {
+        std::cout << ROSU << "Viata";
+    }
+    else {
+        std::cout << GALBEN << "Viata";
+    }
+    std::cout << RESETARE << " | ";
+    if (coeficientHrana > 0) {
+        std::cout << VERDE << "Hrana";
+    }
+    else if (coeficientHrana < 0) {
+        std::cout << ROSU << "Hrana";
+    }
+    else {
+        std::cout << GALBEN << "Hrana";
+    }
+    std::cout << RESETARE << " | ";
+    if (coeficientBani > 0) {
+        std::cout << VERDE << "Bani";
+    }
+    else if (coeficientBani < 0) {
+        std::cout << ROSU << "Bani";
+    }
+    else {
+        std::cout << GALBEN << "Bani";
+    }
+    std::cout << RESETARE << std::endl;
 }
 
 int Locatie::getCoeficientViata() const {

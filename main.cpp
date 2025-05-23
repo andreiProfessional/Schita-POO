@@ -5,9 +5,9 @@ int main() {
     Locatie *l1 = new Locatie("McDonald's", -20, 15, -25);
     Locatie *l2 = new Locatie("Starbucks", -10, 5, -20);
     Locatie *l3 = new Locatie("Luca Patiserie", -5, 10, -15);
-    // l1->afisare();
-    // l2->afisare();
-    // l3->afisare();
+    l1->afisare();
+    l2->afisare();
+    l3->afisare();
 
     Statie *s1 = new Statie("Piata Romana", {"M2"});
     Statie *s2 = new Statie("Piata Unirii", {"M1", "M2"});
@@ -35,8 +35,6 @@ int main() {
     // a3->afisare();
     // a3->activitate(2); std::cout << std::endl;
     // j1->afisare();
-
-
 
     // Inventar &inventar = Inventar::acceseazaSingleton();
     // inventar.adaugareJucator(j1);
