@@ -58,6 +58,7 @@ void Jucator::afisare() const {
     for (int i = 0; i < 50; i ++) {
         std::cout << "=";
     }
+    std::cout << std::endl;
 }
 
 void Jucator::modificareNivelViata(const int &diferentaViata) {

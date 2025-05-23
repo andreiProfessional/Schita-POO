@@ -14,12 +14,13 @@ ActivitateLocatie::ActivitateLocatie(Jucator *jucator_, const std::vector<std::p
     optiuni(optiuni_) {}
 
 void ActivitateLocatie::afisare() {
-    this->jucator->afisare();
-    std::cout << "Activitatea " << this->id << " :" << std::endl;
+    this->jucator->afisare(); std::cout << std::endl;
+    std::cout << "Optiunile disponibile:" << std::endl;
     int numarOptiuni = this->optiuni.size();
     for (int index = 0; index < numarOptiuni; ++index) {
         std::cout << index + 1 << ". " << optiuni[index].first << std::endl;
     }
+    std::cout << std::endl;
 }
 
 void ActivitateLocatie::activitate(const int &alegere) {
