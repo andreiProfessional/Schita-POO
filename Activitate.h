@@ -32,6 +32,7 @@ public:
 class ActivitateTaxi: public Activitate {
 private:
     std::vector<Locatie*> locatii;
+    int pret;
 public:
     ActivitateTaxi(Jucator *jucator_, const std::vector<Locatie*> &locatii_);
     void afisare() override;

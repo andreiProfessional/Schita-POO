@@ -46,6 +46,14 @@ void Jucator::modificareStatistici(const int &multiplicator) {
     }
 }
 
+void Jucator::modificareBalantaBani(const int &diferentaBani) {
+    this->balantaBani += diferentaBani;
+    if (balantaBani < 0) {
+        balantaBani = 0;
+    }
+}
+
+
 void Jucator::setLocatie(Locatie *locatie) {
     this->locatie = locatie;
 }

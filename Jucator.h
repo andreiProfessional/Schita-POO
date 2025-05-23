@@ -20,6 +20,7 @@ public:
         Locatie *locatie_, Statie *statie_);
     void afisare() const;
     void modificareStatistici(const int &multiplicator);
+    void modificareBalantaBani(const int &diferentaBani);
     void setLocatie(Locatie *locatie);
     void setStatie(Statie *statie);
 };

@@ -3,7 +3,7 @@
 #include "Locatie.h"
 #include <iostream>
 #include <vector>
-
+#include <random>
 
 int Activitate::contorID = 0;
 
@@ -29,10 +29,19 @@ void ActivitateLocatie::activitate(const int &alegere) {
 
 ActivitateTaxi::ActivitateTaxi(Jucator *jucator_, const std::vector<Locatie*> &locatii_):
     Activitate(jucator_),
-    locatii(locatii_) {}
+    locatii(locatii_) {
+    const int numarLocatii = locatii.size();
+    const int pretMinim = numarLocatii / 2;
+    const int pretMaxim = numarLocatii;
+    std::random_device rd;  // Non-deterministic seed
+    std::mt19937 gen(rd()); // Mersenne Twister generator
+    std::uniform_int_distribution<> distrib(pretMinim, pretMaxim);
+    this->pret = distrib(gen);
+}
 
 void ActivitateTaxi::afisare() {
     this->jucator->afisare();
+    std::cout << "Calatoria ta va costa: " << this->pret << " Lei." << std::endl;
     std::cout << std::endl << "Locatii disponibile: " << std::endl;
     for (const auto &locatie: this->locatii) {
         locatie->afisare();
@@ -41,6 +50,7 @@ void ActivitateTaxi::afisare() {
 
 void ActivitateTaxi::activitate(const int &alegere) {
     this->jucator->setLocatie(locatii[alegere - 1]);
+    this->jucator->modificareBalantaBani(-1 * this->pret);
 }
 
 ActivitateStatie::ActivitateStatie(Jucator *jucator_, const std::vector<Statie*> &statiiVecine_):
