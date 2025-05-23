@@ -1,6 +1,7 @@
 #include "Activitate.h"
 #include "Jucator.h"
 #include "Locatie.h"
+#include "CuloriText.h"
 #include <iostream>
 #include <vector>
 #include <random>
@@ -42,12 +43,15 @@ ActivitateTaxi::ActivitateTaxi(Jucator *jucator_, const std::vector<Locatie*> &l
 }
 
 void ActivitateTaxi::afisare() {
-    this->jucator->afisare();
-    std::cout << "Calatoria ta va costa: " << this->pret << " Lei." << std::endl;
-    std::cout << std::endl << "Locatii disponibile: " << std::endl;
-    for (const auto &locatie: this->locatii) {
-        locatie->afisare();
+    this->jucator->afisare(); std::cout << std::endl;
+    std::cout << "Pret Calatorie = " << ROSU << this->pret << RESETARE  << " Lei." << std::endl;
+    std::cout << "Locatii disponibile: " << std::endl;
+    int numarLocatii = this->locatii.size();
+    for (int index = 0; index < numarLocatii; index ++) {
+        std::cout << index + 1 << ". ";
+        locatii[index]->afisare();
     }
+    std::cout << std::endl;
 }
 
 void ActivitateTaxi::activitate(const int &alegere) {
@@ -65,6 +69,7 @@ void ActivitateStatie::afisare() {
         std::cout << index + 1 << ". ";
         statiiVecine[index]->afisare();
     }
+    std::cout << std::endl;
 }
 
 void ActivitateStatie::activitate(const int &alegere) {
