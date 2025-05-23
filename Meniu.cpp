@@ -52,7 +52,7 @@ void Meniu::creareListaJucatori() {
 
     in.close();
 }
-/*
+
 void Meniu::afisareJucator(const int &idJucator) {
     gasireJucator(id)->afisareJucator();
 }
@@ -76,7 +76,7 @@ Jucator* Meniu::gasireJucator(const int &idJucator) {
 Locatie* Meniu::gasireLocatieDupaNume(const std::string &numeLocatie) {
     return hartaOras.gasireLocatieDupaNume(numeLocatie);
 }
-/*
+
 Statie* Meniu::gasireStatieDupaLocatie(Locatie *locatie) {
     return locatie->gasireStatie();
 }
