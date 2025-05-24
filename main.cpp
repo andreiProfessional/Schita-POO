@@ -21,9 +21,9 @@ int main() {
     // j1->afisare();std::cout << std::endl;
     // j2->afisare();
 
-    // Activitate *a1 = new SpawnLocatie(j1, {l1, l2, l3});
-    // a1->afisare();
-    // a1->activitate(1);
+    Activitate *a1 = new SpawnLocatie(j1, {l1, l2, l3});
+    a1->afisare();
+    a1->activitate(1);
     // j1->afisare();
     // std::unordered_map<Statie*, std::vector<Statie*>> listaAdiacentaStatii;
     // listaAdiacentaStatii[s1] = {s2, s3};
@@ -33,11 +33,11 @@ int main() {
     // a2->afisare();
     // a2->activitate(3);
     // j2->afisare();
-    // Activitate *a3 = new ActivitateLocatie(j1,
-    //     {{"Suculetz de portocale", 1}, {"Happy meal", 4}, {"Meniu Big Mac", 6}});
-    // a3->afisare(); std::cout << std::endl;
-    // a3->activitate(1);
-    // j1->afisare();
+    Activitate *a3 = new ActivitateLocatie(j1,
+        {{"Suculetz de portocale", 1}, {"Happy meal", 4}, {"Meniu Big Mac", 6}});
+    a3->afisare(); std::cout << std::endl;
+    a3->activitate(1);
+    j1->afisare();
     // Activitate *a5 = new ActivitateTaxi(j2, {l1, l2, l3});
     // a5->afisare();
     // a5->activitate(3);

@@ -54,8 +54,8 @@ void SpawnStatie::afisare() {
 }
 
 void SpawnStatie::activitate(const int &alegere) {
-    this->statieSpawn = statii[alegere - 1];
-    this->jucator->setStatie(statieSpawn);
+    this->statieSpawn = this->statii[alegere - 1];
+    this->jucator->setStatie(this->statieSpawn);
 }
 
 ActivitateLocatie::ActivitateLocatie(Jucator *jucator_, const std::vector<std::pair<std::string, int>> &optiuni_):
@@ -67,15 +67,16 @@ void ActivitateLocatie::afisare() {
     std::cout << "Optiunile disponibile:" << std::endl;
     int numarOptiuni = this->optiuni.size();
     for (int index = 0; index < numarOptiuni; ++index) {
-        std::cout << index + 1 << ". " << optiuni[index].first << std::endl;
+        std::cout << index + 1 << ". " << this->optiuni[index].first << std::endl;
     }
     std::cout << std::endl;
 }
 
 void ActivitateLocatie::activitate(const int &alegere) {
-    this->jucator->modificareNivelViata(optiuni[alegere - 1].second * this->jucator->getCoeficientViataLocatie());
-    this->jucator->modificareNivelHrana(optiuni[alegere - 1].second * this->jucator->getCoeficientHranaLocatie());
-    this->jucator->modificareBalantaBani(optiuni[alegere - 1].second * this->jucator->getCoeficientBaniLocatie());
+    this->optiuneAleasa = this->optiuni[alegere - 1];
+    this->jucator->modificareNivelViata(this->optiuneAleasa.second * this->jucator->getCoeficientViataLocatie());
+    this->jucator->modificareNivelHrana(this->optiuneAleasa.second * this->jucator->getCoeficientHranaLocatie());
+    this->jucator->modificareBalantaBani(this->optiuneAleasa.second * this->jucator->getCoeficientBaniLocatie());
 }
 
 ActivitateTaxi::ActivitateTaxi(Jucator *jucator_, const std::vector<Locatie*> &locatii_):
