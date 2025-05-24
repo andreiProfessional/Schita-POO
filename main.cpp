@@ -24,13 +24,13 @@ int main() {
     // Activitate *a1 = new SpawnLocatie(j1, {l1, l2, l3});
     // a1->afisare();
     // a1->activitate(1);
-    std::unordered_map<Statie*, std::vector<Statie*>> listaAdiacentaStatii;
-    listaAdiacentaStatii[s1] = {s2, s3};
-    listaAdiacentaStatii[s2] = {s1};
-    listaAdiacentaStatii[s3] = {s1};
-    Activitate *a2 = new SpawnStatie(j2, listaAdiacentaStatii);
-    a2->afisare();
-    a2->activitate(3);
+    // std::unordered_map<Statie*, std::vector<Statie*>> listaAdiacentaStatii;
+    // listaAdiacentaStatii[s1] = {s2, s3};
+    // listaAdiacentaStatii[s2] = {s1};
+    // listaAdiacentaStatii[s3] = {s1};
+    // Activitate *a2 = new SpawnStatie(j2, listaAdiacentaStatii);
+    // a2->afisare();
+    // a2->activitate(3);
     // j2->afisare();
     // Activitate *a3 = new ActivitateLocatie(j1,
     //     {{"Suculetz de portocale", 1}, {"Happy meal", 4}, {"Meniu Big Mac", 6}});
@@ -49,10 +49,10 @@ int main() {
     // a6->afisare();
     // a6->activitate(1);
     // j1->afisare();
-    Activitate *a7 = new StatieCatreLocatie(j2, {l1, l2, l3});
-    a7->afisare();
-    a7->activitate(2);
-    j2->afisare();
+    // Activitate *a7 = new StatieCatreLocatie(j2, {l1, l2, l3});
+    // a7->afisare();
+    // a7->activitate(2);
+    // j2->afisare();
 
     // Inventar &inventar = Inventar::acceseazaSingleton();
     // inventar.adaugareJucator(j1);
