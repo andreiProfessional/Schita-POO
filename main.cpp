@@ -18,21 +18,25 @@ int main() {
 
     Jucator *j1 = JucatorFactory::tataBogat("Charles");
     Jucator *j2 = JucatorFactory::omDeRand("John Pork");
-    j1->afisare();std::cout << std::endl;
+    // j1->afisare();std::cout << std::endl;
     // j2->afisare();
 
-    // Activitate *a1 = new ActivitateLocatie(j1,
+    Activitate *a1 = new SpawnLocatie(j1, {l1, l2, l3});
+    a1->afisare();
+    a1->activitate(1);
+    j1->afisare();
+    // Activitate *a3 = new ActivitateLocatie(j1,
     //     {{"Suculetz de portocale", 1}, {"Happy meal", 4}, {"Meniu Big Mac", 6}});
-    // a1->afisare(); std::cout << std::endl;
-    // a1->activitate(1);
+    // a3->afisare(); std::cout << std::endl;
+    // a3->activitate(1);
     // j1->afisare();
-    // Activitate *a2 = new ActivitateTaxi(j2, {l1, l2, l3});
-    // a2->afisare();
-    // a2->activitate(3);
+    // Activitate *a5 = new ActivitateTaxi(j2, {l1, l2, l3});
+    // a5->afisare();
+    // a5->activitate(3);
     // j2->afisare();
-    // Activitate *a3 = new ActivitateStatie(j1, {s2, s3});
-    // a3->afisare();
-    // a3->activitate(2); std::cout << std::endl;
+    // Activitate *a4 = new ActivitateStatie(j1, {s2, s3});
+    // a4->afisare();
+    // a4->activitate(2); std::cout << std::endl;
     // j1->afisare();
 
     // Inventar &inventar = Inventar::acceseazaSingleton();
@@ -55,9 +59,9 @@ int main() {
         delete s1;
         delete s2;
         delete s3;
-        // delete a1;
-        // delete a2;
         // delete a3;
+        // delete a4;
+        // delete a5;
     } // deletes
 
     return 0;

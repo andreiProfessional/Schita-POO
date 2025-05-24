@@ -10,6 +10,30 @@ int Activitate::contorID = 0;
 
 Activitate::Activitate(Jucator *jucator_): id(++ contorID), jucator(jucator_) {}
 
+
+SpawnLocatie::SpawnLocatie(Jucator *jucator_, const std::vector<Locatie*> &locatii_):
+    Activitate(jucator_),
+    locatii(locatii_) {
+    locatieSpawn = nullptr;
+}
+
+void SpawnLocatie::afisare() {
+    this->jucator->afisare(); std::cout << std::endl;
+    std::cout << "Locatii disponibile: " << std::endl;
+    const int numarLocatii = locatii.size();
+    for (int index = 0; index < numarLocatii; index ++) {
+        std::cout << index + 1 << ". ";
+        locatii[index]->afisare();
+    }
+    std::cout << std::endl;
+}
+
+void SpawnLocatie::activitate(const int &alegere) {
+    this->locatieSpawn = locatii[alegere - 1];
+    this->jucator->setLocatie(locatieSpawn);
+}
+
+
 ActivitateLocatie::ActivitateLocatie(Jucator *jucator_, const std::vector<std::pair<std::string, int>> &optiuni_):
     Activitate(jucator_),
     optiuni(optiuni_) {}

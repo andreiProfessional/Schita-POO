@@ -20,6 +20,16 @@ public:
     virtual void activitate(const int &optiune) = 0;
 };
 
+class SpawnLocatie: public Activitate {
+private:
+    std::vector<Locatie*> locatii;
+    Locatie *locatieSpawn;
+public:
+    SpawnLocatie(Jucator *jucator_, const std::vector<Locatie*> &locatii_);
+    void afisare() override;
+    void activitate(const int &alegere) override;
+};
+
 class ActivitateLocatie: public Activitate {
 private:
     std::vector<std::pair<std::string, int>> optiuni;
