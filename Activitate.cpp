@@ -131,3 +131,26 @@ void ActivitateTaxi::activitate(const int &alegere) {
     this->jucator->setLocatie(this->locatieSosire);
     this->jucator->modificareBalantaBani(-1 * this->pret);
 }
+
+LocatieCatreStatie::LocatieCatreStatie(Jucator *jucator_):
+    Activitate(jucator_) {
+    this->locatie = jucator_->getLocatie();
+    this->statie = nullptr;
+}
+
+void LocatieCatreStatie::afisare() {
+    this->jucator->afisare(); std::cout << std::endl;
+    std::cout << "Statie apropiata: ";
+    this->locatie->getStatie()->afisare();
+    std::cout << std::endl;
+    std::cout << "1. Mergi la locatie" << std::endl;
+    std::cout << "2. Ramai pe loc" << std::endl;
+}
+
+void LocatieCatreStatie::activitate(const int &alegere) {
+    if (alegere == 1) {
+        this->jucator->setLocatie(nullptr);
+        this->statie = this->locatie->getStatie();
+        this->jucator->setStatie(this->statie);
+    }
+}

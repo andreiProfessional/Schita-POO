@@ -20,6 +20,7 @@ public:
     int getCoeficientViata() const;
     int getCoeficientHrana() const;
     int getCoeficientBani() const;
+    Statie *getStatie();
 };
 
 

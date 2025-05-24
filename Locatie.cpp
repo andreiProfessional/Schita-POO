@@ -61,3 +61,7 @@ int Locatie::getCoeficientHrana() const {
 int Locatie::getCoeficientBani() const {
     return this->coeficientBani;
 }
+
+Statie* Locatie::getStatie() {
+    return this->statie;
+}

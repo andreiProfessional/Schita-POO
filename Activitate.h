@@ -73,5 +73,14 @@ public:
     void activitate(const int &alegere) override;
 };
 
+class LocatieCatreStatie: public Activitate {
+private:
+    Locatie *locatie;
+    Statie *statie;
+public:
+    LocatieCatreStatie(Jucator *jucator_);
+    void afisare() override;
+    void activitate(const int &alegere) override;
+};
 
 #endif

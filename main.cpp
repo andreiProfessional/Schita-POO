@@ -21,10 +21,9 @@ int main() {
     // j1->afisare();std::cout << std::endl;
     // j2->afisare();
 
-    // Activitate *a1 = new SpawnLocatie(j1, {l1, l2, l3});
-    // a1->afisare();
-    // a1->activitate(1);
-    //j1->afisare();
+    Activitate *a1 = new SpawnLocatie(j1, {l1, l2, l3});
+    a1->afisare();
+    a1->activitate(1);
     // std::unordered_map<Statie*, std::vector<Statie*>> listaAdiacentaStatii;
     // listaAdiacentaStatii[s1] = {s2, s3};
     // listaAdiacentaStatii[s2] = {s1};
@@ -46,6 +45,10 @@ int main() {
     // a5->afisare();
     // a5->activitate(3);
     // j1->afisare();
+    Activitate *a6 = new LocatieCatreStatie(j1);
+    a6->afisare();
+    a6->activitate(1);
+    j1->afisare();
 
     // Inventar &inventar = Inventar::acceseazaSingleton();
     // inventar.adaugareJucator(j1);
@@ -67,9 +70,12 @@ int main() {
         delete s1;
         delete s2;
         delete s3;
+        delete a1;
+        // delete a2;
         // delete a3;
         // delete a4;
         // delete a5;
+        delete a6;
     } // deletes
 
     return 0;
