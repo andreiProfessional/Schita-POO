@@ -103,6 +103,8 @@ void ActivitateStatie::activitate(const int &alegere) {
 ActivitateTaxi::ActivitateTaxi(Jucator *jucator_, const std::vector<Locatie*> &locatii_):
     Activitate(jucator_),
     locatii(locatii_) {
+    locatiePlecare = jucator_->getLocatie();
+    locatieSosire = nullptr;
     const int numarLocatii = locatii.size();
     const int pretMinim = numarLocatii / 2;
     const int pretMaxim = numarLocatii;
@@ -125,6 +127,7 @@ void ActivitateTaxi::afisare() {
 }
 
 void ActivitateTaxi::activitate(const int &alegere) {
-    this->jucator->setLocatie(locatii[alegere - 1]);
+    this->locatieSosire = locatii[alegere - 1];
+    this->jucator->setLocatie(this->locatieSosire);
     this->jucator->modificareBalantaBani(-1 * this->pret);
 }

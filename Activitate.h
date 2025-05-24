@@ -64,6 +64,8 @@ public:
 class ActivitateTaxi: public Activitate {
 private:
     std::vector<Locatie*> locatii;
+    Locatie *locatiePlecare;
+    Locatie *locatieSosire;
     int pret;
 public:
     ActivitateTaxi(Jucator *jucator_, const std::vector<Locatie*> &locatii_);
