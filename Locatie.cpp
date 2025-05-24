@@ -6,13 +6,15 @@
 
 int Locatie::contorID = 0;
 
-Locatie::Locatie(const std::string &nume_, const int &coeficientViata_, const int &coeficientHrana_, const int &coeficientBani_):
+Locatie::Locatie(const std::string &nume_,
+    const int &coeficientViata_, const int &coeficientHrana_, const int &coeficientBani_,
+    Statie *statie_):
     id(++ contorID),
     nume(nume_),
     coeficientViata(coeficientViata_),
     coeficientHrana(coeficientHrana_),
-    coeficientBani(coeficientBani_)
-{}
+    coeficientBani(coeficientBani_),
+    statie(statie_) {}
 
 void Locatie::afisare() const {
     std::cout << this->nume << " - ";

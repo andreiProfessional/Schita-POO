@@ -32,11 +32,11 @@ public:
 
 class JucatorFactory {
 public:
-    static Jucator* tataBogat(const std::string &nume_, Locatie *locatie, Statie *statie);
-    static Jucator* tataSarac(const std::string &nume_, Locatie *locatie, Statie *statie);
-    static Jucator* magnatBatran(const std::string &nume_, Locatie *locatie, Statie *statie);
-    static Jucator* omDeRand(const std::string &nume, Locatie *locatie, Statie *statie);
-    static Jucator* pierdeVara(const std::string &nume_, Locatie *locatie, Statie *statie);
+    static Jucator* tataBogat(const std::string &nume_);
+    static Jucator* tataSarac(const std::string &nume_);
+    static Jucator* magnatBatran(const std::string &nume_);
+    static Jucator* omDeRand(const std::string &nume);
+    static Jucator* pierdeVara(const std::string &nume_);
 };
 
 #endif

@@ -11,8 +11,8 @@ private:
     Inventar();
     ~Inventar();
 
-    std::vector<Locatie*> locatii;
     std::unordered_map<Statie*, std::vector<Statie*>> statii;
+    std::vector<Locatie*> locatii;
     std::vector<Jucator*> jucatori;
     std::vector<Activitate*> istoricActivitati;
 public:
@@ -23,13 +23,13 @@ public:
         return instanta;
     }
 
-    void adaugareLocatie(Locatie *locatie);
     void adaugareMuchieStatii(Statie *statie1, Statie *statie2, const std::string &ruta);
+    void adaugareLocatie(Locatie *locatie);
     void adaugareJucator(Jucator *jucator);
 
-    void afisareJucatori() const;
-    void afisareLocatii() const;
     void afisareStatii() const;
+    void afisareLocatii() const;
+    void afisareJucatori() const;
 };
 
 

@@ -53,8 +53,14 @@ void Jucator::afisare() const {
     }
     std::cout << "]" << std::endl;
     std::cout << "Bani: " << this->balantaBani << " Lei" << std::endl;
-    std::cout << "Locatie: "; this->locatie->afisare();
-    std::cout << "Statie: "; this->statie->afisare();
+    if (locatie != nullptr) {
+        std::cout << "Locatie: ";
+        this->locatie->afisare();
+    }
+    if (statie != nullptr) {
+        std::cout << "Statie: ";
+        this->statie->afisare();
+    }
     for (int i = 0; i < 50; i ++) {
         std::cout << "=";
     }
@@ -109,22 +115,22 @@ void Jucator::setStatie(Statie *statie_) {
 }
 
 
-Jucator* JucatorFactory::tataBogat(const std::string &nume_, Locatie *locatie, Statie *statie) {
-    return new Jucator(nume_, 90, 80, 2000, locatie, statie);
+Jucator* JucatorFactory::tataBogat(const std::string &nume_) {
+    return new Jucator(nume_, 90, 80, 2000, nullptr, nullptr);
 }
 
-Jucator* JucatorFactory::tataSarac(const std::string &nume_, Locatie *locatie, Statie *statie) {
-    return new Jucator(nume_, 45, 40, 500, locatie, statie);
+Jucator* JucatorFactory::tataSarac(const std::string &nume_) {
+    return new Jucator(nume_, 45, 40, 500, nullptr, nullptr);
 }
 
-Jucator* JucatorFactory::magnatBatran(const std::string &nume_, Locatie *locatie, Statie *statie) {
-    return new Jucator(nume_, 40, 70, 5000, locatie, statie);
+Jucator* JucatorFactory::magnatBatran(const std::string &nume_) {
+    return new Jucator(nume_, 40, 70, 5000, nullptr, nullptr);
 }
 
-Jucator* JucatorFactory::omDeRand(const std::string &nume_, Locatie *locatie, Statie *statie) {
-    return new Jucator(nume_, 75, 75, 750, locatie, statie);
+Jucator* JucatorFactory::omDeRand(const std::string &nume_) {
+    return new Jucator(nume_, 75, 75, 750, nullptr, nullptr);
 }
 
-Jucator* JucatorFactory::pierdeVara(const std::string &nume_, Locatie *locatie, Statie *statie) {
-    return new Jucator(nume_, 80, 40, 350, locatie, statie);
+Jucator* JucatorFactory::pierdeVara(const std::string &nume_) {
+    return new Jucator(nume_, 80, 40, 350, nullptr, nullptr);
 }
