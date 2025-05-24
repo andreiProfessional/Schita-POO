@@ -10,7 +10,6 @@ int Activitate::contorID = 0;
 
 Activitate::Activitate(Jucator *jucator_): id(++ contorID), jucator(jucator_) {}
 
-
 SpawnLocatie::SpawnLocatie(Jucator *jucator_, const std::vector<Locatie*> &locatii_):
     Activitate(jucator_),
     locatii(locatii_) {
@@ -79,6 +78,28 @@ void ActivitateLocatie::activitate(const int &alegere) {
     this->jucator->modificareBalantaBani(this->optiuneAleasa.second * this->jucator->getCoeficientBaniLocatie());
 }
 
+ActivitateStatie::ActivitateStatie(Jucator *jucator_, const std::unordered_map<Statie*, std::vector<Statie*>> &listeAdiacenta_):
+    Activitate(jucator_) {
+    this->statiePlecare = jucator_->getStatie();
+    this->statiiVecine = listeAdiacenta_.at(this->statiePlecare);
+    this->statieSosire = nullptr;
+}
+
+void ActivitateStatie::afisare() {
+    this->jucator->afisare(); std::cout << std::endl;
+    std::cout << "Statii vecine:" << std::endl;
+    int numarStatiiVecine = statiiVecine.size();
+    for (int index = 0; index < numarStatiiVecine; index ++) {
+        std::cout << index + 1 << ". ";
+        statiiVecine[index]->afisare();
+    }
+    std::cout << std::endl;
+}
+
+void ActivitateStatie::activitate(const int &alegere) {
+    this->jucator->setStatie(statiiVecine[alegere - 1]);
+}
+
 ActivitateTaxi::ActivitateTaxi(Jucator *jucator_, const std::vector<Locatie*> &locatii_):
     Activitate(jucator_),
     locatii(locatii_) {
@@ -106,23 +127,4 @@ void ActivitateTaxi::afisare() {
 void ActivitateTaxi::activitate(const int &alegere) {
     this->jucator->setLocatie(locatii[alegere - 1]);
     this->jucator->modificareBalantaBani(-1 * this->pret);
-}
-
-ActivitateStatie::ActivitateStatie(Jucator *jucator_, const std::vector<Statie*> &statiiVecine_):
-    Activitate(jucator_),
-    statiiVecine(statiiVecine_) {}
-
-void ActivitateStatie::afisare() {
-    this->jucator->afisare(); std::cout << std::endl;
-    std::cout << "Statii vecine:" << std::endl;
-    int numarStatiiVecine = statiiVecine.size();
-    for (int index = 0; index < numarStatiiVecine; index ++) {
-        std::cout << index + 1 << ". ";
-        statiiVecine[index]->afisare();
-    }
-    std::cout << std::endl;
-}
-
-void ActivitateStatie::activitate(const int &alegere) {
-    this->jucator->setStatie(statiiVecine[alegere - 1]);
 }

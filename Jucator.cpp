@@ -106,6 +106,11 @@ int Jucator::getCoeficientBaniLocatie() {
     return this->locatie->getCoeficientBani();
 }
 
+Statie *Jucator::getStatie() {
+    return this->statie;
+}
+
+
 void Jucator::setLocatie(Locatie *locatie_) {
     this->locatie = locatie_;
 }

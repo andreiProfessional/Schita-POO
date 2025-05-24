@@ -50,21 +50,23 @@ public:
     void activitate(const int &alegere) override;
 };
 
+class ActivitateStatie: public Activitate {
+private:
+    std::vector<Statie*> statiiVecine;
+    Statie *statiePlecare;
+    Statie *statieSosire;
+public:
+    ActivitateStatie(Jucator *jucator_, const std::unordered_map<Statie*, std::vector<Statie*>> &statii);
+    void afisare() override;
+    void activitate(const int &alegere) override;
+};
+
 class ActivitateTaxi: public Activitate {
 private:
     std::vector<Locatie*> locatii;
     int pret;
 public:
     ActivitateTaxi(Jucator *jucator_, const std::vector<Locatie*> &locatii_);
-    void afisare() override;
-    void activitate(const int &alegere) override;
-};
-
-class ActivitateStatie: public Activitate {
-private:
-    std::vector<Statie*> statiiVecine;
-public:
-    ActivitateStatie(Jucator *jucator_, const std::vector<Statie*> &statiiVecine_);
     void afisare() override;
     void activitate(const int &alegere) override;
 };
