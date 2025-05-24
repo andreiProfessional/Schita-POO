@@ -33,6 +33,30 @@ void SpawnLocatie::activitate(const int &alegere) {
     this->jucator->setLocatie(locatieSpawn);
 }
 
+SpawnStatie::SpawnStatie(Jucator *jucator_, const std::unordered_map<Statie*, std::vector<Statie*>> &listeAdiacenta_):
+    Activitate(jucator_) {
+    std::vector<Statie*> statii_;
+    for (const auto &pereche: listeAdiacenta_) {
+        statii_.push_back(pereche.first);
+    }
+    statii = statii_;
+    statieSpawn = nullptr;
+}
+
+void SpawnStatie::afisare() {
+    this->jucator->afisare(); std::cout << std::endl;
+    std::cout << "Statii disponibile: " << std::endl;
+    const int numarStatii = statii.size();
+    for (int index = 0; index < numarStatii; index ++) {
+        std::cout << index + 1 << ". ";
+        statii[index]->afisare();
+    }
+}
+
+void SpawnStatie::activitate(const int &alegere) {
+    this->statieSpawn = statii[alegere - 1];
+    this->jucator->setStatie(statieSpawn);
+}
 
 ActivitateLocatie::ActivitateLocatie(Jucator *jucator_, const std::vector<std::pair<std::string, int>> &optiuni_):
     Activitate(jucator_),
