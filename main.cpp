@@ -10,8 +10,8 @@ int main() {
     // s3->afisare();
 
     Locatie *l1 = new Locatie("McDonald's", -20, 15, -25, s1);
-    Locatie *l2 = new Locatie("Starbucks", -10, 5, -20, s2);
-    Locatie *l3 = new Locatie("Luca Patiserie", -5, 10, -15, s3);
+    Locatie *l2 = new Locatie("Starbucks", -10, 5, -20, s1);
+    Locatie *l3 = new Locatie("Luca Patiserie", -5, 10, -15, s1);
     // l1->afisare();
     // l2->afisare();
     // l3->afisare();
@@ -21,16 +21,16 @@ int main() {
     // j1->afisare();std::cout << std::endl;
     // j2->afisare();
 
-    Activitate *a1 = new SpawnLocatie(j1, {l1, l2, l3});
-    a1->afisare();
-    a1->activitate(1);
-    // std::unordered_map<Statie*, std::vector<Statie*>> listaAdiacentaStatii;
-    // listaAdiacentaStatii[s1] = {s2, s3};
-    // listaAdiacentaStatii[s2] = {s1};
-    // listaAdiacentaStatii[s3] = {s1};
-    // Activitate *a2 = new SpawnStatie(j2, listaAdiacentaStatii);
-    // a2->afisare();
-    // a2->activitate(3);
+    // Activitate *a1 = new SpawnLocatie(j1, {l1, l2, l3});
+    // a1->afisare();
+    // a1->activitate(1);
+    std::unordered_map<Statie*, std::vector<Statie*>> listaAdiacentaStatii;
+    listaAdiacentaStatii[s1] = {s2, s3};
+    listaAdiacentaStatii[s2] = {s1};
+    listaAdiacentaStatii[s3] = {s1};
+    Activitate *a2 = new SpawnStatie(j2, listaAdiacentaStatii);
+    a2->afisare();
+    a2->activitate(3);
     // j2->afisare();
     // Activitate *a3 = new ActivitateLocatie(j1,
     //     {{"Suculetz de portocale", 1}, {"Happy meal", 4}, {"Meniu Big Mac", 6}});
@@ -45,10 +45,14 @@ int main() {
     // a5->afisare();
     // a5->activitate(3);
     // j1->afisare();
-    Activitate *a6 = new LocatieCatreStatie(j1);
-    a6->afisare();
-    a6->activitate(1);
-    j1->afisare();
+    // Activitate *a6 = new LocatieCatreStatie(j1);
+    // a6->afisare();
+    // a6->activitate(1);
+    // j1->afisare();
+    Activitate *a7 = new StatieCatreLocatie(j2, {l1, l2, l3});
+    a7->afisare();
+    a7->activitate(2);
+    j2->afisare();
 
     // Inventar &inventar = Inventar::acceseazaSingleton();
     // inventar.adaugareJucator(j1);
@@ -70,12 +74,13 @@ int main() {
         delete s1;
         delete s2;
         delete s3;
-        delete a1;
-        // delete a2;
+        //delete a1;
+        delete a2;
         // delete a3;
         // delete a4;
         // delete a5;
-        delete a6;
+        // delete a6;
+        delete a7;
     } // deletes
 
     return 0;
