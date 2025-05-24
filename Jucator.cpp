@@ -22,6 +22,7 @@ void Jucator::afisare() const {
     }
     std::cout << std::endl;
     std::cout << "Nume: " << this->nume << std::endl;
+    std::cout << "Bani: " << this->balantaBani << " Lei" << std::endl;
     std::cout << "Viata: " << "[";
     int nivelAfisajViata = (this->nivelViata + 9) / 10;
     for (int i = 0; i < nivelAfisajViata; i ++) {
@@ -52,7 +53,6 @@ void Jucator::afisare() const {
         }
     }
     std::cout << "]" << std::endl;
-    std::cout << "Bani: " << this->balantaBani << " Lei" << std::endl;
     if (locatie != nullptr) {
         std::cout << "Locatie: ";
         this->locatie->afisare();

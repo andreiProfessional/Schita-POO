@@ -55,6 +55,8 @@ private:
     std::vector<Statie*> statiiVecine;
     Statie *statiePlecare;
     Statie *statieSosire;
+    int minusViata;
+    int minusHrana;
 public:
     ActivitateStatie(Jucator *jucator_, const std::unordered_map<Statie*, std::vector<Statie*>> &statii);
     void afisare() override;

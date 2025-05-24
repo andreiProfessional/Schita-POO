@@ -83,10 +83,18 @@ ActivitateStatie::ActivitateStatie(Jucator *jucator_, const std::unordered_map<S
     this->statiePlecare = jucator_->getStatie();
     this->statiiVecine = listeAdiacenta_.at(this->statiePlecare);
     this->statieSosire = nullptr;
+    std::random_device rd;
+    std::mt19937 generator(rd());
+    std::uniform_int_distribution<> distributie(1, 3);
+    this->minusViata = distributie(generator);
+    this->minusHrana = distributie(generator);
 }
 
 void ActivitateStatie::afisare() {
     this->jucator->afisare(); std::cout << std::endl;
+    std::cout << "Aceasta statie te va costa: "
+              << ROSU << this->minusViata << RESETARE << " Viata + "
+              << ROSU << this->minusHrana << RESETARE << " Hrana" << std::endl;
     std::cout << "Statii vecine:" << std::endl;
     int numarStatiiVecine = statiiVecine.size();
     for (int index = 0; index < numarStatiiVecine; index ++) {
@@ -97,7 +105,10 @@ void ActivitateStatie::afisare() {
 }
 
 void ActivitateStatie::activitate(const int &alegere) {
-    this->jucator->setStatie(statiiVecine[alegere - 1]);
+    this->statieSosire = this->statiiVecine[alegere - 1];
+    this->jucator->setStatie(this->statieSosire);
+    this->jucator->modificareNivelViata(-1 * this->minusViata);
+    this->jucator->modificareNivelHrana(-1 * this->minusHrana);
 }
 
 ActivitateTaxi::ActivitateTaxi(Jucator *jucator_, const std::vector<Locatie*> &locatii_):
@@ -109,9 +120,9 @@ ActivitateTaxi::ActivitateTaxi(Jucator *jucator_, const std::vector<Locatie*> &l
     const int pretMinim = numarLocatii / 2;
     const int pretMaxim = numarLocatii;
     std::random_device rd;  // Non-deterministic seed
-    std::mt19937 gen(rd()); // Mersenne Twister generator
-    std::uniform_int_distribution<> distrib(pretMinim, pretMaxim);
-    this->pret = distrib(gen);
+    std::mt19937 generator(rd()); // Mersenne Twister generator
+    std::uniform_int_distribution<> distributie(pretMinim, pretMaxim);
+    this->pret = distributie(generator);
 }
 
 void ActivitateTaxi::afisare() {
