@@ -11,6 +11,9 @@ private:
     std::vector<std::string> rute;
 public:
     Statie(const std::string &nume_, const std::vector<std::string> &rute_);
+    Statie(const Statie &statie);
+    Statie& operator=(const Statie &statie);
+    ~Statie() = default;
     void afisare() const;
     void adaugareRuta(const std::string &ruta);
 };

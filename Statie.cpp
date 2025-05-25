@@ -10,6 +10,18 @@ Statie::Statie(const std::string &nume_, const std::vector<std::string> &rute_):
     rute(rute_)
 {}
 
+Statie::Statie(const Statie &statie):
+    id(++ contorID),
+    nume(statie.nume),
+    rute(statie.rute)
+    {}
+
+Statie& Statie::operator=(const Statie &statie) {
+    this->nume = statie.nume;
+    this->rute = statie.rute;
+    return *this;
+}
+
 void Statie::afisare() const {
     std::cout << this->nume << " - ";
     const int numarRute = this->rute.size();
