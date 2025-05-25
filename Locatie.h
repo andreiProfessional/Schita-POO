@@ -7,7 +7,7 @@ class Locatie {
 private:
     static int contorID;
     const int id;
-    const std::string nume;
+    std::string nume;
     int coeficientViata;
     int coeficientHrana;
     int coeficientBani;
@@ -16,6 +16,9 @@ public:
     Locatie(const std::string &nume_,
         const int &coeficientViata_, const int &coeficientHrana_, const int &coeficientBani_,
         Statie *statie_);
+    Locatie(const Locatie &locatie);
+    Locatie& operator=(const Locatie &locatie);
+    ~Locatie() = default;
     void afisare() const;
     int getCoeficientViata() const;
     int getCoeficientHrana() const;

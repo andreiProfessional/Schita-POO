@@ -16,6 +16,25 @@ Locatie::Locatie(const std::string &nume_,
     coeficientBani(coeficientBani_),
     statie(statie_) {}
 
+Locatie::Locatie(const Locatie &locatie):
+    id(++ contorID),
+    nume(locatie.nume),
+    coeficientViata(locatie.coeficientViata),
+    coeficientHrana(locatie.coeficientHrana),
+    coeficientBani(locatie.coeficientBani),
+    statie(locatie.statie)
+    {}
+
+Locatie& Locatie::operator=(const Locatie &locatie) {
+    this->nume = locatie.nume;
+    this->coeficientViata = locatie.coeficientViata;
+    this->coeficientHrana = locatie.coeficientHrana;
+    this->coeficientBani = locatie.coeficientBani;
+    this->statie = locatie.statie;
+    return *this;
+}
+
+
 void Locatie::afisare() const {
     std::cout << this->nume << " - ";
     if (coeficientViata > 0) {
