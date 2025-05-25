@@ -1,4 +1,4 @@
-# Nu primesc notă pentru că nu am pus titlu și descriere
+# SuperCity - Simulator al vieții cotidiene din mediul urban
 
 ### Folosiți template-ul corespunzător grupei voastre!
 
