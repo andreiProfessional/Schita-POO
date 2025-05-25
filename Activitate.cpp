@@ -26,7 +26,7 @@ SpawnLocatie::SpawnLocatie(Jucator *jucator_, const std::vector<Locatie*> &locat
 }
 
 void SpawnLocatie::afisare() {
-    this->jucator->afisare(); std::cout << std::endl;
+    std::cout << *this->jucator << std::endl;
     std::cout << "Locatii disponibile: " << std::endl;
     const int numarLocatii = this->locatii.size();
     for (int index = 0; index < numarLocatii; index ++) {
@@ -51,7 +51,7 @@ SpawnStatie::SpawnStatie(Jucator *jucator_, const std::unordered_map<Statie*, st
 }
 
 void SpawnStatie::afisare() {
-    this->jucator->afisare(); std::cout << std::endl;
+    std::cout << *this->jucator << std::endl;
     std::cout << "Statii disponibile: " << std::endl;
     const int numarStatii = this->statii.size();
     for (int index = 0; index < numarStatii; index ++) {
@@ -69,7 +69,7 @@ ActivitateLocatie::ActivitateLocatie(Jucator *jucator_, const std::vector<std::p
     optiuni(optiuni_) {}
 
 void ActivitateLocatie::afisare() {
-    this->jucator->afisare(); std::cout << std::endl;
+    std::cout << *this->jucator << std::endl;
     std::cout << "Optiunile disponibile:" << std::endl;
     int numarOptiuni = this->optiuni.size();
     for (int index = 0; index < numarOptiuni; ++index) {
@@ -98,7 +98,7 @@ ActivitateStatie::ActivitateStatie(Jucator *jucator_, const std::unordered_map<S
 }
 
 void ActivitateStatie::afisare() {
-    this->jucator->afisare(); std::cout << std::endl;
+    std::cout << *this->jucator << std::endl;
     std::cout << "Aceasta statie te va costa: "
               << ROSU << this->minusViata << RESETARE << " Viata + "
               << ROSU << this->minusHrana << RESETARE << " Hrana" << std::endl;
@@ -132,7 +132,7 @@ ActivitateTaxi::ActivitateTaxi(Jucator *jucator_, const std::vector<Locatie*> &l
 }
 
 void ActivitateTaxi::afisare() {
-    this->jucator->afisare(); std::cout << std::endl;
+    std::cout << *this->jucator << std::endl;
     std::cout << "Pret Calatorie = " << ROSU << this->pret << RESETARE  << " Lei." << std::endl;
     std::cout << "Locatii disponibile: " << std::endl;
     int numarLocatii = this->locatii.size();
@@ -155,7 +155,7 @@ LocatieCatreStatie::LocatieCatreStatie(Jucator *jucator_):
 }
 
 void LocatieCatreStatie::afisare() {
-    this->jucator->afisare(); std::cout << std::endl;
+    std::cout << *this->jucator << std::endl;
     std::cout << "Statie apropiata: " << *this->locatie->getStatie() << std::endl;
     std::cout << "1. Mergi la locatie" << std::endl;
     std::cout << "2. Ramai pe loc" << std::endl;
@@ -183,7 +183,7 @@ StatieCatreLocatie::StatieCatreLocatie(Jucator *jucator_, const std::vector<Loca
 }
 
 void StatieCatreLocatie::afisare() {
-    this->jucator->afisare(); std::cout << std::endl;
+    std::cout << *this->jucator << std::endl;
     std::cout << "Locatii apropiate: " << std::endl;
     const int numarLocatii = this->locatii.size();
     for (int index = 0; index < numarLocatii; index ++) {

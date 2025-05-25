@@ -18,8 +18,8 @@ int main() {
 
     Jucator *j1 = JucatorFactory::tataBogat("Charles");
     Jucator *j2 = JucatorFactory::omDeRand("John Pork");
-    // j1->afisare();
-    // j2->afisare();
+    // std::cout << *j1 << std::endl;
+    // std::cout << *j2 << std::endl;
 
     // Activitate *a1 = new SpawnLocatie(j1, {l1, l2, l3});
     // a1->afisare();

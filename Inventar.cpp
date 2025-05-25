@@ -42,6 +42,6 @@ void Inventar::afisareLocatii() const {
 
 void Inventar::afisareJucatori() const {
     for (const auto &jucator: this->jucatori) {
-        jucator->afisare();
+        std::cout << *jucator;
     }
 }

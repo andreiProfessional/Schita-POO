@@ -36,53 +36,54 @@ Jucator& Jucator::operator=(const Jucator &jucator) {
     return *this;
 }
 
-void Jucator::afisare() const {
+std::ostream& operator<<(std::ostream &out, const Jucator &jucator) {
     for (int i = 0; i < 50; i ++) {
-        std::cout << "=";
+        out << "=";
     }
-    std::cout << std::endl;
-    std::cout << "Nume: " << this->nume << std::endl;
-    std::cout << "Bani: " << this->balantaBani << " Lei" << std::endl;
-    std::cout << "Viata: " << "[";
-    int nivelAfisajViata = (this->nivelViata + 9) / 10;
+    out << std::endl;
+    out << "Nume: " << jucator.nume << std::endl;
+    out << "Bani: " << jucator.balantaBani << " Lei" << std::endl;
+    out << "Viata: " << "[";
+    int nivelAfisajViata = (jucator.nivelViata + 9) / 10;
     for (int i = 0; i < nivelAfisajViata; i ++) {
-        std::cout << INIMA_ROSIE;
+        out << INIMA_ROSIE;
         if (i != 9) {
-            std::cout << "|";
+            out << "|";
         }
     }
     for (int i = nivelAfisajViata; i < 10; i ++) {
-        std::cout << INIMA_NEAGRA;
+        out << INIMA_NEAGRA;
         if (i != 9) {
-            std::cout << "|";
+            out << "|";
         }
     }
-    std::cout << "]" << std::endl;
-    std::cout << "Hrana: " << "[";
-    int nivelAfisajHrana = (this->nivelHrana + 9) / 10;
+    out << "]" << std::endl;
+    out << "Hrana: " << "[";
+    int nivelAfisajHrana = (jucator.nivelHrana + 9) / 10;
     for (int i = 0; i < nivelAfisajHrana; i ++) {
-        std::cout << COPAN_PLIN;
+        out << COPAN_PLIN;
         if (i != 9) {
-            std::cout << "|";
+            out << "|";
         }
     }
     for (int i = nivelAfisajHrana; i < 10; i ++) {
-        std::cout << COPAN_GOL;
+        out << COPAN_GOL;
         if (i != 9) {
-            std::cout << "|";
+            out << "|";
         }
     }
-    std::cout << "]" << std::endl;
-    if (locatie != nullptr) {
-        std::cout << "Locatie: " << *this->locatie;
+    out << "]" << std::endl;
+    if (jucator.locatie != nullptr) {
+        out << "Locatie: " << *jucator.locatie;
     }
-    if (statie != nullptr) {
-        std::cout << "Statie: " << *this->statie;
+    if (jucator.statie != nullptr) {
+        out << "Statie: " << *jucator.statie;
     }
     for (int i = 0; i < 50; i ++) {
-        std::cout << "=";
+        out << "=";
     }
-    std::cout << std::endl;
+    out << std::endl;
+    return out;
 }
 
 void Jucator::modificareNivelViata(const int &diferentaViata) {

@@ -21,7 +21,7 @@ public:
     Jucator(const Jucator &jucator);
     Jucator& operator=(const Jucator &jucator);
     ~Jucator() = default;
-    void afisare() const;
+    friend std::ostream& operator<<(std::ostream &out, const Jucator &jucator);
     void modificareNivelViata(const int &diferentaViata);
     void modificareNivelHrana(const int &diferentaHrana);
     void modificareBalantaBani(const int &diferentaBani);
