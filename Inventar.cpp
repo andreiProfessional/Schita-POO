@@ -36,7 +36,8 @@ void Inventar::afisareStatii() const {
 
 void Inventar::afisareLocatii() const {
     for (const auto &locatie: this->locatii) {
-        locatie->afisare();
+        //locatie->afisare();
+        std::cout << locatie;
     }
 }
 

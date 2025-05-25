@@ -19,7 +19,7 @@ public:
     Locatie(const Locatie &locatie);
     Locatie& operator=(const Locatie &locatie);
     ~Locatie() = default;
-    void afisare() const;
+    friend std::ostream& operator<<(std::ostream &out, const Locatie &locatie);
     int getCoeficientViata() const;
     int getCoeficientHrana() const;
     int getCoeficientBani() const;

@@ -34,39 +34,39 @@ Locatie& Locatie::operator=(const Locatie &locatie) {
     return *this;
 }
 
-
-void Locatie::afisare() const {
-    std::cout << this->nume << " - ";
-    if (coeficientViata > 0) {
-        std::cout << VERDE << "Viata";
+std::ostream& operator<<(std::ostream &out, const Locatie &locatie) {
+    out << locatie.nume << " - ";
+    if (locatie.coeficientViata > 0) {
+        out << VERDE << "Viata";
     }
-    else if (coeficientViata < 0) {
-        std::cout << ROSU << "Viata";
-    }
-    else {
-        std::cout << GALBEN << "Viata";
-    }
-    std::cout << RESETARE << " | ";
-    if (coeficientHrana > 0) {
-        std::cout << VERDE << "Hrana";
-    }
-    else if (coeficientHrana < 0) {
-        std::cout << ROSU << "Hrana";
+    else if (locatie.coeficientViata < 0) {
+        out << ROSU << "Viata";
     }
     else {
-        std::cout << GALBEN << "Hrana";
+        out << GALBEN << "Viata";
     }
-    std::cout << RESETARE << " | ";
-    if (coeficientBani > 0) {
-        std::cout << VERDE << "Bani";
+    out << RESETARE << " | ";
+    if (locatie.coeficientHrana > 0) {
+        out << VERDE << "Hrana";
     }
-    else if (coeficientBani < 0) {
-        std::cout << ROSU << "Bani";
+    else if (locatie.coeficientHrana < 0) {
+        out << ROSU << "Hrana";
     }
     else {
-        std::cout << GALBEN << "Bani";
+        out << GALBEN << "Hrana";
     }
-    std::cout << RESETARE << std::endl;
+    out << RESETARE << " | ";
+    if (locatie.coeficientBani > 0) {
+        out << VERDE << "Bani";
+    }
+    else if (locatie.coeficientBani < 0) {
+        out << ROSU << "Bani";
+    }
+    else {
+        out << GALBEN << "Bani";
+    }
+    out << RESETARE << std::endl;
+    return out;
 }
 
 int Locatie::getCoeficientViata() const {

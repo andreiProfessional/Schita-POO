@@ -12,18 +12,18 @@ int main() {
     Locatie *l1 = new Locatie("McDonald's", -20, 15, -25, s1);
     Locatie *l2 = new Locatie("Starbucks", -10, 5, -20, s1);
     Locatie *l3 = new Locatie("Luca Patiserie", -5, 10, -15, s1);
-    // l1->afisare();
-    // l2->afisare();
-    // l3->afisare();
+    std::cout << *l1 << std::endl;
+    std::cout << *l2 << std::endl;
+    std::cout << *l3 << std::endl;
 
     Jucator *j1 = JucatorFactory::tataBogat("Charles");
     Jucator *j2 = JucatorFactory::omDeRand("John Pork");
     // j1->afisare();std::cout << std::endl;
     // j2->afisare();
 
-    Activitate *a1 = new SpawnLocatie(j1, {l1, l2, l3});
-    a1->afisare();
-    a1->activitate(1);
+    // Activitate *a1 = new SpawnLocatie(j1, {l1, l2, l3});
+    // a1->afisare();
+    // a1->activitate(1);
     // std::unordered_map<Statie*, std::vector<Statie*>> listaAdiacentaStatii;
     // listaAdiacentaStatii[s1] = {s2, s3};
     // listaAdiacentaStatii[s2] = {s1};

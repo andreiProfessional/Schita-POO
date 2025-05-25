@@ -31,7 +31,7 @@ void SpawnLocatie::afisare() {
     const int numarLocatii = locatii.size();
     for (int index = 0; index < numarLocatii; index ++) {
         std::cout << index + 1 << ". ";
-        locatii[index]->afisare();
+        std::cout << locatii[index];
     }
     std::cout << std::endl;
 }
@@ -141,7 +141,7 @@ void ActivitateTaxi::afisare() {
     int numarLocatii = this->locatii.size();
     for (int index = 0; index < numarLocatii; index ++) {
         std::cout << index + 1 << ". ";
-        locatii[index]->afisare();
+        std::cout << locatii[index];
     }
     std::cout << std::endl;
 }
@@ -194,7 +194,7 @@ void StatieCatreLocatie::afisare() {
     const int numarLocatii = this->locatii.size();
     for (int index = 0; index < numarLocatii; index ++) {
         std::cout << index + 1 << ". ";
-        this->locatii[index]->afisare();
+        std::cout << this->locatii[index];
     }
 }
 

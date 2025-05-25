@@ -74,8 +74,7 @@ void Jucator::afisare() const {
     }
     std::cout << "]" << std::endl;
     if (locatie != nullptr) {
-        std::cout << "Locatie: ";
-        this->locatie->afisare();
+        std::cout << "Locatie: " << this->locatie;
     }
     if (statie != nullptr) {
         std::cout << "Statie: ";
