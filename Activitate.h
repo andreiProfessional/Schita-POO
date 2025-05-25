@@ -14,6 +14,8 @@ protected:
     Jucator *jucator;
 public:
     Activitate(Jucator *jucator_);
+    Activitate(const Activitate &activitate);
+    Activitate& operator=(const Activitate &activitate);
     virtual ~Activitate() = default;
     void afisare() const;
     virtual void afisare() = 0;

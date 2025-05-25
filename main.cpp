@@ -18,12 +18,12 @@ int main() {
 
     Jucator *j1 = JucatorFactory::tataBogat("Charles");
     Jucator *j2 = JucatorFactory::omDeRand("John Pork");
-    j1->afisare();std::cout << std::endl;
-    j2->afisare();
+    // j1->afisare();std::cout << std::endl;
+    // j2->afisare();
 
-    // Activitate *a1 = new SpawnLocatie(j1, {l1, l2, l3});
-    // a1->afisare();
-    // a1->activitate(1);
+    Activitate *a1 = new SpawnLocatie(j1, {l1, l2, l3});
+    a1->afisare();
+    a1->activitate(1);
     // std::unordered_map<Statie*, std::vector<Statie*>> listaAdiacentaStatii;
     // listaAdiacentaStatii[s1] = {s2, s3};
     // listaAdiacentaStatii[s2] = {s1};
