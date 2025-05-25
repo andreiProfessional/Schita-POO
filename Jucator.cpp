@@ -16,6 +16,26 @@ Jucator::Jucator(const std::string &nume_, const int &nivelViata_, const int &ni
     statie(statie_)
     {}
 
+Jucator::Jucator(const Jucator &jucator):
+    id(++ contorID),
+    nume(jucator.nume),
+    nivelViata(jucator.nivelViata),
+    nivelHrana(jucator.nivelHrana),
+    balantaBani(jucator.balantaBani),
+    locatie(jucator.locatie),
+    statie(jucator.statie)
+    {}
+
+Jucator& Jucator::operator=(const Jucator &jucator) {
+    this->nume = jucator.nume;
+    this->nivelViata = jucator.nivelViata;
+    this->nivelHrana = jucator.nivelHrana;
+    this->balantaBani = jucator.balantaBani;
+    this->locatie = jucator.locatie;
+    this->statie = jucator.statie;
+    return *this;
+}
+
 void Jucator::afisare() const {
     for (int i = 0; i < 50; i ++) {
         std::cout << "=";

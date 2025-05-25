@@ -18,6 +18,9 @@ private:
 public:
     Jucator(const std::string &nume_, const int &nivelViata_, const int &nivelHrana_, const int &balantaBani_,
         Locatie *locatie_, Statie *statie_);
+    Jucator(const Jucator &jucator);
+    Jucator& operator=(const Jucator &jucator);
+    ~Jucator() = default;
     void afisare() const;
     void modificareNivelViata(const int &diferentaViata);
     void modificareNivelHrana(const int &diferentaHrana);

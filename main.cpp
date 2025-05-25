@@ -5,9 +5,9 @@ int main() {
     Statie *s1 = new Statie("Piata Romana", {"M2"});
     Statie *s2 = new Statie("Piata Unirii", {"M1", "M2", "104"});
     Statie *s3 = new Statie("Piata Victoriei", {"M1", "M2"});
-    s1->afisare();
-    s2->afisare();
-    s3->afisare();
+    // s1->afisare();
+    // s2->afisare();
+    // s3->afisare();
 
     Locatie *l1 = new Locatie("McDonald's", -20, 15, -25, s1);
     Locatie *l2 = new Locatie("Starbucks", -10, 5, -20, s1);
@@ -18,8 +18,8 @@ int main() {
 
     Jucator *j1 = JucatorFactory::tataBogat("Charles");
     Jucator *j2 = JucatorFactory::omDeRand("John Pork");
-    // j1->afisare();std::cout << std::endl;
-    // j2->afisare();
+    j1->afisare();std::cout << std::endl;
+    j2->afisare();
 
     // Activitate *a1 = new SpawnLocatie(j1, {l1, l2, l3});
     // a1->afisare();
