@@ -1,6 +1,8 @@
 # SuperCity - Simulator al vieții cotidiene din mediul urban
-### Proiectul urmărește simularea unor elemente uzuale din viața de zi cu zi a unui orășean. Jucatorii trebuie să își mențină statisticile cât mai sus, având ocazia să interacționeze cu diverse locații care îi pot ajuta în acest sens. Pentru transportul prin oraș acestora li se pune la dispoziție o rețea generoasă de transport în comun, precum și cel mai eficient serviciu de taxi-uri din lumea simulatoarelor scrise in limbajul C++.
-### O lume palpitantă te așteaptă în acest joc fabulaçao care transformă rutina cronofagă și stresantă a orașului tău într-un mediu ludic relaxant precum o pajiște montană!
+### Proiectul urmărește simularea unor elemente uzuale din viața de zi cu zi a unui orășean.
+### Jucatorii trebuie să își mențină statisticile cât mai sus, având ocazia să interacționeze cu diverse locații care îi pot ajuta în acest sens.
+### Pentru transportul prin oraș acestora li se pune la dispoziție o rețea generoasă de transport în comun, precum și cel mai eficient serviciu de taxi-uri din lumea simulatoarelor scrise in limbajul C++.
+### O lume palpitantă te așteaptă în acest joc fabulaçao care transformă rutina cronofagă și stresantă a orașului tău într-un mediu ludic și relaxant precum o pajiște montană!
 #
 ### Folosiți template-ul corespunzător grupei voastre!
 
