@@ -30,13 +30,13 @@ void Inventar::adaugareJucator(Jucator *jucator) {
 
 void Inventar::afisareStatii() const {
     for (const auto &statie: this->statii) {
-        statie.first->afisare();
+        std::cout << *statie.first;
     }
 }
 
 void Inventar::afisareLocatii() const {
     for (const auto &locatie: this->locatii) {
-        std::cout << locatie;
+        std::cout << *locatie;
     }
 }
 

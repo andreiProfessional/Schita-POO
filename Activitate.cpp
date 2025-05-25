@@ -28,10 +28,9 @@ SpawnLocatie::SpawnLocatie(Jucator *jucator_, const std::vector<Locatie*> &locat
 void SpawnLocatie::afisare() {
     this->jucator->afisare(); std::cout << std::endl;
     std::cout << "Locatii disponibile: " << std::endl;
-    const int numarLocatii = locatii.size();
+    const int numarLocatii = this->locatii.size();
     for (int index = 0; index < numarLocatii; index ++) {
-        std::cout << index + 1 << ". ";
-        std::cout << locatii[index];
+        std::cout << index + 1 << ". " << *this->locatii[index];
     }
     std::cout << std::endl;
 }
@@ -54,10 +53,9 @@ SpawnStatie::SpawnStatie(Jucator *jucator_, const std::unordered_map<Statie*, st
 void SpawnStatie::afisare() {
     this->jucator->afisare(); std::cout << std::endl;
     std::cout << "Statii disponibile: " << std::endl;
-    const int numarStatii = statii.size();
+    const int numarStatii = this->statii.size();
     for (int index = 0; index < numarStatii; index ++) {
-        std::cout << index + 1 << ". ";
-        statii[index]->afisare();
+        std::cout << index + 1 << ". " << *this->statii[index];
     }
 }
 
@@ -105,10 +103,9 @@ void ActivitateStatie::afisare() {
               << ROSU << this->minusViata << RESETARE << " Viata + "
               << ROSU << this->minusHrana << RESETARE << " Hrana" << std::endl;
     std::cout << "Statii vecine:" << std::endl;
-    int numarStatiiVecine = statiiVecine.size();
+    int numarStatiiVecine = this->statiiVecine.size();
     for (int index = 0; index < numarStatiiVecine; index ++) {
-        std::cout << index + 1 << ". ";
-        statiiVecine[index]->afisare();
+        std::cout << index + 1 << ". " << *this->statiiVecine[index];
     }
     std::cout << std::endl;
 }
@@ -140,8 +137,7 @@ void ActivitateTaxi::afisare() {
     std::cout << "Locatii disponibile: " << std::endl;
     int numarLocatii = this->locatii.size();
     for (int index = 0; index < numarLocatii; index ++) {
-        std::cout << index + 1 << ". ";
-        std::cout << locatii[index];
+        std::cout << index + 1 << ". " << *this->locatii[index];
     }
     std::cout << std::endl;
 }
@@ -160,9 +156,7 @@ LocatieCatreStatie::LocatieCatreStatie(Jucator *jucator_):
 
 void LocatieCatreStatie::afisare() {
     this->jucator->afisare(); std::cout << std::endl;
-    std::cout << "Statie apropiata: ";
-    this->locatie->getStatie()->afisare();
-    std::cout << std::endl;
+    std::cout << "Statie apropiata: " << *this->locatie->getStatie() << std::endl;
     std::cout << "1. Mergi la locatie" << std::endl;
     std::cout << "2. Ramai pe loc" << std::endl;
 }
@@ -193,8 +187,7 @@ void StatieCatreLocatie::afisare() {
     std::cout << "Locatii apropiate: " << std::endl;
     const int numarLocatii = this->locatii.size();
     for (int index = 0; index < numarLocatii; index ++) {
-        std::cout << index + 1 << ". ";
-        std::cout << this->locatii[index];
+        std::cout << index + 1 << ". " << *this->locatii[index];
     }
 }
 

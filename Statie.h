@@ -14,7 +14,7 @@ public:
     Statie(const Statie &statie);
     Statie& operator=(const Statie &statie);
     ~Statie() = default;
-    void afisare() const;
+    friend std::ostream& operator<<(std::ostream &out, const Statie &statie);
     void adaugareRuta(const std::string &ruta);
 };
 

@@ -22,14 +22,15 @@ Statie& Statie::operator=(const Statie &statie) {
     return *this;
 }
 
-void Statie::afisare() const {
-    std::cout << this->nume << " - ";
-    const int numarRute = this->rute.size();
+std::ostream& operator<<(std::ostream &out, const Statie &statie) {
+    out << statie.nume << " - ";
+    const int numarRute = statie.rute.size();
     for (int index = 0; index < numarRute - 1; index ++) {
-        std::cout << rute[index] << " + ";
+        out << statie.rute[index] << " + ";
     }
-    std::cout << rute[numarRute - 1];
-    std::cout << std::endl;
+    out << statie.rute[numarRute - 1];
+    out << std::endl;
+    return out;
 }
 
 void Statie::adaugareRuta(const std::string &ruta) {
