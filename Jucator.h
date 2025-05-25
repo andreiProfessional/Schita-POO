@@ -23,6 +23,7 @@ public:
     ~Jucator() = default;
     friend std::ostream& operator<<(std::ostream &out, const Jucator &jucator);
     friend bool operator>(const Jucator &jucator1, const Jucator &jucator2);
+    Jucator& operator+=(const Jucator &jucator);
     void modificareNivelViata(const int &diferentaViata);
     void modificareNivelHrana(const int &diferentaHrana);
     void modificareBalantaBani(const int &diferentaBani);

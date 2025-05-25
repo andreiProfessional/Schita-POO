@@ -1,4 +1,7 @@
 #include "Jucator.h"
+
+#include <algorithm>
+
 #include "CuloriText.h"
 #include <iostream>
 
@@ -106,6 +109,13 @@ bool operator>(const Jucator &jucator1, const Jucator &jucator2) {
         return false;
     }
     return jucator1.nume.length() <= jucator2.nume.length();
+}
+
+Jucator& Jucator::operator+=(const Jucator &jucator) {
+    this->nivelViata = (this->nivelViata + jucator.nivelViata) / 2;
+    this->nivelHrana = (this->nivelHrana + jucator.nivelHrana) / 2;
+    this->balantaBani = std::max(this->balantaBani, jucator.balantaBani);
+    return *this;
 }
 
 void Jucator::modificareNivelViata(const int &diferentaViata) {
