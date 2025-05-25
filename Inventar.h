@@ -30,6 +30,8 @@ public:
     void afisareStatii() const;
     void afisareLocatii() const;
     void afisareJucatori() const;
+
+    void sortareJucatori();
 };
 
 

@@ -86,6 +86,28 @@ std::ostream& operator<<(std::ostream &out, const Jucator &jucator) {
     return out;
 }
 
+bool operator>(const Jucator &jucator1, const Jucator &jucator2) {
+    if ((jucator1.nivelViata + 9) / 10 > (jucator2.nivelViata + 9) / 10) {
+        return true;
+    }
+    if ((jucator1.nivelViata + 9) / 10 < (jucator2.nivelViata + 9) / 10) {
+        return false;
+    }
+    if ((jucator1.nivelHrana + 9) / 10 > (jucator2.nivelHrana + 9) / 10) {
+        return true;
+    }
+    if ((jucator1.nivelHrana + 9) / 10 < (jucator2.nivelHrana + 9) / 10) {
+        return false;
+    }
+    if (jucator1.balantaBani > jucator2.balantaBani) {
+        return true;
+    }
+    if (jucator1.balantaBani < jucator2.balantaBani) {
+        return false;
+    }
+    return jucator1.nume.length() <= jucator2.nume.length();
+}
+
 void Jucator::modificareNivelViata(const int &diferentaViata) {
     this->nivelViata += diferentaViata;
     if (nivelViata < 0) {

@@ -17,14 +17,20 @@ int main() {
     // std::cout << *l3 << std::endl;
 
     Jucator *j1 = JucatorFactory::tataBogat("Charles");
-    Jucator *j2 = JucatorFactory::omDeRand("John Pork");
+    Jucator *j2 = JucatorFactory::tataSarac("Vasile");
+    Jucator *j3 = JucatorFactory::magnatBatran("Klaus");
+    Jucator *j4 = JucatorFactory::omDeRand("John Pork");
+    Jucator *j5 = JucatorFactory::pierdeVara("Bula");
+    Jucator *j6 = new Jucator("J66", 70, 80, 100, l1, s1);
+    Jucator *j7 = new Jucator("J7", 70, 80, 100, l2, s1);
     // std::cout << *j1 << std::endl;
     // std::cout << *j2 << std::endl;
+    // std::cout << (*j6 > *j7) << std::endl << std::endl;
 
     // Activitate *a1 = new SpawnLocatie(j1, {l1, l2, l3});
     // a1->afisare();
     // a1->activitate(1);
-    // j1->afisare();
+    // std::cout << *j1 << std::endl;
     // std::unordered_map<Statie*, std::vector<Statie*>> listaAdiacentaStatii;
     // listaAdiacentaStatii[s1] = {s2, s3};
     // listaAdiacentaStatii[s2] = {s1};
@@ -32,33 +38,40 @@ int main() {
     // Activitate *a2 = new SpawnStatie(j2, listaAdiacentaStatii);
     // a2->afisare();
     // a2->activitate(3);
-    // j2->afisare();
+    // std::cout << *j2 << std::endl;
     // Activitate *a3 = new ActivitateLocatie(j1,
     //     {{"Suculetz de portocale", 1}, {"Happy meal", 4}, {"Meniu Big Mac", 6}});
     // a3->afisare(); std::cout << std::endl;
     // a3->activitate(1);
-    // j1->afisare();
+    // std::cout << *j1 << std::endl;
     // Activitate *a4 = new ActivitateStatie(j2, listaAdiacentaStatii);
     // a4->afisare();
     // a4->activitate(2); std::cout << std::endl;
-    // j2->afisare();
+    // std::cout << *j2 << std::endl;
     // Activitate *a5 = new ActivitateTaxi(j1, {l1, l2, l3});
     // a5->afisare();
     // a5->activitate(3);
-    // j1->afisare();
+    // std::cout << *j1 << std::endl;
     // Activitate *a6 = new LocatieCatreStatie(j1);
     // a6->afisare();
     // a6->activitate(1);
-    // j1->afisare();
+    // std::cout << *j1 << std::endl;
     // Activitate *a7 = new StatieCatreLocatie(j2, {l1, l2, l3});
     // a7->afisare();
     // a7->activitate(2);
-    // j2->afisare();
+    // std::cout << *j2 << std::endl;
 
-    // Inventar &inventar = Inventar::acceseazaSingleton();
-    // inventar.adaugareJucator(j1);
-    // inventar.adaugareJucator(j2);
-    // // inventar.afisareJucatori();
+    Inventar &inventar = Inventar::acceseazaSingleton();
+    inventar.adaugareJucator(j1);
+    inventar.adaugareJucator(j2);
+    inventar.adaugareJucator(j3);
+    inventar.adaugareJucator(j4);
+    inventar.adaugareJucator(j5);
+    inventar.adaugareJucator(j6);
+    inventar.adaugareJucator(j7);
+    inventar.sortareJucatori();
+    inventar.afisareJucatori();
+
     // inventar.adaugareLocatie(l1);
     // inventar.adaugareLocatie(l2);
     // // inventar.afisareLocatii();
@@ -67,8 +80,8 @@ int main() {
     // //inventar.afisareStatii();
 
     {
-        delete j1;
-        delete j2;
+        // delete j1;
+        // delete j2;
         delete l1;
         delete l2;
         delete l3;

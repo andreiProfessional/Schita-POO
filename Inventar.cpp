@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <unordered_map>
+#include <algorithm>
 
 Inventar::Inventar() {
     jucatori = std::vector<Jucator*>();
@@ -44,4 +45,10 @@ void Inventar::afisareJucatori() const {
     for (const auto &jucator: this->jucatori) {
         std::cout << *jucator;
     }
+}
+
+void Inventar::sortareJucatori() {
+    std::sort(jucatori.begin(), jucatori.end(), [](Jucator* jucator1, Jucator* jucator2) {
+            return (*jucator1 > *jucator2);
+        });
 }
