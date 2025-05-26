@@ -1,7 +1,7 @@
 #include "Meniu.h"
-#include "CuloriText.h"
-#include <iostream>
-#include <fstream>
+// #include "CuloriText.h"
+// #include <iostream>
+// #include <fstream>
 /*
 Meniu::Meniu(): hartaOras(HartaOras::acceseazaSingleton()) {
     this->creareHartaOras();

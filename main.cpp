@@ -4,16 +4,16 @@
 #include "Inventar.h"
 
 int main() {
-    Statie *s1 = new Statie("Piata Romana", {"M2"});
-    Statie *s2 = new Statie("Piata Unirii", {"M1", "M2", "104"});
-    Statie *s3 = new Statie("Piata Victoriei", {"M1", "M2"});
+    auto *s1 = new Statie("Piata Romana", {"M2"});
+    auto *s2 = new Statie("Piata Unirii", {"M1", "M2", "104"});
+    auto *s3 = new Statie("Piata Victoriei", {"M1", "M2"});
     // std::cout << *s1;
     // std::cout << *s2;
     // std::cout << *s3;
 
-    Locatie *l1 = new Locatie("McDonald's", -20, 15, -25, s1);
-    Locatie *l2 = new Locatie("Starbucks", -10, 5, -20, s1);
-    Locatie *l3 = new Locatie("JOB", -1, -1, -175, s1);
+    auto *l1 = new Locatie("McDonald's", -20, 15, -25, s1);
+    auto *l2 = new Locatie("Starbucks", -10, 5, -20, s1);
+    auto *l3 = new Locatie("JOB", -1, -1, -175, s1);
     // std::cout << *l1 << std::endl;
     // std::cout << *l2 << std::endl;
     // std::cout << *l3 << std::endl;
@@ -32,43 +32,43 @@ int main() {
     // std::cout << *j2 << std::endl;
     // std::cout << (*j6 > *j7) << std::endl << std::endl;
 
-    // Activitate *a1 = new SpawnLocatie(j1, {l1, l2, l3});
-    // try {
-    //     a1->afisare();
-    //     a1->activitate(2);
-    // } catch (const OptiuneIndisponibila &exceptie) {
-    //     std::cout << exceptie.what() << std::endl;
-    // }
-    // std::cout << *j1 << std::endl;
-    std::unordered_map<Statie*, std::vector<Statie*>> listaAdiacentaStatii;
-    listaAdiacentaStatii[s1] = {s2, s3};
-    listaAdiacentaStatii[s2] = {s1};
-    listaAdiacentaStatii[s3] = {s1};
-    Activitate *a2 = new SpawnStatie(j1, listaAdiacentaStatii);
+    Activitate *a1 = new SpawnLocatie(j1, {l1, l2, l3});
     try {
-        a2->afisare();
-        a2->activitate(3);
-        std::cout << *j1 << std::endl;
+        a1->afisare();
+        a1->activitate(2);
     } catch (const OptiuneIndisponibila &exceptie) {
         std::cout << exceptie.what() << std::endl;
     }
-    // Activitate *a3 = new ActivitateLocatie(j1,
-    //     {{"Suculetz de portocale", 1}, {"Happy meal", 4}, {"Meniu Big Mac", 1}});
+    // std::cout << *j1 << std::endl;
+    // std::unordered_map<Statie*, std::vector<Statie*>> listaAdiacentaStatii;
+    // listaAdiacentaStatii[s1] = {s2, s3};
+    // listaAdiacentaStatii[s2] = {s1};
+    // listaAdiacentaStatii[s3] = {s1};
+    // Activitate *a2 = new SpawnStatie(j1, listaAdiacentaStatii);
     // try {
-    //     a3->afisare(); std::cout << std::endl;
-    //     a3->activitate(3);
+    //     a2->afisare();
+    //     a2->activitate(3);
     //     std::cout << *j1 << std::endl;
-    //     a3->activitate(3);
-    //     std::cout << *j1 << std::endl;
-    // } catch (const InsuficientaViata &exceptie) {
-    //     std::cout << exceptie.what() << std::endl;
-    // } catch (const InsuficientaHrana &exceptie) {
-    //     std::cout << exceptie.what() << std::endl;
-    // } catch (const InsuficientaBani &exceptie) {
-    //     std::cout << exceptie.what() << std::endl;
     // } catch (const OptiuneIndisponibila &exceptie) {
     //     std::cout << exceptie.what() << std::endl;
     // }
+    Activitate *a3 = new ActivitateLocatie(j1,
+        {{"Suculetz de portocale", 1}, {"Happy meal", 4}, {"Meniu Big Mac", 1}});
+    try {
+        a3->afisare(); std::cout << std::endl;
+        a3->activitate(3);
+        std::cout << *j1 << std::endl;
+        a3->activitate(3);
+        std::cout << *j1 << std::endl;
+    } catch (const InsuficientaViata &exceptie) {
+        std::cout << exceptie.what() << std::endl;
+    } catch (const InsuficientaHrana &exceptie) {
+        std::cout << exceptie.what() << std::endl;
+    } catch (const InsuficientaBani &exceptie) {
+        std::cout << exceptie.what() << std::endl;
+    } catch (const OptiuneIndisponibila &exceptie) {
+        std::cout << exceptie.what() << std::endl;
+    }
     // try {
     //     a3->afisare(); std::cout << std::endl;
     //     a3->activitate(1);

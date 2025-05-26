@@ -13,11 +13,11 @@ protected:
     const int id;
     Jucator *jucator;
 public:
-    Activitate(Jucator *jucator_);
+    explicit Activitate(Jucator *jucator_);
     Activitate(const Activitate &activitate);
     Activitate& operator=(const Activitate &activitate);
     virtual ~Activitate() = default;
-    void afisare() const;
+    //void afisare() const;
     virtual void afisare() = 0;
     virtual void activitate(const int &optiune) = 0;
 };
@@ -82,7 +82,7 @@ private:
     Locatie *locatie;
     Statie *statie;
 public:
-    LocatieCatreStatie(Jucator *jucator_);
+    explicit LocatieCatreStatie(Jucator *jucator_);
     void afisare() override;
     void activitate(const int &alegere) override;
 };

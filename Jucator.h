@@ -27,11 +27,11 @@ public:
     void modificareNivelViata(const int &diferentaViata);
     void modificareNivelHrana(const int &diferentaHrana);
     void modificareBalantaBani(const int &diferentaBani);
-    int getCoeficientViataLocatie();
-    int getCoeficientHranaLocatie();
-    int getCoeficientBaniLocatie();
-    Locatie *getLocatie();
-    Statie *getStatie();
+    [[nodiscard]] int getCoeficientViataLocatie() const;
+    [[nodiscard]] int getCoeficientHranaLocatie() const;
+    [[nodiscard]] int getCoeficientBaniLocatie() const;
+    Locatie *getLocatie() const;
+    Statie *getStatie() const;
     void setLocatie(Locatie *locatie_);
     void setStatie(Statie *statie_);
 };

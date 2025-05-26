@@ -4,6 +4,7 @@
 #include <vector>
 #include <unordered_map>
 #include <algorithm>
+#include <ranges>
 
 Inventar::Inventar() {
     jucatori = std::vector<Jucator*>();
@@ -30,8 +31,8 @@ void Inventar::adaugareJucator(Jucator *jucator) {
 }
 
 void Inventar::afisareStatii() const {
-    for (const auto &statie: this->statii) {
-        std::cout << *statie.first;
+    for (const auto &key: this->statii | std::views::keys) {
+        std::cout << *key;
     }
 }
 
@@ -48,7 +49,7 @@ void Inventar::afisareJucatori() const {
 }
 
 void Inventar::sortareJucatori() {
-    std::sort(jucatori.begin(), jucatori.end(), [](Jucator* jucator1, Jucator* jucator2) {
+    std::ranges::sort(jucatori, [](const Jucator* jucator1, const Jucator* jucator2) {
             return (*jucator1 > *jucator2);
         });
 }

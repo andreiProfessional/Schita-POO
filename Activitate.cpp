@@ -5,6 +5,7 @@
 #include <iostream>
 #include <vector>
 #include <random>
+#include <ranges>
 
 #include "Exceptii.h"
 
@@ -30,7 +31,7 @@ SpawnLocatie::SpawnLocatie(Jucator *jucator_, const std::vector<Locatie*> &locat
 void SpawnLocatie::afisare() {
     std::cout << *this->jucator << std::endl;
     std::cout << "Locatii disponibile: " << std::endl;
-    const int numarLocatii = this->locatii.size();
+    const int numarLocatii = static_cast<int>(this->locatii.size());
     for (int index = 0; index < numarLocatii; index ++) {
         std::cout << index + 1 << ". " << *this->locatii[index];
     }
@@ -48,8 +49,8 @@ void SpawnLocatie::activitate(const int &alegere) {
 SpawnStatie::SpawnStatie(Jucator *jucator_, const std::unordered_map<Statie*, std::vector<Statie*>> &listeAdiacenta_):
     Activitate(jucator_) {
     std::vector<Statie*> statii_;
-    for (const auto &pereche: listeAdiacenta_) {
-        statii_.push_back(pereche.first);
+    for (const auto &key: listeAdiacenta_ | std::views::keys) {
+        statii_.push_back(key);
     }
     statii = statii_;
     statieSpawn = nullptr;
@@ -58,7 +59,7 @@ SpawnStatie::SpawnStatie(Jucator *jucator_, const std::unordered_map<Statie*, st
 void SpawnStatie::afisare() {
     std::cout << *this->jucator << std::endl;
     std::cout << "Statii disponibile: " << std::endl;
-    const int numarStatii = this->statii.size();
+    const int numarStatii = static_cast<int>(this->statii.size());
     for (int index = 0; index < numarStatii; index ++) {
         std::cout << index + 1 << ". " << *this->statii[index];
     }
@@ -79,7 +80,7 @@ ActivitateLocatie::ActivitateLocatie(Jucator *jucator_, const std::vector<std::p
 void ActivitateLocatie::afisare() {
     std::cout << *this->jucator << std::endl;
     std::cout << "Optiunile disponibile:" << std::endl;
-    int numarOptiuni = this->optiuni.size();
+    int numarOptiuni = static_cast<int>(this->optiuni.size());
     for (int index = 0; index < numarOptiuni; ++index) {
         std::cout << index + 1 << ". " << this->optiuni[index].first << std::endl;
     }
@@ -114,7 +115,7 @@ void ActivitateStatie::afisare() {
               << ROSU << this->minusViata << RESETARE << " Viata + "
               << ROSU << this->minusHrana << RESETARE << " Hrana" << std::endl;
     std::cout << "Statii vecine:" << std::endl;
-    int numarStatiiVecine = this->statiiVecine.size();
+    int numarStatiiVecine = static_cast<int>(this->statiiVecine.size());
     for (int index = 0; index < numarStatiiVecine; index ++) {
         std::cout << index + 1 << ". " << *this->statiiVecine[index];
     }
@@ -136,7 +137,7 @@ ActivitateTaxi::ActivitateTaxi(Jucator *jucator_, const std::vector<Locatie*> &l
     locatii(locatii_) {
     locatiePlecare = jucator_->getLocatie();
     locatieSosire = nullptr;
-    const int numarLocatii = locatii.size();
+    const int numarLocatii = static_cast<int>(this->locatii.size());
     const int pretMinim = numarLocatii / 2;
     const int pretMaxim = numarLocatii;
     std::random_device rd;  // Non-deterministic seed
@@ -149,7 +150,7 @@ void ActivitateTaxi::afisare() {
     std::cout << *this->jucator << std::endl;
     std::cout << "Pret Calatorie = " << ROSU << this->pret << RESETARE  << " Lei." << std::endl;
     std::cout << "Locatii disponibile: " << std::endl;
-    int numarLocatii = this->locatii.size();
+    int numarLocatii = static_cast<int>(this->locatii.size());
     for (int index = 0; index < numarLocatii; index ++) {
         std::cout << index + 1 << ". " << *this->locatii[index];
     }
@@ -203,7 +204,7 @@ StatieCatreLocatie::StatieCatreLocatie(Jucator *jucator_, const std::vector<Loca
 void StatieCatreLocatie::afisare() {
     std::cout << *this->jucator << std::endl;
     std::cout << "Locatii apropiate: " << std::endl;
-    const int numarLocatii = this->locatii.size();
+    const int numarLocatii = static_cast<int>(this->locatii.size());
     for (int index = 0; index < numarLocatii; index ++) {
         std::cout << index + 1 << ". " << *this->locatii[index];
     }

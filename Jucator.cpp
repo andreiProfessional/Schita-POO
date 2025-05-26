@@ -147,24 +147,24 @@ void Jucator::modificareBalantaBani(const int &diferentaBani) {
     this->balantaBani += diferentaBani;
 }
 
-int Jucator::getCoeficientViataLocatie() {
+int Jucator::getCoeficientViataLocatie() const {
     return this->locatie->getCoeficientViata();
 }
 
-int Jucator::getCoeficientHranaLocatie() {
+int Jucator::getCoeficientHranaLocatie() const {
     return this->locatie->getCoeficientHrana();
 }
 
-int Jucator::getCoeficientBaniLocatie() {
+int Jucator::getCoeficientBaniLocatie() const {
     return this->locatie->getCoeficientBani();
 }
 
-Locatie *Jucator::getLocatie() {
+Locatie *Jucator::getLocatie() const {
     return this->locatie;
 }
 
 
-Statie* Jucator::getStatie() {
+Statie* Jucator::getStatie() const {
     return this->statie;
 }
 

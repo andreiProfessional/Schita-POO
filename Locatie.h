@@ -20,10 +20,10 @@ public:
     Locatie& operator=(const Locatie &locatie);
     ~Locatie() = default;
     friend std::ostream& operator<<(std::ostream &out, const Locatie &locatie);
-    int getCoeficientViata() const;
-    int getCoeficientHrana() const;
-    int getCoeficientBani() const;
-    Statie *getStatie();
+    [[nodiscard]] int getCoeficientViata() const;
+    [[nodiscard]] int getCoeficientHrana() const;
+    [[nodiscard]] int getCoeficientBani() const;
+    [[nodiscard]] Statie *getStatie() const;
 };
 
 

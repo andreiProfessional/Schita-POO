@@ -1,7 +1,6 @@
 #include "Locatie.h"
 #include "CuloriText.h"
 #include <iostream>
-#include <vector>
 
 
 int Locatie::contorID = 0;
@@ -81,6 +80,6 @@ int Locatie::getCoeficientBani() const {
     return this->coeficientBani;
 }
 
-Statie* Locatie::getStatie() {
+Statie* Locatie::getStatie() const {
     return this->statie;
 }
