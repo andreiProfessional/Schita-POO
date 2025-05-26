@@ -64,6 +64,8 @@ add_executable(${MAIN_EXECUTABLE_NAME}
         Inventar.h
         Activitate.cpp
         Activitate.h
+        Exceptii.cpp
+        Exceptii.h
 )
 
 # NOTE: Add all defined targets (e.g. executables, libraries, etc. )

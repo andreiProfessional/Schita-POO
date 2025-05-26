@@ -1,4 +1,6 @@
 #include <iostream>
+
+#include "Exceptii.h"
 #include "Inventar.h"
 
 int main() {
@@ -11,28 +13,28 @@ int main() {
 
     Locatie *l1 = new Locatie("McDonald's", -20, 15, -25, s1);
     Locatie *l2 = new Locatie("Starbucks", -10, 5, -20, s1);
-    Locatie *l3 = new Locatie("Luca Patiserie", -5, 10, -15, s1);
+    Locatie *l3 = new Locatie("JOB", -1, -1, -175, s1);
     // std::cout << *l1 << std::endl;
     // std::cout << *l2 << std::endl;
     // std::cout << *l3 << std::endl;
 
-    Jucator *j1 = JucatorFactory::tataBogat("Charles");
-    Jucator *j2 = JucatorFactory::tataSarac("Vasile");
-    Jucator *j3 = JucatorFactory::magnatBatran("Klaus");
-    Jucator *j4 = JucatorFactory::omDeRand("John Pork");
+    // Jucator *j1 = JucatorFactory::tataBogat("Charles");
+    // Jucator *j2 = JucatorFactory::tataSarac("Vasile");
+    // Jucator *j3 = JucatorFactory::magnatBatran("Klaus");
+    // Jucator *j4 = JucatorFactory::omDeRand("John Pork");
     Jucator *j5 = JucatorFactory::pierdeVara("Bula");
-    Jucator *j6 = new Jucator("J66", 70, 80, 100, l1, s1);
-    Jucator *j7 = new Jucator("J7", 70, 80, 100, l2, s1);
-    std::cout << *j1 << std::endl;
-    std::cout << *j2 << std::endl;
-    *j2 += *j1;
-    std::cout << *j1 << std::endl;
-    std::cout << *j2 << std::endl;
+    // Jucator *j6 = new Jucator("J66", 70, 80, 100, l1, s1);
+    // Jucator *j7 = new Jucator("J7", 70, 80, 100, l2, s1);
+    // std::cout << *j1 << std::endl;
+    // std::cout << *j2 << std::endl;
+    // *j2 += *j1;
+    // std::cout << *j1 << std::endl;
+    // std::cout << *j2 << std::endl;
     // std::cout << (*j6 > *j7) << std::endl << std::endl;
 
-    // Activitate *a1 = new SpawnLocatie(j1, {l1, l2, l3});
-    // a1->afisare();
-    // a1->activitate(1);
+    Activitate *a1 = new SpawnLocatie(j5, {l1, l2, l3});
+    a1->afisare();
+    a1->activitate(3);
     // std::cout << *j1 << std::endl;
     // std::unordered_map<Statie*, std::vector<Statie*>> listaAdiacentaStatii;
     // listaAdiacentaStatii[s1] = {s2, s3};
@@ -42,11 +44,35 @@ int main() {
     // a2->afisare();
     // a2->activitate(3);
     // std::cout << *j2 << std::endl;
-    // Activitate *a3 = new ActivitateLocatie(j1,
-    //     {{"Suculetz de portocale", 1}, {"Happy meal", 4}, {"Meniu Big Mac", 6}});
-    // a3->afisare(); std::cout << std::endl;
-    // a3->activitate(1);
-    // std::cout << *j1 << std::endl;
+    Activitate *a3 = new ActivitateLocatie(j5,
+        {{"Suculetz de portocale", 1}, {"Happy meal", 4}, {"Meniu Big Mac", 1}});
+    // try {
+    //     a3->afisare(); std::cout << std::endl;
+    //     a3->activitate(1);
+    //     std::cout << *j3 << std::endl;
+    //     a3->activitate(1);
+    //     std::cout << *j3 << std::endl;
+    // } catch (const InsuficientaViata &exceptie) {
+    //     std::cout << exceptie.what() << std::endl;
+    // }
+    // try {
+    //     a3->afisare(); std::cout << std::endl;
+    //     a3->activitate(1);
+    //     std::cout << *j5 << std::endl;
+    //     a3->activitate(1);
+    //     std::cout << *j5 << std::endl;
+    // } catch (const InsuficientaHrana &exceptie) {
+    //     std::cout << exceptie.what() << std::endl;
+    // }
+    // try {
+    //     a3->afisare(); std::cout << std::endl;
+    //     a3->activitate(3);
+    //     std::cout << *j5 << std::endl;
+    //     a3->activitate(3);
+    //     std::cout << *j5 << std::endl;
+    // } catch (const InsuficientaBani &exceptie) {
+    //     std::cout << exceptie.what() << std::endl;
+    // }
     // Activitate *a4 = new ActivitateStatie(j2, listaAdiacentaStatii);
     // a4->afisare();
     // a4->activitate(2); std::cout << std::endl;

@@ -5,6 +5,8 @@
 #include "CuloriText.h"
 #include <iostream>
 
+#include "Exceptii.h"
+
 
 int Jucator::contorID = 0;
 
@@ -119,30 +121,30 @@ Jucator& Jucator::operator+=(const Jucator &jucator) {
 }
 
 void Jucator::modificareNivelViata(const int &diferentaViata) {
-    this->nivelViata += diferentaViata;
-    if (nivelViata < 0) {
-        nivelViata = 0;
+    if (this->nivelViata + diferentaViata <= 0) {
+        throw InsuficientaViata();
     }
-    else if (nivelViata > 100) {
-        nivelViata = 100;
+    this->nivelViata += diferentaViata;
+    if (this->nivelViata > 100) {
+        this->nivelViata = 100;
     }
 }
 
 void Jucator::modificareNivelHrana(const int &diferentaHrana) {
-    this->nivelHrana += diferentaHrana;
-    if (this->nivelHrana < 0) {
-        this->nivelHrana = 0;
+    if (this->nivelHrana + diferentaHrana <= 0) {
+        throw InsuficientaHrana();
     }
-    else if (this->nivelHrana > 100) {
+    this->nivelHrana += diferentaHrana;
+    if (this->nivelHrana > 100) {
         this->nivelHrana = 100;
     }
 }
 
 void Jucator::modificareBalantaBani(const int &diferentaBani) {
-    this->balantaBani += diferentaBani;
-    if (balantaBani < 0) {
-        balantaBani = 0;
+    if (this->balantaBani + diferentaBani <= 0) {
+        throw InsuficientaBani();
     }
+    this->balantaBani += diferentaBani;
 }
 
 int Jucator::getCoeficientViataLocatie() {
