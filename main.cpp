@@ -32,13 +32,13 @@ int main() {
     // std::cout << *j2 << std::endl;
     // std::cout << (*j6 > *j7) << std::endl << std::endl;
 
-    Activitate *a1 = new SpawnLocatie(j1, {l1, l2, l3});
-    try {
-        a1->afisare();
-        a1->activitate(2);
-    } catch (const OptiuneIndisponibila &exceptie) {
-        std::cout << exceptie.what() << std::endl;
-    }
+    // Activitate *a1 = new SpawnLocatie(j1, {l1, l2, l3});
+    // try {
+    //     a1->afisare();
+    //     a1->activitate(2);
+    // } catch (const OptiuneIndisponibila &exceptie) {
+    //     std::cout << exceptie.what() << std::endl;
+    // }
     // std::cout << *j1 << std::endl;
     std::unordered_map<Statie*, std::vector<Statie*>> listaAdiacentaStatii;
     listaAdiacentaStatii[s1] = {s2, s3};
@@ -105,13 +105,21 @@ int main() {
     //     std::cout << exceptie.what() << std::endl;
     // }
     // Activitate *a6 = new LocatieCatreStatie(j1);
-    // a6->afisare();
-    // a6->activitate(1);
-    // std::cout << *j1 << std::endl;
-    // Activitate *a7 = new StatieCatreLocatie(j2, {l1, l2, l3});
-    // a7->afisare();
-    // a7->activitate(2);
-    // std::cout << *j2 << std::endl;
+    // try {
+    //     a6->afisare();
+    //     a6->activitate(-1);
+    //     std::cout << *j1 << std::endl;
+    // } catch (const OptiuneIndisponibila &exceptie) {
+    //     std::cout << exceptie.what() << std::endl;
+    // }
+    Activitate *a7 = new StatieCatreLocatie(j1, {l1, l2, l3});
+    try {
+        a7->afisare();
+        a7->activitate(3);
+        std::cout << *j1 << std::endl;
+    } catch (const OptiuneIndisponibila &exceptie) {
+        std::cout << exceptie.what() << std::endl;
+    }
 
     // Inventar &inventar = Inventar::acceseazaSingleton();
     // inventar.adaugareJucator(j1);

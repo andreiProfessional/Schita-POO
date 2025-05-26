@@ -179,11 +179,12 @@ void LocatieCatreStatie::afisare() {
 }
 
 void LocatieCatreStatie::activitate(const int &alegere) {
-    if (alegere == 1) {
-        this->jucator->setLocatie(nullptr);
-        this->statie = this->locatie->getStatie();
-        this->jucator->setStatie(this->statie);
+    if (alegere < 1 || alegere > 2) {
+        throw OptiuneIndisponibila();
     }
+    this->jucator->setLocatie(nullptr);
+    this->statie = this->locatie->getStatie();
+    this->jucator->setStatie(this->statie);
 }
 
 StatieCatreLocatie::StatieCatreLocatie(Jucator *jucator_, const std::vector<Locatie*> &locatii_):
@@ -209,6 +210,9 @@ void StatieCatreLocatie::afisare() {
 }
 
 void StatieCatreLocatie::activitate(const int &alegere) {
+    if (alegere < 1 || alegere > this->locatii.size()) {
+        throw OptiuneIndisponibila();
+    }
     this->jucator->setStatie(nullptr);
     this->locatie = this->locatii[alegere - 1];
     this->jucator->setLocatie(this->locatie);
