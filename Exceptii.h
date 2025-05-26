@@ -5,30 +5,22 @@
 
 class InsuficientaViata: public std::exception {
 public:
-    virtual const char* what() const throw() {
-        return "Ai ramas fara viata!";
-    }
+    virtual const char* what() const throw();
 };
 
 class InsuficientaHrana: public std::exception {
 public:
-    virtual const char* what() const throw() {
-        return "Ai murit de foame!";
-    }
+    virtual const char* what() const throw();
 };
 
 class InsuficientaBani: public std::exception {
 public:
-    virtual const char* what() const throw() {
-        return "N-ai destui bani!";
-    }
+    virtual const char* what() const throw();
 };
 
 class OptiuneIndisponibila: public std::exception {
 public:
-    virtual const char* what() const throw() {
-        return "Optiunea selectata nu este disponibila!";
-    }
+    virtual const char* what() const throw();
 };
 
 #endif
