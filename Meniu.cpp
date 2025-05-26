@@ -16,7 +16,6 @@ void Meniu::golireEcran() {
 
 void Meniu::creareInventar() {
     this->golireEcran();
-    return;
     // inventar.creareHartaOras();
     // inventar.creareListaJucatori();
 }
