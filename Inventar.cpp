@@ -6,12 +6,7 @@
 #include <algorithm>
 #include <ranges>
 
-Inventar::Inventar() {
-    jucatori = std::vector<Jucator*>();
-    locatii = std::vector<Locatie*>();
-    statii = std::unordered_map<Statie*, std::vector<Statie*>>();
-    istoricActivitati = std::vector<Activitate*>();
-}
+Inventar::Inventar() {std::cout << "Am creat Inventarul!";}
 
 Inventar::~Inventar(){std::cout << std::endl << "Gata joaca!";}
 
