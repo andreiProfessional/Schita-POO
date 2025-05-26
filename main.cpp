@@ -4,27 +4,27 @@
 #include "Inventar.h"
 
 int main() {
-    auto *s1 = new Statie("Piata Romana", {"M2"});
-    auto *s2 = new Statie("Piata Unirii", {"M1", "M2", "104"});
-    auto *s3 = new Statie("Piata Victoriei", {"M1", "M2"});
+    Statie *s1 = new Statie("Piata Romana", {"M2"});
+    Statie *s2 = new Statie("Piata Unirii", {"M1", "M2", "104"});
+    Statie *s3 = new Statie("Piata Victoriei", {"M1", "M2"});
     // std::cout << *s1;
     // std::cout << *s2;
     // std::cout << *s3;
 
-    auto *l1 = new Locatie("McDonald's", -20, 15, -25, s1);
-    auto *l2 = new Locatie("Starbucks", -10, 5, -20, s1);
-    auto *l3 = new Locatie("JOB", -1, -1, -175, s1);
+    Locatie *l1 = new Locatie("McDonald's", -20, 15, -25, s1);
+    Locatie *l2 = new Locatie("Starbucks", -10, 5, -20, s1);
+    Locatie *l3 = new Locatie("JOB", -1, -1, -175, s1);
     // std::cout << *l1 << std::endl;
     // std::cout << *l2 << std::endl;
     // std::cout << *l3 << std::endl;
 
-    auto *j1 = JucatorFactory::tataBogat("Charles");
-    auto *j2 = JucatorFactory::tataSarac("Vasile");
-    auto *j3 = JucatorFactory::magnatBatran("Klaus");
-    auto *j4 = JucatorFactory::omDeRand("John Pork");
-    auto *j5 = JucatorFactory::pierdeVara("Bula");
-    auto *j6 = new Jucator("J66", 70, 80, 100, l1, s1);
-    auto *j7 = new Jucator("J7", 70, 80, 100, l2, s1);
+    Jucator *j1 = JucatorFactory::tataBogat("Charles");
+    Jucator *j2 = JucatorFactory::tataSarac("Vasile");
+    Jucator *j3 = JucatorFactory::magnatBatran("Klaus");
+    Jucator *j4 = JucatorFactory::omDeRand("John Pork");
+    Jucator *j5 = JucatorFactory::pierdeVara("Bula");
+    Jucator *j6 = new Jucator("J66", 70, 80, 100, l1, s1);
+    Jucator *j7 = new Jucator("J7", 70, 80, 100, l2, s1);
     // std::cout << *j1 << std::endl;
     // std::cout << *j2 << std::endl;
     // *j2 += *j1;

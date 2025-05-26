@@ -17,7 +17,6 @@ public:
     Activitate(const Activitate &activitate);
     Activitate& operator=(const Activitate &activitate);
     virtual ~Activitate() = default;
-    //void afisare() const;
     virtual void afisare() = 0;
     virtual void activitate(const int &optiune) = 0;
 };
