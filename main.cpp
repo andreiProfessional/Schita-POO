@@ -121,7 +121,7 @@ int main() {
     //     std::cout << exceptie.what() << std::endl;
     // }
 
-    // Inventar &inventar = Inventar::acceseazaSingleton();
+    Inventar &inventar = Inventar::acceseazaSingleton();
     // inventar.adaugareJucator(j1);
     // inventar.adaugareJucator(j2);
     // inventar.adaugareJucator(j3);
@@ -132,12 +132,15 @@ int main() {
     // inventar.sortareJucatori();
     // inventar.afisareJucatori();
 
-    // inventar.adaugareLocatie(l1);
-    // inventar.adaugareLocatie(l2);
-    // // inventar.afisareLocatii();
+    inventar.adaugareLocatie(l1);
+    inventar.adaugareLocatie(l2);
+    inventar.afisareLocatii();
     // inventar.adaugareMuchieStatii(s1, s2, "M2");
     // inventar.adaugareMuchieStatii(s2, s3, "M1");
     // //inventar.afisareStatii();
+    inventar.adaugareJucator(j1);
+    inventar.adaugareJucator(j2);
+    inventar.afisareJucatori();
 
     {
         delete j1;

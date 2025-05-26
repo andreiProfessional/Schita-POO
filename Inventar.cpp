@@ -32,13 +32,13 @@ void Inventar::afisareStatii() const {
 }
 
 void Inventar::afisareLocatii() const {
-    for (const auto &locatie: this->locatii) {
+    for (const Locatie* const locatie: this->locatii) {
         std::cout << *locatie;
     }
 }
 
 void Inventar::afisareJucatori() const {
-    for (const auto &jucator: this->jucatori) {
+    for (const Jucator* const jucator: this->jucatori) {
         std::cout << *jucator;
     }
 }
