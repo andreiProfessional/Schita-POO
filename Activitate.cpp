@@ -39,7 +39,7 @@ void SpawnLocatie::afisare() {
 }
 
 void SpawnLocatie::activitate(const int &alegere) {
-    if (alegere < 1 || alegere > this->locatii.size()) {
+    if (alegere < 1 || static_cast<int>(alegere) > this->locatii.size()) {
         throw OptiuneIndisponibila();
     }
     this->locatieSpawn = locatii[alegere - 1];
@@ -66,7 +66,7 @@ void SpawnStatie::afisare() {
 }
 
 void SpawnStatie::activitate(const int &alegere) {
-    if (alegere < 1 || alegere > this->statii.size()) {
+    if (alegere < 1 || static_cast<int>(alegere) > this->statii.size()) {
         throw OptiuneIndisponibila();
     }
     this->statieSpawn = this->statii[alegere - 1];
@@ -88,7 +88,7 @@ void ActivitateLocatie::afisare() {
 }
 
 void ActivitateLocatie::activitate(const int &alegere) {
-    if (alegere < 1 || alegere > this->optiuni.size()) {
+    if (alegere < 1 || static_cast<int>(alegere) > this->optiuni.size()) {
         throw OptiuneIndisponibila();
     }
     this->optiuneAleasa = this->optiuni[alegere - 1];
@@ -123,7 +123,7 @@ void ActivitateStatie::afisare() {
 }
 
 void ActivitateStatie::activitate(const int &alegere) {
-    if (alegere < 1 || alegere > this->statiiVecine.size()) {
+    if (alegere < 1 || static_cast<int>(alegere) > this->statiiVecine.size()) {
         throw OptiuneIndisponibila();
     }
     this->statieSosire = this->statiiVecine[alegere - 1];
@@ -158,7 +158,7 @@ void ActivitateTaxi::afisare() {
 }
 
 void ActivitateTaxi::activitate(const int &alegere) {
-    if (alegere < 1 || alegere > this->locatii.size()) {
+    if (alegere < 1 || static_cast<int>(alegere) > this->locatii.size()) {
         throw OptiuneIndisponibila();
     }
     this->locatieSosire = locatii[alegere - 1];
@@ -211,7 +211,7 @@ void StatieCatreLocatie::afisare() {
 }
 
 void StatieCatreLocatie::activitate(const int &alegere) {
-    if (alegere < 1 || alegere > this->locatii.size()) {
+    if (alegere < 1 || static_cast<int>(alegere) > this->locatii.size()) {
         throw OptiuneIndisponibila();
     }
     this->jucator->setStatie(nullptr);
