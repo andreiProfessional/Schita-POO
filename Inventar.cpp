@@ -26,8 +26,8 @@ void Inventar::adaugareJucator(Jucator *jucator) {
 }
 
 void Inventar::afisareStatii() const {
-    for (const auto &key: this->statii | std::views::keys) {
-        std::cout << *key;
+    for (const auto &statie: this->statii) {
+        std::cout << *statie.first << std::endl;
     }
 }
 
