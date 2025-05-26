@@ -4,11 +4,10 @@
 #include <vector>
 #include <unordered_map>
 #include <algorithm>
-#include <ranges>
 
-Inventar::Inventar() {std::cout << "Am creat Inventarul!";}
+Inventar::Inventar() {std::cout << "Am creat Inventarul!" << std::endl << std::endl;}
 
-Inventar::~Inventar(){std::cout << std::endl << "Gata joaca!";}
+Inventar::~Inventar(){std::cout << std::endl << "Am distrus Inventarul!" << std::endl << std::endl;}
 
 void Inventar::adaugareMuchieStatii(Statie *statie1, Statie *statie2, const std::string &ruta) {
     statii[statie1].push_back(statie2);

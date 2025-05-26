@@ -1,24 +1,26 @@
 #include "Meniu.h"
-// #include "CuloriText.h"
-// #include <iostream>
-// #include <fstream>
-/*
-Meniu::Meniu(): hartaOras(HartaOras::acceseazaSingleton()) {
-    this->creareHartaOras();
-    this->creareListaJucatori();
+#include "Inventar.h"
+#include <iostream>
+
+Meniu::Meniu(): inventar(Inventar::acceseazaSingleton()) {
+    this->creareInventar();
+    std::cout << "God Message: Orasul a fost creat!" << std::endl << std::endl;
 }
 
-Meniu::~Meniu() {}
+Meniu::~Meniu() {std::cout << "God Message: Orasul a fost distrus!" << std::endl << std::endl;}
+
 
 void Meniu::golireEcran() {
     system("clear");
 }
 
-void Meniu::creareHartaOras() {
-    hartaOras.creareHartaRute();
-    hartaOras.creareHartaLocatii();
+void Meniu::creareInventar() {
+    return;
+    // inventar.creareHartaOras();
+    // inventar.creareListaJucatori();
 }
 
+/*
 void Meniu::creareListaJucatori() {
     std::ifstream in("jucatori.csv");
     std::string input;
