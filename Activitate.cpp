@@ -31,7 +31,7 @@ SpawnLocatie::SpawnLocatie(Jucator *jucator_, const std::vector<Locatie*> &locat
 void SpawnLocatie::afisare() {
     std::cout << *this->jucator << std::endl;
     std::cout << "Locatii disponibile: " << std::endl;
-    const int numarLocatii = static_cast<int>(this->locatii.size());
+    const int numarLocatii = this->locatii.size();
     for (int index = 0; index < numarLocatii; index ++) {
         std::cout << index + 1 << ". " << *this->locatii[index];
     }
@@ -39,7 +39,7 @@ void SpawnLocatie::afisare() {
 }
 
 void SpawnLocatie::activitate(const int &alegere) {
-    if (alegere < 1 || alegere > static_cast<int>(this->locatii.size())) {
+    if (alegere < 1 || alegere > this->locatii.size()) {
         throw OptiuneIndisponibila();
     }
     this->locatieSpawn = locatii[alegere - 1];
@@ -49,8 +49,8 @@ void SpawnLocatie::activitate(const int &alegere) {
 SpawnStatie::SpawnStatie(Jucator *jucator_, const std::unordered_map<Statie*, std::vector<Statie*>> &listeAdiacenta_):
     Activitate(jucator_) {
     std::vector<Statie*> statii_;
-    for (const auto &key: listeAdiacenta_ | std::views::keys) {
-        statii_.push_back(key);
+    for (const auto &statie: listeAdiacenta_) {
+        statii_.push_back(statie.first);
     }
     statii = statii_;
     statieSpawn = nullptr;
@@ -59,14 +59,14 @@ SpawnStatie::SpawnStatie(Jucator *jucator_, const std::unordered_map<Statie*, st
 void SpawnStatie::afisare() {
     std::cout << *this->jucator << std::endl;
     std::cout << "Statii disponibile: " << std::endl;
-    const int numarStatii = static_cast<int>(this->statii.size());
+    const int numarStatii = this->statii.size();
     for (int index = 0; index < numarStatii; index ++) {
         std::cout << index + 1 << ". " << *this->statii[index];
     }
 }
 
 void SpawnStatie::activitate(const int &alegere) {
-    if (alegere < 1 || alegere > static_cast<int>(this->statii.size())) {
+    if (alegere < 1 || alegere > this->statii.size()) {
         throw OptiuneIndisponibila();
     }
     this->statieSpawn = this->statii[alegere - 1];
@@ -80,7 +80,7 @@ ActivitateLocatie::ActivitateLocatie(Jucator *jucator_, const std::vector<std::p
 void ActivitateLocatie::afisare() {
     std::cout << *this->jucator << std::endl;
     std::cout << "Optiunile disponibile:" << std::endl;
-    int numarOptiuni = static_cast<int>(this->optiuni.size());
+    int numarOptiuni = this->optiuni.size();
     for (int index = 0; index < numarOptiuni; ++index) {
         std::cout << index + 1 << ". " << this->optiuni[index].first << std::endl;
     }
@@ -88,7 +88,7 @@ void ActivitateLocatie::afisare() {
 }
 
 void ActivitateLocatie::activitate(const int &alegere) {
-    if (alegere < 1 || alegere > static_cast<int>(this->optiuni.size())) {
+    if (alegere < 1 || alegere > this->optiuni.size()) {
         throw OptiuneIndisponibila();
     }
     this->optiuneAleasa = this->optiuni[alegere - 1];
@@ -115,7 +115,7 @@ void ActivitateStatie::afisare() {
               << ROSU << this->minusViata << RESETARE << " Viata + "
               << ROSU << this->minusHrana << RESETARE << " Hrana" << std::endl;
     std::cout << "Statii vecine:" << std::endl;
-    int numarStatiiVecine = static_cast<int>(this->statiiVecine.size());
+    int numarStatiiVecine = this->statiiVecine.size();
     for (int index = 0; index < numarStatiiVecine; index ++) {
         std::cout << index + 1 << ". " << *this->statiiVecine[index];
     }
@@ -123,7 +123,7 @@ void ActivitateStatie::afisare() {
 }
 
 void ActivitateStatie::activitate(const int &alegere) {
-    if (alegere < 1 || alegere > static_cast<int>(this->statiiVecine.size())) {
+    if (alegere < 1 || alegere > this->statiiVecine.size()) {
         throw OptiuneIndisponibila();
     }
     this->statieSosire = this->statiiVecine[alegere - 1];
@@ -137,11 +137,11 @@ ActivitateTaxi::ActivitateTaxi(Jucator *jucator_, const std::vector<Locatie*> &l
     locatii(locatii_) {
     locatiePlecare = jucator_->getLocatie();
     locatieSosire = nullptr;
-    const int numarLocatii = static_cast<int>(this->locatii.size());
+    const int numarLocatii = this->locatii.size();
     const int pretMinim = numarLocatii / 2;
     const int pretMaxim = numarLocatii;
-    std::random_device rd;  // Non-deterministic seed
-    std::mt19937 generator(rd()); // Mersenne Twister generator
+    std::random_device rd;
+    std::mt19937 generator(rd());
     std::uniform_int_distribution<> distributie(pretMinim, pretMaxim);
     this->pret = distributie(generator);
 }
@@ -150,7 +150,7 @@ void ActivitateTaxi::afisare() {
     std::cout << *this->jucator << std::endl;
     std::cout << "Pret Calatorie = " << ROSU << this->pret << RESETARE  << " Lei." << std::endl;
     std::cout << "Locatii disponibile: " << std::endl;
-    int numarLocatii = static_cast<int>(this->locatii.size());
+    int numarLocatii = this->locatii.size();
     for (int index = 0; index < numarLocatii; index ++) {
         std::cout << index + 1 << ". " << *this->locatii[index];
     }
@@ -158,7 +158,7 @@ void ActivitateTaxi::afisare() {
 }
 
 void ActivitateTaxi::activitate(const int &alegere) {
-    if (alegere < 1 || alegere > static_cast<int>(this->locatii.size())) {
+    if (alegere < 1 || alegere > this->locatii.size()) {
         throw OptiuneIndisponibila();
     }
     this->locatieSosire = locatii[alegere - 1];
@@ -204,14 +204,14 @@ StatieCatreLocatie::StatieCatreLocatie(Jucator *jucator_, const std::vector<Loca
 void StatieCatreLocatie::afisare() {
     std::cout << *this->jucator << std::endl;
     std::cout << "Locatii apropiate: " << std::endl;
-    const int numarLocatii = static_cast<int>(this->locatii.size());
+    const int numarLocatii = this->locatii.size();
     for (int index = 0; index < numarLocatii; index ++) {
         std::cout << index + 1 << ". " << *this->locatii[index];
     }
 }
 
 void StatieCatreLocatie::activitate(const int &alegere) {
-    if (alegere < 1 || alegere > static_cast<int>(this->locatii.size())) {
+    if (alegere < 1 || alegere > this->locatii.size()) {
         throw OptiuneIndisponibila();
     }
     this->jucator->setStatie(nullptr);
