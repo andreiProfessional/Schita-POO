@@ -6,6 +6,8 @@
 #include <vector>
 #include <random>
 
+#include "Exceptii.h"
+
 int Activitate::contorID = 0;
 
 Activitate::Activitate(Jucator *jucator_): id(++ contorID), jucator(jucator_) {}
@@ -36,6 +38,9 @@ void SpawnLocatie::afisare() {
 }
 
 void SpawnLocatie::activitate(const int &alegere) {
+    if (alegere < 1 || alegere > this->locatii.size()) {
+        throw OptiuneIndisponibila();
+    }
     this->locatieSpawn = locatii[alegere - 1];
     this->jucator->setLocatie(locatieSpawn);
 }
@@ -60,6 +65,9 @@ void SpawnStatie::afisare() {
 }
 
 void SpawnStatie::activitate(const int &alegere) {
+    if (alegere < 1 || alegere > this->statii.size()) {
+        throw OptiuneIndisponibila();
+    }
     this->statieSpawn = this->statii[alegere - 1];
     this->jucator->setStatie(this->statieSpawn);
 }
@@ -79,6 +87,9 @@ void ActivitateLocatie::afisare() {
 }
 
 void ActivitateLocatie::activitate(const int &alegere) {
+    if (alegere < 1 || alegere > this->optiuni.size()) {
+        throw OptiuneIndisponibila();
+    }
     this->optiuneAleasa = this->optiuni[alegere - 1];
     this->jucator->modificareNivelViata(this->optiuneAleasa.second * this->jucator->getCoeficientViataLocatie());
     this->jucator->modificareNivelHrana(this->optiuneAleasa.second * this->jucator->getCoeficientHranaLocatie());
@@ -111,6 +122,9 @@ void ActivitateStatie::afisare() {
 }
 
 void ActivitateStatie::activitate(const int &alegere) {
+    if (alegere < 1 || alegere > this->statiiVecine.size()) {
+        throw OptiuneIndisponibila();
+    }
     this->statieSosire = this->statiiVecine[alegere - 1];
     this->jucator->setStatie(this->statieSosire);
     this->jucator->modificareNivelViata(-1 * this->minusViata);
