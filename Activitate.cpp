@@ -157,6 +157,9 @@ void ActivitateTaxi::afisare() {
 }
 
 void ActivitateTaxi::activitate(const int &alegere) {
+    if (alegere < 1 || alegere > this->locatii.size()) {
+        throw OptiuneIndisponibila();
+    }
     this->locatieSosire = locatii[alegere - 1];
     this->jucator->setLocatie(this->locatieSosire);
     this->jucator->modificareBalantaBani(-1 * this->pret);

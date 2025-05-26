@@ -97,9 +97,13 @@ int main() {
     //     std::cout << exceptie.what() << std::endl;
     // }
     // Activitate *a5 = new ActivitateTaxi(j1, {l1, l2, l3});
-    // a5->afisare();
-    // a5->activitate(3);
-    // std::cout << *j1 << std::endl;
+    // try {
+    //     a5->afisare();
+    //     a5->activitate(-1);
+    //     std::cout << *j1 << std::endl;
+    // } catch (const OptiuneIndisponibila &exceptie) {
+    //     std::cout << exceptie.what() << std::endl;
+    // }
     // Activitate *a6 = new LocatieCatreStatie(j1);
     // a6->afisare();
     // a6->activitate(1);
