@@ -18,7 +18,7 @@ public:
 
     void golireEcran();
 
-    void creareInventar();
+    void afisareInventar() const;
 
     // void meniuInceput();
     // void meniuSfarsit();

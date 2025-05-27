@@ -3,8 +3,8 @@
 #include <iostream>
 
 Meniu::Meniu(): inventar(Inventar::acceseazaSingleton()) {
-    this->creareInventar();
     std::cout << "God Message: Orasul a fost creat!" << std::endl << std::endl;
+    this->inventar.populareInventar();
 }
 
 Meniu::~Meniu() {std::cout << "God Message: Orasul a fost distrus!" << std::endl << std::endl;}
@@ -14,75 +14,11 @@ void Meniu::golireEcran() {
     system("clear");
 }
 
-void Meniu::creareInventar() {
-    this->golireEcran();
-    // inventar.creareHartaOras();
-    // inventar.creareListaJucatori();
+void Meniu::afisareInventar() const {
+    this->inventar.afisareStatii();
 }
 
 /*
-void Meniu::creareListaJucatori() {
-    std::ifstream in("jucatori.csv");
-    std::string input;
-
-    std::getline(in, input);
-    while (std::getline(in, input)) {
-        const std::string inputNume = input.substr(0, input.find(","));
-        input = input.erase(0, input.find(",") + 1);
-
-        const std::string inputLocatieResedinta = input.substr(0, input.find(","));
-        input = input.erase(0, input.find(",") + 1);
-
-        const int inputBalantaBani = std::stoi(input.substr(0, input.find(",")));
-        input = input.erase(0, input.find(",") + 1);
-
-        const int inputNivelViata = std::stoi(input.substr(0, input.find(",")));
-        input = input.erase(0, input.find(",") + 1);
-
-        const int inputNivelEnergie = std::stoi(input.substr(0, input.find(",")));
-        input = input.erase(0, input.find(",") + 1);
-
-        const int inputNivelNutritie = std::stoi(input.substr(0, input.find(",")));
-        input = input.erase(0, input.find(",") + 1);
-
-        Locatie *locatieNoua = this->gasireLocatieDupaNume(inputLocatieResedinta);
-        Jucator *jucatorNou = new Jucator(inputNume,
-            locatieNoua, {},
-            inputBalantaBani, inputNivelViata, inputNivelEnergie, inputNivelNutritie);
-        jucatori.push_back(jucatorNou);
-    }
-
-    in.close();
-}
-
-void Meniu::afisareJucator(const int &idJucator) {
-    gasireJucator(id)->afisareJucator();
-}
-
-void Meniu::afisareListaJucatori() {
-    for (const auto &jucator: jucatori) {
-        jucator->afisareJucator();
-        std::cout << std::endl;
-    }
-}
-
-Jucator* Meniu::gasireJucator(const int &idJucator) {
-    for (const auto &jucator: jucatori) {
-        if (jucator->verificareId(idJucator)) {
-            return jucator;
-        }
-    }
-    return nullptr;
-}
-
-Locatie* Meniu::gasireLocatieDupaNume(const std::string &numeLocatie) {
-    return hartaOras.gasireLocatieDupaNume(numeLocatie);
-}
-
-Statie* Meniu::gasireStatieDupaLocatie(Locatie *locatie) {
-    return locatie->gasireStatie();
-}
-
 void Meniu::meniuInceput() {
     golireEcran();
     std::cout << "Bine ai venit in \"MICUL ORASEL\"!" << std::endl << std::endl;

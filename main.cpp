@@ -1,30 +1,38 @@
 #include <iostream>
-
+#include <fstream>
 #include "Exceptii.h"
 #include "Inventar.h"
+#include "Meniu.h"
 
 int main() {
-    Statie *s1 = new Statie("Piata Romana", {"M2"});
-    Statie *s2 = new Statie("Piata Unirii", {"M1", "M2", "104"});
-    Statie *s3 = new Statie("Piata Victoriei", {"M1", "M2"});
+    // Statie *s1 = new Statie("Piata Romana", {"M2"});
+    // Statie *s2 = new Statie("Piata Unirii", {"M1", "M2", "104"});
+    // Statie *s3 = new Statie("Piata Victoriei", {"M1", "M2"});
     // std::cout << *s1;
     // std::cout << *s2;
     // std::cout << *s3;
 
-    Locatie *l1 = new Locatie("McDonald's", -20, 15, -25, s1);
-    Locatie *l2 = new Locatie("Starbucks", -10, 5, -20, s1);
-    Locatie *l3 = new Locatie("JOB", -1, -1, -175, s1);
+    // std::ifstream in("tastatura.txt");
+    // Statie *statie = new Statie("", {});
+    // in >> *statie;
+    // std::cout << *statie;
+    // delete statie;
+    // in.close();
+
+    // Locatie *l1 = new Locatie("McDonald's", -20, 15, -25, s1);
+    // Locatie *l2 = new Locatie("Starbucks", -10, 5, -20, s1);
+    // Locatie *l3 = new Locatie("JOB", -1, -1, -175, s1);
     // std::cout << *l1 << std::endl;
     // std::cout << *l2 << std::endl;
     // std::cout << *l3 << std::endl;
 
-    Jucator *j1 = JucatorFactory::tataBogat("Charles");
-    Jucator *j2 = JucatorFactory::tataSarac("Vasile");
-    Jucator *j3 = JucatorFactory::magnatBatran("Klaus");
-    Jucator *j4 = JucatorFactory::omDeRand("John Pork");
-    Jucator *j5 = JucatorFactory::pierdeVara("Bula");
-    Jucator *j6 = new Jucator("J66", 70, 80, 100, l1, s1);
-    Jucator *j7 = new Jucator("J7", 70, 80, 100, l2, s1);
+    // Jucator *j1 = JucatorFactory::tataBogat("Charles");
+    // Jucator *j2 = JucatorFactory::tataSarac("Vasile");
+    // Jucator *j3 = JucatorFactory::magnatBatran("Klaus");
+    // Jucator *j4 = JucatorFactory::omDeRand("John Pork");
+    // Jucator *j5 = JucatorFactory::pierdeVara("Bula");
+    // Jucator *j6 = new Jucator("J66", 70, 80, 100, l1, s1);
+    // Jucator *j7 = new Jucator("J7", 70, 80, 100, l2, s1);
     // std::cout << *j1 << std::endl;
     // std::cout << *j2 << std::endl;
     // *j2 += *j1;
@@ -32,114 +40,117 @@ int main() {
     // std::cout << *j2 << std::endl;
     // std::cout << (*j6 > *j7) << std::endl << std::endl;
 
-    Activitate *a1 = new SpawnLocatie(j1, {l1, l2, l3});
-    try {
-        a1->afisare();
-        a1->activitate(2);
-    } catch (const OptiuneIndisponibila &exceptie) {
-        std::cout << exceptie.what() << std::endl;
-    }
-    std::cout << *j1 << std::endl;
-    std::unordered_map<Statie*, std::vector<Statie*>> listaAdiacentaStatii;
-    listaAdiacentaStatii[s1] = {s2, s3};
-    listaAdiacentaStatii[s2] = {s1};
-    listaAdiacentaStatii[s3] = {s1};
-    Activitate *a2 = new SpawnStatie(j1, listaAdiacentaStatii);
-    try {
-        a2->afisare();
-        a2->activitate(3);
-        std::cout << *j1 << std::endl;
-    } catch (const OptiuneIndisponibila &exceptie) {
-        std::cout << exceptie.what() << std::endl;
-    }
-    Activitate *a3 = new ActivitateLocatie(j1,
-        {{"Suculetz de portocale", 1}, {"Happy meal", 4}, {"Meniu Big Mac", 1}});
-    try {
-        a3->afisare(); std::cout << std::endl;
-        a3->activitate(3);
-        std::cout << *j1 << std::endl;
-        a3->activitate(3);
-        std::cout << *j1 << std::endl;
-    } catch (const InsuficientaViata &exceptie) {
-        std::cout << exceptie.what() << std::endl;
-    } catch (const InsuficientaHrana &exceptie) {
-        std::cout << exceptie.what() << std::endl;
-    } catch (const InsuficientaBani &exceptie) {
-        std::cout << exceptie.what() << std::endl;
-    } catch (const OptiuneIndisponibila &exceptie) {
-        std::cout << exceptie.what() << std::endl;
-    }
-    try {
-        a3->afisare(); std::cout << std::endl;
-        a3->activitate(1);
-        std::cout << *j5 << std::endl;
-        a3->activitate(1);
-        std::cout << *j5 << std::endl;
-    } catch (const InsuficientaHrana &exceptie) {
-        std::cout << exceptie.what() << std::endl;
-    }
-    try {
-        a3->afisare(); std::cout << std::endl;
-        a3->activitate(3);
-        std::cout << *j5 << std::endl;
-        a3->activitate(3);
-        std::cout << *j5 << std::endl;
-    } catch (const InsuficientaBani &exceptie) {
-        std::cout << exceptie.what() << std::endl;
-    }
-    Activitate *a4 = new ActivitateStatie(j1, listaAdiacentaStatii);
-    try {
-        a4->afisare();
-        a4->activitate(2);
-        std::cout << std::endl;
-        std::cout << *j1 << std::endl;
-    } catch (const OptiuneIndisponibila &exceptie) {
-        std::cout << exceptie.what() << std::endl;
-    }
-    Activitate *a5 = new ActivitateTaxi(j1, {l1, l2, l3});
-    try {
-        a5->afisare();
-        a5->activitate(-1);
-        std::cout << *j1 << std::endl;
-    } catch (const OptiuneIndisponibila &exceptie) {
-        std::cout << exceptie.what() << std::endl;
-    }
-    Activitate *a6 = new LocatieCatreStatie(j1);
-    try {
-        a6->afisare();
-        a6->activitate(-1);
-        std::cout << *j1 << std::endl;
-    } catch (const OptiuneIndisponibila &exceptie) {
-        std::cout << exceptie.what() << std::endl;
-    }
-    Activitate *a7 = new StatieCatreLocatie(j1, {l1, l2, l3});
-    try {
-        a7->afisare();
-        a7->activitate(3);
-        std::cout << *j1 << std::endl;
-    } catch (const OptiuneIndisponibila &exceptie) {
-        std::cout << exceptie.what() << std::endl;
-    }
+    // Activitate *a1 = new SpawnLocatie(j1, {l1, l2, l3});
+    // try {
+    //     a1->afisare();
+    //     a1->activitate(2);
+    // } catch (const OptiuneIndisponibila &exceptie) {
+    //     std::cout << exceptie.what() << std::endl;
+    // }
+    // std::cout << *j1 << std::endl;
+    // std::unordered_map<Statie*, std::vector<Statie*>> listaAdiacentaStatii;
+    // listaAdiacentaStatii[s1] = {s2, s3};
+    // listaAdiacentaStatii[s2] = {s1};
+    // listaAdiacentaStatii[s3] = {s1};
+    // Activitate *a2 = new SpawnStatie(j1, listaAdiacentaStatii);
+    // try {
+    //     a2->afisare();
+    //     a2->activitate(3);
+    //     std::cout << *j1 << std::endl;
+    // } catch (const OptiuneIndisponibila &exceptie) {
+    //     std::cout << exceptie.what() << std::endl;
+    // }
+    // Activitate *a3 = new ActivitateLocatie(j1,
+    //     {{"Suculetz de portocale", 1}, {"Happy meal", 4}, {"Meniu Big Mac", 1}});
+    // try {
+    //     a3->afisare(); std::cout << std::endl;
+    //     a3->activitate(3);
+    //     std::cout << *j1 << std::endl;
+    //     a3->activitate(3);
+    //     std::cout << *j1 << std::endl;
+    // } catch (const InsuficientaViata &exceptie) {
+    //     std::cout << exceptie.what() << std::endl;
+    // } catch (const InsuficientaHrana &exceptie) {
+    //     std::cout << exceptie.what() << std::endl;
+    // } catch (const InsuficientaBani &exceptie) {
+    //     std::cout << exceptie.what() << std::endl;
+    // } catch (const OptiuneIndisponibila &exceptie) {
+    //     std::cout << exceptie.what() << std::endl;
+    // }
+    // try {
+    //     a3->afisare(); std::cout << std::endl;
+    //     a3->activitate(1);
+    //     std::cout << *j5 << std::endl;
+    //     a3->activitate(1);
+    //     std::cout << *j5 << std::endl;
+    // } catch (const InsuficientaHrana &exceptie) {
+    //     std::cout << exceptie.what() << std::endl;
+    // }
+    // try {
+    //     a3->afisare(); std::cout << std::endl;
+    //     a3->activitate(3);
+    //     std::cout << *j5 << std::endl;
+    //     a3->activitate(3);
+    //     std::cout << *j5 << std::endl;
+    // } catch (const InsuficientaBani &exceptie) {
+    //     std::cout << exceptie.what() << std::endl;
+    // }
+    // Activitate *a4 = new ActivitateStatie(j1, listaAdiacentaStatii);
+    // try {
+    //     a4->afisare();
+    //     a4->activitate(2);
+    //     std::cout << std::endl;
+    //     std::cout << *j1 << std::endl;
+    // } catch (const OptiuneIndisponibila &exceptie) {
+    //     std::cout << exceptie.what() << std::endl;
+    // }
+    // Activitate *a5 = new ActivitateTaxi(j1, {l1, l2, l3});
+    // try {
+    //     a5->afisare();
+    //     a5->activitate(-1);
+    //     std::cout << *j1 << std::endl;
+    // } catch (const OptiuneIndisponibila &exceptie) {
+    //     std::cout << exceptie.what() << std::endl;
+    // }
+    // Activitate *a6 = new LocatieCatreStatie(j1);
+    // try {
+    //     a6->afisare();
+    //     a6->activitate(-1);
+    //     std::cout << *j1 << std::endl;
+    // } catch (const OptiuneIndisponibila &exceptie) {
+    //     std::cout << exceptie.what() << std::endl;
+    // }
+    // Activitate *a7 = new StatieCatreLocatie(j1, {l1, l2, l3});
+    // try {
+    //     a7->afisare();
+    //     a7->activitate(3);
+    //     std::cout << *j1 << std::endl;
+    // } catch (const OptiuneIndisponibila &exceptie) {
+    //     std::cout << exceptie.what() << std::endl;
+    // }
 
-    Inventar &inventar = Inventar::acceseazaSingleton();
-    inventar.adaugareJucator(j1);
-    inventar.adaugareJucator(j2);
-    inventar.adaugareJucator(j3);
-    inventar.adaugareJucator(j4);
-    inventar.adaugareJucator(j5);
-    inventar.adaugareJucator(j6);
-    inventar.adaugareJucator(j7);
-    inventar.sortareJucatori();
-    inventar.afisareJucatori();
-    inventar.adaugareLocatie(l1);
-    inventar.adaugareLocatie(l2);
-    inventar.afisareLocatii();
-    inventar.adaugareMuchieStatii(s1, s2, "M2");
-    inventar.adaugareMuchieStatii(s2, s3, "M1");
-    inventar.afisareStatii();
+    // Inventar &inventar = Inventar::acceseazaSingleton();
+    // inventar.adaugareJucator(j1);
+    // inventar.adaugareJucator(j2);
+    // inventar.adaugareJucator(j3);
+    // inventar.adaugareJucator(j4);
+    // inventar.adaugareJucator(j5);
+    // inventar.adaugareJucator(j6);
+    // inventar.adaugareJucator(j7);
+    // inventar.sortareJucatori();
+    // inventar.afisareJucatori();
+    // inventar.adaugareLocatie(l1);
+    // inventar.adaugareLocatie(l2);
+    // inventar.afisareLocatii();
+    // inventar.adaugareMuchieStatii(s1, s2, "M2");
+    // inventar.adaugareMuchieStatii(s2, s3, "M1");
+    // inventar.afisareStatii();
+
+    Meniu &meniu = Meniu::acceseazaSingleton();
+    meniu.afisareInventar();
 
 
-    {
+    /*{
         delete j1;
         delete j2;
         delete j3;
@@ -160,7 +171,7 @@ int main() {
         delete a5;
         delete a6;
         delete a7;
-    } // deletes
+    }*/ // deletes
 
     return 0;
 }
