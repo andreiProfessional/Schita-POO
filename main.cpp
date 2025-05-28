@@ -146,7 +146,7 @@ int main() {
     // inventar.adaugareMuchieStatii(s2, s3, "M1");
     // inventar.afisareStatii();
 
-    Meniu &meniu = Meniu::acceseazaSingleton();
+    const Meniu &meniu = Meniu::acceseazaSingleton();
     meniu.afisareInventar();
 
 
