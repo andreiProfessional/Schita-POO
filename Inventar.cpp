@@ -20,11 +20,9 @@ void Inventar::adaugareStatie(Statie *statie) {
 }
 
 
-void Inventar::adaugareMuchieStatii(Statie *statie1, Statie *statie2, const std::string &ruta) {
+void Inventar::adaugareMuchieStatii(Statie *statie1, Statie *statie2) {
     this->listeAdiacentaStatii[statie1].push_back(statie2);
     this->listeAdiacentaStatii[statie2].push_back(statie1);
-    statie1->adaugareRuta(ruta);
-    statie2->adaugareRuta(ruta);
 }
 
 void Inventar::adaugareLocatie(Locatie *locatie) {
@@ -45,8 +43,18 @@ void Inventar::populareInventar() {
         in >> *statie;
         this->adaugareStatie(statie);
     }
-    // int numarMuchiiStatii;
-    // in >> numarMuchiiStatii;
+    int numarMuchiiStatii;
+    in >> numarMuchiiStatii;
+    in.get();
+    for (int index = 0; index < numarMuchiiStatii; index ++) {
+        std::string input;
+        std::getline(in, input);
+        int pozitieStatie1 = std::stoi(input.substr(0, input.find(',')));
+        input = input.erase(0, input.find(',') + 1);
+        int pozitieStatie2 = std::stoi(input.substr(0, input.find(',')));
+        input = input.erase(0, input.find(',') + 1);
+        this->adaugareMuchieStatii(this->statii[pozitieStatie1 - 1], this->statii[pozitieStatie2 - 1]);
+    }
 
     in.close();
 }
@@ -56,6 +64,16 @@ void Inventar::afisareStatii() const {
         std::cout << *statie << std::endl;
     }
 }
+
+void Inventar::afisareListeAdiacentaStatii() const {
+    for (const auto &listaAdiacenta: this->listeAdiacentaStatii) {
+        std::cout << *listaAdiacenta.first << std::endl;
+        for (const auto &statie: listaAdiacenta.second) {
+            std::cout << "--> " << *statie << std::endl;
+        }
+    }
+}
+
 
 void Inventar::afisareLocatii() const {
     for (const Locatie* const locatie: this->locatii) {

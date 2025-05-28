@@ -25,13 +25,14 @@ public:
     }
 
     void adaugareStatie(Statie *statie);
-    void adaugareMuchieStatii(Statie *statie1, Statie *statie2, const std::string &ruta);
+    void adaugareMuchieStatii(Statie *statie1, Statie *statie2);
     void adaugareLocatie(Locatie *locatie);
     void adaugareJucator(Jucator *jucator);
 
     void populareInventar();
 
     void afisareStatii() const;
+    void afisareListeAdiacentaStatii() const;
     void afisareLocatii() const;
     void afisareJucatori() const;
 
