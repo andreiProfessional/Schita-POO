@@ -85,12 +85,6 @@ void Inventar::populareInventar() {
         in >> *jucator;
         this->adaugareJucator(jucator);
     }
-    std::string nume;
-    int nivelViata;
-    int nivelHrana;
-    int balantaBani;
-    Locatie *locatie;
-    Statie *statie;
     in.close();
 }
 
