@@ -87,9 +87,29 @@ void Inventar::populareInventar() {
     in >> numarJucatori;
     in.get();
     for (int index = 0; index < numarJucatori; index ++) {
-        Jucator* jucator = new Jucator("", -1, -1, -1, nullptr, nullptr);
-        in >> *jucator;
-        this->adaugareJucator(jucator);
+        std::string input;
+        std::getline(in, input);
+        const auto pozitieVirgula = input.find(',');
+        const std::string nume = input.substr(0, pozitieVirgula);
+        input = input.erase(0, pozitieVirgula + 1);
+        const int optiunePlayer = std::stoi(input);
+        switch (optiunePlayer) {
+            case 1:
+                this->adaugareJucator(JucatorFactory::tataBogat(nume));
+                break;
+            case 2:
+                this->adaugareJucator(JucatorFactory::tataSarac(nume));
+                break;
+            case 3:
+                this->adaugareJucator(JucatorFactory::magnatBatran(nume));
+                break;
+            case 4:
+                this->adaugareJucator(JucatorFactory::omDeRand(nume));
+                break;
+            case 5:
+                this->adaugareJucator(JucatorFactory::pierdeVara(nume));
+                break;
+        }
     }
     in.close();
 }

@@ -91,23 +91,6 @@ std::ostream& operator<<(std::ostream &out, const Jucator &jucator) {
     return out;
 }
 
-std::istream& operator>>(std::istream& in, Jucator& jucator) {
-    std::string input;
-    std::getline(in, input);
-    auto pozitieVirgula = input.find(',');
-    jucator.nume = input.substr(0, pozitieVirgula);
-    input = input.erase(0, pozitieVirgula + 1);
-    pozitieVirgula = input.find(',');
-    jucator.nivelViata = std::stoi(input.substr(0, pozitieVirgula));
-    input = input.erase(0, pozitieVirgula + 1);
-    pozitieVirgula = input.find(',');
-    jucator.nivelHrana = std::stoi(input.substr(0, pozitieVirgula));
-    input = input.erase(0, pozitieVirgula + 1);
-    pozitieVirgula = input.find(',');
-    jucator.balantaBani = std::stoi(input.substr(0, pozitieVirgula));
-    return in;
-}
-
 bool operator>(const Jucator &jucator1, const Jucator &jucator2) {
     if ((jucator1.nivelViata + 9) / 10 > (jucator2.nivelViata + 9) / 10) {
         return true;

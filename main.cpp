@@ -11,14 +11,6 @@ int main() {
     // Jucator *j3 = JucatorFactory::magnatBatran("Klaus");
     // Jucator *j4 = JucatorFactory::omDeRand("John Pork");
     // Jucator *j5 = JucatorFactory::pierdeVara("Bula");
-    // Jucator *j6 = new Jucator("J66", 70, 80, 100, l1, s1);
-    // Jucator *j7 = new Jucator("J7", 70, 80, 100, l2, s1);
-    // std::cout << *j1 << std::endl;
-    // std::cout << *j2 << std::endl;
-    // *j2 += *j1;
-    // std::cout << *j1 << std::endl;
-    // std::cout << *j2 << std::endl;
-    // std::cout << (*j6 > *j7) << std::endl << std::endl;
 
     // Activitate *a1 = new SpawnLocatie(j1, {l1, l2, l3});
     // try {
@@ -109,25 +101,8 @@ int main() {
     //     std::cout << exceptie.what() << std::endl;
     // }
 
-    // Inventar &inventar = Inventar::acceseazaSingleton();
-    // inventar.adaugareJucator(j1);
-    // inventar.adaugareJucator(j2);
-    // inventar.adaugareJucator(j3);
-    // inventar.adaugareJucator(j4);
-    // inventar.adaugareJucator(j5);
-    // inventar.adaugareJucator(j6);
-    // inventar.adaugareJucator(j7);
-    // inventar.sortareJucatori();
-    // inventar.afisareJucatori();
-    // inventar.adaugareLocatie(l1);
-    // inventar.adaugareLocatie(l2);
-    // inventar.afisareLocatii();
-    // inventar.adaugareMuchieStatii(s1, s2, "M2");
-    // inventar.adaugareMuchieStatii(s2, s3, "M1");
-    // inventar.afisareStatii();
-
-    const Meniu &meniu = Meniu::acceseazaSingleton();
-    meniu.afisareInventar();
+    Meniu &meniu = Meniu::acceseazaSingleton();
+    meniu.run();
 
 
     /*{

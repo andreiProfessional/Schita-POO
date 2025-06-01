@@ -20,14 +20,7 @@ public:
 
     void afisareInventar() const;
 
-    // void meniuInceput();
-    // void meniuSfarsit();
-    // void meniuJucatorVechi();
-    // void meniuJucatorNou();
-    // void meniuStartJoc();
-    // void meniuLocatie();
-    // void meniuStatie();
-    // void meniuAfara();
+    void run();
 };
 
 #endif

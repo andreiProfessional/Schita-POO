@@ -22,15 +22,14 @@ public:
     Jucator& operator=(const Jucator &jucator);
     ~Jucator() = default;
     friend std::ostream& operator<<(std::ostream &out, const Jucator &jucator);
-    friend std::istream& operator>>(std::istream& in, Jucator& jucator);
     friend bool operator>(const Jucator &jucator1, const Jucator &jucator2);
     Jucator& operator+=(const Jucator &jucator);
     void modificareNivelViata(const int &diferentaViata);
     void modificareNivelHrana(const int &diferentaHrana);
     void modificareBalantaBani(const int &diferentaBani);
-    [[nodiscard]] int getCoeficientViataLocatie() const;
-    [[nodiscard]] int getCoeficientHranaLocatie() const;
-    [[nodiscard]] int getCoeficientBaniLocatie() const;
+    int getCoeficientViataLocatie() const;
+    int getCoeficientHranaLocatie() const;
+    int getCoeficientBaniLocatie() const;
     Locatie *getLocatie() const;
     Statie *getStatie() const;
     void setLocatie(Locatie *locatie_);

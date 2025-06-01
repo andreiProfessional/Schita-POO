@@ -46,7 +46,11 @@ IKEA Pallady,1,3,-13,9
 Autostrada A2,0,0,-8,9
 Depoul Militari,-5,-4,-40,10
 Autostrada A1,0,0,-6,10
-3
-Andrei,100,100,1000
-Niku,75,65,265
-Alex,88,77,111
+5
+Niku,1
+Alex,2
+Andrei,3
+Nikolas,4
+Andrew,5
+??? (numar comenzi)
+?,...,? (lista comenzi)
