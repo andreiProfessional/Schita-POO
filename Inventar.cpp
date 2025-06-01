@@ -77,6 +77,20 @@ void Inventar::populareInventar() {
         Locatie* locatie = new Locatie(inputNume, inputCoeficientViata, inputCoeficientHrana, inputCoeficientBani, inputStatie);
         this->adaugareLocatie(locatie);
     }
+    int numarJucatori;
+    in >> numarJucatori;
+    in.get();
+    for (int index = 0; index < numarJucatori; index ++) {
+        Jucator* jucator = new Jucator("", -1, -1, -1, nullptr, nullptr);
+        in >> *jucator;
+        this->adaugareJucator(jucator);
+    }
+    std::string nume;
+    int nivelViata;
+    int nivelHrana;
+    int balantaBani;
+    Locatie *locatie;
+    Statie *statie;
     in.close();
 }
 

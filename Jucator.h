@@ -22,6 +22,7 @@ public:
     Jucator& operator=(const Jucator &jucator);
     ~Jucator() = default;
     friend std::ostream& operator<<(std::ostream &out, const Jucator &jucator);
+    friend std::istream& operator>>(std::istream& in, Jucator& jucator);
     friend bool operator>(const Jucator &jucator1, const Jucator &jucator2);
     Jucator& operator+=(const Jucator &jucator);
     void modificareNivelViata(const int &diferentaViata);
