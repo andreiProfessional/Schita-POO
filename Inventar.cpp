@@ -12,6 +12,12 @@ Inventar::~Inventar() {
     for (const auto &statie: this->statii) {
         delete statie;
     }
+    for (const auto& locatie: this->locatii) {
+        delete locatie;
+    }
+    for (const auto& jucator: this->jucatori) {
+        delete jucator;
+    }
     std::cout << std::endl << "Am distrus Inventarul!" << std::endl << std::endl;
 }
 
