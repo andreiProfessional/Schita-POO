@@ -5,26 +5,6 @@
 #include "Meniu.h"
 
 int main() {
-    // Statie *s1 = new Statie("Piata Romana", {"M2"});
-    // Statie *s2 = new Statie("Piata Unirii", {"M1", "M2", "104"});
-    // Statie *s3 = new Statie("Piata Victoriei", {"M1", "M2"});
-    // std::cout << *s1;
-    // std::cout << *s2;
-    // std::cout << *s3;
-
-    // std::ifstream in("tastatura.txt");
-    // Statie *statie = new Statie("", {});
-    // in >> *statie;
-    // std::cout << *statie;
-    // delete statie;
-    // in.close();
-
-    // Locatie *l1 = new Locatie("McDonald's", -20, 15, -25, s1);
-    // Locatie *l2 = new Locatie("Starbucks", -10, 5, -20, s1);
-    // Locatie *l3 = new Locatie("JOB", -1, -1, -175, s1);
-    // std::cout << *l1 << std::endl;
-    // std::cout << *l2 << std::endl;
-    // std::cout << *l3 << std::endl;
 
     // Jucator *j1 = JucatorFactory::tataBogat("Charles");
     // Jucator *j2 = JucatorFactory::tataSarac("Vasile");

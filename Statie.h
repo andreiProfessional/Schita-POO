@@ -17,6 +17,7 @@ public:
     friend std::ostream& operator<<(std::ostream &out, const Statie &statie);
     friend std::istream& operator>>(std::istream &in, Statie &statie);
     void adaugareRuta(const std::string &ruta);
+    bool verificaID(const int& idStatie);
 };
 
 

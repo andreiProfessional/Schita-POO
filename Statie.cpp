@@ -50,3 +50,7 @@ std::istream& operator>>(std::istream &in, Statie &statie) {
 void Statie::adaugareRuta(const std::string &ruta) {
     this->rute.push_back(ruta);
 }
+
+bool Statie::verificaID(const int &idStatie) {
+    return (idStatie == this->id);
+}

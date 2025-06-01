@@ -52,10 +52,31 @@ void Inventar::populareInventar() {
         int pozitieStatie1 = std::stoi(input.substr(0, input.find(',')));
         input = input.erase(0, input.find(',') + 1);
         int pozitieStatie2 = std::stoi(input.substr(0, input.find(',')));
-        input = input.erase(0, input.find(',') + 1);
         this->adaugareMuchieStatii(this->statii[pozitieStatie1 - 1], this->statii[pozitieStatie2 - 1]);
     }
-
+    int numarLocatii;
+    in >> numarLocatii;
+    in.get();
+    for (int index = 0; index < numarLocatii; index ++) {
+        std::string input;
+        std::getline(in, input);
+        auto pozitieVirgula = input.find(',');
+        const std::string inputNume = input.substr(0, pozitieVirgula);
+        input = input.erase(0, pozitieVirgula + 1);
+        pozitieVirgula = input.find(',');
+        const int inputCoeficientViata = std::stoi(input.substr(0, pozitieVirgula));
+        input = input.erase(0, pozitieVirgula + 1);
+        pozitieVirgula = input.find(',');
+        const int inputCoeficientHrana = std::stoi(input.substr(0, pozitieVirgula));
+        input = input.erase(0, pozitieVirgula + 1);
+        pozitieVirgula = input.find(',');
+        const int inputCoeficientBani = std::stoi(input.substr(0, pozitieVirgula));
+        input = input.erase(0, pozitieVirgula + 1);
+        int idStatie = std::stoi(input);
+        Statie* inputStatie = this->getStatieDupaID(idStatie);
+        Locatie* locatie = new Locatie(inputNume, inputCoeficientViata, inputCoeficientHrana, inputCoeficientBani, inputStatie);
+        this->adaugareLocatie(locatie);
+    }
     in.close();
 }
 
@@ -91,4 +112,13 @@ void Inventar::sortareJucatori() {
     std::ranges::sort(this->jucatori, [](const Jucator* jucator1, const Jucator* jucator2) {
             return (*jucator1 > *jucator2);
         });
+}
+
+Statie* Inventar::getStatieDupaID(const int &idStatie) {
+    for (const auto& statie: this->statii) {
+        if (statie->verificaID(idStatie)) {
+            return statie;
+        }
+    }
+    return nullptr;
 }

@@ -21,4 +21,28 @@ Preciziei,M3
 4,8
 10,3
 5,9
-???
+24
+Dristor Kebab,-3,5,-10,1
+McDonald's,-4,3,-8,1
+French Revolution,-1,2,-15,2
+Muzeul Antipa,1,0,-4,2
+Ted's Coffee,-1,1,-6,2
+Opera Romana,2,-1,-5,3
+Spitalul Universitar,5,1,-20,3
+McDonald's Original,-3,3,-9,4
+Parcul Unirii,2,-1,0,4
+Centrul Vechi,2,3,-11,4
+Biblioteca Nationala,0,-1,-4,4
+Parcul IOR,3,1,0,5
+Park Lake Mall,-1,3,-14,5
+Cora Pantelimon,0,1,-6,6
+Studio BUG Mafia,5,-2,25,6
+Promenada Mall,-1,3,-16,7
+Corporate City Bucharest,-2,-4,50,7
+DRPCIV,-3,-1,-3,7
+Baza Sportiva FCSB,4,-4,-10,8
+Iesire A0,0,0,-5,8
+IKEA Pallady,1,3,-13,9
+Autostrada A2,0,0,-8,9
+Depoul Militari,-5,-4,-40,10
+Autostrada A1,0,0,-6,10

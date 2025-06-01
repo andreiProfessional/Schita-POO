@@ -37,6 +37,8 @@ public:
     void afisareJucatori() const;
 
     void sortareJucatori();
+
+    Statie* getStatieDupaID(const int &idStatie);
 };
 
 

@@ -17,6 +17,7 @@ void Meniu::golireEcran() {
 void Meniu::afisareInventar() const {
     this->inventar.afisareStatii();
     this->inventar.afisareListeAdiacentaStatii();
+    this->inventar.afisareLocatii();
 }
 
 /*
