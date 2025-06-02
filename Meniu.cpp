@@ -9,11 +9,6 @@ Meniu::Meniu(): inventar(Inventar::acceseazaSingleton()) {
 
 Meniu::~Meniu() {std::cout << "God Message: Orasul a fost distrus!" << std::endl << std::endl;}
 
-
-void Meniu::golireEcran() {
-    system("clear");
-}
-
 void Meniu::afisareInventar() const {
     this->inventar.afisareStatii();
     this->inventar.afisareListeAdiacentaStatii();

@@ -16,8 +16,6 @@ public:
         return instanta;
     }
 
-    void golireEcran();
-
     void afisareInventar() const;
 
     void creareActivitate(const int& idJucator, const int& tipActivitate, const int& alegerea);
