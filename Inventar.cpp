@@ -6,6 +6,7 @@
 #include "Activitate/ActivitateLocatie.h"
 #include "Activitate/ActivitateStatie.h"
 #include "Activitate/ActivitateTaxi.h"
+#include "Activitate/LocatieCatreStatie.h"
 #include "Exceptii.h"
 #include <iostream>
 #include <fstream>

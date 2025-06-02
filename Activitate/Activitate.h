@@ -23,16 +23,7 @@ public:
 };
 
 
-class LocatieCatreStatie: public Activitate {
-private:
-    Locatie *locatie;
-    Statie *statie;
-public:
-    explicit LocatieCatreStatie(Jucator *jucator_);
-    void afisare() override;
-    void activitate(const int &alegere) override;
-    void afisareRaport() const override;
-};
+
 
 class StatieCatreLocatie: public Activitate {
 private:
