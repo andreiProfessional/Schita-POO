@@ -4,6 +4,8 @@
 #include "Activitate/SpawnLocatie.h"
 #include "Activitate/SpawnStatie.h"
 #include "Activitate/ActivitateLocatie.h"
+#include "Activitate/ActivitateStatie.h"
+#include "Activitate/ActivitateTaxi.h"
 #include "Exceptii.h"
 #include <iostream>
 #include <fstream>

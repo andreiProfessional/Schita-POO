@@ -23,35 +23,6 @@ public:
 };
 
 
-
-
-class ActivitateStatie: public Activitate {
-private:
-    std::vector<Statie*> statiiVecine;
-    Statie *statiePlecare;
-    Statie *statieSosire;
-    int minusViata;
-    int minusHrana;
-public:
-    ActivitateStatie(Jucator *jucator_, const std::unordered_map<Statie*, std::vector<Statie*>> &statii);
-    void afisare() override;
-    void activitate(const int &alegere) override;
-    void afisareRaport() const override;
-};
-
-class ActivitateTaxi: public Activitate {
-private:
-    std::vector<Locatie*> locatii;
-    Locatie *locatiePlecare;
-    Locatie *locatieSosire;
-    int pret;
-public:
-    ActivitateTaxi(Jucator *jucator_, const std::vector<Locatie*> &locatii_);
-    void afisare() override;
-    void activitate(const int &alegere) override;
-    void afisareRaport() const override;
-};
-
 class LocatieCatreStatie: public Activitate {
 private:
     Locatie *locatie;
