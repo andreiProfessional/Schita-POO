@@ -19,6 +19,9 @@ Inventar::~Inventar() {
     for (const auto& jucator: this->jucatori) {
         delete jucator;
     }
+    for (const auto& activitate: this->istoricActivitati) {
+        delete activitate;
+    }
     std::cout << std::endl << "Am distrus Inventarul!" << std::endl << std::endl;
 }
 
