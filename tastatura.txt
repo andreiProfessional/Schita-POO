@@ -52,5 +52,8 @@ Alex,2
 Andrei,3
 Nikolas,4
 Andrew,5
+2 (numar jucatori folositi)
+1,? (numar jucator + numar comenzi)
+1
 ??? (numar comenzi)
 ?,...,? (lista comenzi)

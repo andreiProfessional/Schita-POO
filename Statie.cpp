@@ -23,13 +23,12 @@ Statie& Statie::operator=(const Statie &statie) {
 }
 
 std::ostream& operator<<(std::ostream &out, const Statie &statie) {
-    out << statie.nume << " - ";
+    out << statie.nume << " <-> ";
     const int numarRute = static_cast<int>(statie.rute.size());
     for (int index = 0; index < numarRute - 1; index ++) {
         out << statie.rute[index] << " + ";
     }
     out << statie.rute[numarRute - 1];
-    out << std::endl;
     return out;
 }
 

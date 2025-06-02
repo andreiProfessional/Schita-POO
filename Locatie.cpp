@@ -64,7 +64,7 @@ std::ostream& operator<<(std::ostream &out, const Locatie &locatie) {
     else {
         out << GALBEN << "Bani";
     }
-    out << RESETARE << std::endl;
+    out << RESETARE;
     return out;
 }
 

@@ -28,6 +28,7 @@ public:
     void adaugareMuchieStatii(Statie *statie1, Statie *statie2);
     void adaugareLocatie(Locatie *locatie);
     void adaugareJucator(Jucator *jucator);
+    void adaugareActivitate(const int& idJucator, const int& tipActivitate, const int& alegerea);
 
     void populareInventar();
 
@@ -35,10 +36,12 @@ public:
     void afisareListeAdiacentaStatii() const;
     void afisareLocatii() const;
     void afisareJucatori() const;
+    void afisareIstoricActivitati() const;
 
     void sortareJucatori();
 
     Statie* getStatieDupaID(const int &idStatie);
+    Jucator* getJucatorDupaID(const int &idJucator);
 };
 
 

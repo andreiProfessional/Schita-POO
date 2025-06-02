@@ -177,6 +177,15 @@ void Jucator::setStatie(Statie *statie_) {
     this->statie = statie_;
 }
 
+bool Jucator::verificaID(const int &id) {
+    return (this->id == id);
+}
+
+int Jucator::getID() const {
+    return this->id;
+}
+
+
 
 Jucator* JucatorFactory::tataBogat(const std::string &nume_) {
     return new Jucator(nume_, 90, 80, 2000, nullptr, nullptr);

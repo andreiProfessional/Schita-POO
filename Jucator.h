@@ -34,6 +34,8 @@ public:
     Statie *getStatie() const;
     void setLocatie(Locatie *locatie_);
     void setStatie(Statie *statie_);
+    bool verificaID(const int& id);
+    int getID() const;
 };
 
 

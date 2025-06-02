@@ -1,5 +1,6 @@
 #include "Inventar.h"
 #include "Activitate.h"
+#include "Exceptii.h"
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -38,6 +39,48 @@ void Inventar::adaugareLocatie(Locatie *locatie) {
 void Inventar::adaugareJucator(Jucator *jucator) {
     this->jucatori.push_back(jucator);
 }
+
+void Inventar::adaugareActivitate(const int& idJucator, const int& tipActivitate, const int& alegere) {
+    Jucator* jucator = this->getJucatorDupaID(idJucator);
+    Activitate* activitate = nullptr;
+    switch (tipActivitate) {
+        case 1:
+            activitate = new SpawnLocatie(jucator, this->locatii);
+            break;
+        case 2:
+            activitate = new SpawnStatie(jucator, this->listeAdiacentaStatii);
+            break;
+        case 3:
+            activitate = new ActivitateLocatie(jucator, {{"Optiune 1", 1}, {"Optiune 2", 3}, {"Optiune 3", 4}});
+            break;
+        case 4:
+            activitate = new ActivitateStatie(jucator, this->listeAdiacentaStatii);
+            break;
+        case 5:
+            activitate = new ActivitateTaxi(jucator, this->locatii);
+            break;
+        case 6:
+            activitate = new LocatieCatreStatie(jucator);
+            break;
+        case 7:
+            activitate = new StatieCatreLocatie(jucator, this->locatii);
+            break;
+    }
+    try {
+        activitate->afisare();
+        activitate->activitate(alegere);
+    } catch (const InsuficientaViata &exceptie) {
+        std::cout << exceptie.what() << std::endl;
+    } catch (const InsuficientaHrana &exceptie) {
+        std::cout << exceptie.what() << std::endl;
+    } catch (const InsuficientaBani &exceptie) {
+        std::cout << exceptie.what() << std::endl;
+    } catch (const OptiuneIndisponibila &exceptie) {
+        std::cout << exceptie.what() << std::endl;
+    }
+    this->istoricActivitati.push_back(activitate);
+}
+
 
 void Inventar::populareInventar() {
     std::ifstream in("tastatura.txt");
@@ -142,6 +185,14 @@ void Inventar::afisareJucatori() const {
     }
 }
 
+void Inventar::afisareIstoricActivitati() const {
+    for (const auto& activitate: this->istoricActivitati) {
+        activitate->afisareRaport();
+        std::cout << std::endl;
+    }
+}
+
+
 void Inventar::sortareJucatori() {
     std::ranges::sort(this->jucatori, [](const Jucator* jucator1, const Jucator* jucator2) {
             return (*jucator1 > *jucator2);
@@ -152,6 +203,15 @@ Statie* Inventar::getStatieDupaID(const int &idStatie) {
     for (const auto& statie: this->statii) {
         if (statie->verificaID(idStatie)) {
             return statie;
+        }
+    }
+    return nullptr;
+}
+
+Jucator *Inventar::getJucatorDupaID(const int &idJucator) {
+    for (const auto& jucator: this->jucatori) {
+        if (jucator->verificaID(idJucator)) {
+            return jucator;
         }
     }
     return nullptr;

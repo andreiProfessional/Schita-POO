@@ -44,6 +44,11 @@ void SpawnLocatie::activitate(const int &alegere) {
     this->jucator->setLocatie(locatieSpawn);
 }
 
+void SpawnLocatie::afisareRaport() const {
+    std::cout << "Jucatorul cu ID-ul " << this->jucator->getID() << " s-a spawnat la locatia: " << *this->locatieSpawn;
+}
+
+
 SpawnStatie::SpawnStatie(Jucator *jucator_, const std::unordered_map<Statie*, std::vector<Statie*>> &listeAdiacenta_):
     Activitate(jucator_) {
     std::vector<Statie*> statii_;
@@ -71,6 +76,11 @@ void SpawnStatie::activitate(const int &alegere) {
     this->jucator->setStatie(this->statieSpawn);
 }
 
+void SpawnStatie::afisareRaport() const {
+    std::cout << "Jucatorul cu ID-ul " << this->jucator->getID() << " s-a spawnat la statia: " << *this->statieSpawn;
+}
+
+
 ActivitateLocatie::ActivitateLocatie(Jucator *jucator_, const std::vector<std::pair<std::string, int>> &optiuni_):
     Activitate(jucator_),
     optiuni(optiuni_) {}
@@ -93,6 +103,10 @@ void ActivitateLocatie::activitate(const int &alegere) {
     this->jucator->modificareNivelViata(this->optiuneAleasa.second * this->jucator->getCoeficientViataLocatie());
     this->jucator->modificareNivelHrana(this->optiuneAleasa.second * this->jucator->getCoeficientHranaLocatie());
     this->jucator->modificareBalantaBani(this->optiuneAleasa.second * this->jucator->getCoeficientBaniLocatie());
+}
+
+void ActivitateLocatie::afisareRaport() const {
+    std::cout << "Jucatorul cu ID-ul " << this->jucator->getID() << " a ales optiunea " << this->optiuneAleasa.first << " (" << this->optiuneAleasa.second << ")";
 }
 
 ActivitateStatie::ActivitateStatie(Jucator *jucator_, const std::unordered_map<Statie*, std::vector<Statie*>> &listeAdiacenta_):
@@ -130,6 +144,10 @@ void ActivitateStatie::activitate(const int &alegere) {
     this->jucator->modificareNivelHrana(-1 * this->minusHrana);
 }
 
+void ActivitateStatie::afisareRaport() const {
+    std::cout << "Jucatorul cu ID-ul " << this->jucator->getID() << " a calatorit de la statia [" << *this->statiePlecare << "] la statia [" << *this->statieSosire << "]";
+}
+
 ActivitateTaxi::ActivitateTaxi(Jucator *jucator_, const std::vector<Locatie*> &locatii_):
     Activitate(jucator_),
     locatii(locatii_) {
@@ -164,6 +182,11 @@ void ActivitateTaxi::activitate(const int &alegere) {
     this->jucator->modificareBalantaBani(-1 * this->pret);
 }
 
+void ActivitateTaxi::afisareRaport() const {
+    std::cout << "Jucatorul cu ID-ul " << this->jucator->getID() << " a platit " << this->pret << " Lei "
+    << "pentru o cursa de la locatia [" << *this->locatiePlecare << "] la locatia [" << *this->locatieSosire << "]";
+}
+
 LocatieCatreStatie::LocatieCatreStatie(Jucator *jucator_):
     Activitate(jucator_) {
     this->locatie = jucator_->getLocatie();
@@ -184,6 +207,11 @@ void LocatieCatreStatie::activitate(const int &alegere) {
     this->jucator->setLocatie(nullptr);
     this->statie = this->locatie->getStatie();
     this->jucator->setStatie(this->statie);
+}
+
+void LocatieCatreStatie::afisareRaport() const {
+    std::cout << "Jucatorul cu ID-ul " << this->jucator->getID()
+    << " a mers de la locatia [" << *this->locatie << "] la statia [" << *this->statie << "]";
 }
 
 StatieCatreLocatie::StatieCatreLocatie(Jucator *jucator_, const std::vector<Locatie*> &locatii_):
@@ -215,4 +243,9 @@ void StatieCatreLocatie::activitate(const int &alegere) {
     this->jucator->setStatie(nullptr);
     this->locatie = this->locatii[alegere - 1];
     this->jucator->setLocatie(this->locatie);
+}
+
+void StatieCatreLocatie::afisareRaport() const {
+    std::cout << "Jucatorul cu ID-ul " << this->jucator->getID()
+    << " a mers de la statia [" << *this->statie << "] la locatia [" << *this->locatie << "]";
 }
