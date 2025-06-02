@@ -22,16 +22,7 @@ public:
     virtual void afisareRaport() const = 0;
 };
 
-class SpawnLocatie: public Activitate {
-private:
-    std::vector<Locatie*> locatii;
-    Locatie *locatieSpawn;
-public:
-    SpawnLocatie(Jucator *jucator_, const std::vector<Locatie*> &locatii_);
-    void afisare() override;
-    void activitate(const int &alegere) override;
-    void afisareRaport() const override;
-};
+
 
 class SpawnStatie: public Activitate {
 private:

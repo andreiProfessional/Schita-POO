@@ -68,6 +68,8 @@ add_executable(${MAIN_EXECUTABLE_NAME}
         Exceptii.h
         Jucator/JucatorFactory.cpp
         Jucator/JucatorFactory.h
+        Activitate/SpawnLocatie.cpp
+        Activitate/SpawnLocatie.h
 )
 
 # NOTE: Add all defined targets (e.g. executables, libraries, etc. )
