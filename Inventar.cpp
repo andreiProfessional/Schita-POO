@@ -3,6 +3,7 @@
 #include "Activitate/Activitate.h"
 #include "Activitate/SpawnLocatie.h"
 #include "Activitate/SpawnStatie.h"
+#include "Activitate/ActivitateLocatie.h"
 #include "Exceptii.h"
 #include <iostream>
 #include <fstream>

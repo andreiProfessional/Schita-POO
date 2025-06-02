@@ -72,6 +72,8 @@ add_executable(${MAIN_EXECUTABLE_NAME}
         Activitate/SpawnLocatie.h
         Activitate/SpawnStatie.cpp
         Activitate/SpawnStatie.h
+        Activitate/ActivitateLocatie.cpp
+        Activitate/ActivitateLocatie.h
 )
 
 # NOTE: Add all defined targets (e.g. executables, libraries, etc. )
