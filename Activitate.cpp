@@ -31,7 +31,7 @@ void SpawnLocatie::afisare() {
     std::cout << "Locatii disponibile: " << std::endl;
     const int numarLocatii = static_cast<int>(this->locatii.size());
     for (int index = 0; index < numarLocatii; index ++) {
-        std::cout << index + 1 << ". " << *this->locatii[index];
+        std::cout << index + 1 << ". " << *this->locatii[index] << std::endl;
     }
     std::cout << std::endl;
 }
@@ -64,7 +64,7 @@ void SpawnStatie::afisare() {
     std::cout << "Statii disponibile: " << std::endl;
     const int numarStatii = static_cast<int>(this->statii.size());
     for (int index = 0; index < numarStatii; index ++) {
-        std::cout << index + 1 << ". " << *this->statii[index];
+        std::cout << index + 1 << ". " << *this->statii[index] << std::endl;
     }
 }
 
@@ -129,7 +129,7 @@ void ActivitateStatie::afisare() {
     std::cout << "Statii vecine:" << std::endl;
     int numarStatiiVecine = static_cast<int>(this->statiiVecine.size());
     for (int index = 0; index < numarStatiiVecine; index ++) {
-        std::cout << index + 1 << ". " << *this->statiiVecine[index];
+        std::cout << index + 1 << ". " << *this->statiiVecine[index] << std::endl;
     }
     std::cout << std::endl;
 }
@@ -168,7 +168,7 @@ void ActivitateTaxi::afisare() {
     std::cout << "Locatii disponibile: " << std::endl;
     int numarLocatii = static_cast<int>(this->locatii.size());
     for (int index = 0; index < numarLocatii; index ++) {
-        std::cout << index + 1 << ". " << *this->locatii[index];
+        std::cout << index + 1 << ". " << *this->locatii[index] << std::endl;
     }
     std::cout << std::endl;
 }
@@ -232,7 +232,7 @@ void StatieCatreLocatie::afisare() {
     std::cout << "Locatii apropiate: " << std::endl;
     const int numarLocatii = static_cast<int>(this->locatii.size());
     for (int index = 0; index < numarLocatii; index ++) {
-        std::cout << index + 1 << ". " << *this->locatii[index];
+        std::cout << index + 1 << ". " << *this->locatii[index] << std::endl;
     }
 }
 

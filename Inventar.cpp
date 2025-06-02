@@ -7,7 +7,7 @@
 #include <unordered_map>
 #include <algorithm>
 
-Inventar::Inventar() {std::cout << "Am creat Inventarul!" << std::endl << std::endl;}
+Inventar::Inventar() {std::cout << std::endl << "Am creat Inventarul!" << std::endl << std::endl;}
 
 Inventar::~Inventar() {
     for (const auto &statie: this->statii) {
@@ -161,7 +161,7 @@ void Inventar::populareInventar() {
 }
 
 void Inventar::afisareStatii() const {
-    for (const auto &statie: this->statii) {
+    for (const Statie* statie: this->statii) {
         std::cout << *statie << std::endl;
     }
 }
@@ -178,18 +178,18 @@ void Inventar::afisareListeAdiacentaStatii() const {
 
 void Inventar::afisareLocatii() const {
     for (const Locatie* const locatie: this->locatii) {
-        std::cout << *locatie;
+        std::cout << *locatie << std::endl;
     }
 }
 
 void Inventar::afisareJucatori() const {
     for (const Jucator* const jucator: this->jucatori) {
-        std::cout << *jucator;
+        std::cout << *jucator << std::endl;
     }
 }
 
 void Inventar::afisareIstoricActivitati() const {
-    for (const auto& activitate: this->istoricActivitati) {
+    for (const Activitate* activitate: this->istoricActivitati) {
         activitate->afisareRaport();
         std::cout << std::endl;
     }

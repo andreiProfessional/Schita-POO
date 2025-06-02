@@ -79,10 +79,10 @@ std::ostream& operator<<(std::ostream &out, const Jucator &jucator) {
     }
     out << "]" << std::endl;
     if (jucator.locatie != nullptr) {
-        out << "Locatie: " << *jucator.locatie;
+        out << "Locatie: " << *jucator.locatie << std::endl;
     }
     if (jucator.statie != nullptr) {
-        out << "Statie: " << *jucator.statie;
+        out << "Statie: " << *jucator.statie << std::endl;
     }
     for (int i = 0; i < 50; i ++) {
         out << "=";

@@ -7,7 +7,7 @@ Meniu::Meniu(): inventar(Inventar::acceseazaSingleton()) {
     this->inventar.populareInventar();
 }
 
-Meniu::~Meniu() {std::cout << "God Message: Orasul a fost distrus!" << std::endl << std::endl;}
+Meniu::~Meniu() {std::cout << std::endl << "God Message: Orasul a fost distrus!" << std::endl;}
 
 void Meniu::afisareInventar() const {
     this->inventar.afisareStatii();
