@@ -1,5 +1,6 @@
 #include "Inventar.h"
-#include "Activitate.h"
+#include "Jucator/JucatorFactory.h"
+#include "Activitate/Activitate.h"
 #include "Exceptii.h"
 #include <iostream>
 #include <fstream>

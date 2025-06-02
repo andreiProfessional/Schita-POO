@@ -1,8 +1,8 @@
 #include "Activitate.h"
-#include "Jucator.h"
-#include "Locatie.h"
-#include "Exceptii.h"
-#include "CuloriText.h"
+#include "../Jucator/Jucator.h"
+#include "../Locatie.h"
+#include "../Exceptii.h"
+#include "../CuloriText.h"
 #include <iostream>
 #include <vector>
 #include <random>

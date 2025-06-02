@@ -1,9 +1,9 @@
 #ifndef INVENTAR_H
 #define INVENTAR_H
-#include "Jucator.h"
+#include "Jucator/Jucator.h"
 #include "Locatie.h"
 #include "Statie.h"
-#include "Activitate.h"
+#include "Activitate/Activitate.h"
 #include <unordered_map>
 
 class Inventar {

@@ -1,7 +1,7 @@
 #ifndef UTILIZATOR_H
 #define UTILIZATOR_H
-#include "Locatie.h"
-#include "Statie.h"
+#include "../Locatie.h"
+#include "../Statie.h"
 #include <string>
 
 
@@ -36,16 +36,6 @@ public:
     void setStatie(Statie *statie_);
     bool verificaID(const int& id);
     int getID() const;
-};
-
-
-class JucatorFactory {
-public:
-    static Jucator* tataBogat(const std::string &nume_);
-    static Jucator* tataSarac(const std::string &nume_);
-    static Jucator* magnatBatran(const std::string &nume_);
-    static Jucator* omDeRand(const std::string &nume);
-    static Jucator* pierdeVara(const std::string &nume_);
 };
 
 #endif

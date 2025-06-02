@@ -55,17 +55,19 @@ add_executable(${MAIN_EXECUTABLE_NAME}
         Statie.h
         Locatie.cpp
         Locatie.h
-        Jucator.cpp
-        Jucator.h
+        Jucator/Jucator.cpp
+        Jucator/Jucator.h
         Meniu.cpp
         Meniu.h
         CuloriText.h
         Inventar.cpp
         Inventar.h
-        Activitate.cpp
-        Activitate.h
+        Activitate/Activitate.cpp
+        Activitate/Activitate.h
         Exceptii.cpp
         Exceptii.h
+        Jucator/JucatorFactory.cpp
+        Jucator/JucatorFactory.h
 )
 
 # NOTE: Add all defined targets (e.g. executables, libraries, etc. )
