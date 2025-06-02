@@ -177,8 +177,8 @@ void Jucator::setStatie(Statie *statie_) {
     this->statie = statie_;
 }
 
-bool Jucator::verificaID(const int &id_) {
-    return (this->id == id_);
+bool Jucator::verificaID(const int &idJucator) {
+    return (this->id == idJucator);
 }
 
 int Jucator::getID() const {
