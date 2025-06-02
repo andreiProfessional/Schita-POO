@@ -1,7 +1,7 @@
 #ifndef SPAWNSTATIE_H
 #define SPAWNSTATIE_H
 #include "Activitate.h"
-
+#include <unordered_map>
 
 class SpawnStatie: public Activitate {
 private:

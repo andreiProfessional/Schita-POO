@@ -1,7 +1,7 @@
 #ifndef ACTIVITATESTATIE_H
 #define ACTIVITATESTATIE_H
 #include "Activitate.h"
-
+#include <unordered_map>
 
 class ActivitateStatie: public Activitate {
 private:

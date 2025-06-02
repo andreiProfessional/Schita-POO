@@ -1,10 +1,6 @@
 #ifndef ACTIVITATE_H
 #define ACTIVITATE_H
 #include "../Jucator/Jucator.h"
-#include "../Locatie.h"
-#include <vector>
-#include <string>
-#include <unordered_map>
 
 
 class Activitate {
